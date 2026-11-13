@@ -1,0 +1,2212 @@
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/25_label_taxonomy_audit.py
+---------------------------------------------------------------------------------------
+================================================================================
+SCRIPT 25: SOURCE-SPECIFIC LABEL TAXONOMY AUDIT
+================================================================================
+
+Total rows: 8854
+Sources: ['D1', 'D2', 'D3', 'D4', 'D5']
+
+SOURCE LABEL DISTRIBUTIONS
+source   label  rows  unique_texts  source_pct
+    D1       F   444           440      45.352
+    D1      SE   122           122      12.462
+    D1      US    84            80       8.580
+    D1       O    77            77       7.865
+    D1      PE    67            64       6.844
+    D1      LF    51            49       5.209
+    D1       A    30            30       3.064
+    D1      MN    24            24       2.451
+    D1      SC    21            21       2.145
+    D1      FT    18            18       1.839
+    D1       L    15            15       1.532
+    D1 [BLANK]    14            14       1.430
+    D1      PO    12            12       1.226
+    D2      FR  3272          3267      65.532
+    D2     NFR  1691          1685      33.867
+    D2      SE     9             9       0.180
+    D2 [BLANK]     5             5       0.100
+    D2       L     4             4       0.080
+    D2       O     4             4       0.080
+    D2      FT     2             2       0.040
+    D2      LF     2             2       0.040
+    D2      PE     2             2       0.040
+    D2       A     1             1       0.020
+    D2      US     1             1       0.020
+    D3     NSR   781           777      60.449
+    D3     THE    93            92       7.198
+    D3     CON    67            67       5.186
+    D3     THO    60            60       4.644
+    D3     MAI    57            57       4.412
+    D3     IMM    47            47       3.638
+    D3     IND    45            44       3.483
+    D3     AVA    39            38       3.019
+    D3     AUD    38            38       2.941
+    D3     SUR    33            32       2.554
+    D3     INT    32            32       2.477
+    D4      FR  1368           999      90.000
+    D4     NFR   152           112      10.000
+    D5       F    45            45      64.286
+    D5      SE    10            10      14.286
+    D5      LF     4             4       5.714
+    D5       O     4             4       5.714
+    D5      US     4             4       5.714
+    D5       L     3             3       4.286
+
+WITHIN-SOURCE CONFLICT SUMMARY
+D1: 0 conflicting text groups, 0 affected rows
+D2: 21 conflicting text groups, 42 affected rows
+D3: 2 conflicting text groups, 4 affected rows
+D4: 9 conflicting text groups, 41 affected rows
+D5: 0 conflicting text groups, 0 affected rows
+
+D2 BINARY READINESS
+D2 total: 4993
+FR/NFR rows: 4963
+Other/blank rows: 30
+Distinct texts with both FR and NFR: 21
+
+D3 MULTICLASS READINESS
+D3 total: 1292
+Observed classes: 11
+Unexpected labels: 0
+Within-source conflicting groups: 2
+
+D4 BINARY READINESS
+D4 total: 1520
+Unique texts: 1102
+Conflicting text groups: 9
+Rows associated with conflicting texts: 41
+
+================================================================================
+REPORT
+================================================================================
+PHASE 1D: LABEL TAXONOMY AUDIT
+=================================================================
+
+Original records: 8854
+
+Within-source exact-text conflict groups:
+  D1: 0
+  D2: 21
+  D3: 2
+  D4: 9
+  D5: 0
+
+D2:
+  FR/NFR records: 4963
+  Other or blank records: 30
+  Exact-text FR/NFR conflicts: 21
+
+D3:
+  Unexpected labels: 0
+  Within-source conflicts: 2
+
+D4:
+  Unique normalized texts: 1102
+  Conflicting text groups: 9
+  Conflicting-group rows: 41
+
+Limitations:
+- Exact-text conflicts are not automatically label errors.
+- Different source taxonomies are not automatically equivalent.
+- This script does not compare against original-source annotations.
+- Near-duplicate and semantic conflicts are not tested here.
+- No original records were modified.
+- No dataset is approved for training by this audit alone.
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/25_label_taxonomy_audit.txt
+Script 25 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/26_original_label_conflict_verification.py
+---------------------------------------------------------------------------------------
+
+==============================================================================
+SCRIPT 26: ORIGINAL LABEL CONFLICT VERIFICATION
+==============================================================================
+D2 original workbook rows: 6117
+D3 original CSV rows: 1316
+
+REFERENCE VERIFICATION SUMMARY
+------------------------------------------------------------------------------
+source             reference_match  conflicting_text_groups
+    D2  AMBIGUOUS_REFERENCE_LABELS                       20
+    D2      SINGLE_REFERENCE_LABEL                        1
+    D3  AMBIGUOUS_REFERENCE_LABELS                        2
+    D4 D4_GENERATION_AUDIT_PENDING                        9
+
+D2 ORIGINAL LABEL COMPARISONS
+combined_labels reference_labels            reference_match
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR               FR     SINGLE_REFERENCE_LABEL
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+         FR|NFR           FR|NFR AMBIGUOUS_REFERENCE_LABELS
+
+D3 ORIGINAL LABEL COMPARISONS
+combined_labels             reference_labels            reference_match
+        IMM|INT           IMMUNITY|INTEGRITY AMBIGUOUS_REFERENCE_LABELS
+        NSR|THE AUTHENTICATION|FUNCTIONALITY AMBIGUOUS_REFERENCE_LABELS
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/26_original_conflict_reference_audit.csv
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/26_conflict_records_for_manual_review.csv
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/26_source_label_verification.txt
+
+Script 26 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/27_conflict_review_packet.py
+---------------------------------------------------------------------------------------
+
+================================================================================
+SCRIPT 27: CONFLICT REVIEW PACKET
+================================================================================
+
+Total groups: 32
+
+GROUPS BY SOURCE
+source
+D2    21
+D3     2
+D4     9
+Name: count, dtype: int64
+
+D3 CONFLICTING REQUIREMENTS
+--------------------------------------------------------------------------------
+
+Requirement:
+The data provided by the system should be validated and verified were possible. 
+Unified labels: IMM|INT
+Original labels: IMMUNITY|INTEGRITY
+
+Requirement:
+The system shall allow a member to spontaneously form a group of n signers using group public keys which associate the group members. 
+Unified labels: NSR|THE
+Original labels: AUTHENTICATION|FUNCTIONALITY
+
+D4 CONFLICT SUMMARY
+--------------------------------------------------------------------------------
+combined_labels  affected_rows            reference_status
+         FR|NFR              5 D4_GENERATION_AUDIT_PENDING
+         FR|NFR              5 D4_GENERATION_AUDIT_PENDING
+         FR|NFR              5 D4_GENERATION_AUDIT_PENDING
+         FR|NFR              5 D4_GENERATION_AUDIT_PENDING
+         FR|NFR              5 D4_GENERATION_AUDIT_PENDING
+         FR|NFR              5 D4_GENERATION_AUDIT_PENDING
+         FR|NFR              5 D4_GENERATION_AUDIT_PENDING
+         FR|NFR              4 D4_GENERATION_AUDIT_PENDING
+         FR|NFR              2 D4_GENERATION_AUDIT_PENDING
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/27_conflict_review_packet.csv
+All review decisions remain PENDING.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/28_d4_source_structure.py
+---------------------------------------------------------------------------------------
+
+SHEET: claude_Round_1
+Total rows: 51
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Name
+Row 2:
+  Column 1: claude
+  Column 2: 1
+  Column 3: SRS1 - CWS - Courseware System for the University of Puget Sound
+  Column 4: The system shall allow users to create and manage patient profiles with demographic information and 
+  Column 5: FR
+  Column 6: Functional
+Row 3:
+  Column 1: claude
+  Column 2: 1
+  Column 3: SRS1 - CWS - Courseware System for the University of Puget Sound
+  Column 4: The system shall provide functionality to schedule laboratory appointments and manage patient queues
+  Column 5: FR
+  Column 6: Functional
+
+SHEET: claude_Round_2
+Total rows: 58
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+Row 2:
+  Column 1: claude
+  Column 2: 2
+  Column 3: SRS2 - DRS - Digital Radio Standard for the European Railways
+  Column 4: Allow secure user login with unique credentials and multi-factor authentication.
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: claude
+  Column 2: 2
+  Column 3: SRS2 - DRS - Digital Radio Standard for the European Railways
+  Column 4: Implement role-based access control with customizable permissions for different user types.
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: claude_Round_3
+Total rows: 79
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: claude
+  Column 2: 3
+  Column 3: SRS3 - EPM - Enterprise Project Management
+  Column 4: Users can securely log in using unique credentials for authorized access.
+  Column 5: Security
+  Column 6: SE
+Row 3:
+  Column 1: claude
+  Column 2: 3
+  Column 3: SRS3 - EPM - Enterprise Project Management
+  Column 4: Role-based access control differentiates permissions for various user types.
+  Column 5: Other
+  Column 6: NFR
+
+SHEET: claude_Round_4
+Total rows: 58
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: claude
+  Column 2: 4
+  Column 3: SRS4 - ILS - Integrated Library System
+  Column 4: Users must be able to securely log in using unique credentials and multi-factor authentication.
+  Column 5: Security
+  Column 6: FR
+Row 3:
+  Column 1: claude
+  Column 2: 4
+  Column 3: SRS4 - ILS - Integrated Library System
+  Column 4: The system must provide role-based access control with customizable permissions for different user t
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: claude_Round_5
+Total rows: 67
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: claude
+  Column 2: 5
+  Column 3: SRS5 - LIS - Laboratory Information System
+  Column 4: Allow secure user login with unique credentials and multi-factor authentication.
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: claude
+  Column 2: 5
+  Column 3: SRS5 - LIS - Laboratory Information System
+  Column 4: Implement role-based access control with customizable permissions for different user types.
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: google_Round_1
+Total rows: 153
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: google
+  Column 2: 1
+  Column 3: SRS1 - CWS - Courseware System for the University of Puget Sound
+  Column 4: Log in securely using unique credentials.
+  Column 5: Security
+  Column 6: SE
+Row 3:
+  Column 1: google
+  Column 2: 1
+  Column 3: SRS1 - CWS - Courseware System for the University of Puget Sound
+  Column 4: Manage user access based on roles.
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: google_Round_2
+Total rows: 34
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: google
+  Column 2: 2
+  Column 3: SRS2 - DRS - Digital Radio Standard for the European Railways
+  Column 4: The system shall allow users to log in securely using their unique credentials, including username/p
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: google
+  Column 2: 2
+  Column 3: SRS2 - DRS - Digital Radio Standard for the European Railways
+  Column 4: The system shall provide role-based access control, allowing administrators to define permissions an
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: google_Round_3
+Total rows: 54
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: google
+  Column 2: 3
+  Column 3: SRS3 - EPM - Enterprise Project Management
+  Column 4: Log in securely using unique credentials and multi-factor authentication.
+  Column 5: Security
+  Column 6: SE
+Row 3:
+  Column 1: google
+  Column 2: 3
+  Column 3: SRS3 - EPM - Enterprise Project Management
+  Column 4: Manage user roles and permissions with customizable access control.
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: google_Round_4
+Total rows: 49
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: google
+  Column 2: 4
+  Column 3: SRS4 - ILS - Integrated Library System
+  Column 4: The system shall allow users to log in securely using unique credentials, including username/passwor
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: google
+  Column 2: 4
+  Column 3: SRS4 - ILS - Integrated Library System
+  Column 4: The system shall enforce role-based access control, differentiating permissions and functionalities 
+  Column 5: Other
+  Column 6: NFR
+
+SHEET: google_Round_5
+Total rows: 87
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: google
+  Column 2: 5
+  Column 3: SRS5 - LIS - Laboratory Information System
+  Column 4: Manage specimens, tracking them from collection to disposal, including chain of custody documentatio
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: google
+  Column 2: 5
+  Column 3: SRS5 - LIS - Laboratory Information System
+  Column 4: Offer a configurable test catalog with the ability to add, edit, and retire tests.
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: llama_Round_1
+Total rows: 173
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: llama
+  Column 2: 1
+  Column 3: SRS1 - CWS - Courseware System for the University of Puget Sound
+  Column 4: The system shall enable users to log in securely using their unique credentials.
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: llama
+  Column 2: 1
+  Column 3: SRS1 - CWS - Courseware System for the University of Puget Sound
+  Column 4: The system shall provide users with the ability to reset their passwords through a secure process.
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: llama_Round_2
+Total rows: 187
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: llama
+  Column 2: 2
+  Column 3: SRS2 - DRS - Digital Radio Standard for the European Railways
+  Column 4: The system shall allow users to log in securely using their unique credentials to ensure authorized 
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: llama
+  Column 2: 2
+  Column 3: SRS2 - DRS - Digital Radio Standard for the European Railways
+  Column 4: The system shall provide role-based access control to differentiate permissions for various user typ
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: llama_Round_3
+Total rows: 172
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: llama
+  Column 2: 3
+  Column 3: SRS3 - EPM - Enterprise Project Management
+  Column 4: Here are the detailed functional requirements for the Laboratory Information System (LIS):
+  Column 5: Other
+  Column 6: NFR
+Row 3:
+  Column 1: llama
+  Column 2: 3
+  Column 3: SRS3 - EPM - Enterprise Project Management
+  Column 4: The system shall allow users to log in securely using their unique credentials to ensure authorized 
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: llama_Round_4
+Total rows: 112
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: llama
+  Column 2: 4
+  Column 3: SRS4 - ILS - Integrated Library System
+  Column 4: The system shall allow users to log in securely using their unique credentials to ensure authorized 
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: llama
+  Column 2: 4
+  Column 3: SRS4 - ILS - Integrated Library System
+  Column 4: The system shall provide role-based access control to differentiate permissions for various user typ
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: llama_Round_5
+Total rows: 67
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: llama
+  Column 2: 5
+  Column 3: SRS5 - LIS - Laboratory Information System
+  Column 4: The system shall allow users to log in securely using unique credentials and multi-factor authentica
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: llama
+  Column 2: 5
+  Column 3: SRS5 - LIS - Laboratory Information System
+  Column 4: The system shall provide role-based access control with customizable permissions for different user 
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: mistral_Round_1
+Total rows: 109
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: mistral
+  Column 2: 1
+  Column 3: SRS1 - CWS - Courseware System for the University of Puget Sound
+  Column 4: The system shall allow users to log in securely using their unique credentials, with authentication 
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: mistral
+  Column 2: 1
+  Column 3: SRS1 - CWS - Courseware System for the University of Puget Sound
+  Column 4: The system shall provide role-based access control for different user types, ensuring that users hav
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: mistral_Round_2
+Total rows: 112
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: mistral
+  Column 2: 2
+  Column 3: SRS2 - DRS - Digital Radio Standard for the European Railways
+  Column 4: The system shall allow users to log in securely using their unique credentials to ensure authorized 
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: mistral
+  Column 2: 2
+  Column 3: SRS2 - DRS - Digital Radio Standard for the European Railways
+  Column 4: The system shall provide role-based access control to differentiate permissions for various user typ
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: mistral_Round_3
+Total rows: 112
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: mistral
+  Column 2: 3
+  Column 3: SRS3 - EPM - Enterprise Project Management
+  Column 4: The system shall allow users to log in securely using their unique credentials to ensure authorized 
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: mistral
+  Column 2: 3
+  Column 3: SRS3 - EPM - Enterprise Project Management
+  Column 4: The system shall provide role-based access control to differentiate permissions for various user typ
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: mistral_Round_4
+Total rows: 109
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: mistral
+  Column 2: 4
+  Column 3: SRS4 - ILS - Integrated Library System
+  Column 4: The system shall allow users to log in securely using their unique credentials, including username/p
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: mistral
+  Column 2: 4
+  Column 3: SRS4 - ILS - Integrated Library System
+  Column 4: The system shall provide role-based access control to differentiate permissions and functionalities 
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: mistral_Round_5
+Total rows: 87
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: mistral
+  Column 2: 5
+  Column 3: SRS5 - LIS - Laboratory Information System
+  Column 4: The system shall allow users to log in securely using unique credentials and multi-factor authentica
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: mistral
+  Column 2: 5
+  Column 3: SRS5 - LIS - Laboratory Information System
+  Column 4: The system shall provide role-based access control with customizable permissions for different user 
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: openai_Round_1
+Total rows: 112
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: openai
+  Column 2: 1
+  Column 3: SRS1 - CWS - Courseware System for the University of Puget Sound
+  Column 4: The system shall allow users to log in securely using their unique credentials to ensure authorized 
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: openai
+  Column 2: 1
+  Column 3: SRS1 - CWS - Courseware System for the University of Puget Sound
+  Column 4: The system shall provide role-based access control to differentiate permissions for various user typ
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: openai_Round_2
+Total rows: 112
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: openai
+  Column 2: 2
+  Column 3: SRS2 - DRS - Digital Radio Standard for the European Railways
+  Column 4: The system shall allow users to log in securely using their unique credentials to ensure authorized 
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: openai
+  Column 2: 2
+  Column 3: SRS2 - DRS - Digital Radio Standard for the European Railways
+  Column 4: The system shall provide role-based access control to differentiate permissions for various user typ
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: openai_Round_3
+Total rows: 112
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: openai
+  Column 2: 3
+  Column 3: SRS3 - EPM - Enterprise Project Management
+  Column 4: The system shall allow users to log in securely using their unique credentials to ensure authorized 
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: openai
+  Column 2: 3
+  Column 3: SRS3 - EPM - Enterprise Project Management
+  Column 4: The system shall provide role-based access control to differentiate permissions for various user typ
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: openai_Round_4
+Total rows: 67
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: openai
+  Column 2: 4
+  Column 3: SRS4 - ILS - Integrated Library System
+  Column 4: The system shall allow users to log in securely using unique credentials and multi-factor authentica
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: openai
+  Column 2: 4
+  Column 3: SRS4 - ILS - Integrated Library System
+  Column 4: The system shall provide role-based access control with customizable permissions for different user 
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: openai_Round_5
+Total rows: 67
+Total columns: 6
+Row 1:
+  Column 1: llm
+  Column 2: round
+  Column 3: Project Name
+  Column 4: text
+  Column 5: classification
+  Column 6: Class
+Row 2:
+  Column 1: openai
+  Column 2: 5
+  Column 3: SRS5 - LIS - Laboratory Information System
+  Column 4: The system shall allow users to log in securely using unique credentials and multi-factor authentica
+  Column 5: Functional
+  Column 6: FR
+Row 3:
+  Column 1: openai
+  Column 2: 5
+  Column 3: SRS5 - LIS - Laboratory Information System
+  Column 4: The system shall provide role-based access control with customizable permissions for different user 
+  Column 5: Functional
+  Column 6: FR
+
+SHEET: Agrupar (2)
+Total rows: 2384
+Total columns: 14
+Row 1:
+  Column 6: ID Projeto
+  Column 7: LLM
+  Column 12: Requisitos
+  Column 14: Total
+Row 2:
+  Column 7: claude
+  Column 8: Google
+  Column 9: LLaMA
+  Column 10: Mistral
+  Column 11: OpenAI
+  Column 12: FR
+  Column 13: NFR
+Row 3:
+  Column 5: 1
+  Column 6: P162
+  Column 7: 50
+  Column 8: 152
+  Column 9: 172
+  Column 10: 108
+  Column 11: 111
+  Column 12: 554
+  Column 13: 39
+  Column 14: 593
+
+SHEET: Agrupar
+Total rows: 2384
+Total columns: 15
+Row 1:
+  Column 7: ID Projeto
+  Column 8: LLM
+  Column 13: Requisitos
+  Column 15: Total
+Row 2:
+  Column 8: claude
+  Column 9: Google
+  Column 10: LLaMA
+  Column 11: Mistral
+  Column 12: OpenAI
+  Column 13: FR
+  Column 14: NFR
+Row 3:
+  Column 6: 1
+  Column 7: P162
+  Column 8: 50
+  Column 9: 152
+  Column 10: 172
+  Column 11: 108
+  Column 12: 111
+  Column 13: 554
+  Column 14: 39
+  Column 15: 593
+
+SHEET: Recapitulação
+Total rows: 8
+Total columns: 9
+Row 1:
+Row 2:
+  Column 2: ID Projeto
+  Column 3: LLM
+  Column 8: Requisitos
+Row 3:
+  Column 3: Claude
+  Column 4: Google
+  Column 5: LLaMA
+  Column 6: Mistral
+  Column 7: OpenAI
+  Column 8: FR
+  Column 9: NFR
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/29_d4_conflict_provenance.py
+---------------------------------------------------------------------------------------
+
+===========================================================================
+SCRIPT 29: D4 CONFLICT PROVENANCE
+===========================================================================
+Conflicting groups: 9
+Original source records matched: 72
+Groups without source matches: 0
+
+COMPACT CONFLICT SUMMARY
+unified_labels unified_affected_rows  source_matched_rows           source_labels               models  rounds
+        FR|NFR                     5                    8 COLUMN_DISAGREEMENT|NFR llama|mistral|openai 1|2|3|4
+        FR|NFR                     5                    9                  FR|NFR llama|mistral|openai 1|2|3|4
+        FR|NFR                     5                   10  COLUMN_DISAGREEMENT|FR llama|mistral|openai 1|2|3|4
+        FR|NFR                     5                    8 COLUMN_DISAGREEMENT|NFR llama|mistral|openai 1|2|3|4
+        FR|NFR                     5                    8 COLUMN_DISAGREEMENT|NFR llama|mistral|openai 1|2|3|4
+        FR|NFR                     5                    9                  FR|NFR llama|mistral|openai 1|2|3|4
+        FR|NFR                     5                    9                  FR|NFR llama|mistral|openai 1|2|3|4
+        FR|NFR                     4                    9  COLUMN_DISAGREEMENT|FR llama|mistral|openai 1|2|3|4
+        FR|NFR                     2                    2 COLUMN_DISAGREEMENT|NFR        claude|google       5
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/29_d4_conflict_source_records.csv
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/29_d4_conflict_provenance_summary.csv
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/29_d4_conflict_provenance.txt
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/30_near_duplicate_audit.py
+---------------------------------------------------------------------------------------
+
+===========================================================================
+SCRIPT 30: NEAR-DUPLICATE REQUIREMENT AUDIT
+===========================================================================
+
+SOURCE: D2
+Unique texts: 4961
+/home/dhrubo_roy/Unofficial Thesis/.venv-transformers/lib/python3.14/site-packages/sklearn/feature_extraction/text.py:2049: UserWarning: Only (<class 'numpy.float64'>, <class 'numpy.float32'>, <class 'numpy.float16'>) 'dtype' should beused. float32 'dtype' will be converted to np.float64.
+  warnings.warn(
+Candidate pairs: 257
+Different-label pairs: 21
+Disjoint-label pairs: 21
+
+SOURCE: D3
+Unique texts: 1282
+/home/dhrubo_roy/Unofficial Thesis/.venv-transformers/lib/python3.14/site-packages/sklearn/feature_extraction/text.py:2049: UserWarning: Only (<class 'numpy.float64'>, <class 'numpy.float32'>, <class 'numpy.float16'>) 'dtype' should beused. float32 'dtype' will be converted to np.float64.
+  warnings.warn(
+Candidate pairs: 125
+Different-label pairs: 22
+Disjoint-label pairs: 21
+
+SOURCE: D4
+Unique texts: 1102
+/home/dhrubo_roy/Unofficial Thesis/.venv-transformers/lib/python3.14/site-packages/sklearn/feature_extraction/text.py:2049: UserWarning: Only (<class 'numpy.float64'>, <class 'numpy.float32'>, <class 'numpy.float16'>) 'dtype' should beused. float32 'dtype' will be converted to np.float64.
+  warnings.warn(
+Candidate pairs: 398
+Different-label pairs: 36
+Disjoint-label pairs: 27
+
+===========================================================================
+COMPARATIVE SUMMARY
+===========================================================================
+source  unique_texts  candidate_pairs  different_label_pairs  disjoint_label_pairs
+    D2          4961              257                     21                    21
+    D3          1282              125                     22                    21
+    D4          1102              398                     36                    27
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/30_near_duplicate_candidates.csv
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/30_near_duplicate_summary.csv
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/30_near_duplicate_audit.txt
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/31_minority_near_duplicate_review.py
+---------------------------------------------------------------------------------------
+
+==============================================================================
+SCRIPT 31: MINORITY NEAR-DUPLICATE REVIEW
+==============================================================================
+
+SUMMARY
+source  all_candidate_pairs  disjoint_label_pairs  minority_disjoint_pairs  highest_similarity
+    D2                  257                    21                       21             0.99601
+    D3                  125                    21                       21             0.98892
+    D4                  398                    27                       27             0.97872
+
+D2: TOP 5 PRIORITY PAIRS
+-----------------------------------------------------------------
+Similarity: 0.99601
+A label: FR
+A: System shall be able to display the problem statement and coding environment based on the user's selection of problem category and difficulty level.
+B label: NFR
+B: System shall display the problem statement and coding environment based on the user's selection of problem category and difficulty level.
+-----------------------------------------------------------------
+Similarity: 0.99489
+A label: FR
+A: User shall be able to create slideshows with additional text art, animated texts, and Photoshop features.
+B label: NFR
+B: User shall create slideshows with additional text art, animated texts, and Photoshop features.
+-----------------------------------------------------------------
+Similarity: 0.99473
+A label: FR
+A: System shall be able to provide submission status (Accepted, Wrong Answer, Time Limit Exceeded, etc.) for user's code solutions.
+B label: NFR
+B: System shall provide submission status (Accepted, Wrong Answer, Time Limit Exceeded, etc.) for the user's code solutions.
+-----------------------------------------------------------------
+Similarity: 0.99328
+A label: FR
+A: User shall be able to process data, reloading if necessary, and accurately handle attributes for recommendations.
+B label: NFR
+B: User shall be able to process data, with reloading if necessary, and accurately handle attributes for recommendations.
+-----------------------------------------------------------------
+Similarity: 0.99092
+A label: FR
+A: System shall be able to grant access to the user's dashboard upon successful authentication.
+B label: NFR
+B: System shall grant access to the user's dashboard upon successful authentication.
+
+D3: TOP 5 PRIORITY PAIRS
+-----------------------------------------------------------------
+Similarity: 0.98892
+A label: IMM
+A: The system shall allow anomalies to be curbed after detection. 
+B label: IND
+B: The system shall  allow for anomalies to be curbed after detection.
+-----------------------------------------------------------------
+Similarity: 0.98853
+A label: NSR
+A: The system shall be able to carefully diagnose the real vulnerabilities when they exist based on conducting formula-based experiments. 
+B label: IND
+B: The system should be able to carefully diagnose the real vulnerabilities when they exist based on conducting formula-based experiments. 
+-----------------------------------------------------------------
+Similarity: 0.98205
+A label: NSR
+A: The system shall also provide a section for verification in the sense that if an image is said to have a watermarkit should be able to detect and display the watermark. 
+B label: IMM
+B: The system shall provide a section for verification in the sense that if an image is said to have a watermark it should be able to detect and display the watermark.
+-----------------------------------------------------------------
+Similarity: 0.98046
+A label: AUD
+A: The system shall allow a user to check netstat and recent network connections to see if rogue node it a victim of pivoting and if so trace the attacking machine. 
+B label: IND
+B: The system shall be able to check netstat and recent network connections to see if rogue node is a victim of pivoting and if so trace the attacking machine. 
+-----------------------------------------------------------------
+Similarity: 0.9802
+A label: NSR
+A: The system shall allow a user to note hostname of rogue node as well as the SSID of the network it is connected toas to know from which section on campus is the attack being done.
+B label: IND
+B: The system shall be able to note hostname of rogue node as well as the SSID of the network it is connected to so as to know from which section on campus is the attack being done. 
+
+D4: TOP 5 PRIORITY PAIRS
+-----------------------------------------------------------------
+Similarity: 0.97872
+A label: NFR
+A: Incorporate architectural enhancements for future growth and scalability.
+B label: FR
+B: Incorporate architectural enhancements to support future system growth and scalability.
+-----------------------------------------------------------------
+Similarity: 0.97302
+A label: NFR
+A: Incorporate architectural enhancements for future growth and scalability.
+B label: FR
+B: The system shall incorporate architectural enhancements to support future growth and scalability.
+-----------------------------------------------------------------
+Similarity: 0.96228
+A label: FR
+A: Allow users with administrative privileges to configure system settings and user permissions.
+B label: NFR
+B: Users with administrative privileges shall be able to configure system settings and user permissions.
+-----------------------------------------------------------------
+Similarity: 0.95972
+A label: NFR
+A: Authorized personnel can access patient data for review and editing.
+B label: FR
+B: Provide access to patient data for authorized personnel for review and editing.
+-----------------------------------------------------------------
+Similarity: 0.95744
+A label: FR
+A: Allow users to reset their passwords through a secure process.
+B label: NFR
+B: Users can reset their passwords through a secure process.
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/31_priority_near_duplicate_review.csv
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/31_priority_review_summary.csv
+Script 31 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/32_label_disagreement_review.py
+---------------------------------------------------------------------------------------
+
+===========================================================================
+SCRIPT 32: LABEL DISAGREEMENT REVIEW
+===========================================================================
+
+SUMMARY
+source  review_pairs  both_texts_found  same_reported_project
+    D2            21                21                     17
+    D3            21                21                      0
+    D4            27                27                     10
+
+TOTAL REVIEW PAIRS: 69
+
+TRACEABILITY CHECK
+Pairs with missing source records: 0
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/32_label_disagreement_review.csv
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/32_disagreement_summary.csv
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/32_label_disagreement_review.txt
+All decisions remain pending.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/33_duplicate_aware_class_support.py
+---------------------------------------------------------------------------------------
+
+==============================================================================
+SCRIPT 33: DUPLICATE-AWARE CLASS SUPPORT
+==============================================================================
+
+D2: 4993 rows, 4961 unique texts, 4730 candidate components
+
+D3: 1292 rows, 1282 unique texts, 1167 candidate components
+
+D4: 1520 rows, 1102 unique texts, 786 candidate components
+
+==============================================================================
+CLASS SUPPORT
+==============================================================================
+source label  raw_rows  unique_texts_with_label  candidate_components_with_label  pending_review_components  provisionally_clean_components  provisionally_clean_unique_texts  theoretical_20pct_clean_component_count
+    D2    FR      3272                     3267                             3147                         18                   3109                              3225                                    621.8
+    D2   NFR      1691                     1685                             1593                         19                   1554                              1645                                    310.8
+    D3   AUD        38                       38                               37                          4                     33                                34                                      6.6
+    D3   AVA        39                       38                               37                          2                     35                                36                                      7.0
+    D3   CON        67                       67                               63                          1                     62                                66                                     12.4
+    D3   IMM        47                       47                               44                          5                     38                                41                                      7.6
+    D3   IND        45                       44                               40                          6                     34                                38                                      6.8
+    D3   INT        32                       32                               32                          1                     30                                30                                      6.0
+    D3   MAI        57                       57                               54                          2                     52                                55                                     10.4
+    D3   NSR       781                      777                              707                         15                    691                               758                                    138.2
+    D3   SUR        33                       32                               28                          1                     27                                31                                      5.4
+    D3   THE        93                       92                               87                          1                     85                                90                                     17.0
+    D3   THO        60                       60                               60                          2                     58                                58                                     11.6
+    D4    FR      1368                      999                              717                         18                    690                               960                                    138.0
+    D4   NFR       152                      112                               96                         18                     69                                76                                     13.8
+
+SOURCE SUMMARY
+source  raw_rows  unique_texts  similarity_edges_used  candidate_components  pending_review_components  provisionally_clean_components
+    D2      4993          4961                    257                  4730                         19              4663
+    D3      1292          1282                    125                  1167                         20              1145
+    D4      1520          1102                    398                   786                         18               759
+
+Saved Script 33 tables and report.
+No training or testing split was created.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/34_project_identity_verification.py
+---------------------------------------------------------------------------------------
+
+==============================================================================
+SCRIPT 34: PROJECT IDENTITY VERIFICATION
+==============================================================================
+
+COMBINED PROJECT METADATA SUMMARY
+source  rows  distinct_combined_project_ids  distinct_project_names  ids_with_multiple_names  rows_under_ambiguous_ids  missing_project_id_rows  missing_project_name_rows project_identity_verified
+    D1   979                             46                      44                        3                       184                        0                          0                        NO
+    D2  4993                              7                     189                        4                      4778                        1                          0                        NO
+    D3  1292                            104                      98                        0 0                        0                          0                        NO
+    D4  1520                              5                       4                        0 0                        0                          0                        NO
+    D5    70                              1                       1                        0 0                        0                          0                        NO
+
+HIGHEST-RISK PROJECT IDS
+source project_id  rows  distinct_names                                                          example_names
+    D2       P048  3042             137 Unspecified System | Web Order System | Digital Repository | Crime and Criminal Tracking Network & Systems (CCTNS) | Data Package Management System
+    D2       P051  1589              50                     ATM System | School/College Management System | Restaurant Finder & Owner Portal | Webmail (Gmail-like) | Cinema Ticket Booking
+    D2       P049   141               2             A Scientific Data Management System | Disputes Application
+    D1       P003    79               2                                                     Nursing Program Scheduling System (DePaul University) | Disputes System or Disputes Application
+    D1       P005    73               2conference room scheduling and management system | Analytical Framework
+    D1       P032    32               2       A Medical Records Management System | A Doughnut Ordering System
+    D2       P054     6               2                         P-Uncertain (DREX-API) | P-Uncertain (TUE-MAP)
+
+D3 ORIGINAL PROJECT RECOVERY FILES
+
+File: 21_d3_original_project_recovery.csv
+Rows: 1292
+Columns: ['Requirement ID', 'Combined Project ID', 'Original Project IDs', 'Mapping Status']
+First 3 records:
+{'Requirement ID': 'RQP0495972', 'Combined Project ID': 'P055', 'Original Project IDs': '2', 'Mapping Status': 'unique_original_project'}
+{'Requirement ID': 'RQP0495973', 'Combined Project ID': 'P055', 'Original Project IDs': '1|2', 'Mapping Status': 'multiple_original_projects'}
+{'Requirement ID': 'RQP0495974', 'Combined Project ID': 'P055', 'Original Project IDs': '1|2', 'Mapping Status': 'multiple_original_projects'}
+
+File: 20_d3_project_mapping_candidates.csv
+Rows: 192
+Columns: ['Project ID_original', 'Project ID_d3', 'matched_records', 'original_numeric', 'd3_numeric', 'offset']
+First 3 records:
+{'Project ID_original': '10', 'Project ID_d3': 'P064', 'matched_records': '16', 'original_numeric': '10', 'd3_numeric': '64', 'offset': '54'}
+{'Project ID_original': '10', 'Project ID_d3': 'P063', 'matched_records': '8', 'original_numeric': '10', 'd3_numeric': '63', 'offset': '53'}
+{'Project ID_original': '100', 'Project ID_d3': 'P154', 'matched_records': '8', 'original_numeric': '100', 'd3_numeric': '154', 'offset': '54'}
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/34_project_identity_verification.txt
+Script 34 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/35_d3_project_split_readiness.py
+---------------------------------------------------------------------------------------
+
+==============================================================================
+SCRIPT 35: D3 ORIGINAL-PROJECT SPLIT READINESS
+==============================================================================
+
+PROJECT RECOVERY
+Total D3 rows: 1292
+Unique project recovery rows: 1227
+Provisional eligible rows: 1227
+Exact-text conflicting groups: 2
+Eligible texts in multiple original projects: 0
+
+CLASS-LEVEL PROJECT SUPPORT
+label  total_rows  unique_project_rows  provisionally_eligible_rows  eligible_unique_texts  eligible_original_projects  largest_project_rows  largest_project_share_pct minimum_20_test_examples_met
+  AUD          38                   38                           38                     3826                     5                      13.16                   NOT_TESTED
+  AVA          39                   36                           36                     3629                     3                       8.33                   NOT_TESTED
+  CON          67                   67                           67                     6739                     5                       7.46                   NOT_TESTED
+  IMM          47                   45                           45                     4538                     3                       6.67                   NOT_TESTED
+  IND          45                   42                           42                     4118                     5                      11.90                   NOT_TESTED
+  INT          32                   27                           27                     2717                     4                      14.81                   NOT_TESTED
+  MAI          57                   55                           55                     5545                     3                       5.45                   NOT_TESTED
+  NSR         781                  743                          743                    743                         103                    21                       2.83                   NOT_TESTED
+  SUR          33                   30                           30                     3023                     2                       6.67                   NOT_TESTED
+  THE          93                   85                           85                     8550                     8                       9.41                   NOT_TESTED
+  THO          60                   59                           59                     5938                     4                       6.78                   NOT_TESTED
+
+NEAR-DUPLICATE PROJECT RELATIONSHIPS
+Pairs checked: 105
+Pairs with disjoint recovered project sets: 104
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/35_d3_project_split_readiness.txt
+Script 35 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/36_d3_grouped_split_feasibility.py
+---------------------------------------------------------------------------------------
+
+==============================================================================
+SCRIPT 36: D3 GROUPED SPLIT FEASIBILITY
+==============================================================================
+
+GROUP STRUCTURE
+Eligible rows: 1227
+Recovered projects: 104
+Near-duplicate edges connected: 105
+Connected groups: 68
+Largest group size: 94
+Largest group share: 7.66 %
+
+SIMULATION RESULTS
+Successful simulations: 300
+Requested approximate ratio: 70/15/15
+Actual proportions may vary with group sizes.
+
+PER-CLASS TEST SUPPORT
+label  train_min  train_median  val_min  val_median  test_min  test_median  test_max  trials_test_below_10  trials_test_below_20
+  AUD         13          26.0        1         6.0         1          6.0        16                   258         300
+  AVA         14          24.0        0         5.0         0          6.0        15                   269         300
+  CON         17          48.0        0         9.0         1          9.0        29                   157         262
+  IMM         16          30.0        0         7.0         0          7.0        21                   232         299
+  IND         11          29.0        0         6.0         0          7.0        25                   204         296
+  INT          7          19.0        0         3.0         0          3.0        15                   264         300
+  MAI         19          38.0        1         9.0         0          8.0        23                   193         298
+  NSR        352         508.5       58       119.0        50        113.0       219                     0           0
+  SUR         11          20.0        0         5.0         0          4.0        13                   290         300
+  THE         42          59.0        2        13.0         3         13.0        28                    69         269
+  THO         28          40.5        2         9.0         1          9.0        19                   172         300
+
+WHOLE-SPLIT FEASIBILITY
+Trials with all classes represented in test: 251
+Trials with >=10 test examples in every class: 0
+Trials with >=20 test examples in every class: 0
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/36_d3_grouped_split_feasibility.txt
+Script 36 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/37_d2_grouping_diagnostics.py
+---------------------------------------------------------------------------------------
+
+===========================================================================
+SCRIPT 37: D2 GROUPING DIAGNOSTICS
+===========================================================================
+
+PROJECT-NAME COVERAGE
+Binary-labeled rows: 4963
+Distinct project names: 189
+Projects containing FR: 171
+Projects containing NFR: 156
+Projects containing both: 138
+Rows in largest reported project: 527
+Largest project share: 10.62 %
+
+NEAR-DUPLICATE PROJECT RELATIONSHIPS
+Candidate pairs checked: 255
+Pairs with disjoint reported project names: 106
+
+TOP 10 PROJECT NAMES BY ROW COUNT
+                       project_name  rows  unique_texts  fr  nfr  minority_label_present  both_labels
+                 unspecified system   527           526 216  311                    True         True
+                         atm system   206           206 158   48                    True         True
+   school/college management system   181           176 153   28                    True         True
+   restaurant finder & owner portal   146           146 124   22                    True         True
+               webmail (gmail-like)   144           144 115   29                    True         True
+   administrative management system   131           128 114   17                    True         True
+a scientific data management system   126           122  65   61                    True         True
+              cinema ticket booking    83            83  51   32                    True         True
+                   web order system    80            80   3   77                    True         True
+                 digital repository    75            75  65   10                    True         True
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/37_d2_grouping_diagnostics.txt
+Script 37 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/38_d4_generation_dependency.py
+---------------------------------------------------------------------------------------
+
+===========================================================================
+SCRIPT 38: D4 GENERATION DEPENDENCY AUDIT
+===========================================================================
+
+OVERALL
+D4 rows: 1520
+Unique texts: 1102
+Texts matched to original source: 1102
+Texts associated with multiple models: 222
+Texts associated with multiple rounds: 172
+Texts with conflicting unified labels: 9
+
+CLASS-LEVEL DEPENDENCY
+label  unique_texts_with_label  matched_source_texts  cross_model_texts  cross_round_texts  conflicting_label_texts
+   FR                      999                   999                214                163                        9
+  NFR                      112                   112                 17                 17                        9
+
+MODEL COUNT DISTRIBUTION
+model_count
+1    880
+2     64
+3    158
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/38_d4_generation_dependency.txt
+Script 38 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/39_d2_split_feasibility.py
+---------------------------------------------------------------------------------------
+
+==============================================================================
+SCRIPT 39: D2 SPLIT FEASIBILITY
+==============================================================================
+
+ELIGIBLE DATA
+Original D2 rows: 4993
+Eligible unique texts: 4871
+FR: 3226
+NFR: 1645
+Conflicting-text groups: 21
+Review-flagged text keys: 40
+
+SCENARIO: TEXT_SIMILARITY
+Connected groups: 4664
+Similarity edges used: 231
+Largest group: 6
+Largest group percentage: 0.12
+Successful trials: 300
+
+SCENARIO: PROJECT_NAME_PLUS_SIMILARITY
+Connected groups: 132
+Similarity edges used: 231
+Largest group: 2698
+Largest group percentage: 55.39
+Successful trials: 300
+
+==============================================================================
+GROUP STRUCTURE
+                    scenario  eligible_texts  connected_groups  largest_group_rows  largest_group_pct  similarity_edges_used
+             TEXT_SIMILARITY            4871              4664                   6               0.12     231
+PROJECT_NAME_PLUS_SIMILARITY            4871               132                2698              55.39     231
+
+CLASS SUPPORT BY SCENARIO
+                    scenario label  successful_trials  train_median  val_median  test_min  test_median  test_max  trials_test_below_20  trials_test_below_50  trials_train_class_missing
+PROJECT_NAME_PLUS_SIMILARITY    FR                300        2749.5       229.0        94        234.5      2108                 0                     0                           0
+PROJECT_NAME_PLUS_SIMILARITY   NFR                300        1403.0       107.0        42        109.0      1143                 0                     1                           0
+             TEXT_SIMILARITY    FR                300        2257.0       483.0       445        485.0       514                 0                     0                           0
+             TEXT_SIMILARITY   NFR                300        1151.0       248.0       213        245.0       286                 0                     0                           0
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/39_d2_split_feasibility.txt
+Script 39 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/40_d2_split_quality_audit.py
+---------------------------------------------------------------------------------------
+
+==============================================================================
+SCRIPT 40: D2 SPLIT QUALITY AND STABILITY AUDIT
+==============================================================================
+
+SPLIT QUALITY SUMMARY
+                    scenario  trials  train_fraction_min  train_fraction_median  train_fraction_max  test_fraction_min  test_fraction_median  test_fraction_max  all_ratios_ok_trials  all_classes_present_trials  nfr_test_at_least_100_trials  quality_screen_pass_trials
+PROJECT_NAME_PLUS_SIMILARITY     300              0.2589                 0.8560              0.9017              0.039                0.0703             0.6528                     0                         300    177                           0
+             TEXT_SIMILARITY     300              0.6951                 0.6999              0.7040              0.147                0.1501             0.1536                   300                         300    300                         300
+
+GROUP STRUCTURE
+                    scenario  eligible_texts  connected_groups  largest_group_rows  largest_group_pct  similarity_edges_used
+             TEXT_SIMILARITY            4871              4664                   6               0.12     231
+PROJECT_NAME_PLUS_SIMILARITY            4871               132                2698              55.39     231
+
+INTERPRETATION
+Ratio tolerance: +/- 5 percentage points around 70/15/15.
+Quality screen also requires both classes in every partition and at least 100 NFR test examples.
+This is a preliminary feasibility screen, not a final split-selection procedure.
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/40_d2_split_quality_summary.csv
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/40_d2_split_quality_audit.txt
+Script 40 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/41_d2_final_label_reliability.py
+---------------------------------------------------------------------------------------
+
+==============================================================================
+SCRIPT 41: D2 FINAL LABEL RELIABILITY
+==============================================================================
+
+ELIGIBILITY
+Original D2 rows: 4993
+Eligible unique texts: 4871
+
+SOURCE LABEL RELIABILITY
+label    source_label_status  unique_texts
+   FR AMBIGUOUS_SOURCE_LABEL             1
+   FR     BLANK_SOURCE_LABEL             3
+   FR    SOURCE_LABEL_AGREES          3202
+   FR SOURCE_LABEL_DISAGREES            17
+   FR  UNMATCHED_SOURCE_TEXT             3
+  NFR    SOURCE_LABEL_AGREES          1633
+  NFR SOURCE_LABEL_DISAGREES            12
+
+OVERALL STATUS
+source_label_status
+SOURCE_LABEL_AGREES       4835
+SOURCE_LABEL_DISAGREES      29
+BLANK_SOURCE_LABEL           3
+UNMATCHED_SOURCE_TEXT        3
+AMBIGUOUS_SOURCE_LABEL       1
+
+POTENTIAL SOURCE-LABEL ISSUES
+Unique texts requiring further review: 36
+FR requiring review: 24
+NFR requiring review: 12
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/41_d2_source_label_audit.csv
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/41_d2_label_reliability_summary.csv
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/41_d2_label_reliability.txt
+Script 41 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/42_d2_candidate_manifest.py
+---------------------------------------------------------------------------------------
+
+======================================================================
+SCRIPT 42: D2 CANDIDATE MANIFEST
+======================================================================
+
+SOURCE-CONSISTENT CANDIDATES
+Total: 4835
+label
+FR     3202
+NFR    1633
+
+WITHHELD FOR FURTHER REVIEW
+Total: 36
+source_label_status
+SOURCE_LABEL_DISAGREES    29
+BLANK_SOURCE_LABEL         3
+UNMATCHED_SOURCE_TEXT      3
+AMBIGUOUS_SOURCE_LABEL     1
+
+CLASS SUMMARY
+label  decision  unique_texts
+   FR CANDIDATE          3202
+   FR  WITHHELD            24
+  NFR CANDIDATE          1633
+  NFR  WITHHELD            12
+
+CHECKS
+Candidate text keys unique: True
+Overlap between candidate and withheld keys: 0
+All audited texts accounted for: True
+
+Script 42 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/43_d2_candidate_split_validation.py
+---------------------------------------------------------------------------------------
+
+==============================================================================
+SCRIPT 43: D2 CANDIDATE SPLIT VALIDATION
+==============================================================================
+
+CANDIDATE GROUP STRUCTURE
+Candidate requirements: 4835
+FR: 3202
+NFR: 1633
+Similarity edges retained: 230
+Connected groups: 4629
+Largest group: 6
+Groups containing both labels: 0
+
+SPLIT FEASIBILITY SUMMARY
+candidate_rows: 4835
+similarity_groups: 4629
+largest_group: 6
+mixed_label_groups: 0
+simulations: 300
+ratio_pass: 300
+all_classes_present: 300
+nfr_test_at_least_100: 300
+overall_pass: 300
+train_fraction_median: 0.6998
+val_fraction_median: 0.1502
+test_fraction_median: 0.1499
+test_nfr_min: 209
+test_nfr_median: 246.0
+test_nfr_max: 277
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/43_d2_candidate_split_validation.txt
+Script 43 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/44_d2_freeze_split.py
+---------------------------------------------------------------------------------------
+
+===========================================================================
+SCRIPT 44: FROZEN D2 EVALUATION PARTITIONS
+===========================================================================
+
+CLASS DISTRIBUTION
+label         FR   NFR  total  fraction
+split                                  
+train       2256  1136   3392  0.701551
+validation   472   251    723  0.149535
+test         474   246    720  0.148914
+
+LEAKAGE CHECKS
+Total records: 4835
+Unique texts: 4835
+Similarity groups: 4629
+Groups crossing partitions: 0
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/validated/44_d2_frozen_split_manifest.csv
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/validated/44_d2_split_metadata.json
+Status: FROZEN_PENDING_FINAL_APPROVAL
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/45_d2_final_approval_audit.py
+---------------------------------------------------------------------------------------
+
+===========================================================================
+SCRIPT 45: FINAL D2 DATASET APPROVAL AUDIT
+===========================================================================
+Candidate SHA256 unchanged: PASS
+Membership SHA256 unchanged: PASS
+Manifest SHA256 unchanged: PASS
+Candidate count: PASS
+Manifest count: PASS
+Unique candidate texts: PASS
+Unique manifest texts: PASS
+Same candidate and manifest keys: PASS
+No withheld-text overlap: PASS
+Only FR/NFR labels: PASS
+Expected partition names: PASS
+No similarity group crosses partitions: PASS
+Expected class counts: PASS
+Recorded metadata class counts: PASS
+Candidate labels unchanged: PASS
+Similarity group assignments unchanged: PASS
+
+===========================================================================
+AUDIT SUMMARY
+===========================================================================
+Checks passed: 16/16
+Total requirements: 4835
+Similarity groups: 4629
+
+CLASS DISTRIBUTION
+label         FR   NFR
+split                 
+train       2256  1136
+validation   472   251
+test         474   246
+
+Technical audit: PASS
+Research approval: PENDING DOCUMENTED APPROVAL
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/45_d2_final_approval_audit.txt
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/46_d2_research_protocol.py
+---------------------------------------------------------------------------------------
+
+========================================================================
+SCRIPT 46: RESEARCH DATASET PROTOCOL
+========================================================================
+
+DATASET
+Candidate requirements: 4835
+FR: 3202
+NFR: 1633
+Withheld cases: 36
+
+GROUPING AND INTEGRITY
+Similarity groups: 4629
+Largest group: 6
+Cross-partition groups: 0
+Frozen file hashes verified: True
+Technical audit: PASS (16/16)
+
+RESEARCH STATUS
+Primary candidate: D2
+Scientific approval: PENDING
+Model training: NOT STARTED
+Test evaluation: NOT STARTED
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/46_d2_research_dataset_protocol.md
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/46_d2_research_dataset_protocol.json
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/46_d2_protocol_status.txt
+
+Script 46 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/47_d2_annotation_review_closure.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 47: D2 ANNOTATION REVIEW CLOSURE AUDIT
+============================================================================
+
+REVIEW COVERAGE
+Original review pairs: 69
+Preliminary review rows: 69
+D2 original review pairs: 21
+D2 preliminary review rows: 21
+Missing review pair matches: 0
+Extra review pair matches: 0
+
+D2 FLAGGED REQUIREMENT STATUS
+Unique flagged D2 texts: 40
+status
+EXCLUDED_EARLIER    40
+
+FROZEN DATA EXPOSURE
+D2 review pairs with either member retained: 0
+D2 review pairs with both members retained: 0
+Flagged texts retained in frozen manifest: 0
+D2 pairs traceable to original D2: 21
+
+PRELIMINARY REVIEW METADATA
+Additional review columns: ['review_stage', 'reviewer_confirmation', 'suggested_binary_interpretation']
+Human annotation approval: NOT VERIFIED BY THIS SCRIPT
+
+AUDIT CONCLUSION
+Disputed-text exclusion screen: PASS
+Frozen partitions changed: NO
+Scientific label approval: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/47_d2_pair_closure_audit.csv
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/47_d2_flagged_text_status.csv
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/47_d2_annotation_review_closure.txt
+
+Script 47 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/48_d2_cross_partition_similarity_audit.py
+---------------------------------------------------------------------------------------
+
+==============================================================================
+SCRIPT 48: D2 CROSS-PARTITION SIMILARITY AUDIT
+==============================================================================
+
+DATASET
+Requirements: 4835
+TF-IDF features: 65447
+Frozen split seed: 42
+
+Checking train_vs_validation ...
+Maximum cross-partition similarity: 0.864757
+Pairs >= 0.75: 28
+Pairs >= 0.80: 12
+Pairs >= 0.85: 1
+Pairs >= 0.90: 0
+Pairs >= 0.95: 0
+
+Checking train_vs_test ...
+Maximum cross-partition similarity: 0.890786
+Pairs >= 0.75: 19
+Pairs >= 0.80: 8
+Pairs >= 0.85: 2
+Pairs >= 0.90: 0
+Pairs >= 0.95: 0
+
+Checking validation_vs_test ...
+Maximum cross-partition similarity: 0.827888
+Pairs >= 0.75: 3
+Pairs >= 0.80: 1
+Pairs >= 0.85: 0
+Pairs >= 0.90: 0
+Pairs >= 0.95: 0
+
+==============================================================================
+OVERALL SIMILARITY AUDIT
+==============================================================================
+Total requirements: 4835
+Cross-partition pairs >= 0.85: 3
+Review candidates saved: 3
+
+SUMMARY
+         comparison  maximum_similarity  pairs_ge_0.75  pairs_ge_0.80  pairs_ge_0.85  pairs_ge_0.90  pairs_ge_0.95
+train_vs_validation            0.864757             28             12              1              0              0
+      train_vs_test            0.890786             19              8              2              0              0
+ validation_vs_test            0.827888              3              1              0              0              0
+
+AUDIT INTERPRETATION
+Cross-partition pairs reached the 0.85 threshold. Structural review is required.
+Semantic independence is not established by this test.
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/48_d2_cross_partition_similarity_summary.csv
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/48_d2_cross_partition_review_candidates.csv
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/48_d2_cross_partition_similarity_audit.txt
+
+Script 48 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/49_d2_cross_partition_pair_review.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 49: CROSS-PARTITION SEMANTIC REVIEW
+============================================================================
+
+REVIEW SUMMARY
+Pairs requiring review: 3
+Same-label pairs: 2
+Different-label pairs: 1
+Pairs involving test: 2
+
+============================================================================
+PAIR: CP_001
+Similarity: 0.890786
+Comparison: train_vs_test
+
+REQUIREMENT A
+ID: RQP0494680
+Partition: train
+Label: NFR
+Text: User shall be able to log in to their LeetCode account using their email and password credentials.
+
+REQUIREMENT B
+ID: RQP0494674
+Partition: test
+Label: FR
+Text: User shall be able to log in to their LeetCode account using their email and password.
+
+Review decision: PENDING
+
+============================================================================
+PAIR: CP_002
+Similarity: 0.879345
+Comparison: train_vs_test
+
+REQUIREMENT A
+ID: RQP0482022
+Partition: train
+Label: FR
+Text: System shall notify the seller about the delivery of the product to the customer.
+
+REQUIREMENT B
+ID: RQP0481194
+Partition: test
+Label: FR
+Text: System shall notify the seller about the delivery of the product to the consumer.
+
+Review decision: PENDING
+
+============================================================================
+PAIR: CP_003
+Similarity: 0.864757
+Comparison: train_vs_validation
+
+REQUIREMENT A
+ID: RQP0495693
+Partition: train
+Label: FR
+Text: If the validation succeeds, user shall be redirected to the user-home page.
+
+REQUIREMENT B
+ID: RQP0495076
+Partition: validation
+Label: FR
+Text: If the validation succeeds, user shall be redirected to the authorized-user-home page.
+
+Review decision: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/49_d2_cross_partition_semantic_review.csv
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/49_d2_cross_partition_review_status.txt
+
+Script 49 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/50_d2_revision_review_plan.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 50: D2 PROTOCOL REVISION PLAN
+============================================================================
+
+PROVISIONAL DECISIONS
+pair_id              assessment         label_issue          proposed_action reviewer_confirmation
+ CP_001 SEMANTICALLY_EQUIVALENT LIKELY_NFR_MISLABEL          QUARANTINE_BOTH               PENDING
+ CP_002 SEMANTICALLY_EQUIVALENT     NONE_IDENTIFIED CONNECT_SIMILARITY_GROUP               PENDING
+ CP_003        STRONGLY_RELATED     NONE_IDENTIFIED CONNECT_SIMILARITY_GROUP               PENDING
+
+REVISION IMPACT
+Affected requirement IDs: 6
+Proposed quarantined requirements: 2
+Proposed group connections: 2
+Affected original partitions: ['test', 'train', 'validation']
+
+QUARANTINE BY ORIGINAL PARTITION
+split
+train    1
+test     1
+
+PROTOCOL STATUS
+Version 1.0: PRESERVED
+Version 1.1: PROPOSED
+Human annotation confirmation: PENDING
+Dataset or split modified: NO
+Model training: NOT STARTED
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/50_d2_provisional_review_decisions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/50_d2_revision_impact.csv
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/50_d2_protocol_revision_plan.txt
+
+Script 50 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/51_d2_annotation_confirmation.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 51: D2 HUMAN ANNOTATION REVIEW
+============================================================================
+
+REVIEW WORKSHEET
+Pairs: 3
+Requirements involved: 6
+
+PROPOSED DECISIONS
+pair_id              assessment         label_issue          proposed_action review_status
+ CP_001 SEMANTICALLY_EQUIVALENT LIKELY_NFR_MISLABEL          QUARANTINE_BOTH       PENDING
+ CP_002 SEMANTICALLY_EQUIVALENT     NONE_IDENTIFIED CONNECT_SIMILARITY_GROUP       PENDING
+ CP_003        STRONGLY_RELATED     NONE_IDENTIFIED CONNECT_SIMILARITY_GROUP       PENDING
+
+REQUIRED REVIEW FIELDS
+reviewer_name
+review_date
+semantic_decision
+label_decision
+approved_action
+reviewer_rationale
+review_status
+
+ALLOWED SEMANTIC DECISIONS
+EQUIVALENT
+RELATED_BUT_DISTINCT
+DISTINCT
+UNCERTAIN
+
+ALLOWED LABEL DECISIONS
+BOTH_FR
+BOTH_NFR
+ORIGINAL_LABELS_ACCEPTABLE
+LABEL_UNCERTAIN
+
+ALLOWED ACTIONS
+QUARANTINE_BOTH
+CONNECT_SIMILARITY_GROUP
+KEEP_SEPARATE
+ESCALATE_REVIEW
+
+ALLOWED REVIEW STATUS
+CONFIRMED
+NEEDS_REVIEW
+
+IMPORTANT
+The proposed decisions are recommendations, not verified human annotations.
+Frozen version 1.0 remains unchanged.
+Version 1.1 has not been generated.
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/51_d2_human_annotation_review.csv
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/51_d2_annotation_review_status.txt
+
+Script 51 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/52_d2_review_decision_validation.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 52: AI-ASSISTED ANNOTATION VALIDATION
+============================================================================
+CP_001: requirement IDs: PASS
+CP_001: labels match manifest: PASS
+CP_001: partitions match manifest: PASS
+CP_001: cross-partition pair: PASS
+CP_001: text matches manifest: PASS
+CP_001: matches Script 50 plan: PASS
+CP_002: requirement IDs: PASS
+CP_002: labels match manifest: PASS
+CP_002: partitions match manifest: PASS
+CP_002: cross-partition pair: PASS
+CP_002: text matches manifest: PASS
+CP_002: matches Script 50 plan: PASS
+CP_003: requirement IDs: PASS
+CP_003: labels match manifest: PASS
+CP_003: partitions match manifest: PASS
+CP_003: cross-partition pair: PASS
+CP_003: text matches manifest: PASS
+CP_003: matches Script 50 plan: PASS
+Quarantine and connection sets disjoint: PASS
+Expected quarantine count: PASS
+Expected connection count: PASS
+No automatic relabeling: PASS
+
+PROVISIONAL DECISION RECORD
+pair_id    semantic_decision             label_decision          proposed_action          review_method decision_status
+ CP_001           EQUIVALENT                    BOTH_FR          QUARANTINE_BOTH AI_ASSISTED_RULE_BASED     PROVISIONAL
+ CP_002           EQUIVALENT ORIGINAL_LABELS_ACCEPTABLE CONNECT_SIMILARITY_GROUP AI_ASSISTED_RULE_BASED     PROVISIONAL
+ CP_003 RELATED_BUT_DISTINCT ORIGINAL_LABELS_ACCEPTABLE CONNECT_SIMILARITY_GROUP AI_ASSISTED_RULE_BASED     PROVISIONAL
+
+REVISION IMPACT
+Reviewed pairs: 3
+Proposed quarantined records: 2
+Proposed similarity connections: 2
+Original v1.0 requirements: 4835
+Proposed v1.1 requirement count: 4833
+
+VALIDATION SUMMARY
+Checks passed: 22
+Total checks: 22
+Validation issues: 0
+
+RESEARCH STATUS
+AI-assisted decision validation: PASS
+Independent human confirmation: NOT AVAILABLE
+Decision status: PROVISIONAL
+Version 1.1 technical preparation: READY_WITH_LIMITATIONS
+Scientific approval: PENDING
+Version 1.0 modified: NO
+Model training: NOT STARTED
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/52_d2_ai_assisted_review_decisions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/52_d2_review_validation.json
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/52_d2_review_validation.txt
+
+Script 52 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/53_d2_prepare_v11_candidates.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 53: D2 PROTOCOL v1.1 CANDIDATE PREPARATION
+============================================================================
+
+DATASET REVISION
+v1.0 requirements: 4835
+Quarantined requirements: 2
+v1.1 requirements: 4833
+
+CLASS DISTRIBUTION
+label
+FR     3201
+NFR    1632
+
+SIMILARITY GROUPS
+Original v1.0 groups: 4629
+New v1.1 groups: 4625
+Largest group: 6
+Additional connections applied: 2
+Mixed-label groups: 0
+Original groups broken: 0
+
+INTEGRITY
+Unique v1.1 texts: True
+Unique requirement IDs: True
+Quarantined IDs absent: True
+New split generated: NO
+
+RESEARCH STATUS
+Protocol: v1.1
+Candidate preparation: PASS
+Scientific approval: PENDING
+New split: NOT GENERATED
+Version 1.0 modified: NO
+Model training: NOT STARTED
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/validated/53_d2_v11_candidates.csv
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/53_d2_v11_group_membership.csv
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/validated/53_d2_v11_quarantine_audit.csv
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/53_d2_v11_preparation_metadata.json
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/53_d2_v11_preparation_report.txt
+
+Script 53 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/54_d2_v11_freeze_split.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 54: D2 v1.1 FROZEN EVALUATION SPLIT
+============================================================================
+
+CLASS DISTRIBUTION
+label         FR   NFR  total  fraction
+split                                  
+train       2224  1154   3378  0.698945
+validation   489   239    728  0.150631
+test         488   239    727  0.150424
+
+GROUP INTEGRITY
+Total requirements: 4833
+Unique texts: 4833
+Similarity groups: 4625
+Groups crossing partitions: 0
+Additional connections verified: 2
+Quarantined records retained: 0
+
+SPLIT QUALITY
+Train fraction: 0.6989
+Validation fraction: 0.1506
+Test fraction: 0.1504
+NFR test examples: 239
+Preliminary quality screen: PASS
+
+RESEARCH STATUS
+Protocol: D2-v1.1
+Frozen split: CREATED
+Group integrity: PASS
+Scientific approval: PENDING
+Cross-partition similarity audit: PENDING
+Version 1.0 modified: NO
+Model training: NOT STARTED
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/validated/54_d2_v11_frozen_split_manifest.csv
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/validated/54_d2_v11_split_metadata.json
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/54_d2_v11_split_summary.csv
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/54_d2_v11_split_report.txt
+
+Script 54 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/55_d2_v11_cross_partition_audit.py
+---------------------------------------------------------------------------------------
+
+==============================================================================
+SCRIPT 55: D2 v1.1 CROSS-PARTITION SIMILARITY AUDIT
+==============================================================================
+
+DATASET INTEGRITY
+Protocol: D2-v1.1
+Requirements: 4833
+Unique texts: 4833
+Similarity groups: 4625
+Frozen manifest SHA256: PASS
+Existing group isolation: PASS
+
+SIMILARITY CONFIGURATION
+TF-IDF features: 65445
+Character n-grams: 3 to 5
+Review threshold: 0.85
+Neighbor limit: NONE
+Frozen split regenerated: NO
+
+TRAIN_VS_VALIDATION
+Pairs compared: 2459184
+Maximum similarity: 0.848999
+Pairs >= 0.75: 18
+Pairs >= 0.80: 6
+Pairs >= 0.85: 0
+Pairs >= 0.90: 0
+Pairs >= 0.95: 0
+
+TRAIN_VS_TEST
+Pairs compared: 2455806
+Maximum similarity: 0.843772
+Pairs >= 0.75: 20
+Pairs >= 0.80: 10
+Pairs >= 0.85: 0
+Pairs >= 0.90: 0
+Pairs >= 0.95: 0
+
+VALIDATION_VS_TEST
+Pairs compared: 529256
+Maximum similarity: 0.8279
+Pairs >= 0.75: 2
+Pairs >= 0.80: 1
+Pairs >= 0.85: 0
+Pairs >= 0.90: 0
+Pairs >= 0.95: 0
+
+==============================================================================
+OVERALL AUDIT SUMMARY
+==============================================================================
+Total requirements: 4833
+Total cross-partition pairs compared: 5444246
+Pairs >= 0.80: 17
+Pairs >= 0.85: 0
+Test-involving pairs >= 0.85: 0
+
+SUMMARY TABLE
+         comparison  pairs_compared  maximum_similarity  pairs_ge_0.75  pairs_ge_0.80  pairs_ge_0.85  pairs_ge_0.90 pairs_ge_0.95
+train_vs_validation         2459184            0.848999             18              6              0              0             0
+      train_vs_test         2455806            0.843772             20             10              0              0             0
+ validation_vs_test          529256            0.827900              2              1              0              0             0
+
+AUDIT CONCLUSION
+Similarity threshold screen: PASS
+No cross-partition pairs reached 0.85 under the current TF-IDF representation.
+Scientific approval: PENDING
+Frozen v1.1 manifest changed: NO
+Model training: NOT STARTED
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/55_d2_v11_similarity_summary.csv
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/tables/55_d2_v11_cross_partition_pairs.csv
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/55_d2_v11_similarity_audit.txt
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/55_d2_v11_similarity_audit.json
+
+Script 55 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_4/56_d2_v11_research_readiness.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 56: FINAL D2 v1.1 RESEARCH READINESS
+============================================================================
+
+CLASS DISTRIBUTION
+label         FR   NFR
+split                 
+train       2224  1154
+validation   489   239
+test         488   239
+
+TECHNICAL VALIDATION
+File hash integrity: PASS
+Dataset consistency: PASS
+Group isolation: PASS
+Frozen split integrity: PASS
+Cross-partition pairs >= 0.85: 0
+Cross-partition pairs >= 0.80: 17
+
+RESEARCH STATUS
+technical_readiness: PASS
+experimental_protocol: READY_WITH_DOCUMENTED_LIMITATIONS
+independent_annotation_validation: NOT_PERFORMED
+project_independence: NOT_ESTABLISHED
+scientific_approval: CONDITIONAL
+model_training: NOT_STARTED
+test_evaluation: NOT_STARTED
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/56_d2_v11_readiness.json
+/home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/56_d2_v11_readiness.txt
+
+Script 56 completed.
+
