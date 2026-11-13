@@ -1,0 +1,43 @@
+{
+  "script": "01_dataset_integrity",
+  "generated_utc": "2026-11-13T10:10:23.480189+00:00",
+  "protocol": "D2-v1.1",
+  "frozen_manifest_sha256": "5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4",
+  "requirements": 4833,
+  "classes": [
+    "FR",
+    "NFR"
+  ],
+  "similarity_groups": 4625,
+  "cross_partition_groups": 0,
+  "mixed_label_groups": 0,
+  "partitions": {
+    "train": {
+      "FR": 2224,
+      "NFR": 1154,
+      "total": 3378,
+      "groups": 3237
+    },
+    "validation": {
+      "FR": 489,
+      "NFR": 239,
+      "total": 728,
+      "groups": 694
+    },
+    "test": {
+      "FR": 488,
+      "NFR": 239,
+      "total": 727,
+      "groups": 694
+    }
+  },
+  "integrity_status": "PASS",
+  "historical_readiness": "PASS",
+  "scientific_approval": "CONDITIONAL",
+  "independent_annotation_validation": "NOT_PERFORMED",
+  "project_independence": "NOT_ESTABLISHED",
+  "test_text_loaded_into_audit": false,
+  "test_predictions_generated": false,
+  "model_training_started": false,
+  "dataset_modified": false
+}

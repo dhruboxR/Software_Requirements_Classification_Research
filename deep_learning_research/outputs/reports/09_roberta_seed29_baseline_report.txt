@@ -1,0 +1,38 @@
+D2 v1.1 ROBERTA-BASE BASELINE
+============================================================================
+
+Model: FacebookAI/roberta-base
+Seed: 29
+Best epoch: 4
+Training: 3378
+Validation: 728
+Test accessed: NO
+
+CONFIGURATION
+Max length: 96
+Physical batch size: 4
+Gradient accumulation: 4
+Learning rate: 2e-05
+Weight decay: 0.01
+FP16: True
+Gradient checkpointing: True
+
+EPOCH HISTORY
+ epoch  train_loss  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precision  roc_auc  tn  fp  fn  tp
+     1      0.3973    0.8860             0.8552    0.8664         0.8714      0.7657  0.8151             0.8902   0.9489 462  27  56 183
+     2      0.2684    0.8956             0.8656    0.8775         0.8900      0.7782  0.8304             0.9123   0.9507 466  23  53 186
+     3      0.2265    0.9066             0.8952    0.8943         0.8548      0.8619  0.8583             0.9062   0.9565 454  35  33 206
+     4      0.1612    0.9107             0.8940    0.8978         0.8783      0.8452  0.8614             0.9226   0.9601 461  28  37 202
+
+FINAL VALIDATION RESULTS
+                 model  best_epoch  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precision  roc_auc  fp  fn  training_seconds
+D03_RoBERTaBase_seed29           4    0.9107              0.894    0.8978         0.8783      0.8452  0.8614             0.9226   0.9601  28  37            223.24
+
+LIMITATIONS
+- Single training seed.
+- Validation used for checkpoint selection.
+- No neural group-aware cross-validation.
+- Pretrained model differs from DistilBERT.
+- Physical batch sizes differ from DistilBERT.
+- Validation has been reused.
+- Test partition remains sealed.

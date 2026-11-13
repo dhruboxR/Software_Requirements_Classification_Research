@@ -1,0 +1,33 @@
+SCRIPT 08: TRANSFORMER PAIRED COMPARISON
+============================================================================
+
+Dataset: D2-v1.1
+Validation requirements: 728
+Similarity groups: 694
+Test accessed: NO
+
+INDIVIDUAL RESULTS
+          model  accuracy  nfr_f1  nfr_recall  average_precision  roc_auc  errors
+ D01_DistilBERT   0.90522 0.85947     0.88285            0.92698  0.96127      69
+   D02_BERTBase   0.90247 0.85772     0.89540            0.91737  0.95773      71
+D03_RoBERTaBase   0.90659 0.85345     0.82845            0.91362  0.95771      68
+
+PAIRED RESULTS
+       model_a         model_b  changed_predictions  a_only_correct  b_only_correct  mcnemar_exact_p  nfr_f1_difference_a_minus_b  nfr_f1_ci_low  nfr_f1_ci_high  recall_difference_a_minus_b  recall_ci_low  recall_ci_high
+D01_DistilBERT    D02_BERTBase                   38              20              18          0.87141                      0.00176       -0.02419         0.02580                     -0.01255       -0.04959         0.02203
+D01_DistilBERT D03_RoBERTaBase                   39              19              20          1.00000                      0.00602       -0.01930         0.03187                      0.05439        0.02049         0.09091
+  D02_BERTBase D03_RoBERTaBase                   45              21              24          0.76599                      0.00427       -0.02229         0.03286                      0.06695        0.03004         0.10656
+
+STATISTICAL METHODS
+Exact McNemar test on paired correctness
+Similarity-group bootstrap: 2000 repetitions
+Percentile 95% confidence intervals
+
+LIMITATIONS
+- All models use one training seed.
+- Validation was reused for model development.
+- Comparisons are exploratory, not confirmatory.
+- No multiple-testing adjustment applied.
+- Bootstrap covers validation sampling variation.
+- Bootstrap does not measure training-seed variation.
+- Test partition remains sealed.

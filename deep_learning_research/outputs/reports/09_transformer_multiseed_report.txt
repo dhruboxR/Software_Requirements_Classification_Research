@@ -1,0 +1,34 @@
+SCRIPT 09: TRANSFORMER MULTI-SEED STABILITY
+============================================================================
+
+Dataset: D2-v1.1
+Train: 3378
+Validation: 728
+Test: SEALED
+Seeds: [42, 17, 29]
+
+INDIVIDUAL RESULTS
+architecture  seed                  model  best_epoch  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  fp  fn  training_seconds
+  distilbert    42         D01_DistilBERT           3    0.9052             0.8995    0.8940         0.8373      0.8828  0.8595  41  28             58.11
+  distilbert    17  D01_DistilBERT_seed17           4    0.9121             0.8971    0.8997         0.8755      0.8536  0.8644  29  35             58.81
+  distilbert    29  D01_DistilBERT_seed29           3    0.9093             0.9058    0.8989         0.8392      0.8954  0.8664  41  25             57.88
+        bert    42           D02_BERTBase           2    0.9025             0.9007    0.8918         0.8231      0.8954  0.8577  46  25            209.69
+        bert    17    D02_BERTBase_seed17           4    0.8984             0.8933    0.8866         0.8235      0.8787  0.8502  45  29            201.41
+        bert    29    D02_BERTBase_seed29           4    0.9148             0.9013    0.9030         0.8766      0.8619  0.8692  29  33            212.35
+     roberta    42        D03_RoBERTaBase           3    0.9066             0.8866    0.8924         0.8800      0.8285  0.8534  27  41            218.70
+     roberta    17 D03_RoBERTaBase_seed17           4    0.9038             0.8889    0.8905         0.8596      0.8452  0.8523  33  37            220.73
+     roberta    29 D03_RoBERTaBase_seed29           4    0.9107             0.8940    0.8978         0.8783      0.8452  0.8614  28  37            223.24
+
+STABILITY SUMMARY
+architecture  seed_count  nfr_f1_mean  nfr_f1_std  nfr_f1_min  nfr_f1_max  nfr_recall_mean  nfr_recall_std  nfr_recall_min  nfr_recall_max  nfr_precision_mean  nfr_precision_std  nfr_precision_min  nfr_precision_max  macro_f1_mean  macro_f1_std  macro_f1_min  macro_f1_max  balanced_accuracy_mean  balanced_accuracy_std  balanced_accuracy_min  balanced_accuracy_max  accuracy_mean  accuracy_std  accuracy_min  accuracy_max
+  distilbert           3       0.8634      0.0036      0.8595      0.8664           0.8773          0.0215          0.8536          0.8954              0.8507             0.0215             0.8373             0.8755         0.8975        0.0031        0.8940        0.8997                  0.9008                 0.0045                 0.8971                 0.9058         0.9089        0.0035        0.9052        0.9121
+        bert           3       0.8590      0.0096      0.8502      0.8692           0.8787          0.0167          0.8619          0.8954              0.8411             0.0308             0.8231             0.8766         0.8938        0.0084        0.8866        0.9030                  0.8984                 0.0044                 0.8933                 0.9013         0.9052        0.0086        0.8984        0.9148
+     roberta           3       0.8557      0.0050      0.8523      0.8614           0.8396          0.0097          0.8285          0.8452              0.8726             0.0113             0.8596             0.8800         0.8936        0.0038        0.8905        0.8978                  0.8898                 0.0038                 0.8866                 0.8940         0.9071        0.0035        0.9038        0.9107
+
+RESEARCH LIMITATIONS
+- Three seeds give limited variance estimates.
+- All results use the same validation partition.
+- Checkpoint selection uses validation NFR F1.
+- These results do not replace group-aware CV.
+- Validation was reused in earlier experiments.
+- Test evaluation remains sealed.

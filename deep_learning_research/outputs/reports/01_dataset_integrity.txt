@@ -1,0 +1,27 @@
+SCRIPT 01: D2 v1.1 DATASET INTEGRITY
+======================================================================
+
+DATASET
+Protocol: D2-v1.1
+Requirements: 4833
+Similarity groups: 4625
+Manifest SHA256: 5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4
+
+CLASS DISTRIBUTION
+label         FR   NFR  total
+split                        
+train       2224  1154   3378
+validation   489   239    728
+test         488   239    727
+
+GROUP INTEGRITY
+Cross-partition groups: 0
+Mixed-label groups: 0
+
+RESEARCH STATUS
+Dataset integrity: PASS
+Previous technical readiness: PASS
+Scientific approval: CONDITIONAL
+Test evaluation: NOT PERFORMED
+Model training: NOT STARTED
+Frozen dataset modified: NO

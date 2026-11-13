@@ -1,0 +1,45 @@
+SCRIPT 11: PERSISTENT ERROR ANALYSIS
+============================================================================
+
+Dataset: D2-v1.1
+Validation requirements: 728
+Architectures: DistilBERT, BERT-base, RoBERTa-base
+Seeds: 42, 17, 29
+Training performed: NO
+Test text accessed: NO
+
+ERROR CATEGORY SUMMARY
+true_label                        error_category  requirements
+        FR                                 Other           414
+        FR     Persistent error in all nine runs            13
+        FR  Persistent error in one architecture             7
+        FR Persistent error in two architectures            10
+        FR             Seed-dependent prediction            45
+       NFR                                 Other           177
+       NFR     Persistent error in all nine runs            16
+       NFR  Persistent error in one architecture             9
+       NFR Persistent error in two architectures             4
+       NFR             Seed-dependent prediction            33
+
+CONSENSUS ERRORS
+Wrong in all nine runs: 29
+Wrong consistently in >=2 architectures: 43
+
+PERSISTENT ERRORS BY CLASS
+true_label
+FR     13
+NFR    16
+
+MANUAL REVIEW
+Requirements selected for review: 136
+Annotations are not automatically corrected.
+Reviewer fields are intentionally blank.
+
+LIMITATIONS
+- Errors are defined relative to existing labels.
+- Persistent disagreement does not prove mislabeling.
+- Review selection uses validation predictions.
+- The same validation partition was reused.
+- Only three seeds per architecture.
+- No independent label adjudication conducted.
+- No test-partition analysis.

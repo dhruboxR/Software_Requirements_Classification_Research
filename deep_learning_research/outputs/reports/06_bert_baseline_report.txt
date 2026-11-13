@@ -1,0 +1,38 @@
+D2 v1.1 BERT-BASE BASELINE
+============================================================================
+
+Model: google-bert/bert-base-uncased
+Seed: 42
+Best epoch: 2
+Training: 3378
+Validation: 728
+Test accessed: NO
+
+CONFIGURATION
+Max length: 96
+Physical batch size: 4
+Gradient accumulation: 4
+Learning rate: 2e-05
+Weight decay: 0.01
+FP16: True
+Gradient checkpointing: True
+
+EPOCH HISTORY
+ epoch  train_loss  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precision  roc_auc  tn  fp  fn  tp
+     1      0.3770    0.8929             0.8946    0.8821         0.7993      0.8996  0.8465             0.8821   0.9443 435  54  24 215
+     2      0.2646    0.9025             0.9007    0.8918         0.8231      0.8954  0.8577             0.9174   0.9577 443  46  25 214
+     3      0.1757    0.9052             0.8856    0.8910         0.8761      0.8285  0.8516             0.9117   0.9587 461  28  41 198
+     4      0.1038    0.8860             0.8841    0.8739         0.7955      0.8787  0.8350             0.8916   0.9483 435  54  29 210
+
+FINAL VALIDATION RESULTS
+       model  best_epoch  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precision  roc_auc  fp  fn  training_seconds
+D02_BERTBase           2    0.9025             0.9007    0.8918         0.8231      0.8954  0.8577             0.9174   0.9577  46  25            209.69
+
+LIMITATIONS
+- Single training seed.
+- Validation used for checkpoint selection.
+- No neural group-aware cross-validation.
+- Pretrained model differs from DistilBERT.
+- Physical batch sizes differ from DistilBERT.
+- Validation has been reused.
+- Test partition remains sealed.

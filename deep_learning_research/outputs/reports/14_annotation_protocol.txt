@@ -1,0 +1,68 @@
+D2 v1.1 MANUAL ANNOTATION PROTOCOL
+============================================================================
+
+PURPOSE
+Review 43 validation requirements selected
+through persistent transformer error analysis.
+
+LABEL DEFINITIONS
+
+FR:
+The requirement primarily specifies a system
+behavior, operation, or capability.
+
+NFR:
+The requirement primarily specifies a system
+quality property or operational constraint.
+
+UNCERTAIN:
+The requirement cannot be confidently assigned
+FR or NFR without further context or adjudication.
+
+REVIEW PROCEDURE
+1. Read each requirement without consulting the key.
+2. Identify the principal requirement intent.
+3. Assign FR, NFR, or UNCERTAIN.
+4. Record HIGH, MEDIUM, or LOW confidence.
+5. Write an evidence-based justification.
+6. Assign one primary issue category.
+7. Set review_status to REVIEWED.
+8. Do not modify the original requirement text.
+9. Do not change the frozen dataset labels.
+
+ISSUE CATEGORIES
+AMBIGUOUS_WORDING
+DOMAIN_TERMINOLOGY
+IMPLICIT_QUALITY
+INSUFFICIENT_CONTEXT
+INTERFACE_AMBIGUITY
+MIXED_FR_NFR
+NONE
+OTHER
+PERFORMANCE_AMBIGUITY
+SECURITY_AMBIGUITY
+
+REVIEW GUIDANCE
+A quality-related keyword does not prove NFR.
+An action verb does not automatically prove FR.
+Functional behaviors may support quality objectives.
+Mixed requirements must be assessed carefully.
+When context is insufficient, use UNCERTAIN.
+
+INDEPENDENCE LIMITATIONS
+These examples were selected using model errors.
+Some cases have already been discussed openly.
+A second independent reviewer is preferable.
+The original dataset taxonomy should be checked.
+
+RESEARCH LIMITATIONS
+No test requirements are reviewed.
+No model training is conducted.
+No original labels are modified.
+Review judgments must not be used to tune models
+on the same validation partition.
+
+REFERENCE FRAMEWORKS
+ISO/IEC/IEEE 29148:2018
+ISO/IEC 25010:2023
+Dataset-specific annotation definitions: TO VERIFY

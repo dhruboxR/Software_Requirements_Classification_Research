@@ -1,0 +1,24 @@
+D2 v1.1 TEXTCNN BASELINE
+============================================================================
+
+Train: 3378
+Validation: 728
+Test accessed: NO
+Preprocessing vocabulary: TRAIN ONLY
+Model initialization seed: 42
+Early stopping: validation NFR F1
+No hyperparameter search
+
+VALIDATION COMPARISON
+              model  best_epoch  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  fp  fn  training_seconds
+        C01_TextCNN           9    0.8723             0.8557    0.8553         0.8042      0.8075  0.8058  47  46              4.90
+C02_BalancedTextCNN           3    0.8640             0.8549    0.8485         0.7734      0.8285  0.8000  58  41              2.01
+
+IMPORTANT LIMITATIONS
+- Neural results are from one random seed.
+- Validation selects the best checkpoint.
+- No grouped cross-validation in this experiment.
+- No pretrained word embeddings were used.
+- Validation was used during prior ML development.
+- Project independence is not established.
+- The frozen test partition remains sealed.

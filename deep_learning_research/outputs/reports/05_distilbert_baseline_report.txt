@@ -1,0 +1,40 @@
+D2 v1.1 DISTILBERT BASELINE
+============================================================================
+
+Pretrained model: distilbert/distilbert-base-uncased
+Seed: 42
+Best epoch: 3
+Train: 3378
+Validation: 728
+Test: SEALED
+
+EXPERIMENT CONFIGURATION
+Max sequence length: 96
+Batch size: 8
+Gradient accumulation: 2
+Learning rate: 2e-05
+Weight decay: 0.01
+Max epochs: 4
+Patience: 2
+FP16: True
+
+EPOCH HISTORY
+ epoch  train_loss  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precision  roc_auc  tn  fp  fn  tp
+     1      0.3983    0.8997             0.8847    0.8860         0.8517      0.8410  0.8463             0.8849   0.9417 454  35  38 201
+     2      0.2569    0.9052             0.8984    0.8938         0.8400      0.8787  0.8589             0.9014   0.9524 449  40  29 210
+     3      0.1568    0.9052             0.8995    0.8940         0.8373      0.8828  0.8595             0.9270   0.9613 448  41  28 211
+     4      0.1025    0.9038             0.8942    0.8917         0.8449      0.8661  0.8554             0.9264   0.9591 451  38  32 207
+
+FINAL VALIDATION METRICS
+         model  best_epoch  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precision  roc_auc  fp  fn  training_seconds
+D01_DistilBERT           3    0.9052             0.8995     0.894         0.8373      0.8828  0.8595              0.927   0.9613  41  28             58.11
+
+LIMITATIONS
+- One training seed.
+- Validation selects the checkpoint.
+- No neural group-aware cross-validation.
+- No class weighting in this configuration.
+- Validation previously reused for ML development.
+- Dataset annotation review remains conditional.
+- Project-level independence is unverified.
+- Test partition remains sealed.

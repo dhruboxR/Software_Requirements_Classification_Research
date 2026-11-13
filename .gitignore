@@ -1,0 +1,111 @@
+
+# ============================================================
+# SOFTWARE REQUIREMENTS CLASSIFICATION RESEARCH
+# Git Ignore Configuration
+# ============================================================
+
+# ------------------------------------------------------------
+# 1. Python cache and temporary files
+# ------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# ------------------------------------------------------------
+# 2. Virtual environments
+# ------------------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+.venv-*/
+
+# ------------------------------------------------------------
+# 3. IDE and operating system files
+# ------------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+
+# ------------------------------------------------------------
+# 4. Environment variables and credentials
+# ------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Original research dataset (local only)
+/A Unified Multi-Source Dataset of Software Require/
+
+# ------------------------------------------------------------
+# 6. Deep learning checkpoints and model weights
+# ------------------------------------------------------------
+# Deep learning checkpoints
+/deep_learning_research/checkpoints/
+
+# Ignore model artifacts but keep vocabulary files
+/deep_learning_research/models/*
+!/deep_learning_research/models/*.json
+
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+*.onnx
+
+# ------------------------------------------------------------
+# 7. Final trained model files
+# ------------------------------------------------------------
+/final_model/model/
+
+# ------------------------------------------------------------
+# 8. Training and execution logs
+# ------------------------------------------------------------
+/deep_learning_research/logs/
+/final_model/logs/
+
+*.log
+
+# ------------------------------------------------------------
+# 9. Generated predictions
+# ------------------------------------------------------------
+**/outputs/predictions/
+
+# ------------------------------------------------------------
+# 10. Large temporary experiment artifacts
+# ------------------------------------------------------------
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# ------------------------------------------------------------
+# 11. Local experiment tracking
+# ------------------------------------------------------------
+wandb/
+mlruns/
+lightning_logs/
+runs/
+tensorboard/
+events.out.tfevents.*
+
+# ------------------------------------------------------------
+# 12. Local archives
+# ------------------------------------------------------------
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar

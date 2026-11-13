@@ -1,0 +1,77 @@
+SCRIPT 02: D2 v1.1 TOKENIZATION REPORT
+============================================================================
+
+Tokenizer: distilbert/distilbert-base-uncased
+Training requirements: 3378
+Validation requirements: 728
+Test text accessed: NO
+
+TEXT LENGTH STATISTICS
+     split         measure  count   mean    std  minimum  p50   p75   p90    p95    p99  maximum
+     train character_count   3378 93.237 33.431       23 87.0 110.0 137.0 157.00 201.46      322
+     train      word_count   3378 14.710  5.171        4 14.0  17.0  21.0  24.00  31.23       58
+validation character_count    728 95.493 34.813       32 90.0 111.0 137.3 164.95 209.73      253
+validation      word_count    728 14.887  5.510        5 14.0  17.0  22.0  26.00  34.00       38
+
+TOKEN LENGTH STATISTICS
+     split     measure  count   mean   std  minimum  p50  p75  p90  p95   p99  maximum
+     train token_count   3378 19.695 6.520        7 18.0 23.0 28.3 32.0 41.00       65
+validation token_count    728 20.000 7.094        9 18.0 23.0 29.0 34.0 44.73       54
+
+TOKEN LENGTH BY CLASS
+     split label  tokens_count  tokens_mean  tokens_std  tokens_minimum  tokens_p50  tokens_p75  tokens_p90  tokens_p95  tokens_p99  tokens_maximum
+     train    FR          2224       19.527       6.462               8        18.0        23.0        28.0        32.0       41.00              56
+     train   NFR          1154       20.019       6.620               7        19.0        24.0        29.0        33.0       40.00              65
+validation    FR           489       19.826       7.033               9        18.0        22.0        29.0        34.0       44.24              53
+validation   NFR           239       20.356       7.203              10        19.0        23.0        30.0        35.0       43.86              54
+
+TRUNCATION ANALYSIS
+     split label  max_length  requirements  truncated_count  truncated_percent  coverage_percent
+     train   ALL          64          3378                1              0.030            99.970
+     train   ALL          96          3378                0              0.000           100.000
+     train   ALL         128          3378                0              0.000           100.000
+     train   ALL         160          3378                0              0.000           100.000
+     train   ALL         192          3378                0              0.000           100.000
+     train   ALL         256          3378                0              0.000           100.000
+     train    FR          64          2224                0              0.000           100.000
+     train    FR          96          2224                0              0.000           100.000
+     train    FR         128          2224                0              0.000           100.000
+     train    FR         160          2224                0              0.000           100.000
+     train    FR         192          2224                0              0.000           100.000
+     train    FR         256          2224                0              0.000           100.000
+     train   NFR          64          1154                1              0.087            99.913
+     train   NFR          96          1154                0              0.000           100.000
+     train   NFR         128          1154                0              0.000           100.000
+     train   NFR         160          1154                0              0.000           100.000
+     train   NFR         192          1154                0              0.000           100.000
+     train   NFR         256          1154                0              0.000           100.000
+validation   ALL          64           728                0              0.000           100.000
+validation   ALL          96           728                0              0.000           100.000
+validation   ALL         128           728                0              0.000           100.000
+validation   ALL         160           728                0              0.000           100.000
+validation   ALL         192           728                0              0.000           100.000
+validation   ALL         256           728                0              0.000           100.000
+validation    FR          64           489                0              0.000           100.000
+validation    FR          96           489                0              0.000           100.000
+validation    FR         128           489                0              0.000           100.000
+validation    FR         160           489                0              0.000           100.000
+validation    FR         192           489                0              0.000           100.000
+validation    FR         256           489                0              0.000           100.000
+validation   NFR          64           239                0              0.000           100.000
+validation   NFR          96           239                0              0.000           100.000
+validation   NFR         128           239                0              0.000           100.000
+validation   NFR         160           239                0              0.000           100.000
+validation   NFR         192           239                0              0.000           100.000
+validation   NFR         256           239                0              0.000           100.000
+
+PRELIMINARY LENGTH DECISION
+Target coverage: 0.99
+Recommended max length: 64
+
+LIMITATIONS
+- This analysis uses the DistilBERT tokenizer.
+- Other tokenizer families may produce different lengths.
+- Word counts are whitespace-based.
+- Training lengths determine the recommendation.
+- No model performance was measured.
+- No test requirements were analyzed.

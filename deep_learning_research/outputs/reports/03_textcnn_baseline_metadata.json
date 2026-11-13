@@ -1,0 +1,32 @@
+{
+  "experiment": "DL-03",
+  "protocol": "D2-v1.1",
+  "timestamp_utc": "2026-11-13T10:14:59.559141+00:00",
+  "seed": 42,
+  "manifest_sha256": "5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4",
+  "device": "cuda",
+  "train_count": 3378,
+  "validation_count": 728,
+  "test_accessed": false,
+  "vocab_size": 3071,
+  "max_length": 64,
+  "min_frequency": 2,
+  "embedding_dim": 128,
+  "filters_per_kernel": 64,
+  "kernel_sizes": [
+    3,
+    4,
+    5
+  ],
+  "dropout": 0.5,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "max_epochs": 15,
+  "patience": 4,
+  "early_stopping_metric": "validation_nfr_f1",
+  "model_configs": {
+    "C01_TextCNN": false,
+    "C02_BalancedTextCNN": true
+  },
+  "model_selection": "PENDING"
+}

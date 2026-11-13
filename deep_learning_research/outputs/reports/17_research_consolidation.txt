@@ -1,0 +1,115 @@
+DEEP LEARNING RESEARCH CONSOLIDATION
+============================================================================
+
+RESEARCH CONTEXT
+Task: Binary FR/NFR requirements classification
+Dataset protocol: D2-v1.1
+Training requirements: 3378
+Validation requirements: 728
+Sealed test requirements: 727
+
+All transformer results below use validation data.
+No test-set results are included.
+
+TRANSFORMER MULTI-SEED RESULTS
+Architectures: DistilBERT, BERT-base, RoBERTa-base
+Seeds: 42, 17, 29
+Runs: 9
+
+architecture  seed                  model  best_epoch  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  fp  fn  training_seconds
+  distilbert    42         D01_DistilBERT           3    0.9052             0.8995    0.8940         0.8373      0.8828  0.8595  41  28             58.11
+  distilbert    17  D01_DistilBERT_seed17           4    0.9121             0.8971    0.8997         0.8755      0.8536  0.8644  29  35             58.81
+  distilbert    29  D01_DistilBERT_seed29           3    0.9093             0.9058    0.8989         0.8392      0.8954  0.8664  41  25             57.88
+        bert    42           D02_BERTBase           2    0.9025             0.9007    0.8918         0.8231      0.8954  0.8577  46  25            209.69
+        bert    17    D02_BERTBase_seed17           4    0.8984             0.8933    0.8866         0.8235      0.8787  0.8502  45  29            201.41
+        bert    29    D02_BERTBase_seed29           4    0.9148             0.9013    0.9030         0.8766      0.8619  0.8692  29  33            212.35
+     roberta    42        D03_RoBERTaBase           3    0.9066             0.8866    0.8924         0.8800      0.8285  0.8534  27  41            218.70
+     roberta    17 D03_RoBERTaBase_seed17           4    0.9038             0.8889    0.8905         0.8596      0.8452  0.8523  33  37            220.73
+     roberta    29 D03_RoBERTaBase_seed29           4    0.9107             0.8940    0.8978         0.8783      0.8452  0.8614  28  37            223.24
+
+MULTI-SEED AND PREDICTION STABILITY
+architecture  seed_count  nfr_f1_mean  nfr_f1_std  nfr_f1_min  nfr_f1_max  nfr_recall_mean  nfr_recall_std  nfr_recall_min  nfr_recall_max  nfr_precision_mean  nfr_precision_std  nfr_precision_min  nfr_precision_max  macro_f1_mean  macro_f1_std  macro_f1_min  macro_f1_max  balanced_accuracy_mean  balanced_accuracy_std  balanced_accuracy_min  balanced_accuracy_max  accuracy_mean  accuracy_std  accuracy_min  accuracy_max  unanimous_predictions  changing_predictions  always_correct  always_wrong  majority_vote_nfr_f1_descriptive
+  distilbert           3       0.8634      0.0036      0.8595      0.8664           0.8773          0.0215          0.8536          0.8954              0.8507             0.0215             0.8373             0.8755         0.8975        0.0031        0.8940        0.8997                  0.9008                 0.0045                 0.8971                 0.9058         0.9089        0.0035        0.9052        0.9121                    678                    50             634            44                            0.8742
+        bert           3       0.8590      0.0096      0.8502      0.8692           0.8787          0.0167          0.8619          0.8954              0.8411             0.0308             0.8231             0.8766         0.8938        0.0084        0.8866        0.9030                  0.8984                 0.0044                 0.8933                 0.9013         0.9052        0.0086        0.8984        0.9148                    673                    55             628            45                            0.8730
+     roberta           3       0.8557      0.0050      0.8523      0.8614           0.8396          0.0097          0.8285          0.8452              0.8726             0.0113             0.8596             0.8800         0.8936        0.0038        0.8905        0.8978                  0.8898                 0.0038                 0.8866                 0.8940         0.9071        0.0035        0.9038        0.9107                    675                    53             633            42                            0.8590
+
+NEURAL BASELINES: PREVIOUSLY RECORDED RESULTS
+Provenance: Earlier experimental console outputs.
+These figures are not independently revalidated
+against the original metrics CSVs by Script 17.
+
+C01 TextCNN standard:
+  Validation NFR F1 = 0.8058
+  Macro F1 = 0.8553
+
+C02 TextCNN weighted:
+  Validation NFR F1 = 0.8000
+  Macro F1 = 0.8485
+
+L01 BiLSTM standard:
+  Validation NFR F1 = 0.7889
+  Macro F1 = 0.8443
+
+L02 BiLSTM weighted:
+  Validation NFR F1 = 0.8016
+  Macro F1 = 0.8499
+
+PERSISTENT ERRORS
+All nine transformer runs wrong: 29
+Persistently wrong in two or more architectures: 43
+Requirements with seed-dependent predictions: 104
+These counts are from Script 11 validation analysis.
+
+SCRIPT 11 ERROR CATEGORY SUMMARY
+true_label                        error_category  requirements
+        FR                                 Other           414
+        FR     Persistent error in all nine runs            13
+        FR  Persistent error in one architecture             7
+        FR Persistent error in two architectures            10
+        FR             Seed-dependent prediction            45
+       NFR                                 Other           177
+       NFR     Persistent error in all nine runs            16
+       NFR  Persistent error in one architecture             9
+       NFR Persistent error in two architectures             4
+       NFR             Seed-dependent prediction            33
+
+AI-ASSISTED ANNOTATION COMPARISON
+Selected difficult requirements: 43
+Agreement with original labels: 11
+Disagreement with original labels: 25
+Uncertain AI judgments: 7
+Disagreement audit cases: 32
+Disagreements with issue category NONE: 13
+
+Important: These are AI-assisted classifications.
+They are not independent expert ground truth.
+No original annotations have been corrected.
+
+PROVISIONAL MODELING INTERPRETATION
+DistilBERT had the highest observed mean
+validation NFR F1 across three seeds.
+The margin over BERT-base was small.
+Three seeds do not establish statistical superiority.
+A single validation partition was reused extensively.
+
+FINAL MODEL SELECTION
+Status: PENDING
+Final seed/checkpoint rule: NOT FROZEN
+Frozen test evaluation: NOT PERFORMED
+
+LIMITATIONS
+- Same validation set reused for many decisions.
+- Only three random seeds per transformer.
+- Dataset provenance remains a research concern.
+- Project-level independence not established.
+- Human annotation adjudication not completed.
+- AI disagreement does not prove dataset errors.
+- Majority-vote metrics are exploratory.
+- Full baseline source reconciliation remains open.
+
+NEXT RESEARCH STEPS
+1. Establish a final model-selection protocol.
+2. Record selected model and checkpoint SHA256.
+3. Freeze thresholds and preprocessing rules.
+4. Conduct one final sealed-test evaluation.
+5. Report generalization limits accurately.

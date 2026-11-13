@@ -1,0 +1,27 @@
+SCRIPT 13: BLIND MANUAL REVIEW PREPARATION
+======================================================================
+
+Requirements: 43
+Original labels hidden in review worksheet: YES
+Model predictions hidden in review worksheet: YES
+Review order randomized: YES
+Shuffle seed: 42
+Original annotations modified: NO
+Model training: NO
+Test accessed: NO
+
+REVIEW INSTRUCTIONS
+1. Read the requirement without opening the key.
+2. Assign FR, NFR, or UNCERTAIN.
+3. Record confidence: HIGH, MEDIUM, or LOW.
+4. Explain the classification using a defined taxonomy.
+5. Record ambiguity or mixed intent where applicable.
+6. Complete the worksheet before checking the key.
+7. Preserve disagreements for later adjudication.
+
+LIMITATIONS
+- Cases were selected using validation errors.
+- Previously exposed cases are not fully blind.
+- Independent reviewers are preferable.
+- Review does not establish external generalization.
+- The dataset remains frozen.

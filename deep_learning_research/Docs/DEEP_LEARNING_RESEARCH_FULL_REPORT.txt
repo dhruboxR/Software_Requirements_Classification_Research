@@ -1,0 +1,953 @@
+DEEP LEARNING RESEARCH: COMPLETE EXPERIMENTAL REPORT (SCRIPTS 00–18)
+Binary Classification of Functional and Non-Functional Software Requirements
+D2 v1.1 Frozen Dataset | Research archive through final-model selection freeze
+Prepared: 14 November 2026
+Report status: PRE-TEST RESEARCH CONSOLIDATION
+
+================================================================================
+EXECUTIVE SUMMARY
+================================================================================
+
+This report documents the completed deep learning research stage of a software
+Requirements Engineering thesis. The research problem is binary classification of
+natural-language software requirements into Functional Requirements (FR) and
+Non-Functional Requirements (NFR). A frozen, similarity-group-separated dataset
+(D2 v1.1) contains 4,833 requirements, divided into 3,378 training records,
+728 validation records and 727 sealed test records. All quantitative performance
+results described in this report refer to the validation partition. The test
+partition was not accessed in deep_learning_research Scripts 00–18.
+
+Four neural baseline configurations (two TextCNN, two BiLSTM) and nine
+fine-tuned transformer runs (DistilBERT, BERT-base and RoBERTa-base, each under
+seeds 42, 17 and 29) were completed. DistilBERT obtained the highest observed
+three-seed mean NFR F1, 0.8634 (sample standard deviation 0.0036), and the
+highest mean macro-F1, 0.8975. The margin over BERT-base was small and should
+not be treated as proof of statistical superiority. DistilBERT's original
+seed-42 run attained NFR F1 = 0.8595 on 728 validation requirements, with
+41 false positives and 28 false negatives.
+
+Multi-seed prediction analysis showed that DistilBERT made identical predictions
+on 678 of 728 validation requirements across all three seeds (93.13%). The
+models shared 29 requirements that all nine transformer runs misclassified
+relative to original labels. Forty-three requirements were prioritized for
+qualitative review. An AI-assisted assessment agreed with original labels on
+11 cases, disagreed on 25, and marked 7 as uncertain. Because the review cases
+were selected precisely for model errors, and because the review was conducted
+by an AI assistant rather than independent human annotators, these observations
+cannot establish a prevalence of annotation mistakes in the dataset.
+
+The selected final model is the existing DistilBERT seed-42 checkpoint, with
+maximum input length 96, FR class ID 0, NFR class ID 1, and a fixed NFR
+probability threshold of 0.5. Script 18 hashed and froze the original
+checkpoint and its selection metadata. A separate final_model workspace has
+since verified a copied checkpoint and tokenizer, but final test evaluation
+has NOT been run at the time of this report.
+
+================================================================================
+1. RESEARCH AIM, SCOPE AND EVALUATION DISCIPLINE
+================================================================================
+
+Research aim:
+  Evaluate deep learning architectures for classifying software requirement
+  statements as FR or NFR, with particular attention to minority-class NFR
+  performance, variability across random seeds, and persistent errors.
+
+Primary development-stage metric:
+  NFR F1 score, treating NFR as the positive class.
+
+Supplementary metrics:
+  NFR precision; NFR recall; macro-F1; balanced accuracy; accuracy; and,
+  where computed, average precision (AP) and ROC AUC.
+
+Interpretation of confusion matrix entries:
+  TN = original FR predicted FR.
+  FP = original FR predicted NFR.
+  FN = original NFR predicted FR.
+  TP = original NFR predicted NFR.
+
+Data boundaries:
+  Model development and best-epoch choices used the training and validation
+  partitions. The test partition was held back for an eventual one-time final
+  assessment. Extensive validation reuse is a real limitation: a sealed test
+  does not remove selection optimism introduced on validation data.
+
+Specific research boundary:
+  This report covers the 'deep_learning_research' project through Script 18,
+  and briefly notes the separate final_model Script 00 integrity verification.
+  Prior classical ML development is context, not reanalyzed from source files.
+
+================================================================================
+2. PROJECT DIRECTORIES, ENVIRONMENT AND PROVENANCE
+================================================================================
+
+Thesis root:
+  /home/dhrubo_roy/THESIS_DATASET_2
+
+Deep learning research root:
+  /home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research
+
+Project organization:
+  deep_learning_research/
+    scripts/                  numbered experimental/analysis scripts 00–18
+    checkpoints/              neural/transformer checkpoints
+    configs/                  configuration artifacts
+    models/                   model-related project resources
+    logs/                     training logs, including seed-specific runs
+    outputs/
+      figures/                figures
+      predictions/            validation prediction files
+      reports/                research reports and metadata
+      tables/                 experiment metrics and analysis tables
+    README.md
+
+Separate final workspace (not a subfolder of deep_learning_research):
+  /home/dhrubo_roy/THESIS_DATASET_2/final_model
+
+Virtual environment:
+  /home/dhrubo_roy/Unofficial Thesis/.venv-transformers
+  Activation:
+    source ~/Unofficial\ Thesis/.venv-transformers/bin/activate
+  The existing virtual environment was reused; no new environment was made.
+
+Environment recorded in Script 00:
+  OS Linux; Python 3.14.4; 12 logical CPU threads;
+  host RAM approximately 6.45 GiB; NVIDIA RTX 4050 Laptop GPU;
+  torch 2.14.1+cu130; transformers 5.22.1;
+  datasets 5.1.0; accelerate 1.15.0; tokenizers 0.23.3;
+  safetensors 0.8.0; NumPy 2.5.4; pandas 3.1.1;
+  scikit-learn 1.9.1; scipy 1.18.1; matplotlib 3.11.2.
+  These are environment observations, not claims about minimum versions.
+
+Source verification limits:
+  The present report is based on the completed terminal outputs and recorded
+  experiment configuration from the research conversation. It has not opened
+  the files on the user's Ubuntu machine. Some individual result CSV schemas,
+  checkpoint hashes, and epoch histories are therefore summarized from the
+  previously reported outputs rather than re-inspected programmatically.
+
+================================================================================
+3. FROZEN D2 V1.1 DATASET
+================================================================================
+
+Source family:
+  A unified multi-source software requirements dataset was explored before
+  the deep-learning stage. Its complete raw data comprises 8,854 records from
+  five source identifiers (D1 through D5). The modeling experiments discussed
+  here use the separately validated D2 v1.1 binary FR/NFR subset, not all
+  8,854 raw records. Dataset provenance, project independence and possible
+  annotation conflicts remained research concerns during selection.
+
+Frozen file:
+  dataset_exploration/outputs/validated/
+    54_d2_v11_frozen_split_manifest.csv
+
+Frozen metadata:
+  dataset_exploration/outputs/validated/
+    54_d2_v11_split_metadata.json
+
+Readiness audit:
+  dataset_exploration/outputs/reports/
+    56_d2_v11_readiness.json
+
+D2 v1.1 counts:
+  Total:       4,833 requirements, 4,625 similarity groups
+  Training:    3,378 requirements (FR 2,224; NFR 1,154), 3,237 groups
+  Validation:    728 requirements (FR   489; NFR   239),   694 groups
+  Sealed test:   727 requirements (FR   488; NFR   239),   694 groups
+  Total FR:   3,201
+  Total NFR:  1,632
+
+Primary manifest columns:
+  Requirement ID
+  Requirement Text (Original Requirement)
+  key
+  label
+  split
+  similarity_group
+
+Pre-modeling integrity requirements:
+  - Manifest SHA256 must agree with metadata.
+  - Unique requirement IDs and keys.
+  - Labels constrained to FR/NFR.
+  - No similarity groups shared across train, validation and test.
+  - No similarity groups with mixed original labels.
+  - Frozen test must not influence training, model choice, threshold, or epoch.
+
+Readiness constraints:
+  Source-level and project-level generalization are not equivalent to the
+  similarity-group split. Project-level independence was not established.
+  Original-label quality questions and dataset source-mapping ambiguities were
+  not fully adjudicated. These must appear in thesis limitations.
+
+================================================================================
+4. SCRIPTS 00–02: PREPARATION AND LENGTH ANALYSIS
+================================================================================
+
+SCRIPT 00 — Environment readiness
+  Verified Python packages, accelerator access and available hardware.
+  GPU CUDA worked on the RTX 4050 Laptop GPU. The environment was sufficient
+  for compact neural baselines and 96-token transformer fine-tuning.
+
+SCRIPT 01 — Frozen dataset integrity
+  Verified manifest SHA256 against frozen metadata, row and class counts,
+  unique identifiers, and similarity-group partition separation. Validated
+  the existence and counts of the sealed test partition without reading its
+  requirement text for model development.
+
+SCRIPT 02 — Length and tokenization analysis
+  DistilBERT tokenizer: distilbert/distilbert-base-uncased.
+  Training word count: mean 14.71, maximum 58.
+  Training character count: mean approximately 93.24, maximum 322.
+  Training subword token length including specials: mean 19.695;
+    95th percentile 32; 99th percentile 41; maximum 65.
+  Validation token length: mean 20; 95th percentile 34;
+    99th percentile about 44.73; maximum 54.
+  A maximum length of 64 would cover 99.97% of training sequences;
+  a length of 96 covers all observed training and validation token lengths.
+  Fixed transformer maximum length for subsequent experiments: 96.
+  Word-sequence maximum length used for CNN/LSTM: 64.
+
+================================================================================
+5. SCRIPT 03: TEXTCNN BASELINES
+================================================================================
+
+Design:
+  Training-only lowercase whitespace-based vocabulary, minimum frequency 2.
+  Final vocabulary size: 3,071.
+  Embedding dimension: 128.
+  Convolution filter widths: 3, 4 and 5; 64 channels per width.
+  Dropout: 0.5. Batch size: 32. Seed: 42.
+  Best checkpoint chosen by validation NFR F1, early-stop patience 4.
+
+Results (validation, 728 requirements):
+
+  C01 — Standard TextCNN
+    Best epoch: 9
+    Accuracy: 0.8723
+    Balanced accuracy: 0.8557
+    Macro-F1: 0.8553
+    NFR precision: 0.8042
+    NFR recall: 0.8075
+    NFR F1: 0.8058
+    FP: 47; FN: 46
+    Training time: approximately 4.90 seconds
+    Checkpoint: checkpoints/03_C01_TextCNN_best.pt
+
+  C02 — Class-weighted TextCNN
+    Best epoch: 3
+    Accuracy: 0.8640
+    Balanced accuracy: 0.8549
+    Macro-F1: 0.8485
+    NFR precision: 0.7734
+    NFR recall: 0.8285
+    NFR F1: 0.8000
+    FP: 58; FN: 41
+    Training time: approximately 2.01 seconds
+    Checkpoint: checkpoints/03_C02_BalancedTextCNN_best.pt
+
+Interpretation:
+  The weighted loss increased NFR recall in this run but reduced precision
+  enough to lower NFR F1. These comparisons involve a single seed and do not
+  establish a general advantage for either loss formulation.
+
+================================================================================
+6. SCRIPT 04: BILSTM BASELINES
+================================================================================
+
+Design:
+  Same training-only vocabulary and sequence length discipline.
+  Embedding dimension: 128; bidirectional LSTM, 128 hidden units per direction.
+  One recurrent layer, dropout 0.5, batch size 32, seed 42.
+  Maximum 15 epochs; early-stop patience 4; best validation NFR F1.
+  Packed sequences used to avoid treating padding tokens as content.
+
+Results:
+
+  L01 — Standard BiLSTM
+    Best epoch: 4
+    Accuracy: 0.8640
+    Balanced accuracy: 0.8410
+    Macro-F1: 0.8443
+    NFR precision: 0.8043
+    NFR recall: 0.7741
+    NFR F1: 0.7889
+    FP: 45; FN: 54
+    Training time: approximately 4.00 seconds
+    Checkpoint: checkpoints/04_L01_BiLSTM_best.pt
+
+  L02 — Class-weighted BiLSTM
+    Best epoch: 4
+    Accuracy: 0.8654
+    Balanced accuracy: 0.8559
+    Macro-F1: 0.8499
+    NFR precision: 0.7765
+    NFR recall: 0.8285
+    NFR F1: 0.8016
+    FP: 57; FN: 41
+    Training time: approximately 4.34 seconds
+    Checkpoint: checkpoints/04_L02_BalancedBiLSTM_best.pt
+
+Interpretation:
+  Class weighting improved NFR recall and F1 versus the unweighted BiLSTM
+  within the tested seed and settings. Both CNN and BiLSTM baselines scored
+  below all three transformer families on validation NFR F1.
+
+================================================================================
+7. SCRIPTS 05–07: SINGLE-SEED TRANSFORMER BASELINES
+================================================================================
+
+Shared design:
+  Full fine-tuning of pretrained sequence-classification encoders.
+  Maximum input length: 96. Random seed: 42.
+  Learning rate: 2e-5. Weight decay: 0.01. Mixed-precision FP16.
+  Maximum four epochs, best checkpoint chosen by validation NFR F1.
+  No test-set-driven training decisions.
+
+SCRIPT 05 — DistilBERT
+  Checkpoint base: distilbert/distilbert-base-uncased
+  Approximate parameters in finalized checkpoint: 66,955,010.
+  Physical batch size 8; accumulation 2; effective target batch 16.
+  Early-stop patience 2.
+  Best epoch: 3. Training time: about 58.11 seconds.
+  Accuracy: 0.9052; balanced accuracy: 0.8995; macro-F1: 0.8940.
+  NFR precision: 0.8373; recall: 0.8828; F1: 0.8595.
+  AP: 0.9270; ROC AUC: 0.9613.
+  Confusion matrix [true FR, true NFR] x [pred FR, pred NFR]:
+    [[448, 41],
+     [ 28, 211]]
+  NFR F1 by epoch: 0.8463, 0.8589, 0.8595, 0.8554.
+  Selected original checkpoint: checkpoints/05_distilbert_best
+  Prediction file: outputs/predictions/05_distilbert_validation_predictions.csv
+
+SCRIPT 06 — BERT-base
+  Checkpoint base: google-bert/bert-base-uncased
+  Approximate parameters: 109.5 million.
+  Physical batch size 4; accumulation 4; effective target batch 16.
+  Gradient checkpointing enabled; FP16; early-stop patience 2.
+  Best epoch: 2. Training time: about 209.69 seconds.
+  Accuracy: 0.9025; balanced accuracy: 0.9007; macro-F1: 0.8918.
+  NFR precision: 0.8231; recall: 0.8954; F1: 0.8577.
+  AP: 0.9174; ROC AUC: 0.9577.
+  Confusion matrix:
+    [[443, 46],
+     [ 25, 214]]
+  NFR F1 by epoch: 0.8465, 0.8577, 0.8516, 0.8350.
+  Best checkpoint: checkpoints/06_bert_base_best
+
+SCRIPT 07 — RoBERTa-base
+  Checkpoint base: FacebookAI/roberta-base
+  Approximate parameters: 124.65 million.
+  Physical batch size 4; accumulation 4; effective target batch 16.
+  Gradient checkpointing enabled; FP16; early-stop patience 2.
+  Best epoch: 3. Training time: about 218.7 seconds.
+  Accuracy: 0.9066; balanced accuracy: 0.8866; macro-F1: 0.8924.
+  NFR precision: 0.8800; recall: 0.8285; F1: 0.8534.
+  AP: 0.9136; ROC AUC: 0.9577.
+  Confusion matrix:
+    [[462, 27],
+     [ 41, 198]]
+  NFR F1 by epoch: 0.8502, 0.8455, 0.8534, 0.8452.
+  Best checkpoint: checkpoints/07_roberta_base_best
+  Note: console final lines in Script 07 originally retained a BERT/script-06
+  label through code reuse; the reported RoBERTa model results were unaffected.
+
+Seed-42 contrast:
+  BERT-base gave the highest NFR recall of these three runs (0.8954).
+  RoBERTa-base gave the highest NFR precision (0.8800) but lower recall.
+  DistilBERT delivered the highest NFR F1 (0.8595) at lower training cost.
+  Single-run differences are small and require cautious interpretation.
+
+================================================================================
+8. SCRIPT 08: PAIRED TRANSFORMER COMPARISONS
+================================================================================
+
+Inputs:
+  Matched validation predictions from DistilBERT, BERT-base, RoBERTa-base
+  seed-42 runs. Required ID and label alignment was verified.
+
+Method:
+  Exact McNemar tests on discordant correctness outcomes and 2,000
+  similarity-group bootstrap resamples for NFR F1 and recall differences.
+  728 requirements spanning 694 validation similarity groups.
+
+Paired findings (model A minus model B):
+
+  DistilBERT vs BERT-base:
+    Differing predictions: 38.
+    Correct only for DistilBERT: 20; only for BERT: 18.
+    Exact McNemar p = 0.871415.
+    NFR F1 difference: +0.0018, 95% group-bootstrap CI [-0.0242, +0.0258].
+    NFR recall difference: -0.0126, CI [-0.0496, +0.0220].
+
+  DistilBERT vs RoBERTa-base:
+    Differing predictions: 39.
+    Correct only for DistilBERT: 19; only for RoBERTa: 20.
+    Exact McNemar p = 1.0.
+    NFR F1 difference: +0.0060, CI [-0.0193, +0.0319].
+    NFR recall difference: +0.0544, CI [+0.0205, +0.0909].
+
+  BERT-base vs RoBERTa-base:
+    Differing predictions: 45.
+    Correct only for BERT: 21; only for RoBERTa: 24.
+    Exact McNemar p = 0.765992.
+    NFR F1 difference: +0.0043, CI [-0.0223, +0.0329].
+    NFR recall difference: +0.0669, CI [+0.0300, +0.1066].
+
+Interpretation:
+  No NFR F1 advantage was established by these seed-42 paired comparisons.
+  RoBERTa's lower NFR recall relative to the other two was visible in the
+  exploratory intervals, without multiplicity correction. The common
+  validation data and single training seeds limit broader inference.
+
+================================================================================
+9. SCRIPT 09: THREE-SEED TRANSFORMER STABILITY
+================================================================================
+
+Seeds:
+  Original: 42. Additional independent fine-tuning runs: 17 and 29.
+  Architectures: DistilBERT, BERT-base, RoBERTa-base.
+  Nine total runs; six new checkpoints were trained sequentially on the GPU.
+  Existing seed-42 checkpoints and the sealed test split were preserved.
+
+Individual validation results:
+
+  Model       Seed  Best epoch  NFR F1   NFR recall   Macro-F1   FP  FN
+  ----------  ----  ----------  -------  -----------  --------  --  --
+  DistilBERT    42       3       0.8595    0.8828       0.8940   41  28
+  DistilBERT    17       4       0.8644    0.8536       0.8997   29  35
+  DistilBERT    29       3       0.8664    0.8954       0.8989   41  25
+  BERT-base     42       2       0.8577    0.8954       0.8918   46  25
+  BERT-base     17       4       0.8502    0.8787       0.8866   45  29
+  BERT-base     29       4       0.8692    0.8619       0.9030   29  33
+  RoBERTa-base  42       3       0.8534    0.8285       0.8924   27  41
+  RoBERTa-base  17       4       0.8523    0.8452       0.8905   33  37
+  RoBERTa-base  29       4       0.8614    0.8452       0.8978   28  37
+
+Three-seed mean and sample standard deviation:
+
+  Model         NFR F1        NFR recall      Macro-F1       Accuracy
+  ------------- -------------- --------------- -------------- --------------
+  DistilBERT    0.8634 ± .0036 0.8773 ± .0215  0.8975 ± .0031 0.9089 ± .0035
+  BERT-base     0.8590 ± .0096 0.8787 ± .0167  0.8938 ± .0084 0.9052 ± .0086
+  RoBERTa-base  0.8557 ± .0050 0.8396 ± .0097  0.8936 ± .0038 0.9071 ± .0035
+
+Mean NFR precision:
+  DistilBERT: 0.8507; BERT-base: 0.8411; RoBERTa-base: 0.8726.
+
+Mean balanced accuracy:
+  DistilBERT: 0.9008; BERT-base: 0.8984; RoBERTa-base: 0.8898.
+
+Interpretation:
+  DistilBERT led observed three-seed mean NFR F1 and macro-F1, with the
+  smallest observed NFR F1 standard deviation. BERT-base obtained the best
+  single-run NFR F1 (seed 29, 0.8692) but also the most variable NFR F1.
+  Three seeds provide an initial stability check, not precise estimation of
+  training randomness or statistical proof of model ordering.
+
+Files:
+  outputs/tables/09_transformer_seed_results.csv
+  outputs/tables/09_transformer_seed_stability.csv
+  outputs/reports/09_transformer_multiseed_report.txt
+  logs/09_<architecture>_seed<seed>.log
+
+================================================================================
+10. SCRIPT 10: WITHIN-ARCHITECTURE PREDICTION CONSISTENCY
+================================================================================
+
+Validated 9 prediction files against the same 728 validation requirement IDs
+and their original labels. Each model was evaluated across three seeds.
+
+  Metric                               DistilBERT  BERT-base  RoBERTa-base
+  -----------------------------------  ----------  ---------  ------------
+  Unanimous predictions (of 728)            678        673        675
+  Unanimous percentage                    93.1319    92.4451    92.7198
+  Prediction-changing requirements           50         55         53
+  Always correct across its three seeds     634        628        633
+  Always wrong across its three seeds        44         45         42
+  Mean pairwise differing predictions      33.33      36.67      35.33
+  Descriptive majority-vote NFR F1        0.8742     0.8730     0.8590
+
+Matched-seed comparisons varied. For example, DistilBERT minus BERT-base
+NFR F1 difference was +0.0018 at seed 42, +0.0142 at seed 17, and -0.0028
+at seed 29. This supports examining multiple runs rather than presenting the
+single best random seed as representative.
+
+Important qualification:
+  Three-seed majority-vote metrics are exploratory validation calculations.
+  They do not constitute a selected or approved final ensemble. The final
+  freeze explicitly excludes an ensemble.
+
+Files:
+  outputs/tables/10_multiseed_prediction_stability.csv
+  outputs/tables/10_multiseed_requirement_details.csv
+  outputs/tables/10_multiseed_matched_comparisons.csv
+  outputs/reports/10_multiseed_error_stability.txt
+  outputs/reports/10_multiseed_error_stability.json
+
+================================================================================
+11. SCRIPT 11: PERSISTENT ERROR DIAGNOSTICS
+================================================================================
+
+Nine transformer runs were combined to identify requirements that were
+repeatedly misclassified relative to existing labels.
+
+  Wrong in all nine transformer runs:                      29
+  Wrong consistently across at least two architectures:   43
+  Requirements with variation in >=1 architecture:        104
+  Selected union for qualitative review:                 136
+
+All-nine-wrong cases by original class:
+  FR: 13
+  NFR: 16 (16/239 = approximately 6.69% of validation NFR cases).
+
+Mutually exclusive priority categories assigned by Script 11:
+  Original FR:
+    Other: 414
+    All nine runs wrong: 13
+    Persistent error, one architecture: 7
+    Persistent error, two architectures: 10
+    Seed-dependent prediction category: 45
+
+  Original NFR:
+    Other: 177
+    All nine runs wrong: 16
+    Persistent error, one architecture: 9
+    Persistent error, two architectures: 4
+    Seed-dependent prediction category: 33
+
+Caution:
+  The category 'Seed-dependent prediction' above is a priority category.
+  Some cases prioritized as persistent errors can also have seed variation
+  in other model families; hence the broader 104-case variation count.
+
+Files:
+  outputs/tables/11_error_category_summary.csv
+  outputs/tables/11_persistent_error_review.csv
+  outputs/reports/11_persistent_error_report.txt
+  outputs/reports/11_persistent_error_metadata.json
+
+================================================================================
+12. SCRIPTS 12–14: PRIORITY AND BLIND REVIEW PREPARATION
+================================================================================
+
+SCRIPT 12 — Priority error review:
+  P1, all nine wrong: 29 cases (FR 13, NFR 16).
+  P2, two architectures consistently wrong: 14 cases (FR 10, NFR 4).
+  Total priority review: 43 requirements.
+  Output: outputs/tables/12_priority_error_review.csv
+
+Illustrative priority requirements:
+  RQP0481091: Generate logs of bank-account details and changes; labeled NFR.
+  RQP0481137: Monitor processing rate, compare tolerances and report deviations;
+               labeled NFR.
+  RQP0481443: Allow use of a text-based command-line interface; labeled NFR.
+  RQP0481580: Offer alternative ways to navigate to content; labeled NFR.
+  RQP0481751: Encrypt sensitive data to prevent unauthorized access; labeled FR.
+
+These items raise plausible questions about the line between quality goals and
+specific operational behavior. Model disagreement is not evidence sufficient
+to change an original annotation.
+
+SCRIPT 13 — Blind review preparation:
+  Created randomized worksheet of 43 requirement IDs and texts without
+  original labels or model predictions.
+  Created a separate key containing original labels and predictions.
+  Files:
+    outputs/tables/13_blind_requirement_review.csv
+    outputs/tables/13_original_labels_and_predictions.csv
+    outputs/reports/13_blind_review_preparation.txt
+
+SCRIPT 14 — Annotation protocol and progress validator:
+  Defined working FR, NFR and UNCERTAIN labels; HIGH/MEDIUM/LOW confidence;
+  reasoning and issue categories; and restrictions against opening the key
+  before review. At validation time, 0/43 independent annotations were entered.
+  Files:
+    outputs/reports/14_annotation_protocol.txt
+    outputs/reports/14_review_progress.txt
+    outputs/reports/14_review_progress.json
+
+Independent human review remained PENDING.
+
+================================================================================
+13. SCRIPT 15: AI-ASSISTED ANNOTATION COMPARISON
+================================================================================
+
+An AI assistant proposed classifications for the 43 requirement texts using
+working FR/NFR definitions. No model prediction table or original-label key
+was consulted during that 43-item assessment; however, five specific
+requirements and their original labels had already appeared in the preceding
+conversation. The review therefore is not strictly blind, and is not an
+independent human annotation study.
+
+AI proposed labels:
+  FR: 26
+  NFR: 10
+  UNCERTAIN: 7
+  Confidence: HIGH 23, MEDIUM 18, LOW 2.
+
+AI versus original label comparison:
+  Agreements: 11
+  Disagreements: 25
+  Uncertain: 7
+  Decisive judgments: 36 of 43 (coverage 83.72%).
+  Agreement among decisive judgments: 11/36 = 30.56%.
+  Agreement as fraction of all 43: 11/43 = 25.58%.
+
+Original-vs-AI matrix:
+                        AI FR   AI NFR   AI UNCERTAIN   Total
+  Original FR              9       8             6         23
+  Original NFR            17       2             1         20
+  Total                   26      10             7         43
+
+Disagreements by original class:
+  Original FR: 8 disagreements.
+  Original NFR: 17 disagreements.
+
+Seven uncertain cases:
+  RQP0495807  (original FR)  mixed functional/audit requirements
+  RQP0483364  (original FR)  browser/mobile access vs compatibility
+  RQP0483721  (original FR)  vague support for police tasks
+  RQP0483621  (original FR)  functionality/usability in one statement
+  RQP0494136  (original NFR) multiple database access interfaces
+  RQP0483389  (original FR)  secure passwords: issuance vs strength
+  RQP0483126  (original FR)  graphics rendering vs smooth navigation
+
+Issue-category analysis noted 13 disagreements assigned the AI review category
+'NONE'. This means no specific issue code was assigned, not that those source
+labels have been disproven or that the cases are objectively unambiguous.
+
+Selection caveat:
+  The 43 cases were CHOSEN because transformers struggled with them. Thus
+  25/43 disagreement is not an estimate of label error prevalence, and does
+  not generalize to the whole validation set or full dataset. Some AI
+  judgments may simply reflect a different labeling taxonomy.
+
+Files:
+  outputs/tables/15_annotation_agreement_summary.csv
+  outputs/tables/15_annotation_comparison_matrix.csv
+  outputs/tables/15_annotation_comparison_details.csv
+  outputs/tables/15_annotation_disagreements.csv
+  outputs/tables/15_uncertain_requirements.csv
+  outputs/tables/15_annotation_issue_summary.csv
+  outputs/reports/15_annotation_comparison_report.txt
+  outputs/reports/15_annotation_comparison_metadata.json
+
+================================================================================
+14. SCRIPT 16: ANNOTATION DISAGREEMENT AUDIT
+================================================================================
+
+Read-only audit of the 25 AI/source disagreements and seven UNCERTAIN judgments.
+No source labels were changed, and human annotation remains pending.
+
+Audit counts:
+  Total reviewed examples: 43
+  Agreement: 11
+  Disagreement: 25
+  Uncertain: 7
+  Selected for adjudication: 32
+  Disagreements with AI issue code NONE: 13
+  Low-confidence judgments: 2
+  Previously exposed cases in audit: 3
+
+Audit priorities:
+  P1_LOW_CONFIDENCE:               2
+  P2_UNCERTAIN:                    5
+  P3_UNEXPLAINED_DISAGREEMENT:    13
+  P4_OTHER_DISAGREEMENT:          12
+
+Issue-category counts among the 32:
+  AMBIGUOUS_WORDING:       3
+  IMPLICIT_QUALITY:        1
+  INTERFACE_AMBIGUITY:     4
+  MIXED_FR_NFR:            5
+  NONE:                  13
+  OTHER:                  2
+  PERFORMANCE_AMBIGUITY:   1
+  SECURITY_AMBIGUITY:      3
+
+The auditor created a further label-hidden worksheet for independent review
+and a separately stored adjudication reference. Since no independent human
+review was completed, cases remain unresolved rather than corrected.
+
+Files:
+  outputs/tables/16_disagreement_audit.csv
+  outputs/tables/16_independent_review_worksheet.csv
+  outputs/tables/16_adjudication_reference.csv
+  outputs/tables/16_audit_summary.csv
+  outputs/reports/16_disagreement_audit_report.txt
+  outputs/reports/16_disagreement_audit_metadata.json
+
+================================================================================
+15. SCRIPT 17: RESEARCH CONSOLIDATION
+================================================================================
+
+Verified:
+  - Nine transformer seed rows, three architectures, three seeds each.
+  - Multi-seed mean/std summaries within rounding tolerance.
+  - Corresponding 728-row validation prediction-stability summaries.
+  - Annotation comparison: 11 agree, 25 disagree, 7 uncertain.
+  - Annotation audit: 32 selected, 13 NONE-category disagreements.
+  - SHA256 inventory of central summary source files.
+
+Previous TextCNN and BiLSTM outputs were inventoried; historical baseline
+metrics were reproduced in the report but not all reconciled with source
+CSV schemas during Script 17.
+
+Script 17 reported:
+  Leading architecture by mean validation NFR F1: DistilBERT.
+  Final model selection: pending at end of Script 17.
+  Additional training: none.
+  Test data: not accessed.
+
+Files:
+  outputs/tables/17_transformer_comparison.csv
+  outputs/tables/17_research_source_inventory.csv
+  outputs/reports/17_research_consolidation.txt
+  outputs/reports/17_research_consolidation.json
+
+================================================================================
+16. SCRIPT 18: FINAL SELECTION AND CHECKPOINT FREEZE
+================================================================================
+
+Research selection rationale:
+  Architecture selected from existing evidence using the highest observed
+  three-seed mean validation NFR F1: DistilBERT (0.8634).
+  For a single deployment checkpoint, retain the ORIGINAL seed-42 run, rather
+  than selecting the seed with the greatest validation score. This rule was
+  documented before any final-test use. It does not undo earlier extensive
+  validation reuse or establish statistical superiority.
+
+Frozen configuration:
+  Architecture: DistilBERT
+  Original training seed: 42
+  Original checkpoint:
+    deep_learning_research/checkpoints/05_distilbert_best
+  Tokenizer identifier: distilbert/distilbert-base-uncased
+  Maximum input length: 96
+  Labels: FR = 0; NFR = 1
+  Positive class: NFR
+  Positive-class probability threshold: 0.5
+  Ensemble: NO
+  Threshold optimization after freezing: NO
+  Additional training after freezing: NO
+
+Script 18 verification results:
+  Frozen checkpoint model_type: distilbert.
+  Files hashed in original checkpoint: 4.
+  Validation prediction count: 728.
+  Seed-42 validation NFR F1 recomputed: 0.8595.
+  Three-seed mean validation NFR F1: 0.8634.
+  Stored validation predictions matched threshold 0.5: PASS.
+  Research status: FINAL MODEL SELECTION FROZEN.
+  Sealed test evaluation: PENDING.
+
+Frozen artifacts:
+  outputs/reports/18_final_model_freeze.json
+  outputs/reports/18_final_model_selection_report.txt
+
+Note:
+  The exact per-file SHA256 values are recorded in the JSON freeze artifact
+  on the user's machine. They are intentionally not fabricated in this report.
+
+================================================================================
+17. SEPARATE FINAL-MODEL WORKSPACE: HANDOFF STATE
+================================================================================
+
+A separate directory was then prepared:
+  /home/dhrubo_roy/THESIS_DATASET_2/final_model
+
+Recommended layout:
+  final_model/
+    model/distilbert_seed42/   copy of frozen checkpoint
+    model/tokenizer/           separately packaged tokenizer
+    configs/                   copy of selection freeze manifest
+    scripts/                   final verification/evaluation scripts
+    outputs/tables/
+    outputs/figures/
+    outputs/predictions/
+    outputs/reports/
+    logs/
+
+final_model Script 00 — Integrity verification PASSED:
+  Copied checkpoint file count: 4.
+  All sizes and SHA256 hashes: PASS versus frozen inventory.
+  Model type: distilbert; output classes: 2.
+  Parameter count: 66,955,010.
+  Tokenizer source: COPIED_CHECKPOINT.
+  Tokenizer packaged as 2 files; local tokenizer loading: PASS.
+  Maximum length 96, FR=0, NFR=1, threshold=0.5.
+  Model loading and eval mode: PASS.
+  Test partition: STILL SEALED.
+
+Final-model outputs created:
+  final_model/outputs/reports/00_model_integrity.json
+  final_model/outputs/reports/00_model_integrity_report.txt
+
+The user requested this complete report BEFORE running final_model Script 01.
+Accordingly, this document contains no final held-out test metrics and does
+not claim that a final test evaluation has occurred.
+
+================================================================================
+18. COMPARATIVE INTERPRETATION
+================================================================================
+
+Validation NFR F1 (specified baseline runs):
+  BiLSTM standard (seed 42):         0.7889
+  TextCNN weighted (seed 42):       0.8000
+  BiLSTM weighted (seed 42):        0.8016
+  TextCNN standard (seed 42):       0.8058
+  RoBERTa-base (seed 42):           0.8534
+  BERT-base (seed 42):              0.8577
+  DistilBERT (seed 42):             0.8595
+
+Three-seed mean validation NFR F1 for transformer architectures:
+  DistilBERT:                      0.8634
+  BERT-base:                       0.8590
+  RoBERTa-base:                    0.8557
+
+Historical classical ML context (separate research_modeling project):
+  The balanced linear SVM baseline had previously attained validation NFR
+  F1 approximately 0.8421 and macro-F1 approximately 0.8805. This report
+  does not independently revalidate the classical ML results or claim a
+  formal paired cross-family significance test.
+
+Overall interpretation:
+  Under the evaluated validation protocol, the pretrained transformers
+  exceeded the tested randomly initialized neural baselines in NFR F1.
+  DistilBERT offered a favorable observed performance/cost profile and a
+  relatively stable three-seed NFR F1. However, small margins and limited
+  seeds do not justify categorical claims of superiority or out-of-domain
+  generalization.
+
+================================================================================
+19. LIMITATIONS, THREATS TO VALIDITY AND REPORTING RULES
+================================================================================
+
+A. Annotation uncertainty
+   Labels in the frozen dataset were retained even when the AI-assisted
+   review questioned them. Model errors are errors against those original
+   labels; an alternative AI label is not established ground truth.
+
+B. AI-assisted review dependence
+   The AI reviewer may share biases with transformer classifiers and is not
+   an independent human annotator. Five original labels were previously
+   exposed. Claims of fully blind human adjudication would be incorrect.
+
+C. Selection bias in error review
+   The 43 reviewed cases were not randomly sampled. They were chosen for
+   persistent model errors. Do not extrapolate 25 disagreements to the entire
+   dataset or estimate label-error prevalence from this sample.
+
+D. Repeated validation use
+   Validation data influenced checkpoint selection, model comparisons,
+   architectural choice and review selection over many experiments. This
+   may create optimistic development estimates despite a sealed test split.
+
+E. Limited random-seed coverage
+   Three seeds describe initial sensitivity to training stochasticity, not
+   a comprehensive variability distribution. Standard deviations are
+   descriptive over three runs, not independent test-set uncertainties.
+
+F. Generalization unit
+   The dataset was separated by similarity groups, but project-level and
+   source-level independence were not proven. Avoid claiming robust
+   generalization to entirely unseen projects or organizations.
+
+G. Limited model families/configurations
+   Evaluated architectures and hyperparameter choices are finite. No
+   general claim about all CNNs, LSTMs or transformers follows.
+
+H. Threshold and ensemble handling
+   Threshold fixed at 0.5 in final selection. Validation majority-vote
+   performance was exploratory; an ensemble is not the final selected method.
+
+I. Model and file reproducibility
+   Script 18 records the actual checkpoint hashes. Refer to its original
+   JSON rather than restating an unverified hash. The external checkpoint
+   copy was checked in final_model Script 00.
+
+J. Test-set boundary
+   At the time of this report, test predictions and scores have not been
+   produced. No final accuracy, NFR F1, confusion matrix or ROC AUC can be
+   reported for held-out test requirements yet.
+
+K. Statistical interpretation
+   The seed-42 paired NFR F1 confidence intervals crossed zero; one should
+   not declare established comparative F1 superiority. Exploratory recall
+   differences and repeated analyses require caution about multiplicity.
+
+================================================================================
+20. REPRODUCIBILITY AND ARTIFACT INDEX
+================================================================================
+
+Run research scripts (if required for audit only, without opening test):
+  cd ~/THESIS_DATASET_2/deep_learning_research
+  source ~/Unofficial\ Thesis/.venv-transformers/bin/activate
+  python scripts/17_research_consolidation.py
+
+The Script 18 freeze is intentionally immutable. Do not rerun it merely to
+replace or overwrite an existing frozen record. Inspect existing artifacts.
+
+Key experiment output families:
+  03_*       TextCNN baselines
+  04_*       BiLSTM baselines
+  05_*       DistilBERT seed 42
+  06_*       BERT-base seed 42
+  07_*       RoBERTa-base seed 42
+  08_*       Single-seed paired transformer comparison
+  09_*       Three-seed transformer runs and stability
+  10_*       Prediction consistency
+  11_*       Persistent error analysis
+  12_*       Review priority list
+  13_*       Blind worksheet and original-label key
+  14_*       Annotation protocol and validator
+  15_*       AI-versus-original annotation comparison
+  16_*       Disagreement audit
+  17_*       Consolidated validation research report
+  18_*       Frozen final model selection and checkpoint inventory
+
+Most important research metadata:
+  deep_learning_research/outputs/reports/17_research_consolidation.json
+  deep_learning_research/outputs/reports/18_final_model_freeze.json
+
+Most important user-readable report files:
+  deep_learning_research/outputs/reports/17_research_consolidation.txt
+  deep_learning_research/outputs/reports/18_final_model_selection_report.txt
+  [this file] deep_learning_research/outputs/reports/
+    DEEP_LEARNING_RESEARCH_FULL_REPORT.txt
+
+================================================================================
+21. NEXT ACTIONS AND END-OF-PHASE STATUS
+================================================================================
+
+1. Place this full TXT report in deep_learning_research/outputs/reports/.
+2. Preserve original checkpoints, training logs, frozen manifests and hashes.
+3. Keep deep_learning_research separate from final_model; do not overwrite
+   the original research artifacts.
+4. Use the verified, frozen DistilBERT seed-42 checkpoint in final_model/.
+5. Perform a single planned held-out evaluation on 727 test requirements
+   using the already frozen preprocessing, mapping and threshold.
+6. Store all final test predictions, metrics, figures and reports under
+   final_model/outputs/, not under the experiment folder.
+7. Do not retune or choose another checkpoint after seeing final test scores.
+8. In the thesis, report the full validation history, the final test result,
+   model-selection constraints, dataset provenance, and annotation uncertainty.
+
+FINAL PRE-TEST STATUS
+  Dataset integrity:                     FROZEN / VERIFIED
+  Deep learning baselines:               COMPLETED
+  Three transformer architectures:       COMPLETED
+  Three-seed validation stability:       COMPLETED
+  Paired validation comparisons:         COMPLETED
+  Persistent error diagnostics:          COMPLETED
+  AI-assisted annotation review:        COMPLETED (EXPLORATORY)
+  Independent human adjudication:        NOT COMPLETED
+  Deep learning result consolidation:    COMPLETED
+  Final model selection:                 FROZEN (DISTILBERT SEED 42)
+  Original checkpoint integrity:         VERIFIED
+  Standalone copied-model integrity:     VERIFIED
+  Final held-out test evaluation:        NOT YET PERFORMED
+
+================================================================================
+END OF REPORT
+================================================================================

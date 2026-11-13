@@ -1,0 +1,23 @@
+{
+  "experiment": "DL-06",
+  "generated_utc": "2026-11-13T10:56:08.537195+00:00",
+  "protocol": "D2-v1.1",
+  "manifest_sha256": "5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4",
+  "model": "google-bert/bert-base-uncased",
+  "seed": 17,
+  "device": "cuda",
+  "max_length": 96,
+  "batch_size": 4,
+  "gradient_accumulation": 4,
+  "effective_batch_size": 16,
+  "learning_rate": 2e-05,
+  "weight_decay": 0.01,
+  "max_epochs": 4,
+  "patience": 2,
+  "fp16": true,
+  "gradient_checkpointing": true,
+  "best_epoch": 4,
+  "checkpoint": "/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/checkpoints/09_bert_seed17_base_best",
+  "test_accessed": false,
+  "model_selection": "PENDING"
+}

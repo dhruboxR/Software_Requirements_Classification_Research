@@ -1,0 +1,17 @@
+{
+  "experiment": "DL-08",
+  "protocol": "D2-v1.1",
+  "manifest_sha256": "5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4",
+  "bootstrap_seed": 42,
+  "bootstrap_repetitions": 2000,
+  "validation_count": 728,
+  "validation_groups": 694,
+  "models": [
+    "D01_DistilBERT",
+    "D02_BERTBase",
+    "D03_RoBERTaBase"
+  ],
+  "new_training": false,
+  "test_accessed": false,
+  "model_selection": "PENDING"
+}

@@ -1,0 +1,22 @@
+{
+  "experiment": "DL-15",
+  "generated_utc": "2026-11-13T18:10:34.756400+00:00",
+  "review_type": "AI_ASSISTED_EXPLORATORY",
+  "requirements": 43,
+  "agreement": 11,
+  "disagreement": 25,
+  "uncertain": 7,
+  "decisive_coverage": 0.8372093023255814,
+  "agreement_among_decisive": 0.3055555555555556,
+  "previously_exposed_ids": [
+    "RQP0481091",
+    "RQP0481137",
+    "RQP0481443",
+    "RQP0481580",
+    "RQP0481751"
+  ],
+  "original_labels_modified": false,
+  "training_performed": false,
+  "test_accessed": false,
+  "final_model_selection": "PENDING"
+}

@@ -1,0 +1,19 @@
+{
+  "experiment": "DL-10",
+  "protocol": "D2-v1.1",
+  "manifest_sha256": "5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4",
+  "seeds": [
+    42,
+    17,
+    29
+  ],
+  "architectures": [
+    "distilbert",
+    "bert",
+    "roberta"
+  ],
+  "validation_requirements": 728,
+  "new_training": false,
+  "test_accessed": false,
+  "final_model_selection": "PENDING"
+}

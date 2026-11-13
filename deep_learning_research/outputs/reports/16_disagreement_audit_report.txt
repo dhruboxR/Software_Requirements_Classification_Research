@@ -1,0 +1,84 @@
+SCRIPT 16: ANNOTATION DISAGREEMENT AUDIT
+============================================================================
+
+DATASET
+D2-v1.1
+Validation-derived priority requirements: 43
+Review type: AI-assisted exploratory assessment
+
+SCRIPT 15 RESULTS
+Agreement: 11
+Disagreement: 25
+Uncertain: 7
+
+AUDIT POPULATION
+Selected cases: 32
+NONE-category disagreements: 13
+Low-confidence cases: 2
+Previously exposed selected cases: 3
+
+PRIORITY COUNTS
+audit_priority
+P1_LOW_CONFIDENCE               2
+P2_UNCERTAIN                    5
+P3_UNEXPLAINED_DISAGREEMENT    13
+P4_OTHER_DISAGREEMENT          12
+
+DISAGREEMENTS BY ORIGINAL LABEL
+true_label
+FR      8
+NFR    17
+
+ISSUE CATEGORIES
+reviewer_issue_category
+AMBIGUOUS_WORDING         3
+IMPLICIT_QUALITY          1
+INTERFACE_AMBIGUITY       4
+MIXED_FR_NFR              5
+NONE                     13
+OTHER                     2
+PERFORMANCE_AMBIGUITY     1
+SECURITY_AMBIGUITY        3
+
+REVIEW DESIGN
+The independent-review worksheet contains
+only requirement IDs, texts, and blank human
+annotation fields.
+
+Original dataset labels and AI judgments are
+stored in a separate comparison reference.
+
+The reviewer must not open the reference before
+completing the independent annotations.
+
+If a reviewer has previously seen labels or model
+predictions for a case, that exposure must be
+reported rather than claiming strict blinding.
+
+RECOMMENDED HUMAN LABELS
+FR
+NFR
+UNCERTAIN
+
+CONFIDENCE LEVELS
+HIGH
+MEDIUM
+LOW
+
+METHODOLOGICAL LIMITATIONS
+- Cases were selected using validation errors.
+- AI predictions are not independent ground truth.
+- Some original labels were previously exposed.
+- Dataset-specific label definitions remain to
+  be verified.
+- Low agreement does not prove label errors.
+- This audit cannot estimate full-dataset
+  annotation error prevalence.
+- No new training or model tuning was performed.
+- Original dataset labels remain unchanged.
+- Test partition remains sealed.
+
+NEXT RESEARCH STAGE
+Independent human review or formal documentation
+of unresolved cases, followed by consolidation
+of existing modeling results.

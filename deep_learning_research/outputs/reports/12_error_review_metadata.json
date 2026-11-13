@@ -1,0 +1,12 @@
+{
+  "experiment": "DL-12",
+  "generated_utc": "2026-11-13T17:55:51.568333+00:00",
+  "source": "11_persistent_error_review.csv",
+  "priority_requirements": 43,
+  "all_nine_wrong": 29,
+  "two_architectures_wrong": 14,
+  "manual_review_complete": false,
+  "labels_modified": false,
+  "training_performed": false,
+  "test_accessed": false
+}

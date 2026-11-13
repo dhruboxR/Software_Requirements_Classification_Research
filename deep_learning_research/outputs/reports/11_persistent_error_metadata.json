@@ -1,0 +1,23 @@
+{
+  "experiment": "DL-11",
+  "generated_utc": "2026-11-13T17:54:14.788101+00:00",
+  "protocol": "D2-v1.1",
+  "manifest_sha256": "5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4",
+  "validation_count": 728,
+  "architectures": [
+    "distilbert",
+    "bert",
+    "roberta"
+  ],
+  "seeds": [
+    42,
+    17,
+    29
+  ],
+  "review_items": 136,
+  "wrong_all_nine": 29,
+  "label_changes": false,
+  "test_accessed": false,
+  "new_training": false,
+  "model_selection": "PENDING"
+}

@@ -1,0 +1,35 @@
+D2 v1.1 MULTI-SEED ERROR STABILITY
+============================================================================
+
+Dataset: D2-v1.1
+Validation requirements: 728
+Similarity groups: 694
+Seeds: 42, 17, 29
+Test accessed: NO
+
+WITHIN-MODEL STABILITY
+architecture  requirements  unanimous_predictions  unanimous_percent  changing_predictions  changing_percent  always_correct  always_wrong  mean_pairwise_disagreements  majority_vote_nfr_f1_descriptive
+  distilbert           728                    678            93.1319                    50            6.8681             634            44                      33.3333                            0.8742
+        bert           728                    673            92.4451                    55            7.5549             628            45                      36.6667                            0.8730
+     roberta           728                    675            92.7198                    53            7.2802             633            42                      35.3333                            0.8590
+
+MATCHED-SEED MODEL COMPARISONS
+ seed    model_a model_b  changed_predictions  a_only_correct  b_only_correct  nfr_f1_a_minus_b  nfr_recall_a_minus_b  accuracy_a_minus_b
+   42 distilbert    bert                   38              20              18            0.0018               -0.0126              0.0027
+   42 distilbert roberta                   39              19              20            0.0060                0.0544             -0.0014
+   42       bert roberta                   45              21              24            0.0043                0.0669             -0.0041
+   17 distilbert    bert                   50              30              20            0.0142               -0.0251              0.0137
+   17 distilbert roberta                   40              23              17            0.0121                0.0084              0.0082
+   17       bert roberta                   42              19              23           -0.0021                0.0335             -0.0055
+   29 distilbert    bert                   36              16              20           -0.0028                0.0335             -0.0055
+   29 distilbert roberta                   45              22              23            0.0050                0.0502             -0.0014
+   29       bert roberta                   33              18              15            0.0078                0.0167              0.0041
+
+LIMITATIONS
+- The same validation partition is reused.
+- All results are exploratory.
+- Only three training seeds are available.
+- Majority-vote metrics are descriptive only.
+- No new ensemble has been approved or trained.
+- No independent-project evaluation.
+- Test partition remains sealed.

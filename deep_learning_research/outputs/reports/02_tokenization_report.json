@@ -1,0 +1,24 @@
+{
+  "script": "02_text_tokenization_analysis",
+  "generated_utc": "2026-11-13T10:12:12.772781+00:00",
+  "protocol": "D2-v1.1",
+  "manifest_sha256": "5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4",
+  "tokenizer": "distilbert/distilbert-base-uncased",
+  "transformers_version": "5.22.1",
+  "train_count": 3378,
+  "validation_count": 728,
+  "test_text_accessed": false,
+  "test_predictions_generated": false,
+  "candidate_lengths": [
+    64,
+    96,
+    128,
+    160,
+    192,
+    256
+  ],
+  "target_train_coverage": 0.99,
+  "recommended_max_length": 64,
+  "training_only_recommendation": true,
+  "model_training": false
+}

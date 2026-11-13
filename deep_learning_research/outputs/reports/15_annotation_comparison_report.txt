@@ -1,0 +1,97 @@
+SCRIPT 15: AI-ASSISTED ANNOTATION COMPARISON
+============================================================================
+
+REVIEW PROVENANCE
+AI-assisted semantic classification.
+NOT independent human annotation.
+NOT expert label adjudication.
+
+DATA
+Priority requirements: 43
+Dataset: D2-v1.1, validation subset
+Test accessed: NO
+
+AGREEMENT
+Agreement: 11
+Disagreement: 25
+Uncertain: 7
+Decisive annotations: 36
+Decisive coverage: 0.8372
+Agreement among decisive: 0.3056
+Agreement fraction of all 43: 0.2558
+
+ORIGINAL VS AI LABEL MATRIX
+reviewer_label  FR  NFR  UNCERTAIN
+true_label                        
+FR               9    8          6
+NFR             17    2          1
+
+ISSUE CATEGORY COUNTS
+reviewer_issue_category agreement_status  requirements
+      AMBIGUOUS_WORDING         DISAGREE             2
+      AMBIGUOUS_WORDING        UNCERTAIN             1
+       IMPLICIT_QUALITY            AGREE             1
+       IMPLICIT_QUALITY         DISAGREE             1
+    INTERFACE_AMBIGUITY            AGREE             2
+    INTERFACE_AMBIGUITY         DISAGREE             2
+    INTERFACE_AMBIGUITY        UNCERTAIN             2
+           MIXED_FR_NFR            AGREE             2
+           MIXED_FR_NFR         DISAGREE             2
+           MIXED_FR_NFR        UNCERTAIN             3
+                   NONE            AGREE             4
+                   NONE         DISAGREE            13
+                  OTHER         DISAGREE             2
+  PERFORMANCE_AMBIGUITY         DISAGREE             1
+     SECURITY_AMBIGUITY            AGREE             2
+     SECURITY_AMBIGUITY         DISAGREE             2
+     SECURITY_AMBIGUITY        UNCERTAIN             1
+
+DISAGREEMENT RECORDS
+requirement_id true_label reviewer_label reviewer_confidence reviewer_issue_category                                                                                                                                                    reviewer_reasoning
+    RQP0483817         FR            NFR                HIGH                   OTHER              Mandates particular third-party software versions and codecs, imposing implementation and compatibility constraints rather than a user-facing operation.
+    RQP0494189         FR            NFR                HIGH        IMPLICIT_QUALITY                               Adaptability for people with visual or hearing impairments is an accessibility quality property; 'easily' lacks a measurable criterion.
+    RQP0495720         FR            NFR                HIGH       AMBIGUOUS_WORDING                               Expresses perceived usability and user experience rather than a specific operation, although 'great' and 'pleasant' are not measurable.
+    RQP0482218        NFR             FR                HIGH                    NONE                                           Requires the tool to detect and identify specified HVAC faults using algorithms; this is explicit diagnostic functionality.
+    RQP0482047         FR            NFR              MEDIUM      SECURITY_AMBIGUITY                                           Calls for transaction safety/security as a quality outcome without specifying an executable mechanism or defined threshold.
+    RQP0494715        NFR             FR                HIGH                    NONE                                                                       Provides a specific navigational action: users can open the Catalogue via sub-navigation icons.
+    RQP0495588        NFR             FR                HIGH                    NONE                                                    Enables selecting modes to add image or scene filters and effects; versatility is a benefit of that functionality.
+    RQP0494822        NFR             FR              MEDIUM            MIXED_FR_NFR                                  Requires users to make payments through integrated gateways, which is functionality; 'securely' adds a security quality requirement.
+    RQP0495326         FR            NFR                HIGH     INTERFACE_AMBIGUITY                                                   Specifies design and interface constraints: limited graphics and a simple keypad, rather than a discrete operation.
+    RQP0494531        NFR             FR                HIGH                    NONE                                                                                                   Specifies the ability to display the customer homepage after login.
+    RQP0482530        NFR             FR                HIGH                    NONE                                                                        Requires allowing anonymous avatars or aliases; this is an explicit permitted system behavior.
+    RQP0483781         FR            NFR                HIGH                    NONE                                                                      Lists supported operating-system platforms and versions, a compatibility/portability constraint.
+    RQP0495030        NFR             FR                HIGH                    NONE                                                                    Allows selecting a language from supported target-market languages, a user interaction capability.
+    RQP0482166         FR            NFR              MEDIUM       AMBIGUOUS_WORDING                                           Specifies infrastructure and operational staffing to support worldwide service, but 'strong' and 'qualified' are undefined.
+    RQP0482786        NFR             FR                HIGH                    NONE                                                                   Requires displaying or supplying usage metrics to administrators, a specified reporting capability.
+    RQP0481424        NFR             FR                HIGH      SECURITY_AMBIGUITY                                                                       Specifies role-based authorization behavior, including disallowing students from editing marks.
+    RQP0482522        NFR             FR                HIGH                    NONE                                                                                  Allows users to create anonymous avatars or aliases, an explicit creation operation.
+    RQP0494821        NFR             FR              MEDIUM                    NONE                                                        Specifies a per-day quota governing a user's ability to respond to profiles; it is a functional business rule.
+    RQP0483972        NFR             FR                HIGH                    NONE                                                                                Requires browsing content by author or subject, a concrete search/navigation function.
+    RQP0481091        NFR             FR              MEDIUM            MIXED_FR_NFR                                                        Specifies generation of account-change and asset-schedule logs; auditability is a possible quality motivation.
+    RQP0483121         FR            NFR                HIGH                   OTHER                                                   Specifies resource-capacity constraints necessary to run Adobe Illustrator functions, not new application behavior.
+    RQP0483534        NFR             FR                HIGH                    NONE                                                                                    Allows sponsors to link attendees to sponsorship pages, a defined workflow action.
+    RQP0481443        NFR             FR              MEDIUM     INTERFACE_AMBIGUITY                     Requires the ability to interact with the system via CLI; could instead be classified as an interface/platform constraint under another taxonomy.
+    RQP0481137        NFR             FR              MEDIUM   PERFORMANCE_AMBIGUITY Requires monitoring processing rates, comparing them to tolerances, and reporting deviations; these are operational functions rather than a direct throughput target.
+    RQP0482237        NFR             FR                HIGH                    NONE                                                             Allows authorized users to delete sub-apps and launchers; a specific access-controlled deletion function.
+
+UNCERTAIN RECORDS
+requirement_id true_label reviewer_issue_category                                                                                                                                                                                   reviewer_reasoning
+    RQP0495807         FR            MIXED_FR_NFR Requires logging errors (functional behavior) as well as permanent storage and sufficient diagnostic detail (auditability and support quality); the dominant classification depends on the taxonomy.
+    RQP0483364         FR     INTERFACE_AMBIGUITY                  Access through browsers and mobile apps can be viewed as delivery-channel functionality or as portability/platform compatibility; the statement lacks a dominant quality criterion.
+    RQP0483721         FR       AMBIGUOUS_WORDING                                                                      The system is to 'help' planning and execution 'efficiently' without saying which capability or measurable quality is required.
+    RQP0483621         FR            MIXED_FR_NFR                                                         Combines dataset submission/management functions, interface usability, and the constraint of no extra software installation in one sentence.
+    RQP0494136        NFR     INTERFACE_AMBIGUITY                                                     Lists multiple database interaction interfaces, which may be classified as functional access channels or interoperability/interface constraints.
+    RQP0483389         FR      SECURITY_AMBIGUITY                                                                              Could mean generating/distributing passwords (FR) or enforcing password security strength (NFR); 'secure' is undefined.
+    RQP0483126         FR            MIXED_FR_NFR                                                                Combines rendering graphics (functionality) with 'smooth' on-screen navigation (performance/usability) without measurable thresholds.
+
+LIMITATIONS
+- This is AI versus original-label agreement.
+- The sample was selected by model error.
+- AI classifications are not verified ground truth.
+- Five requirement labels were exposed previously.
+- The original annotation taxonomy needs verification.
+- No independent human reviewers participated.
+- Agreement is not a generalization estimate.
+- No training or validation-based model tuning.
+- The frozen dataset was not modified.
+- The test partition remains sealed.

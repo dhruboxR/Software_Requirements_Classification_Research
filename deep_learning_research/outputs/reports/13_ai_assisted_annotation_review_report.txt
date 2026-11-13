@@ -1,0 +1,266 @@
+D2 v1.1: AI-ASSISTED BLIND-WORKSHEET REVIEW OF 43 PRIORITY REQUIREMENTS
+==============================================================================
+
+SCOPE AND PROVENANCE
+Source: 43 requirement texts supplied by the user in blind-review order.
+Method: language-model semantic assessment, with no original labels or model predictions consulted for this 43-row review.
+Earlier conversation had already exposed five specific original labels and texts; those five decisions cannot count as strictly blinded.
+Reviewer type: AI ASSISTANT; NOT independent human review; NOT expert adjudication.
+Status value REVIEWED is used for compatibility with Script 14; annotation_source explicitly marks AI assistance.
+Original dataset labels: NOT MODIFIED. Frozen test data: NOT ACCESSED.
+
+WORKING RULES
+FR: Primary demand is an observable operation, behavior, access rule, workflow, or function.
+NFR: Primary demand is a quality attribute, infrastructure/technology constraint, accessibility, usability, portability, or performance quality.
+UNCERTAIN: Wording mixes both categories or is too vague to classify defensibly without taxonomy or project context.
+Security keywords do not automatically imply NFR; a specified security operation can be FR.
+These working rules may differ from the dataset authors' original taxonomy.
+
+RESULTS
+Requirements: 43
+FR: 26
+NFR: 10
+UNCERTAIN: 7
+HIGH confidence: 23
+MEDIUM confidence: 18
+LOW confidence: 2
+
+ISSUE CATEGORY COUNTS
+AMBIGUOUS_WORDING: 3
+IMPLICIT_QUALITY: 2
+INTERFACE_AMBIGUITY: 6
+MIXED_FR_NFR: 7
+NONE: 17
+OTHER: 2
+PERFORMANCE_AMBIGUITY: 1
+SECURITY_AMBIGUITY: 5
+
+ITEMIZED REVIEWS
+------------------------------------------------------------------------------
+01. RQP0495807
+Requirement: Significant errors in software operation shall be logged to permanent storage with sufficient detail to guide the administrator and to assist support staff in locating and rectifying the error.
+Proposed label: UNCERTAIN | Confidence: MEDIUM | Issue: MIXED_FR_NFR
+Reasoning: Requires logging errors (functional behavior) as well as permanent storage and sufficient diagnostic detail (auditability and support quality); the dominant classification depends on the taxonomy.
+
+02. RQP0483817
+Requirement: System shall use transaction management software (BMS version 2.0), card management software (CMS version 3.0), and Yamaha codecs.
+Proposed label: NFR | Confidence: HIGH | Issue: OTHER
+Reasoning: Mandates particular third-party software versions and codecs, imposing implementation and compatibility constraints rather than a user-facing operation.
+
+03. RQP0494894
+Requirement: User shall benefit from automatic language detection, streamlining the translation process and enhancing user convenience in multilingual environments.
+Proposed label: FR | Confidence: MEDIUM | Issue: MIXED_FR_NFR
+Reasoning: Automatic language detection is an identifiable system capability; convenience is the intended usability benefit.
+
+04. RQP0483364
+Requirement: System shall be able to provide access to the system through web browsers and mobile applications.
+Proposed label: UNCERTAIN | Confidence: MEDIUM | Issue: INTERFACE_AMBIGUITY
+Reasoning: Access through browsers and mobile apps can be viewed as delivery-channel functionality or as portability/platform compatibility; the statement lacks a dominant quality criterion.
+
+05. RQP0481578
+Requirement: The system shall provide textual descriptions or alternative functionalities for all non-text media like images and videos.
+Proposed label: NFR | Confidence: HIGH | Issue: IMPLICIT_QUALITY
+Reasoning: Text alternatives for non-text media express an accessibility requirement, despite calling for concrete implementation behavior.
+
+06. RQP0481751
+Requirement: System shall encrypt sensitive data to prevent unauthorized access.
+Proposed label: FR | Confidence: MEDIUM | Issue: SECURITY_AMBIGUITY
+Reasoning: Specifies a concrete encryption operation on sensitive data; the supporting security objective could instead be classified as a quality requirement.
+
+07. RQP0494189
+Requirement: User shall have an ALFRED device easily adaptable for users with visual or hearing impairments.
+Proposed label: NFR | Confidence: HIGH | Issue: IMPLICIT_QUALITY
+Reasoning: Adaptability for people with visual or hearing impairments is an accessibility quality property; 'easily' lacks a measurable criterion.
+
+08. RQP0495720
+Requirement: User shall experience a great UI and UX for a pleasant navigation experience.
+Proposed label: NFR | Confidence: HIGH | Issue: AMBIGUOUS_WORDING
+Reasoning: Expresses perceived usability and user experience rather than a specific operation, although 'great' and 'pleasant' are not measurable.
+
+09. RQP0482218
+Requirement: The automated diagnostic tool shall detect and identify certain performance and operational faults in chiller and cooling tower subsystems of HVAC units following specified algorithms. 
+Proposed label: FR | Confidence: HIGH | Issue: NONE
+Reasoning: Requires the tool to detect and identify specified HVAC faults using algorithms; this is explicit diagnostic functionality.
+
+10. RQP0483721
+Requirement: System shall help police personnel in planning and executing tasks efficiently.
+Proposed label: UNCERTAIN | Confidence: LOW | Issue: AMBIGUOUS_WORDING
+Reasoning: The system is to 'help' planning and execution 'efficiently' without saying which capability or measurable quality is required.
+
+11. RQP0482047
+Requirement: The system shall ensure safe transactions.
+Proposed label: NFR | Confidence: MEDIUM | Issue: SECURITY_AMBIGUITY
+Reasoning: Calls for transaction safety/security as a quality outcome without specifying an executable mechanism or defined threshold.
+
+12. RQP0494715
+Requirement: All users shall be able to navigate to the Catalogue using the sub navigation icons.
+Proposed label: FR | Confidence: HIGH | Issue: NONE
+Reasoning: Provides a specific navigational action: users can open the Catalogue via sub-navigation icons.
+
+13. RQP0483621
+Requirement: System shall provide a user-friendly web interface for depositors to submit and manage datasets without requiring additional software installation.
+Proposed label: UNCERTAIN | Confidence: MEDIUM | Issue: MIXED_FR_NFR
+Reasoning: Combines dataset submission/management functions, interface usability, and the constraint of no extra software installation in one sentence.
+
+14. RQP0495588
+Requirement: User shall access different modes for adding filters and effects to scenes and images, enhancing versatility and customization options.
+Proposed label: FR | Confidence: HIGH | Issue: NONE
+Reasoning: Enables selecting modes to add image or scene filters and effects; versatility is a benefit of that functionality.
+
+15. RQP0481998
+Requirement: System shall provide functionalities to generate comprehensive reports on stock availability, orders, and deliveries.
+Proposed label: FR | Confidence: HIGH | Issue: NONE
+Reasoning: Requires generation of specified stock, order, and delivery reports; 'comprehensive' is vague but not the principal demand.
+
+16. RQP0494822
+Requirement: User shall be able to make payments securely through integrated payment gateways like PayPal, InterSwitch, etc.
+Proposed label: FR | Confidence: MEDIUM | Issue: MIXED_FR_NFR
+Reasoning: Requires users to make payments through integrated gateways, which is functionality; 'securely' adds a security quality requirement.
+
+17. RQP0495326
+Requirement: The product shall be designed with very limited graphics usage and shall utilize a simple keypad for user input.
+Proposed label: NFR | Confidence: HIGH | Issue: INTERFACE_AMBIGUITY
+Reasoning: Specifies design and interface constraints: limited graphics and a simple keypad, rather than a discrete operation.
+
+18. RQP0494531
+Requirement: User shall be able to view the customer homepage after logging in.
+Proposed label: FR | Confidence: HIGH | Issue: NONE
+Reasoning: Specifies the ability to display the customer homepage after login.
+
+19. RQP0483640
+Requirement: System shall support delegation of deposition tasks to enable efficient management of research data.
+Proposed label: FR | Confidence: HIGH | Issue: NONE
+Reasoning: Delegating deposition tasks is a defined workflow capability; efficiency is its stated benefit.
+
+20. RQP0482530
+Requirement: The system shall allow the use of unverified (anonymous) avatars or aliases.
+Proposed label: FR | Confidence: HIGH | Issue: NONE
+Reasoning: Requires allowing anonymous avatars or aliases; this is an explicit permitted system behavior.
+
+21. RQP0481580
+Requirement: The system shall be able to offer users alternative ways to navigate to the same content.
+Proposed label: NFR | Confidence: MEDIUM | Issue: INTERFACE_AMBIGUITY
+Reasoning: Alternative routes to the same content primarily address navigation usability/accessibility; also implementable as a function.
+
+22. RQP0494136
+Requirement: User shall be able to interact with databases using multiple interfaces such as the Command-Line Interface (CLI), Graphical User Interface (GUI) tools like MySQL Workbench, and Application Programming Interfaces (APIs) for various programming languages.
+Proposed label: UNCERTAIN | Confidence: MEDIUM | Issue: INTERFACE_AMBIGUITY
+Reasoning: Lists multiple database interaction interfaces, which may be classified as functional access channels or interoperability/interface constraints.
+
+23. RQP0482086
+Requirement: System shall offer keyboard shortcuts for efficient navigation and operation within Gmail.
+Proposed label: FR | Confidence: MEDIUM | Issue: INTERFACE_AMBIGUITY
+Reasoning: Offering keyboard shortcuts is an implementable interface capability, although the goal is improved usability and efficiency.
+
+24. RQP0483781
+Requirement: The system shall support the following operating systems - Windows 10/11 (32-bit or 64-bit) and Windows Server 2022, Windows Server 2019, Windows Server 2016, or Windows Server 2012 (including R2)
+Proposed label: NFR | Confidence: HIGH | Issue: NONE
+Reasoning: Lists supported operating-system platforms and versions, a compatibility/portability constraint.
+
+25. RQP0495030
+Requirement: The product shall allow the user to select a chosen language from one of the target market countries.
+Proposed label: FR | Confidence: HIGH | Issue: NONE
+Reasoning: Allows selecting a language from supported target-market languages, a user interaction capability.
+
+26. RQP0482166
+Requirement: System shall have a strong network of servers managed by a qualified team to handle application functionality worldwide.
+Proposed label: NFR | Confidence: MEDIUM | Issue: AMBIGUOUS_WORDING
+Reasoning: Specifies infrastructure and operational staffing to support worldwide service, but 'strong' and 'qualified' are undefined.
+
+27. RQP0483627
+Requirement: System shall support privileged access management to enable efficient collaboration among depositors and collaborators.
+Proposed label: FR | Confidence: MEDIUM | Issue: SECURITY_AMBIGUITY
+Reasoning: Privileged access management denotes authorization and role-management behavior; collaboration efficiency is a supporting goal.
+
+28. RQP0482786
+Requirement: The system shall provide basic usage metrics for administrators
+Proposed label: FR | Confidence: HIGH | Issue: NONE
+Reasoning: Requires displaying or supplying usage metrics to administrators, a specified reporting capability.
+
+29. RQP0481424
+Requirement: System shall restrict access to modules based on user roles, preventing students from updating marks.
+Proposed label: FR | Confidence: HIGH | Issue: SECURITY_AMBIGUITY
+Reasoning: Specifies role-based authorization behavior, including disallowing students from editing marks.
+
+30. RQP0482522
+Requirement: The system shall allow users to create unverified (anonymous) avatars or aliases.
+Proposed label: FR | Confidence: HIGH | Issue: NONE
+Reasoning: Allows users to create anonymous avatars or aliases, an explicit creation operation.
+
+31. RQP0483638
+Requirement: System shall support the management and sharing of live research data to ensure seamless workflow integration.
+Proposed label: FR | Confidence: MEDIUM | Issue: MIXED_FR_NFR
+Reasoning: Requires managing and sharing live research data; seamless workflow integration is an associated quality goal.
+
+32. RQP0494821
+Requirement: User shall be able to respond to a limited number of profiles per day as a general job seeker.
+Proposed label: FR | Confidence: MEDIUM | Issue: NONE
+Reasoning: Specifies a per-day quota governing a user's ability to respond to profiles; it is a functional business rule.
+
+33. RQP0483972
+Requirement: System shall allow browsing content by author or subject area.
+Proposed label: FR | Confidence: HIGH | Issue: NONE
+Reasoning: Requires browsing content by author or subject, a concrete search/navigation function.
+
+34. RQP0481091
+Requirement: System shall generate logs of user bank account details, account updates with date, time, and changes, and fixed asset schedules.
+Proposed label: FR | Confidence: MEDIUM | Issue: MIXED_FR_NFR
+Reasoning: Specifies generation of account-change and asset-schedule logs; auditability is a possible quality motivation.
+
+35. RQP0483121
+Requirement: The system shall have sufficient hardware resources to support all functionalities of Adobe Illustrator without limitations due to insufficient hardware.
+Proposed label: NFR | Confidence: HIGH | Issue: OTHER
+Reasoning: Specifies resource-capacity constraints necessary to run Adobe Illustrator functions, not new application behavior.
+
+36. RQP0483534
+Requirement: System shall enable sponsors to link attendees to their sponsorship page.
+Proposed label: FR | Confidence: HIGH | Issue: NONE
+Reasoning: Allows sponsors to link attendees to sponsorship pages, a defined workflow action.
+
+37. RQP0482222
+Requirement: If only a single building is defined, the subsystems window shall become the main window of the application and shall have all the functionality of the main window as described in these specifications.
+Proposed label: FR | Confidence: HIGH | Issue: NONE
+Reasoning: Specifies conditional window behavior when there is only one building, including retained main-window functions.
+
+38. RQP0481443
+Requirement: User shall be able to interact with the text-based command-line interface of the system.
+Proposed label: FR | Confidence: MEDIUM | Issue: INTERFACE_AMBIGUITY
+Reasoning: Requires the ability to interact with the system via CLI; could instead be classified as an interface/platform constraint under another taxonomy.
+
+39. RQP0483639
+Requirement: System shall provide version control functionality to enable transparent management of multiple dataset versions.
+Proposed label: FR | Confidence: HIGH | Issue: NONE
+Reasoning: Explicitly requires version-control functionality to manage multiple dataset versions; transparency is the intended benefit.
+
+40. RQP0483389
+Requirement: System shall provide secure passwords to each user or client.
+Proposed label: UNCERTAIN | Confidence: LOW | Issue: SECURITY_AMBIGUITY
+Reasoning: Could mean generating/distributing passwords (FR) or enforcing password security strength (NFR); 'secure' is undefined.
+
+41. RQP0481137
+Requirement: The system shall be able to monitor the overall data processing rate, compare it to tolerances, and report any deviations from those tolerances.
+Proposed label: FR | Confidence: MEDIUM | Issue: PERFORMANCE_AMBIGUITY
+Reasoning: Requires monitoring processing rates, comparing them to tolerances, and reporting deviations; these are operational functions rather than a direct throughput target.
+
+42. RQP0483126
+Requirement: The system shall render complex graphics and enable smooth on-screen navigation.
+Proposed label: UNCERTAIN | Confidence: MEDIUM | Issue: MIXED_FR_NFR
+Reasoning: Combines rendering graphics (functionality) with 'smooth' on-screen navigation (performance/usability) without measurable thresholds.
+
+43. RQP0482237
+Requirement: The system shall allow authorized users to delete sub-apps and their launchers within the main application.
+Proposed label: FR | Confidence: HIGH | Issue: NONE
+Reasoning: Allows authorized users to delete sub-apps and launchers; a specific access-controlled deletion function.
+
+INTERPRETATION AND LIMITATIONS
+These are proposed AI-assisted annotations, not confirmed corrections to source labels.
+Do not overwrite the original 13_blind_requirement_review.csv if independent human annotation is planned.
+Keep AI proposals and human assessments in separate files.
+The sample is selected for prior model errors; class frequencies are not representative of the full dataset.
+Do not retrain or retune classifiers using this validation-based review.
+Validate the dataset-specific taxonomy, request independent human reviews, then compare labels only after decisions are frozen.
+Do not present model-assisted conclusions as unbiased blind human adjudication.
+
+FILES
+Completed AI worksheet: 13_ai_assisted_requirement_review_completed.csv
+Report: 13_ai_assisted_annotation_review_report.txt

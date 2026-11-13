@@ -1,0 +1,23 @@
+{
+  "experiment": "DL-04",
+  "generated_utc": "2026-11-13T10:17:27.164794+00:00",
+  "protocol": "D2-v1.1",
+  "manifest_sha256": "5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4",
+  "seed": 42,
+  "device": "cuda",
+  "vocab_size": 3071,
+  "max_length": 64,
+  "embedding_dim": 128,
+  "hidden_dim": 128,
+  "dropout": 0.5,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "max_epochs": 15,
+  "patience": 4,
+  "configurations": {
+    "L01_BiLSTM": false,
+    "L02_BalancedBiLSTM": true
+  },
+  "test_accessed": false,
+  "model_selection": "PENDING"
+}

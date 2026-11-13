@@ -1,0 +1,48 @@
+SCRIPT 12: MANUAL ERROR REVIEW
+============================================================================
+
+Review these requirements independently.
+
+Suggested review order:
+1. P1: All nine transformer runs wrong.
+2. P2: Two architectures consistently wrong.
+
+Reviewer assessment options:
+- LABEL_SUPPORTED
+- POSSIBLE_LABEL_AMBIGUITY
+- POSSIBLE_LABEL_ERROR
+- INSUFFICIENT_CONTEXT
+
+Possible issue categories:
+- IMPLICIT_NFR
+- MIXED_FR_NFR
+- DOMAIN_TERMINOLOGY
+- AMBIGUOUS_WORDING
+- INSUFFICIENT_CONTEXT
+- OTHER
+
+The categories are proposed review codes,
+not automatically assigned explanations.
+
+Review the text and original label first.
+Inspect model predictions afterward when possible.
+Record supporting reasoning in reviewer_notes.
+
+Do not modify the frozen manifest.
+Do not use model disagreement as proof
+that an original label is incorrect.
+
+Review conclusions are exploratory.
+Do not tune models using these reviewed cases.
+The test partition remains sealed.
+
+COUNTS
+All nine wrong: 29
+Two architectures wrong: 14
+Priority review total: 43
+
+ suggested_review_priority true_label  count
+         P1_ALL_NINE_WRONG         FR     13
+         P1_ALL_NINE_WRONG        NFR     16
+P2_TWO_ARCHITECTURES_WRONG         FR     10
+P2_TWO_ARCHITECTURES_WRONG        NFR      4

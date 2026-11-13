@@ -1,0 +1,18 @@
+SCRIPT 14: ANNOTATION REVIEW PROGRESS
+============================================================================
+
+Total requirements: 43
+Reviewed: 0
+Pending: 43
+Invalid reviewed records: 0
+Review complete: False
+
+ANNOTATION DISTRIBUTION
+No annotations submitted yet.
+
+VALIDATION ERRORS
+
+Original labels accessed: NO
+Model predictions accessed: NO
+Frozen dataset modified: NO
+Test set: SEALED

@@ -1,0 +1,37 @@
+FINAL MODEL SELECTION FREEZE
+============================================================================
+
+Dataset protocol: D2-v1.1
+Selected architecture: DistilBERT
+Selected checkpoint: original seed 42
+Checkpoint: /home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/checkpoints/05_distilbert_best
+
+Validation NFR F1 (seed 42): 0.8595
+Mean NFR F1 (three seeds): 0.8634
+
+Inference configuration:
+Tokenizer: distilbert/distilbert-base-uncased
+Maximum length: 96
+Positive label: NFR
+Positive label ID: 1
+Classification threshold: 0.5
+
+Checkpoint files hashed: 4
+
+SELECTION RATIONALE
+Architecture chosen using highest mean validation NFR F1 over seeds 42, 17, and 29. Original seed-42 checkpoint used to avoid selecting a random seed by maximum validation score.
+
+LIMITATIONS
+- Architecture chosen after extensive validation reuse
+- Only three training seeds per transformer
+- Single validation partition
+- Project-level independence not established
+- Independent human annotation review incomplete
+
+RESEARCH STATUS
+Final model selection: FROZEN
+New training: NO
+Test partition accessed: NO
+Test evaluation: PENDING
+
+Do not retune this model based on test results.

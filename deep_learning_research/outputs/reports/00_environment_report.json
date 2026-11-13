@@ -1,0 +1,52 @@
+{
+  "script": "00_environment_check",
+  "generated_utc": "2026-11-13T10:08:34.526219+00:00",
+  "system": {
+    "python_version": "3.14.4",
+    "python_executable": "/home/dhrubo_roy/Unofficial Thesis/.venv-transformers/bin/python",
+    "platform": "Linux-7.0.0-43-generic-x86_64-with-glibc2.43",
+    "cpu_threads": 12,
+    "virtual_environment": "/home/dhrubo_roy/Unofficial Thesis/.venv-transformers",
+    "memory": {
+      "total_gb": 6.45,
+      "available_gb": 1.83
+    },
+    "disk_free_gb": 341.76
+  },
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "torch": "2.14.1+cu130",
+    "transformers": "5.22.1",
+    "datasets": "5.1.0",
+    "accelerate": "1.15.0",
+    "tokenizers": "0.23.3",
+    "safetensors": "0.8.0",
+    "sentencepiece": "0.2.3",
+    "evaluate": "NOT INSTALLED",
+    "matplotlib": "3.11.2"
+  },
+  "pytorch": {
+    "version": "2.14.1+cu130",
+    "cuda_available": true,
+    "torch_cuda_version": "13.0",
+    "device": "cuda",
+    "gpu_count": 1,
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+        "total_memory_gb": 5.64
+      }
+    ],
+    "cuda_tensor_test": true
+  },
+  "nvidia_smi": "NVIDIA GeForce RTX 4050 Laptop GPU, 6141 MiB, 5657 MiB, 595.99.02",
+  "readiness": "CORE_PACKAGES_PRESENT",
+  "transformer_runtime_verified": false,
+  "dataset_loaded": false,
+  "model_training_started": false,
+  "test_evaluation_started": false
+}

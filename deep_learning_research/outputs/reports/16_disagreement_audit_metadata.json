@@ -1,0 +1,19 @@
+{
+  "experiment": "DL-16",
+  "generated_utc": "2026-11-13T18:13:27.056482+00:00",
+  "dataset": "D2-v1.1",
+  "review_type": "AI_ASSISTED_DISAGREEMENT_AUDIT",
+  "source_sha256": "e8801e482d793db1be56f3b732f5cbbd0d4d50556c9cc8682fd0018e7c7918b5",
+  "previous_summary_sha256": "be1b17d579481a63c65bcc0ac99bb69ecb5200c52e76f17b4b217d5f8b9e26b3",
+  "selected_requirements": 32,
+  "agreements": 11,
+  "disagreements": 25,
+  "uncertain": 7,
+  "none_issue_disagreements": 13,
+  "blind_review_shuffle_seed": 16042,
+  "human_review_complete": false,
+  "original_labels_modified": false,
+  "model_training": false,
+  "test_accessed": false,
+  "final_model_selection": "PENDING"
+}
