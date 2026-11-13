@@ -1,0 +1,65 @@
+FINAL MODEL TEST EVALUATION
+============================================================================
+
+MODEL CONFIGURATION
+Architecture: DistilBERT
+Seed: 42
+Max sequence length: 96
+NFR threshold: 0.5
+Checkpoint: FROZEN
+
+DATASET
+Protocol: D2-v1.1
+Test requirements: 727
+FR requirements: 488
+NFR requirements: 239
+Similarity groups: 694
+Cross-partition group overlap: NONE
+
+FINAL TEST RESULTS
+accuracy: 0.892710
+balanced_accuracy: 0.886991
+macro_f1: 0.880428
+weighted_f1: 0.893553
+nfr_precision: 0.815686
+nfr_recall: 0.870293
+nfr_f1: 0.842105
+average_precision: 0.880629
+roc_auc: 0.938653
+tn: 441
+fp: 47
+fn: 31
+tp: 208
+
+CLASSIFICATION REPORT
+              precision    recall  f1-score   support
+
+          FR     0.9343    0.9037    0.9187       488
+         NFR     0.8157    0.8703    0.8421       239
+
+    accuracy                         0.8927       727
+   macro avg     0.8750    0.8870    0.8804       727
+weighted avg     0.8953    0.8927    0.8936       727
+
+
+CONFUSION MATRIX
+TN=441, FP=47, FN=31, TP=208
+
+RESEARCH INTEGRITY
+Original checkpoint verified: YES
+Dataset manifest SHA256 verified: YES
+Threshold optimization: NO
+Additional training: NO
+Model selection using test results: NO
+
+LIMITATIONS
+- Single frozen test partition.
+- Architecture selection reused validation data.
+- Project-level independence not established.
+- Dataset annotation concerns remain unresolved.
+- No independent human label adjudication.
+
+RESEARCH STATUS
+Frozen test evaluation: COMPLETED
+Model selection: LOCKED
+Additional tuning based on test results: PROHIBITED

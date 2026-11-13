@@ -1,0 +1,152 @@
+FINAL DISTILBERT MODEL: COMPLETE EVALUATION REPORT
+==============================================================================
+
+1. RESEARCH OBJECTIVE
+Binary classification of software requirements
+into Functional Requirements (FR) and
+Non-Functional Requirements (NFR).
+
+2. DATASET AND EVALUATION PROTOCOL
+Dataset: D2-v1.1
+Training: 3378 requirements
+Validation: 728 requirements
+Frozen test: 727 requirements
+Test FR: 488
+Test NFR: 239
+Test similarity groups: 694
+Cross-partition similarity-group overlap: NONE
+Project-level independence: NOT ESTABLISHED
+
+3. FINAL MODEL CONFIGURATION
+Architecture: DistilBERT
+Pretrained model: distilbert/distilbert-base-uncased
+Checkpoint: original seed 42
+Parameters: 66,955,010
+Maximum sequence length: 96
+FR class index: 0
+NFR class index: 1
+Decision threshold: 0.5
+Model selected before test evaluation.
+No test-based threshold optimization.
+
+4. MODEL-SELECTION RATIONALE
+DistilBERT had the highest observed mean
+validation NFR F1 across three random seeds.
+The original seed-42 checkpoint was selected
+without choosing the best-performing seed.
+Model selection reused the same validation set
+over multiple experiments.
+
+5. TRANSFORMER THREE-SEED STABILITY
+architecture  seed_count  nfr_f1_mean  nfr_f1_std  nfr_f1_min  nfr_f1_max  nfr_recall_mean  nfr_recall_std  nfr_recall_min  nfr_recall_max  nfr_precision_mean  nfr_precision_std  nfr_precision_min  nfr_precision_max  macro_f1_mean  macro_f1_std  macro_f1_min  macro_f1_max  balanced_accuracy_mean  balanced_accuracy_std  balanced_accuracy_min  balanced_accuracy_max  accuracy_mean  accuracy_std  accuracy_min  accuracy_max
+  distilbert           3     0.863425    0.003566    0.859470    0.866397         0.877266        0.021471        0.853556        0.895397            0.850685           0.021544           0.837302           0.875536       0.897521      0.003088      0.893984      0.899683                0.900801               0.004470               0.897126               0.905776       0.908883      0.003457      0.905220      0.912088
+        bert           3     0.859039    0.009567    0.850202    0.869198         0.878661        0.016736        0.861925        0.895397            0.841067           0.030769           0.823077           0.876596       0.893811      0.008385      0.886640      0.903031                0.898431               0.004439               0.893318               0.901310       0.905220      0.008578      0.898352      0.914835
+     roberta           3     0.855725    0.004953    0.852321    0.861407         0.839609        0.009663        0.828452        0.845188            0.872612           0.011324           0.859574           0.880000       0.893581      0.003758      0.890519      0.897776                0.889812               0.003766               0.886619               0.893964       0.907051      0.003457      0.903846      0.910714
+
+6. FINAL TEST METRICS
+accuracy: 0.892710
+balanced_accuracy: 0.886991
+macro_f1: 0.880428
+weighted_f1: 0.893553
+nfr_precision: 0.815686
+nfr_recall: 0.870293
+nfr_f1: 0.842105
+average_precision: 0.880629
+roc_auc: 0.938653
+
+7. FINAL CONFUSION MATRIX
+Rows = true labels, columns = predicted labels
+             Pred FR   Pred NFR
+True FR          441         47
+True NFR          31        208
+
+Correct classifications: 649
+Incorrect classifications: 78
+
+8. VALIDATION VERSUS TEST
+           metric  validation_seed42  final_test  test_minus_validation
+         accuracy            0.90520    0.892710              -0.012490
+balanced_accuracy            0.89950    0.886991              -0.012509
+         macro_f1            0.89400    0.880428              -0.013572
+    nfr_precision            0.83730    0.815686              -0.021614
+       nfr_recall            0.88280    0.870293              -0.012507
+           nfr_f1            0.85947    0.842105              -0.017365
+average_precision            0.92700    0.880629              -0.046371
+          roc_auc            0.96130    0.938653              -0.022647
+
+Validation metrics above are rounded historical
+seed-42 figures, except NFR F1 obtained from
+the frozen selection record.
+
+9. CLASSIFICATION ERROR INTERPRETATION
+False positives: 47
+False negatives: 31
+False positives are FR requirements predicted NFR.
+False negatives are NFR requirements predicted FR.
+No test error cases were used for model retuning.
+
+10. PREVIOUS QUALITATIVE ANALYSIS
+A separate validation-based error review selected
+43 difficult requirements.
+AI-assisted assessment agreed with the original
+labels for 11 cases, disagreed for 25, and
+recorded 7 uncertain judgments.
+These findings do not establish annotation errors.
+Independent human adjudication remains incomplete.
+
+11. GENERATED FIGURES
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_confusion_matrix.pdf
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_confusion_matrix.png
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_per_class_metrics.pdf
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_per_class_metrics.png
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_precision_recall_curve.pdf
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_precision_recall_curve.png
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_roc_curve.pdf
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_roc_curve.png
+
+12. RESEARCH LIMITATIONS
+- Evaluation uses one held-out test partition.
+- Similarity-group separation was verified;
+  project-level independence was not established.
+- The validation partition was repeatedly reused
+  during experimental development.
+- Three seeds per transformer were evaluated.
+- Dataset taxonomy and annotation quality
+  require further independent assessment.
+- Selected error cases are not representative
+  of the complete dataset.
+- Results should not be interpreted as evidence
+  of superiority on unrelated datasets.
+
+13. REPRODUCIBILITY
+Selected checkpoint: SHA256 verified
+Tokenizer: SHA256 verified
+Dataset manifest: SHA256 verified
+Final predictions: SHA256 verified
+No further training performed.
+No additional test inference performed by
+this report-generation script.
+
+14. FINAL RESEARCH STATUS
+Final model selection: LOCKED
+Frozen test evaluation: COMPLETED
+Evaluation figures: COMPLETED
+Final research report: COMPLETED
+Post-test tuning: NOT PERFORMED
+
+15. SOURCE ARTIFACT INVENTORY
+                                                                                                     file  bytes                                                           sha256
+                         /home/dhrubo_roy/THESIS_DATASET_2/final_model/configs/18_final_model_freeze.json   2429 589cebd00a11bb594084f73147b69491f781d36363708ab0d1704132ebb8c786
+                    /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/reports/00_model_integrity.json   1883 030037a1b278e18d5deeca46185f876c6e7c7e8c661aeb8127bef7fe13592d8f
+                 /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/reports/01_final_test_metrics.json   1893 594d49e5d5d53ff90eea7d56568aba5413e1187d1c3c991913d662b02da68f32
+          /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/predictions/01_final_test_predictions.csv  40783 c2b4debba9a741f4f91f5daa982f8f3476c81abb9202a5605dc2744309c81d31
+                   /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/tables/01_final_test_metrics.csv    303 8b2e8eeb1fb318a3b3136f2ab9b09b3a5cc6c6f9dd7c26a62f4413c319f8efb3
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/09_transformer_seed_stability.csv   1809 d841481dbf9a4ca116b66be2c4eaea5bee154b4fb3f3cf909195c285ca71e507
+                    /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_confusion_matrix.png  48938 0e21da923709bd3983e9a658cd43ceb8d35063d26486f717781bb1960e195896
+                   /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_per_class_metrics.png  59589 9fd9b4fa19ab51a1b4e2944c96a5c557810a25be8483ec823fd3d17edc7b53ac
+              /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_precision_recall_curve.png  93642 d90f3f16b224eb2e37a4bf35e4669832f189ffb1a3f5ed25b57d70bf6aa5014f
+                           /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_roc_curve.png 108323 34d91e1d86194158642215910cf071dd453601246e0c5894678e685edae73ae8
+                    /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_confusion_matrix.pdf  13684 4ac2b7c03cda9ab68a5c6914112aad6b773edc5ff787cebfdebbce8b877626eb
+                   /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_per_class_metrics.pdf  12180 aed00dc888ac3969065653daa7a71c63fee83e844c4924238c57dfdcc70df367
+              /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_precision_recall_curve.pdf  13719 9a8ab4432ff0b856dbe80e9b3fe2ef08b733af7fc4a0ecd7730b8e7998629f13
+                           /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_roc_curve.pdf  14119 b8152597057053b5e69b24a149f27e0781dd7d025d490b51fef469ff3daed4bb

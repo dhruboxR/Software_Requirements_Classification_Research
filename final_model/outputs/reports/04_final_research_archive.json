@@ -1,0 +1,191 @@
+{
+  "archive": "FINAL_DISTILBERT_D2_V11",
+  "created_utc": "2026-11-13T18:40:16.999124+00:00",
+  "status": "VERIFIED",
+  "model": "DistilBERT",
+  "seed": 42,
+  "dataset": "D2-v1.1",
+  "test_requirements": 727,
+  "checkpoint_frozen": true,
+  "test_evaluation_completed": true,
+  "model_retrained": false,
+  "post_test_tuning": false,
+  "inventory_file_count": 35,
+  "files": [
+    {
+      "relative_path": "code_outputs_final_model.txt",
+      "size_bytes": 24459,
+      "sha256": "64b629cc3a621a287b0d49bdbfa1ee594ea253919b6772d8566402994eed1719"
+    },
+    {
+      "relative_path": "configs/18_final_model_freeze.json",
+      "size_bytes": 2429,
+      "sha256": "589cebd00a11bb594084f73147b69491f781d36363708ab0d1704132ebb8c786"
+    },
+    {
+      "relative_path": "model/distilbert_seed42/config.json",
+      "size_bytes": 740,
+      "sha256": "a9f88fd4800891c6c550e4a783a04c4e5d201a2b62bc9336b6a45323514335bd"
+    },
+    {
+      "relative_path": "model/distilbert_seed42/model.safetensors",
+      "size_bytes": 267832560,
+      "sha256": "99a672da38ce109817b45c876a461b7927c21b04fa33e8e29ce8a64d20987851"
+    },
+    {
+      "relative_path": "model/distilbert_seed42/tokenizer.json",
+      "size_bytes": 711493,
+      "sha256": "d542861653d0d204783c94395fdf32eef9e800d5fa565a2892c3f1375aa835e9"
+    },
+    {
+      "relative_path": "model/distilbert_seed42/tokenizer_config.json",
+      "size_bytes": 351,
+      "sha256": "e1c2a61a99bda00f6c55303a210b30e2f92dcf8b555e215812e2eb583e177ffd"
+    },
+    {
+      "relative_path": "model/tokenizer/tokenizer.json",
+      "size_bytes": 711493,
+      "sha256": "d542861653d0d204783c94395fdf32eef9e800d5fa565a2892c3f1375aa835e9"
+    },
+    {
+      "relative_path": "model/tokenizer/tokenizer_config.json",
+      "size_bytes": 456,
+      "sha256": "dfc3de0249b7930e82eb71c89a9ab4bb84b086e559615236a6672de88d51f980"
+    },
+    {
+      "relative_path": "outputs/figures/02_confusion_matrix.pdf",
+      "size_bytes": 13684,
+      "sha256": "4ac2b7c03cda9ab68a5c6914112aad6b773edc5ff787cebfdebbce8b877626eb"
+    },
+    {
+      "relative_path": "outputs/figures/02_confusion_matrix.png",
+      "size_bytes": 48938,
+      "sha256": "0e21da923709bd3983e9a658cd43ceb8d35063d26486f717781bb1960e195896"
+    },
+    {
+      "relative_path": "outputs/figures/02_per_class_metrics.pdf",
+      "size_bytes": 12180,
+      "sha256": "aed00dc888ac3969065653daa7a71c63fee83e844c4924238c57dfdcc70df367"
+    },
+    {
+      "relative_path": "outputs/figures/02_per_class_metrics.png",
+      "size_bytes": 59589,
+      "sha256": "9fd9b4fa19ab51a1b4e2944c96a5c557810a25be8483ec823fd3d17edc7b53ac"
+    },
+    {
+      "relative_path": "outputs/figures/02_precision_recall_curve.pdf",
+      "size_bytes": 13719,
+      "sha256": "9a8ab4432ff0b856dbe80e9b3fe2ef08b733af7fc4a0ecd7730b8e7998629f13"
+    },
+    {
+      "relative_path": "outputs/figures/02_precision_recall_curve.png",
+      "size_bytes": 93642,
+      "sha256": "d90f3f16b224eb2e37a4bf35e4669832f189ffb1a3f5ed25b57d70bf6aa5014f"
+    },
+    {
+      "relative_path": "outputs/figures/02_roc_curve.pdf",
+      "size_bytes": 14119,
+      "sha256": "b8152597057053b5e69b24a149f27e0781dd7d025d490b51fef469ff3daed4bb"
+    },
+    {
+      "relative_path": "outputs/figures/02_roc_curve.png",
+      "size_bytes": 108323,
+      "sha256": "34d91e1d86194158642215910cf071dd453601246e0c5894678e685edae73ae8"
+    },
+    {
+      "relative_path": "outputs/predictions/01_final_test_predictions.csv",
+      "size_bytes": 40783,
+      "sha256": "c2b4debba9a741f4f91f5daa982f8f3476c81abb9202a5605dc2744309c81d31"
+    },
+    {
+      "relative_path": "outputs/reports/00_model_integrity.json",
+      "size_bytes": 1883,
+      "sha256": "030037a1b278e18d5deeca46185f876c6e7c7e8c661aeb8127bef7fe13592d8f"
+    },
+    {
+      "relative_path": "outputs/reports/00_model_integrity_report.txt",
+      "size_bytes": 838,
+      "sha256": "0d9c8a7411b439815014e2adad41c2419a7b1a4ce3d448cbb9afd4f6b76159f8"
+    },
+    {
+      "relative_path": "outputs/reports/01_final_test_metrics.json",
+      "size_bytes": 1893,
+      "sha256": "594d49e5d5d53ff90eea7d56568aba5413e1187d1c3c991913d662b02da68f32"
+    },
+    {
+      "relative_path": "outputs/reports/01_final_test_report.txt",
+      "size_bytes": 1558,
+      "sha256": "547300e431c275371824fcdc8cfb5763d3ab3f822a86ac7d8c9de796b9f7e3e5"
+    },
+    {
+      "relative_path": "outputs/reports/02_figure_generation_report.txt",
+      "size_bytes": 1170,
+      "sha256": "ed89e2284241e7cf57fd0ffdd948d857d475d6d07a9d73c428d9ea766292967a"
+    },
+    {
+      "relative_path": "outputs/reports/03_final_evaluation_full_report.txt",
+      "size_bytes": 9106,
+      "sha256": "e2b039280a9b839843c43f0dacfc01aed5ae9201f88e9b57cc29152dde74e195"
+    },
+    {
+      "relative_path": "outputs/reports/03_final_report_metadata.json",
+      "size_bytes": 517,
+      "sha256": "e1468f80a889eeac3748fa1b7893e0501c158748bcf6e01898c4d43f76eba3e7"
+    },
+    {
+      "relative_path": "outputs/reports/18_final_model_selection_report.txt",
+      "size_bytes": 1168,
+      "sha256": "c413cdf47ef3cfadc7892d1d706003531007ae9ca3875321405fa818c081d2e9"
+    },
+    {
+      "relative_path": "outputs/tables/01_final_test_class_metrics.csv",
+      "size_bytes": 161,
+      "sha256": "b640691354cccd3c01ea09b7da3782b22e4533b93d509cf61ec5b179145d0261"
+    },
+    {
+      "relative_path": "outputs/tables/01_final_test_confusion_matrix.csv",
+      "size_bytes": 49,
+      "sha256": "0afc2b3a692c779398a9e0a9b49463a05ee6de46fc7a2fca20036fa7973714c3"
+    },
+    {
+      "relative_path": "outputs/tables/01_final_test_metrics.csv",
+      "size_bytes": 303,
+      "sha256": "8b2e8eeb1fb318a3b3136f2ab9b09b3a5cc6c6f9dd7c26a62f4413c319f8efb3"
+    },
+    {
+      "relative_path": "outputs/tables/03_final_artifact_inventory.csv",
+      "size_bytes": 2240,
+      "sha256": "0d3e76ff29c3325040cf484b10826855c29d1cf93ca7e5863f94a1285743e59e"
+    },
+    {
+      "relative_path": "outputs/tables/03_validation_test_comparison.csv",
+      "size_bytes": 545,
+      "sha256": "15a9bfa8c35ab621ec51cb9110b2b2321a94bf0a4c1e2afaf346d65bcbf4bd0b"
+    },
+    {
+      "relative_path": "scripts/00_verify_final_model.py",
+      "size_bytes": 12706,
+      "sha256": "fcde6d33f2ec2938840b9fef09b72a8e1034284c79cba18f06e91f7e74171f00"
+    },
+    {
+      "relative_path": "scripts/01_evaluate_final_model.py",
+      "size_bytes": 19268,
+      "sha256": "8a5474f4651d0b6ce209d0993ee26e58f36543cc763231ca795d0c15d6288515"
+    },
+    {
+      "relative_path": "scripts/02_generate_final_figures.py",
+      "size_bytes": 5829,
+      "sha256": "f150ddb1b5cb872c7e3d1c18820ec19c6290dc06ced01cd872b599381efa4ea2"
+    },
+    {
+      "relative_path": "scripts/03_final_evaluation_report.py",
+      "size_bytes": 13765,
+      "sha256": "389edd22b18b8c2c40034bb6c9d36ff8804efd3b972fd1243b48b38a6f53f9aa"
+    },
+    {
+      "relative_path": "scripts/04_finalize_research_archive.py",
+      "size_bytes": 7352,
+      "sha256": "bc18cc88d22fc852ad8bc2cad3cb007dfc01274485a2cc61eeea7dd31968c00d"
+    }
+  ]
+}

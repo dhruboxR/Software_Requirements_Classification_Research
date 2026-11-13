@@ -1,0 +1,64 @@
+{
+  "experiment": "DL-18",
+  "created_utc": "2026-11-13T18:22:12.950735+00:00",
+  "dataset_protocol": "D2-v1.1",
+  "selection_status": "FROZEN",
+  "selected_architecture": "distilbert",
+  "selected_seed": 42,
+  "checkpoint_directory": "/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/checkpoints/05_distilbert_best",
+  "checkpoint_files": [
+    {
+      "relative_path": "config.json",
+      "size_bytes": 740,
+      "sha256": "a9f88fd4800891c6c550e4a783a04c4e5d201a2b62bc9336b6a45323514335bd"
+    },
+    {
+      "relative_path": "model.safetensors",
+      "size_bytes": 267832560,
+      "sha256": "99a672da38ce109817b45c876a461b7927c21b04fa33e8e29ce8a64d20987851"
+    },
+    {
+      "relative_path": "tokenizer.json",
+      "size_bytes": 711493,
+      "sha256": "d542861653d0d204783c94395fdf32eef9e800d5fa565a2892c3f1375aa835e9"
+    },
+    {
+      "relative_path": "tokenizer_config.json",
+      "size_bytes": 351,
+      "sha256": "e1c2a61a99bda00f6c55303a210b30e2f92dcf8b555e215812e2eb583e177ffd"
+    }
+  ],
+  "tokenizer_checkpoint": "distilbert/distilbert-base-uncased",
+  "max_length": 96,
+  "classification_rule": {
+    "positive_class": "NFR",
+    "negative_class": "FR",
+    "positive_class_id": 1,
+    "negative_class_id": 0,
+    "nfr_probability_threshold": 0.5
+  },
+  "model_selection_rule": "Architecture chosen using highest mean validation NFR F1 over seeds 42, 17, and 29. Original seed-42 checkpoint used to avoid selecting a random seed by maximum validation score.",
+  "validation_evidence": {
+    "seed42_nfr_f1": 0.8594704684317719,
+    "three_seed_mean_nfr_f1": 0.8634246697421307,
+    "validation_requirements": 728
+  },
+  "no_additional_training": true,
+  "no_ensemble": true,
+  "no_threshold_optimization": true,
+  "original_labels_modified": false,
+  "selection_limitations": [
+    "Architecture chosen after extensive validation reuse",
+    "Only three training seeds per transformer",
+    "Single validation partition",
+    "Project-level independence not established",
+    "Independent human annotation review incomplete"
+  ],
+  "test_accessed": false,
+  "test_evaluation_status": "PENDING",
+  "source_sha256": {
+    "validation_predictions": "4e4054516f938a79656d9c76018eeca4c7f999d1588af0aed89b0729c6f45c8a",
+    "seed_results": "d3cdc84f19905130328ae87bcbebbe429191110f2f768a9b352129d390ef8f81",
+    "seed_stability": "d841481dbf9a4ca116b66be2c4eaea5bee154b4fb3f3cf909195c285ca71e507"
+  }
+}

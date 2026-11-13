@@ -1,0 +1,243 @@
+---------------------------------------------------------------------------------------
+    RUN - python scripts/00_verify_final_model.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+FINAL MODEL - SCRIPT 00: INTEGRITY VERIFICATION
+============================================================================
+
+STEP 1: PROJECT STRUCTURE
+Final model directory: FOUND
+Freeze manifest: FOUND
+Model selection: FROZEN
+Dataset protocol: D2-v1.1
+
+STEP 2: CHECKPOINT INTEGRITY
+Checkpoint files: 4
+File sizes: PASS
+SHA256 verification: PASS
+
+STEP 3: INFERENCE CONFIGURATION
+Architecture: distilbert
+Number of labels: 2
+Tokenizer: distilbert/distilbert-base-uncased
+Maximum sequence length: 96
+Positive class: NFR (ID 1)
+Negative class: FR (ID 0)
+Threshold: 0.5
+Configuration: PASS
+
+STEP 4: TOKENIZER VERIFICATION
+Tokenizer source: COPIED_CHECKPOINT
+Packaged tokenizer: /home/dhrubo_roy/THESIS_DATASET_2/final_model/model/tokenizer
+Tokenizer files: 2
+Local tokenizer loading: PASS
+
+STEP 5: MODEL LOADING
+Loading weights: 100%|████████████████████████████████████████████████████| 104/104 [00:00<00:00, 12327.12it/s]
+Model loading: PASS
+Model architecture: distilbert
+Number of parameters: 66,955,010
+Inference mode: EVAL
+
+STEP 6: SAVE VERIFICATION REPORT
+JSON report: /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/reports/00_model_integrity.json
+Text report: /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/reports/00_model_integrity_report.txt
+
+FINAL VERIFICATION STATUS
+Checkpoint integrity: PASS
+Model configuration: PASS
+Tokenizer packaging: PASS
+Model loading: PASS
+Training performed: NO
+Test set: SEALED
+Test evaluation: PENDING
+
+Script 00 completed successfully.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/01_evaluate_final_model.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+FINAL MODEL - SCRIPT 01: FROZEN TEST EVALUATION
+============================================================================
+
+STEP 1: ONE-TIME EVALUATION SAFEGUARDS
+Model selection: FROZEN
+Architecture: DistilBERT
+Seed: 42
+Threshold: 0.5
+Additional training: DISABLED
+Output overwrite: DISABLED
+
+STEP 2: MODEL AND TOKENIZER INTEGRITY
+Frozen model SHA256: PASS
+Packaged tokenizer SHA256: PASS
+
+STEP 3: DATASET INTEGRITY
+Dataset: D2-v1.1
+Frozen manifest SHA256: PASS
+
+STEP 4: LOAD SEALED TEST PARTITION
+Test requirements: 727
+FR: 488
+NFR: 239
+Test similarity groups: 694
+Cross-partition similarity overlap: NONE
+
+STEP 5: LOAD FINAL MODEL
+Loading weights: 100%|█████████████████████████████████████████████████████| 104/104 [00:00<00:00, 7721.45it/s]
+Device: cuda
+Model loaded: PASS
+Training: DISABLED
+
+STEP 6: FINAL TEST INFERENCE
+Inference completed: 80/727
+Inference completed: 160/727
+Inference completed: 240/727
+Inference completed: 320/727
+Inference completed: 400/727
+Inference completed: 480/727
+Inference completed: 560/727
+Inference completed: 640/727
+Inference completed: 720/727
+Inference completed: 727/727
+
+STEP 7: FINAL TEST METRICS
+Accuracy:          0.8927
+Balanced accuracy: 0.8870
+Macro F1:          0.8804
+Weighted F1:       0.8936
+NFR precision:     0.8157
+NFR recall:        0.8703
+NFR F1:            0.8421
+Average precision: 0.8806
+ROC AUC:           0.9387
+
+CONFUSION MATRIX
+Rows = true labels; columns = predicted labels
+             Pred FR   Pred NFR
+True FR          441         47
+True NFR          31        208
+
+STEP 8: SAVE FINAL OUTPUTS
+Predictions: /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/predictions/01_final_test_predictions.csv
+Metrics: /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/tables/01_final_test_metrics.csv
+Class metrics: /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/tables/01_final_test_class_metrics.csv
+Confusion matrix: /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/tables/01_final_test_confusion_matrix.csv
+Report: /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/reports/01_final_test_report.txt
+Metadata: /home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/reports/01_final_test_metrics.json
+
+FINAL RESEARCH STATUS
+Model selection: LOCKED
+Frozen test evaluation: COMPLETED
+Additional training: NO
+Threshold optimization: NO
+Final test predictions: SAVED
+Final test metrics: SAVED
+
+Script 01 completed successfully.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/02_generate_final_figures.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+FINAL MODEL - SCRIPT 02: EVALUATION FIGURES
+============================================================================
+
+FINAL TEST FIGURES
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_confusion_matrix.png
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_confusion_matrix.pdf
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_precision_recall_curve.png
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_precision_recall_curve.pdf
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_roc_curve.png
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_roc_curve.pdf
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_per_class_metrics.png
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_per_class_metrics.pdf
+
+RESEARCH STATUS
+Figure generation: COMPLETED
+Saved test predictions: VERIFIED
+New inference: NO
+Training: NO
+Threshold tuning: NO
+Final evaluation: LOCKED
+
+Script 02 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/03_final_evaluation_report.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+FINAL MODEL - SCRIPT 03: RESEARCH REPORT
+============================================================================
+
+RESULT VERIFICATION
+Final test records: 727
+Metrics recomputed: PASS
+Prediction SHA256: PASS
+Confusion matrix: PASS
+Figure count: 8
+New inference: NO
+
+FINAL METRICS
+accuracy: 0.8927
+balanced_accuracy: 0.8870
+macro_f1: 0.8804
+weighted_f1: 0.8936
+nfr_precision: 0.8157
+nfr_recall: 0.8703
+nfr_f1: 0.8421
+average_precision: 0.8806
+roc_auc: 0.9387
+
+RESEARCH STATUS
+Final research report: COMPLETED
+Model selection: LOCKED
+Training: NO
+Test inference: NO
+Threshold optimization: NO
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/reports/03_final_evaluation_full_report.txt
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/tables/03_validation_test_comparison.csv
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/tables/03_final_artifact_inventory.csv
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/reports/03_final_report_metadata.json
+
+Script 03 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/04_finalize_research_archive.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+FINAL MODEL - SCRIPT 04: RESEARCH ARCHIVE
+============================================================================
+
+INTEGRITY CHECKS
+Required research artifacts: PASS
+Model freeze: PASS
+Checkpoint hashes: PASS
+Tokenizer hashes: PASS
+Final prediction hash: PASS
+
+ARCHIVE SUMMARY
+Files inventoried: 35
+Archive status: VERIFIED
+
+RESEARCH STATUS
+Final research archive: COMPLETED
+Model selection: LOCKED
+Training: NO
+Inference: NO
+Post-test tuning: NO
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/reports/04_final_research_archive.json
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/reports/04_archive_integrity_report.txt
+
+Script 04 completed.
+

@@ -1,0 +1,31 @@
+FINAL MODEL RESEARCH ARCHIVE
+============================================================================
+
+Model: DistilBERT
+Seed: 42
+Dataset: D2-v1.1
+Evaluation: Completed
+
+INTEGRITY
+Frozen checkpoint: VERIFIED
+Tokenizer: VERIFIED
+Prediction hash: VERIFIED
+
+Files inventoried: 35
+
+FINAL TEST RESULTS
+Accuracy: 0.8927
+Balanced accuracy: 0.8870
+Macro F1: 0.8804
+NFR precision: 0.8157
+NFR recall: 0.8703
+NFR F1: 0.8421
+
+RESEARCH STATUS
+Final evaluation: COMPLETED
+Additional inference: NO
+Additional training: NO
+Post-test tuning: NO
+
+ARCHIVE MANIFEST
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/reports/04_final_research_archive.json

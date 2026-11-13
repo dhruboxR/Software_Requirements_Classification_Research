@@ -1,0 +1,27 @@
+FINAL MODEL: TEST EVALUATION FIGURES
+============================================================================
+
+Model: Frozen DistilBERT, seed 42
+Test examples: 727
+Prediction SHA256: c2b4debba9a741f4f91f5daa982f8f3476c81abb9202a5605dc2744309c81d31
+
+Average precision: 0.880629
+ROC AUC: 0.938653
+
+CONFUSION MATRIX
+[[441  47]
+ [ 31 208]]
+
+FIGURES
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_confusion_matrix.png
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_confusion_matrix.pdf
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_precision_recall_curve.png
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_precision_recall_curve.pdf
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_roc_curve.png
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_roc_curve.pdf
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_per_class_metrics.png
+/home/dhrubo_roy/THESIS_DATASET_2/final_model/outputs/figures/02_per_class_metrics.pdf
+
+No retraining or repeated model inference performed.
+No threshold optimization performed.
+Figures use saved final test predictions.

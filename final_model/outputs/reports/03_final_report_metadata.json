@@ -1,0 +1,13 @@
+{
+  "script": "FINAL_MODEL_03",
+  "generated_utc": "2026-11-13T18:38:59.129152+00:00",
+  "status": "COMPLETED",
+  "frozen_test_rows": 727,
+  "test_predictions_sha256": "c2b4debba9a741f4f91f5daa982f8f3476c81abb9202a5605dc2744309c81d31",
+  "source_evaluation_metadata_sha256": "594d49e5d5d53ff90eea7d56568aba5413e1187d1c3c991913d662b02da68f32",
+  "final_nfr_f1": 0.8421052631578947,
+  "test_inference_performed": false,
+  "training_performed": false,
+  "threshold_optimized": false,
+  "model_selection_changed": false
+}

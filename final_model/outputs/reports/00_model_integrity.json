@@ -1,0 +1,58 @@
+{
+  "script": "FINAL_MODEL_00",
+  "generated_utc": "2026-11-13T18:26:12.268341+00:00",
+  "status": "PASS",
+  "dataset_protocol": "D2-v1.1",
+  "selected_architecture": "distilbert",
+  "selected_seed": 42,
+  "checkpoint_directory": "/home/dhrubo_roy/THESIS_DATASET_2/final_model/model/distilbert_seed42",
+  "checkpoint_file_count": 4,
+  "checkpoint_files": [
+    {
+      "relative_path": "config.json",
+      "size_bytes": 740,
+      "sha256": "a9f88fd4800891c6c550e4a783a04c4e5d201a2b62bc9336b6a45323514335bd"
+    },
+    {
+      "relative_path": "model.safetensors",
+      "size_bytes": 267832560,
+      "sha256": "99a672da38ce109817b45c876a461b7927c21b04fa33e8e29ce8a64d20987851"
+    },
+    {
+      "relative_path": "tokenizer.json",
+      "size_bytes": 711493,
+      "sha256": "d542861653d0d204783c94395fdf32eef9e800d5fa565a2892c3f1375aa835e9"
+    },
+    {
+      "relative_path": "tokenizer_config.json",
+      "size_bytes": 351,
+      "sha256": "e1c2a61a99bda00f6c55303a210b30e2f92dcf8b555e215812e2eb583e177ffd"
+    }
+  ],
+  "checkpoint_sha256_verified": true,
+  "tokenizer_directory": "/home/dhrubo_roy/THESIS_DATASET_2/final_model/model/tokenizer",
+  "tokenizer_source": "COPIED_CHECKPOINT",
+  "tokenizer_files": [
+    {
+      "relative_path": "tokenizer.json",
+      "size_bytes": 711493,
+      "sha256": "d542861653d0d204783c94395fdf32eef9e800d5fa565a2892c3f1375aa835e9"
+    },
+    {
+      "relative_path": "tokenizer_config.json",
+      "size_bytes": 456,
+      "sha256": "dfc3de0249b7930e82eb71c89a9ab4bb84b086e559615236a6672de88d51f980"
+    }
+  ],
+  "max_length": 96,
+  "nfr_threshold": 0.5,
+  "positive_label": "NFR",
+  "positive_label_id": 1,
+  "model_parameters": 66955010,
+  "python_version": "3.14.4",
+  "torch_version": "2.14.1+cu130",
+  "transformers_version": "5.22.1",
+  "training_performed": false,
+  "test_accessed": false,
+  "test_evaluation_performed": false
+}

@@ -1,0 +1,39 @@
+FINAL MODEL: INTEGRITY VERIFICATION
+============================================================================
+
+STATUS: PASS
+
+MODEL
+Architecture: DistilBERT
+Seed: 42
+Checkpoint: /home/dhrubo_roy/THESIS_DATASET_2/final_model/model/distilbert_seed42
+Parameters: 66,955,010
+
+CHECKPOINT INTEGRITY
+Checkpoint files verified: 4
+All frozen SHA256 hashes: MATCH
+
+TOKENIZER
+Source: COPIED_CHECKPOINT
+Directory: /home/dhrubo_roy/THESIS_DATASET_2/final_model/model/tokenizer
+Packaged files: 2
+
+INFERENCE CONFIGURATION
+Dataset: D2-v1.1
+Maximum token length: 96
+FR: class 0
+NFR: class 1
+NFR probability threshold: 0.5
+
+MODEL LOAD
+Status: PASS
+Mode: EVAL
+
+RESEARCH STATUS
+Final model verification: COMPLETED
+Model training: NO
+Test accessed: NO
+Test evaluation: PENDING
+
+The frozen checkpoint remains unchanged.
+The tokenizer is packaged separately.
