@@ -1,0 +1,99 @@
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_3/19_class_independent_support.py
+---------------------------------------------------------------------------------------
+
+Saved: dataset_exploration/outputs/tables/19_per_class_unique_support.csv
+Saved: dataset_exploration/outputs/tables/19_source_class_support_summary.csv
+source  classes  classes_under_30  classes_under_100  min_unique_class_support
+    D1       12                 6                 11                        12
+    D2       10                 9                  9                         1
+    D3       11                 0                 10                        32
+    D4        2                 0                  0                       112
+    D5        6                 5                  6                         3
+Saved: dataset_exploration/outputs/reports/19_class_support_notes.txt
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_3/20_duplicate_conflict_risk.py
+---------------------------------------------------------------------------------------
+
+python dataset_exploration/scripts_3/20_duplicate_conflict_risk.py
+Saved: dataset_exploration/outputs/tables/20_per_class_duplicate_conflict_risk.csv
+Saved: dataset_exploration/outputs/tables/20_repeated_text_group_index.csv
+Global repeated-text groups: 382
+Cross-source text groups: 167
+Conflicting text groups: 162
+Saved: dataset_exploration/outputs/reports/20_duplicate_risk_notes.txt
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_3/21_project_coverage_audit.py
+---------------------------------------------------------------------------------------
+
+Saved: dataset_exploration/outputs/tables/21_per_class_project_coverage.csv
+source label  rows  unique_texts  source_matched_project_rows  recoverable_source_projects max_project_share_pct     project_group_status split_readiness
+    D3   AUD    38            38                           38                           26                 13.16 PROVISIONAL_DOSSPRE_TEXT_MATCH    NOT_APPROVED
+    D3   AVA    39            38                           36                           29                  8.33 PROVISIONAL_DOSSPRE_TEXT_MATCH    NOT_APPROVED
+    D3   CON    67            67                           67                           39                  7.46 PROVISIONAL_DOSSPRE_TEXT_MATCH    NOT_APPROVED
+    D3   IMM    47            47                           45                           38                  6.67 PROVISIONAL_DOSSPRE_TEXT_MATCH    NOT_APPROVED
+    D3   IND    45            44                           42                           18                  11.9 PROVISIONAL_DOSSPRE_TEXT_MATCH    NOT_APPROVED
+    D3   INT    32            32                           27                           17                 14.81 PROVISIONAL_DOSSPRE_TEXT_MATCH    NOT_APPROVED
+    D3   MAI    57            57                           55                           45                  5.45 PROVISIONAL_DOSSPRE_TEXT_MATCH    NOT_APPROVED
+    D3   NSR   781           777                          743                          103                  2.83 PROVISIONAL_DOSSPRE_TEXT_MATCH    NOT_APPROVED
+    D3   SUR    33            32                           30                           23                  6.67 PROVISIONAL_DOSSPRE_TEXT_MATCH    NOT_APPROVED
+    D3   THE    93            92                           85                           50                  9.41 PROVISIONAL_DOSSPRE_TEXT_MATCH    NOT_APPROVED
+    D3   THO    60            60                           59                           38                  6.78 PROVISIONAL_DOSSPRE_TEXT_MATCH    NOT_APPROVED
+Saved: dataset_exploration/outputs/reports/21_group_feasibility_notes.txt
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_3/22_cross_source_label_audit.py
+---------------------------------------------------------------------------------------
+
+Saved: dataset_exploration/outputs/tables/22_conflict_groups_source_context.csv
+Saved: dataset_exploration/outputs/tables/22_conflict_manual_review_rows.csv
+Saved: dataset_exploration/outputs/tables/22_conflict_summary.csv
+ global_conflict_groups  cross_source_conflict_groups  single_source_conflict_groups  affected_rows
+                    162                           130                             32            363
+Saved: dataset_exploration/outputs/reports/22_taxonomy_cautions.txt
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_3/23_selection_evidence.py
+---------------------------------------------------------------------------------------
+
+Saved: dataset_exploration/outputs/tables/23_dataset_comparison_evidence.csv
+source  rows  nonblank_classes  smallest_unique_class  minority_classes_under_30  minority_classes_under_100  blank_labels  within_source_extra_duplicate_rows claimed_independent_projects                             risk_note selection_status
+    D1   979                12                     12                          5                          10  14                                  13                           NO   Major PROMISE overlap; mixed labels     NOT APPROVED
+    D2  4993                10                      1                          8                           8   5                                  32                           NO                          Project metadata unreliable; FR/NFR labels need source review     NOT APPROVED
+    D3  1292                11                     32                          0                          10   0                                  10        PARTIALLY_RECOVERABLE Small minority classes; NSR taxonomy compression; original project recovery incomplete     NOT APPROVED
+    D4  1520                 2                    112                          0                           0   0                                 418                           NO                           LLM-associated requirements; repeated texts; 90:10 imbalance     NOT APPROVED
+    D5    70                 6                      3                          5                           6   0                                   0                           NO                      70 rows; substantial PROMISE/D1 overlap; project label unreliable     NOT APPROVED
+Saved: dataset_exploration/outputs/reports/23_selection_notes.txt
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_3/24_validation_summary.py
+---------------------------------------------------------------------------------------
+
+Saved: dataset_exploration/outputs/reports/24_phase_1c_validation_summary.txt
+PHASE 1C COMPLETE: REVIEW REQUIRED; NO SOURCE RECORDS MODIFIED
+
+    RUN - cat dataset_exploration/outputs/reports/24_phase_1c_validation_summary.txt
+
+PHASE 1C: MINORITY-CLASS READINESS AUDIT
+
+Data source: original unified preprocessing CSV (unchanged)
+Dataset selection status: NOT YET APPROVED
+
+source  rows  nonblank_classes  smallest_unique_class  minority_classes_under_30  minority_classes_under_100  blank_labels  within_source_extra_duplicate_rows claimed_independent_projects                             risk_note selection_status
+    D1   979                12                     12                          5                          10  14                                  13                           NO   Major PROMISE overlap; mixed labels     NOT APPROVED
+    D2  4993                10                      1                          8                           8   5                                  32                           NO                          Project metadata unreliable; FR/NFR labels need source review     NOT APPROVED
+    D3  1292                11                     32                          0                          10   0                                  10        PARTIALLY_RECOVERABLE Small minority classes; NSR taxonomy compression; original project recovery incomplete     NOT APPROVED
+    D4  1520                 2                    112                          0                           0   0                                 418                           NO                           LLM-associated requirements; repeated texts; 90:10 imbalance     NOT APPROVED
+    D5    70                 6                      3                          5                           6   0                                   0                           NO                      70 rows; substantial PROMISE/D1 overlap; project label unreliable     NOT APPROVED
+
+Outstanding validation gates:
+1. Define consistent label taxonomy and independently review conflicts for intended target.
+2. Verify near-duplicates and remove cross-partition contamination with frozen grouping.
+3. Confirm source-derived project identities where possible; reject unverified project split claims.
+4. Confirm minority class per-project coverage and minimum test support after grouping.
+5. Approve exact inclusion/exclusion and label decisions before generating any train/test split.
+6. Retain class-wise evaluation and uncertainty reporting; do not optimize for accuracy alone.
+
+These checks do not predict model performance.
