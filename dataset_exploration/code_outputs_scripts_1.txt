@@ -1,0 +1,150 @@
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts/00_inspect_files.py
+---------------------------------------------------------------------------------------
+
+Saved: dataset_exploration/outputs/tables/00_file_inventory.csv
+Saved: dataset_exploration/outputs/tables/00_zip_contents.csv
+Saved: dataset_exploration/outputs/reports/00_file_inventory_summary.txt
+Inventory: 36 files; ZIP entries: 40
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts/01_dataset_overview.py
+---------------------------------------------------------------------------------------
+
+PREPROCESSING: 8,854 rows, 6 columns
+Columns: ['Requirement ID', 'Project ID', 'Project Name', 'Datasets', 'Requirement Text (Original Requirement)', 'Class']
+Saved: dataset_exploration/outputs/tables/01_schema_preprocessing.csv
+
+PROCESSING: 8,854 rows, 11 columns
+Columns: ['Requirement ID', 'Project ID', 'Project Name', 'Datasets', 'Requirement Text (Original Requirement)', 'Class', 'Problem Type', 'Problem Description', 'Improvement Suggestion', 'Improved Requirement', 'Unnamed: 10']
+Saved: dataset_exploration/outputs/tables/01_schema_processing.csv
+Saved: dataset_exploration/outputs/tables/01_dataset_overview.csv
+Saved: dataset_exploration/outputs/reports/01_comparison.txt
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts/02_data_quality.py
+---------------------------------------------------------------------------------------
+
+Saved: dataset_exploration/outputs/tables/02_missing_values.csv
+Saved: dataset_exploration/outputs/tables/02_repeated_texts.csv
+Saved: dataset_exploration/outputs/tables/02_conflicting_text_labels.csv
+Saved: dataset_exploration/outputs/reports/02_data_quality_summary.txt
+Rows=8854, duplicate IDs=0, duplicate texts=656, conflicting texts=162
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts/03_class_distribution.py
+---------------------------------------------------------------------------------------
+
+Saved: dataset_exploration/outputs/tables/03_class_distribution.csv
+Saved: dataset_exploration/outputs/reports/03_class_summary.txt
+  class  count  percentage
+     FR   4640      52.406
+    NFR   1843      20.815
+    NSR    781       8.821
+      F    489       5.523
+     SE    141       1.593
+    THE     93        1.05
+     US     89       1.005
+      O     85        0.96
+     PE     69       0.779
+    CON     67       0.757
+    THO     60       0.678
+     LF     57       0.644
+    MAI     57       0.644
+    IMM     47       0.531
+    IND     45       0.508
+    AVA     39        0.44
+    AUD     38       0.429
+    SUR     33       0.373
+    INT     32       0.361
+      A     31        0.35
+     MN     24       0.271
+      L     22       0.248
+     SC     21       0.237
+     FT     20       0.226
+[BLANK]     19       0.215
+     PO     12       0.136
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts/04_project_analysis.py
+---------------------------------------------------------------------------------------
+
+Saved: dataset_exploration/outputs/tables/04_project_distribution.csv
+Saved: dataset_exploration/outputs/tables/04_source_distribution.csv
+Saved: dataset_exploration/outputs/tables/04_source_project_counts.csv
+Saved: dataset_exploration/outputs/tables/04_project_class_counts.csv
+Saved: dataset_exploration/outputs/tables/04_projects_with_multiple_sources.csv
+Saved: dataset_exploration/outputs/reports/04_project_summary.txt
+Project and source counts saved.
+
+    RUN - cat dataset_explor ation/outputs/tables/04_source_distribution.csv
+
+source,count,percentage
+D2,4993,56.393
+D4,1520,17.167
+D3,1292,14.592
+D1,979,11.057
+D5,70,0.791
+
+    RUN - cat dataset_explor ation/outputs/tables/04_source_class_distribution.csv
+
+CLASS DISTRIBUTION BY SOURCE
+==========================================================================================
+Class      A  AUD  AVA  CON    F    FR  FT  IMM  IND  INT   L  LF  MAI  MN   NFR  NSR   O  PE  PO  SC   SE  SUR  THE  THO  US  [BLANK]
+Datasets
+D1        30    0    0    0  444     0  18    0    0    0  15  51    0  24     0    0  77  67  12  21  122    0    00  84       14
+D2         1    0    0    0    0  3272   2    0    0    0   4   2    0   0  1691    0   4   2   0   0    9    0    00   1        5
+D3         0   38   39   67    0     0   0   47   45   32   0   0   57   0     0  781   0   0   0   0    0   33   93   60   0        0
+D4         0    0    0    0    0  1368   0    0    0    0   0   0    0   0   152    0   0   0   0   0    0    0    00   0        0
+D5         0    0    0    0   45     0   0    0    0    0   3   4    0   0     0    0   4   0   0   0   10    0    00   4        0
+
+DISTINCT CLASSES PER SOURCE
+==========================================================================================
+D1: 13 labels
+['', 'A', 'F', 'FT', 'L', 'LF', 'MN', 'O', 'PE', 'PO', 'SC', 'SE', 'US']
+
+D2: 11 labels
+['', 'A', 'FR', 'FT', 'L', 'LF', 'NFR', 'O', 'PE', 'SE', 'US']
+
+D3: 11 labels
+['AUD', 'AVA', 'CON', 'IMM', 'IND', 'INT', 'MAI', 'NSR', 'SUR', 'THE', 'THO']
+
+D4: 2 labels
+['FR', 'NFR']
+
+D5: 6 labels
+['F', 'L', 'LF', 'O', 'SE', 'US']
+
+Saved: dataset_exploration/outputs/tables/04_source_class_distribution.csv
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts/05_text_analysis.py
+---------------------------------------------------------------------------------------
+
+Saved: dataset_exploration/outputs/tables/05_text_length_summary.csv
+Saved: dataset_exploration/outputs/tables/05_length_by_class.csv
+Saved: dataset_exploration/outputs/reports/05_text_summary.txt
+    metric  min       mean  median   p90  max
+     words    3  16.038288    15.0  24.0   84
+characters   23 101.676756    94.0 152.0  517
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts/06_label_analysis.py
+---------------------------------------------------------------------------------------
+
+Saved: dataset_exploration/outputs/tables/06_label_coverage.csv
+Saved: dataset_exploration/outputs/tables/06_label_review_samples.csv
+Saved: dataset_exploration/outputs/tables/06_conflict_review_rows.csv
+Saved: dataset_exploration/outputs/reports/06_label_review_instructions.txt
+Sampled 208 rows for manual label review; 363 conflict-related rows.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts/07_overlap_analysis.py
+---------------------------------------------------------------------------------------
+
+kaggle_extended: source candidate strings=975, matched main rows=600, distinct matched texts=525
+promise_exp: source candidate strings=968, matched main rows=0, distinct matched texts=0
+Saved: dataset_exploration/outputs/tables/07_source_overlap_candidate_matches.csv
+Saved: dataset_exploration/outputs/reports/07_overlap_limitations.txt
+(.venv-transformers) dhrubo_roy@dhruboxR-IDG-3-15ARH7:~/THESIS_DATASET_2$ 
+
