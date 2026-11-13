@@ -34,6 +34,20 @@ The split separates recorded **similarity groups** to reduce related-text leakag
 
 For the detailed preparation procedure, see [Dataset Exploration](dataset_exploration/README.md).
 
+### Evaluation figures
+
+The figures below were generated from the saved final test predictions and are tracked in `final_model/outputs/figures/`.
+
+| Confusion matrix | Per-class precision, recall and F1 |
+|---|---|
+| ![Final test confusion matrix](final_model/outputs/figures/02_confusion_matrix.png) | ![Final test per-class metrics](final_model/outputs/figures/02_per_class_metrics.png) |
+
+| Precision-recall curve | ROC curve |
+|---|---|
+| ![Final test precision-recall curve](final_model/outputs/figures/02_precision_recall_curve.png) | ![Final test ROC curve](final_model/outputs/figures/02_roc_curve.png) |
+
+PDF versions of these figures and the full results are available under [`final_model/outputs/`](final_model/outputs/).
+
 ## Experimental workflow
 
 | Stage | Folder | Work performed |
@@ -77,20 +91,6 @@ The frozen DistilBERT model was evaluated on **727 D2 v1.1 test examples**, usin
 | **NFR** | 31 | 208 |
 
 The model correctly classified **649 of 727** requirements. The validation-to-test results should be read as measurements on different partitions, not as proof that the selected architecture outperforms all alternatives on unseen test data.
-
-### Evaluation figures
-
-The figures below were generated from the saved final test predictions and are tracked in `final_model/outputs/figures/`.
-
-| Confusion matrix | Per-class precision, recall and F1 |
-|---|---|
-| ![Final test confusion matrix](final_model/outputs/figures/02_confusion_matrix.png) | ![Final test per-class metrics](final_model/outputs/figures/02_per_class_metrics.png) |
-
-| Precision-recall curve | ROC curve |
-|---|---|
-| ![Final test precision-recall curve](final_model/outputs/figures/02_precision_recall_curve.png) | ![Final test ROC curve](final_model/outputs/figures/02_roc_curve.png) |
-
-PDF versions of these figures and the full results are available under [`final_model/outputs/`](final_model/outputs/).
 
 ## Repository structure
 
