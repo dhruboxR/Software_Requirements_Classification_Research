@@ -1,0 +1,872 @@
+---------------------------------------------------------------------------------------
+    RUN - python research_modeling/scripts/57_d2_baseline_logistic_regression.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 57: D2 v1.1 BASELINE EXPERIMENT
+============================================================================
+
+DATASET
+Protocol: D2-v1.1
+Training requirements: 3378
+Validation requirements: 728
+Test requirements accessed for modeling: 0
+Frozen manifest integrity: PASS
+Group isolation: PASS
+
+CLASS DISTRIBUTION
+Training:
+label
+FR     2224
+NFR    1154
+
+Validation:
+label
+FR     489
+NFR    239
+
+FEATURE EXTRACTION
+Method: Word TF-IDF
+N-grams: (1, 2)
+Vocabulary size: 7787
+TF-IDF fitted on: TRAIN ONLY
+
+B01_LogisticRegression
+------------------------------------------------------------
+              precision    recall  f1-score   support
+
+          FR     0.8781    0.9427    0.9093       489
+         NFR     0.8621    0.7322    0.7919       239
+
+    accuracy                         0.8736       728
+   macro avg     0.8701    0.8375    0.8506       728
+weighted avg     0.8728    0.8736    0.8707       728
+
+Macro-F1: 0.8506
+Balanced accuracy: 0.8375
+Confusion matrix [FR, NFR]:
+[[461  28]
+ [ 64 175]]
+
+B02_BalancedLogisticRegression
+------------------------------------------------------------
+              precision    recall  f1-score   support
+
+          FR     0.9261    0.8712    0.8978       489
+         NFR     0.7649    0.8577    0.8087       239
+
+    accuracy                         0.8668       728
+   macro avg     0.8455    0.8645    0.8532       728
+weighted avg     0.8732    0.8668    0.8685       728
+
+Macro-F1: 0.8532
+Balanced accuracy: 0.8645
+Confusion matrix [FR, NFR]:
+[[426  63]
+ [ 34 205]]
+
+============================================================================
+BASELINE COMPARISON
+============================================================================
+                         model  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  fp  fn
+        B01_LogisticRegression    0.8736             0.8375    0.8506         0.8621      0.7322  0.7919  28  64
+B02_BalancedLogisticRegression    0.8668             0.8645    0.8532         0.7649      0.8577  0.8087  63  34
+
+RESEARCH STATUS
+Baseline experiments: COMPLETED
+Evaluation partition: VALIDATION ONLY
+Test set: SEALED
+Model selection: NOT FINALIZED
+Scientific approval: CONDITIONAL
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/57_d2_baseline_metrics.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/57_d2_validation_predictions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/57_d2_baseline_report.txt
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/57_d2_baseline_metadata.json
+
+Script 57 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python research_modeling/scripts/58_d2_baseline_error_analysis.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 58: BASELINE ERROR ANALYSIS
+============================================================================
+
+OVERALL COMPARISON
+comparison_status
+BOTH_CORRECT            601
+BOTH_WRONG               62
+B02_INTRODUCED_ERROR     35
+B02_FIXED_B01_ERROR      30
+
+PER-CLASS COMPARISON
+comparison_status  B02_FIXED_B01_ERROR  B02_INTRODUCED_ERROR  BOTH_CORRECT  BOTH_WRONG
+true_label                                                                            
+FR                                   0                    35           426          28
+NFR                                 30                     0           175          34
+
+NFR ERROR ANALYSIS
+Total NFR validation examples: 239
+B01 missed NFR: 64
+B02 missed NFR: 34
+Missed by both: 34
+B01 misses corrected by B02: 30
+NFR newly missed by B02: 0
+Net false-negative reduction (%): 46.88
+
+NFR PROBABILITY SUMMARY
+            b01_mean_nfr_probability  b02_mean_nfr_probability  mean_change
+true_label                                                                 
+FR                            0.2057                    0.2777       0.0720
+NFR                           0.6011                    0.6977       0.0966
+
+RESEARCH STATUS
+Error analysis: COMPLETED
+Evaluation: VALIDATION ONLY
+Test set: SEALED
+Model training: NONE IN SCRIPT 58
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/58_d2_baseline_error_analysis.txt
+Script 58 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python research_modeling/scripts/59_d2_threshold_analysis.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 59: D2 v1.1 THRESHOLD ANALYSIS
+============================================================================
+
+EXPERIMENT CONFIGURATION
+Evaluation: VALIDATION ONLY
+Threshold minimum: 0.2
+Threshold maximum: 0.8
+Threshold count: 25
+NFR recall target: 0.85
+Test set accessed: NO
+
+BASELINE THRESHOLD (0.50)
+                         model  threshold  nfr_precision  nfr_recall  nfr_f1  macro_f1  balanced_accuracy  fp  fn
+        B01_LogisticRegression        0.5         0.8621      0.7322  0.7919    0.8506             0.8375  28  64
+B02_BalancedLogisticRegression        0.5         0.7649      0.8577  0.8087    0.8532             0.8645  63  34
+
+EXPLORATORY BEST NFR F1
+                         model  threshold  nfr_precision  nfr_recall  nfr_f1  macro_f1  balanced_accuracy  fp  fn
+        B01_LogisticRegression      0.425         0.8522      0.8201  0.8358    0.8789             0.8753  34  43
+B02_BalancedLogisticRegression      0.550         0.8498      0.8285  0.8390    0.8809             0.8784  35  41
+
+RECALL >= 0.85 WITH HIGHEST PRECISION
+                         model  threshold  nfr_precision  nfr_recall  nfr_f1  macro_f1  balanced_accuracy  fp  fn
+        B01_LogisticRegression      0.375         0.7584      0.8536  0.8031    0.8488             0.8603  65  35
+B02_BalancedLogisticRegression      0.500         0.7649      0.8577  0.8087    0.8532             0.8645  63  34
+
+THRESHOLD-INDEPENDENT RANKING METRICS
+                         model  average_precision  roc_auc
+        B01_LogisticRegression             0.8646   0.9247
+B02_BalancedLogisticRegression             0.8638   0.9253
+
+RESEARCH STATUS
+Threshold analysis: COMPLETED
+Model training: NONE
+Test evaluation: NONE
+Threshold selection: EXPLORATORY
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/59_d2_threshold_sweep.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/59_d2_best_nfr_f1_thresholds.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/59_d2_recall_target_thresholds.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/59_d2_ranking_metrics.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/59_d2_threshold_analysis.txt
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/59_d2_threshold_metadata.json
+
+Script 59 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python research_modeling/scripts/60_d2_grouped_cv_baseline.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 60: D2 v1.1 GROUP-AWARE CROSS-VALIDATION
+============================================================================
+
+DATASET
+Protocol: D2-v1.1
+Training requirements: 3378
+FR: 2224
+NFR: 1154
+Training similarity groups: 3237
+Cross-validation folds: 5
+External validation used: NO
+Test used: NO
+Fold 1, B01_LogisticRegression: NFR F1=0.7438, NFR recall=0.6537
+Fold 1, B02_BalancedLogisticRegression: NFR F1=0.7925, NFR recall=0.8182
+Fold 2, B01_LogisticRegression: NFR F1=0.7932, NFR recall=0.7056
+Fold 2, B02_BalancedLogisticRegression: NFR F1=0.8291, NFR recall=0.8398
+Fold 3, B01_LogisticRegression: NFR F1=0.7543, NFR recall=0.6609
+Fold 3, B02_BalancedLogisticRegression: NFR F1=0.7799, NFR recall=0.8087
+Fold 4, B01_LogisticRegression: NFR F1=0.7518, NFR recall=0.6753
+Fold 4, B02_BalancedLogisticRegression: NFR F1=0.8129, NFR recall=0.8745
+Fold 5, B01_LogisticRegression: NFR F1=0.7862, NFR recall=0.6926
+Fold 5, B02_BalancedLogisticRegression: NFR F1=0.8206, NFR recall=0.8615
+
+============================================================================
+CROSS-VALIDATION STABILITY
+============================================================================
+                         model  mean_nfr_f1  std_nfr_f1  mean_nfr_recall  std_nfr_recall  mean_macro_f1  mean_balanced_accuracy
+        B01_LogisticRegression       0.7659      0.0222           0.6776          0.0216         0.8322                  0.8150
+B02_BalancedLogisticRegression       0.8070      0.0203           0.8405          0.0279         0.8502                  0.8573
+
+TRAIN-OOF BEST NFR F1 THRESHOLDS
+                         model  threshold  nfr_precision  nfr_recall  nfr_f1  macro_f1  balanced_accuracy  fp  fn
+        B01_LogisticRegression      0.375         0.7702      0.8423  0.8046    0.8479             0.8559 290 182
+B02_BalancedLogisticRegression      0.500         0.7760      0.8406  0.8070    0.8502             0.8573 280 184
+
+TRAIN-OOF RECALL >= 0.85
+                         model  threshold  nfr_precision  nfr_recall  nfr_f1  macro_f1  balanced_accuracy  fp  fn
+        B01_LogisticRegression      0.350         0.7452      0.8718  0.8035    0.8439             0.8585 344 148
+B02_BalancedLogisticRegression      0.475         0.7551      0.8657  0.8066    0.8473             0.8600 324 155
+
+TRAIN-OOF RANKING METRICS
+                         model  oof_average_precision  oof_roc_auc
+        B01_LogisticRegression                 0.8783       0.9279
+B02_BalancedLogisticRegression                 0.8780       0.9282
+
+RESEARCH STATUS
+Grouped cross-validation: COMPLETED
+External validation: UNTOUCHED
+Test set: SEALED
+Model selection: PENDING
+
+Saved: /home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/60_d2_grouped_cv_report.txt
+Script 60 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python research_modeling/scripts/61_d2_oof_threshold_validation.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 61: TRAIN-OOF THRESHOLD VALIDATION
+============================================================================
+
+CONFIGURATION
+Dataset protocol: D2-v1.1
+Threshold source: TRAIN OOF (Script 60)
+Probability source: VALIDATION (Script 57)
+Threshold optimization in Script 61: NONE
+Test partition accessed: NO
+
+FIXED OOF-SELECTED THRESHOLDS
+        objective                          model  threshold  nfr_precision  nfr_recall  nfr_f1  macro_f1  balanced_accuracy  fp  fn
+       MAX_NFR_F1         B01_LogisticRegression      0.375         0.7584      0.8536  0.8031    0.8488             0.8603  65  35
+       MAX_NFR_F1 B02_BalancedLogisticRegression      0.500         0.7649      0.8577  0.8087    0.8532             0.8645  63  34
+RECALL_TARGET_085         B01_LogisticRegression      0.350         0.7464      0.8745  0.8054    0.8488             0.8646  71  30
+RECALL_TARGET_085 B02_BalancedLogisticRegression      0.475         0.7509      0.8703  0.8062    0.8499             0.8646  69  31
+
+CONFUSION MATRICES
+Rows: actual FR, NFR
+Columns: predicted FR, NFR
+
+MAX_NFR_F1 | B01_LogisticRegression | threshold=0.375
+[[424, 65], [35, 204]]
+
+MAX_NFR_F1 | B02_BalancedLogisticRegression | threshold=0.500
+[[426, 63], [34, 205]]
+
+RECALL_TARGET_085 | B01_LogisticRegression | threshold=0.350
+[[418, 71], [30, 209]]
+
+RECALL_TARGET_085 | B02_BalancedLogisticRegression | threshold=0.475
+[[420, 69], [31, 208]]
+
+RESEARCH STATUS
+OOF threshold validation: COMPLETED
+Model training: NONE
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/61_d2_oof_threshold_validation.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/61_d2_oof_threshold_validation.txt
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/61_d2_oof_threshold_validation.json
+
+Script 61 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python research_modeling/scripts/62_d2_linear_svm_baseline.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 62: D2 v1.1 LINEAR SVM BASELINE
+============================================================================
+
+DATASET
+Protocol: D2-v1.1
+Training requirements: 3378
+Validation requirements: 728
+Training similarity groups: 3237
+Test accessed: NO
+Frozen manifest integrity: PASS
+Fold 1, S01_LinearSVM: NFR F1=0.7954, NFR recall=0.7489
+Fold 1, S02_BalancedLinearSVM: NFR F1=0.7991, NFR recall=0.7922
+Fold 2, S01_LinearSVM: NFR F1=0.8128, NFR recall=0.7706
+Fold 2, S02_BalancedLinearSVM: NFR F1=0.8184, NFR recall=0.8095
+Fold 3, S01_LinearSVM: NFR F1=0.7919, NFR recall=0.7696
+Fold 3, S02_BalancedLinearSVM: NFR F1=0.8060, NFR recall=0.8130
+Fold 4, S01_LinearSVM: NFR F1=0.7991, NFR recall=0.7749
+Fold 4, S02_BalancedLinearSVM: NFR F1=0.7924, NFR recall=0.8095
+Fold 5, S01_LinearSVM: NFR F1=0.8217, NFR recall=0.7879
+Fold 5, S02_BalancedLinearSVM: NFR F1=0.8268, NFR recall=0.8268
+
+============================================================================
+CROSS-VALIDATION STABILITY
+============================================================================
+                model  mean_nfr_f1  std_nfr_f1  mean_nfr_recall  std_nfr_recall  mean_macro_f1  mean_balanced_accuracy
+        S01_LinearSVM       0.8042      0.0126           0.7704          0.0140         0.8544                  0.8474
+S02_BalancedLinearSVM       0.8086      0.0140           0.8102          0.0123         0.8544                  0.8548
+
+VALIDATION COMPARISON
+                model  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precision  roc_auc  fp  fn
+        S01_LinearSVM    0.8970             0.8784    0.8820         0.8565      0.8243  0.8401             0.8750   0.9344  33  42
+S02_BalancedLinearSVM    0.8929             0.8871    0.8805         0.8157      0.8703  0.8421             0.8734   0.9340  47  31
+
+VALIDATION CONFUSION MATRICES
+Rows: actual FR, NFR
+Columns: predicted FR, NFR
+
+S01_LinearSVM
+[[456, 33], [42, 197]]
+
+S02_BalancedLinearSVM
+[[442, 47], [31, 208]]
+
+RESEARCH STATUS
+Linear SVM baseline: COMPLETED
+Group-aware CV: COMPLETED
+Validation evaluation: COMPLETED
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/62_d2_svm_baseline_report.txt
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/62_d2_svm_baseline_metadata.json
+
+Script 62 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python research_modeling/scripts/63_d2_paired_model_comparison.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 63: PAIRED BASELINE MODEL COMPARISON
+============================================================================
+
+DATASET
+Validation requirements: 728
+Validation similarity groups: 694
+NFR requirements: 239
+Frozen manifest integrity: PASS
+Test data accessed: NO
+
+INDIVIDUAL MODEL RESULTS
+b02 {'nfr_f1': 0.8086785009861933, 'nfr_recall': 0.8577405857740585, 'macro_f1': 0.8532328226743401}
+s01 {'nfr_f1': 0.8400852878464818, 'nfr_recall': 0.8242677824267782, 'macro_f1': 0.8820487229505966}
+s02 {'nfr_f1': 0.8421052631578947, 'nfr_recall': 0.8702928870292888, 'macro_f1': 0.8805120910384068}
+
+S02 VS B02
+A only correct: 28
+B only correct: 9
+McNemar exact p: 0.002563
+nfr_f1 difference: 0.0334 95% bootstrap CI: (0.0115, 0.0553)
+nfr_recall difference: 0.0126 95% bootstrap CI: (-0.017, 0.0431)
+macro_f1 difference: 0.0273 95% bootstrap CI: (0.0105, 0.0441)
+
+S01 VS B02
+A only correct: 35
+B only correct: 13
+McNemar exact p: 0.002088
+nfr_f1 difference: 0.0314 95% bootstrap CI: (0.0051, 0.0582)
+nfr_recall difference: -0.0335 95% bootstrap CI: (-0.0664, 0.0)
+macro_f1 difference: 0.0288 95% bootstrap CI: (0.0091, 0.0494)
+
+S02 VS S01
+A only correct: 11
+B only correct: 14
+McNemar exact p: 0.690038
+nfr_f1 difference: 0.002 95% bootstrap CI: (-0.0179, 0.0227)
+nfr_recall difference: 0.046 95% bootstrap CI: (0.0212, 0.073)
+macro_f1 difference: -0.0015 95% bootstrap CI: (-0.0167, 0.0139)
+
+NFR ERROR OVERLAP
+B02 NFR misses: 34
+S01 NFR misses: 42
+S02 NFR misses: 31
+S02 fixes B02 misses: 9
+S02 introduces NFR misses vs B02: 6
+Missed by all three: 25
+
+RESEARCH STATUS
+Paired model comparison: COMPLETED
+Group-level bootstrap: COMPLETED
+Test set: SEALED
+Model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/63_d2_paired_comparison.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/63_d2_nfr_error_overlap.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/63_d2_paired_comparison.txt
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/63_d2_paired_comparison.json
+
+Script 63 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python research_modeling/scripts/64_d2_additional_ml_baselines.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 64: ADDITIONAL CLASSICAL ML BASELINES
+============================================================================
+
+DATASET
+Protocol: D2-v1.1
+Training requirements: 3378
+Validation requirements: 728
+Training similarity groups: 3237
+Frozen manifest integrity: PASS
+Test accessed: NO
+Fold 1 | M01_MultinomialNB: NFR F1=0.7212, Recall=0.6104
+Fold 1 | M02_ComplementNB: NFR F1=0.7955, Recall=0.7576
+Fold 1 | M03_SGD_Hinge: NFR F1=0.7713, Recall=0.7446
+Fold 1 | M04_SGD_ModifiedHuber: NFR F1=0.7740, Recall=0.7489
+Fold 2 | M01_MultinomialNB: NFR F1=0.7899, Recall=0.6753
+Fold 2 | M02_ComplementNB: NFR F1=0.8281, Recall=0.7922
+Fold 2 | M03_SGD_Hinge: NFR F1=0.7800, Recall=0.7446
+Fold 2 | M04_SGD_ModifiedHuber: NFR F1=0.7848, Recall=0.7576
+Fold 3 | M01_MultinomialNB: NFR F1=0.7513, Recall=0.6435
+Fold 3 | M02_ComplementNB: NFR F1=0.7795, Recall=0.7609
+Fold 3 | M03_SGD_Hinge: NFR F1=0.7982, Recall=0.7913
+Fold 3 | M04_SGD_ModifiedHuber: NFR F1=0.7973, Recall=0.7783
+Fold 4 | M01_MultinomialNB: NFR F1=0.7385, Recall=0.6234
+Fold 4 | M02_ComplementNB: NFR F1=0.8124, Recall=0.7965
+Fold 4 | M03_SGD_Hinge: NFR F1=0.7868, Recall=0.7749
+Fold 4 | M04_SGD_ModifiedHuber: NFR F1=0.7819, Recall=0.7835
+Fold 5 | M01_MultinomialNB: NFR F1=0.7500, Recall=0.6364
+Fold 5 | M02_ComplementNB: NFR F1=0.8180, Recall=0.7879
+Fold 5 | M03_SGD_Hinge: NFR F1=0.7920, Recall=0.7749
+Fold 5 | M04_SGD_ModifiedHuber: NFR F1=0.8106, Recall=0.7965
+
+============================================================================
+CROSS-VALIDATION STABILITY
+============================================================================
+                model  mean_nfr_f1  std_nfr_f1  mean_nfr_recall  std_nfr_recall  mean_macro_f1  mean_balanced_accuracy
+    M01_MultinomialNB       0.7502      0.0253           0.6378          0.0245         0.8240                  0.8027
+     M02_ComplementNB       0.8067      0.0192           0.7790          0.0184         0.8557                  0.8499
+        M03_SGD_Hinge       0.7857      0.0105           0.7661          0.0207         0.8394                  0.8354
+M04_SGD_ModifiedHuber       0.7897      0.0144           0.7730          0.0194         0.8420                  0.8386
+
+VALIDATION COMPARISON
+                model  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precision  roc_auc  fp  fn
+    M01_MultinomialNB    0.8668             0.8153    0.8365         0.9034      0.6653  0.7663             0.8761   0.9323  17  80
+     M02_ComplementNB    0.8723             0.8546    0.8550         0.8067      0.8033  0.8050             0.8761   0.9323  46  47
+        M03_SGD_Hinge    0.8832             0.8703    0.8683         0.8156      0.8326  0.8240             0.8689   0.9299  45  40
+M04_SGD_ModifiedHuber    0.8819             0.8704    0.8672         0.8097      0.8368  0.8230             0.8701   0.9305  47  39
+
+VALIDATION CONFUSION MATRICES
+Rows: actual FR, NFR
+Columns: predicted FR, NFR
+
+M01_MultinomialNB
+[[472, 17], [80, 159]]
+
+M02_ComplementNB
+[[443, 46], [47, 192]]
+
+M03_SGD_Hinge
+[[444, 45], [40, 199]]
+
+M04_SGD_ModifiedHuber
+[[442, 47], [39, 200]]
+
+RESEARCH STATUS
+Additional ML baselines: COMPLETED
+Group-aware CV: COMPLETED
+Validation evaluation: COMPLETED
+Threshold optimization: NONE
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/64_d2_ml_cv_fold_metrics.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/64_d2_ml_oof_predictions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/64_d2_ml_cv_stability.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/64_d2_ml_validation_metrics.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/64_d2_ml_validation_predictions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/64_d2_ml_baseline_report.txt
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/64_d2_ml_baseline_metadata.json
+
+Script 64 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python research_modeling/scripts/65_d2_rbf_svm_baseline.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 65: D2 v1.1 RBF SVM BASELINE
+============================================================================
+
+DATASET
+Protocol: D2-v1.1
+Training requirements: 3378
+Validation requirements: 728
+Training groups: 3237
+Frozen manifest integrity: PASS
+Test accessed: NO
+
+CONFIGURATION
+Kernel: RBF
+C: 1.0
+Gamma: scale
+CV folds: 5
+Threshold optimization: NONE
+/home/dhrubo_roy/Unofficial Thesis/.venv-transformers/lib/python3.14/site-packages/sklearn/svm/_base.py:236: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+Fold 1 | R01_RBF_SVM: NFR F1=0.7762, Recall=0.7056
+/home/dhrubo_roy/Unofficial Thesis/.venv-transformers/lib/python3.14/site-packages/sklearn/svm/_base.py:236: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+Fold 1 | R02_Balanced_RBF_SVM: NFR F1=0.7946, Recall=0.7706
+/home/dhrubo_roy/Unofficial Thesis/.venv-transformers/lib/python3.14/site-packages/sklearn/svm/_base.py:236: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+Fold 2 | R01_RBF_SVM: NFR F1=0.8227, Recall=0.7532
+/home/dhrubo_roy/Unofficial Thesis/.venv-transformers/lib/python3.14/site-packages/sklearn/svm/_base.py:236: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+Fold 2 | R02_Balanced_RBF_SVM: NFR F1=0.8430, Recall=0.8139
+/home/dhrubo_roy/Unofficial Thesis/.venv-transformers/lib/python3.14/site-packages/sklearn/svm/_base.py:236: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+Fold 3 | R01_RBF_SVM: NFR F1=0.7867, Recall=0.7217
+/home/dhrubo_roy/Unofficial Thesis/.venv-transformers/lib/python3.14/site-packages/sklearn/svm/_base.py:236: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+Fold 3 | R02_Balanced_RBF_SVM: NFR F1=0.8018, Recall=0.7913
+/home/dhrubo_roy/Unofficial Thesis/.venv-transformers/lib/python3.14/site-packages/sklearn/svm/_base.py:236: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+Fold 4 | R01_RBF_SVM: NFR F1=0.8047, Recall=0.7403
+/home/dhrubo_roy/Unofficial Thesis/.venv-transformers/lib/python3.14/site-packages/sklearn/svm/_base.py:236: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+Fold 4 | R02_Balanced_RBF_SVM: NFR F1=0.8079, Recall=0.8009
+/home/dhrubo_roy/Unofficial Thesis/.venv-transformers/lib/python3.14/site-packages/sklearn/svm/_base.py:236: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+Fold 5 | R01_RBF_SVM: NFR F1=0.8048, Recall=0.7229
+/home/dhrubo_roy/Unofficial Thesis/.venv-transformers/lib/python3.14/site-packages/sklearn/svm/_base.py:236: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+Fold 5 | R02_Balanced_RBF_SVM: NFR F1=0.8311, Recall=0.8095
+/home/dhrubo_roy/Unofficial Thesis/.venv-transformers/lib/python3.14/site-packages/sklearn/svm/_base.py:236: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+/home/dhrubo_roy/Unofficial Thesis/.venv-transformers/lib/python3.14/site-packages/sklearn/svm/_base.py:236: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+
+============================================================================
+CROSS-VALIDATION STABILITY
+============================================================================
+               model  mean_nfr_f1  std_nfr_f1  mean_nfr_recall  std_nfr_recall  mean_macro_f1  mean_balanced_accuracy
+         R01_RBF_SVM       0.7990      0.0180           0.7288          0.0184         0.8540                  0.8397
+R02_Balanced_RBF_SVM       0.8157      0.0205           0.7972          0.0172         0.8616                  0.8577
+
+VALIDATION COMPARISON
+               model  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precision  roc_auc  fp  fn
+         R01_RBF_SVM    0.8846             0.8531    0.8646         0.8708      0.7615  0.8125             0.8762   0.9351  27  57
+R02_Balanced_RBF_SVM    0.8942             0.8774    0.8794         0.8462      0.8285  0.8372             0.8726   0.9346  36  41
+
+VALIDATION CONFUSION MATRICES
+Rows: actual FR, NFR
+Columns: predicted FR, NFR
+
+R01_RBF_SVM
+[[462, 27], [57, 182]]
+
+R02_Balanced_RBF_SVM
+[[453, 36], [41, 198]]
+
+RESEARCH STATUS
+RBF SVM experiment: COMPLETED
+Group-aware CV: COMPLETED
+Validation evaluation: COMPLETED
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/65_d2_rbf_cv_fold_metrics.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/65_d2_rbf_oof_predictions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/65_d2_rbf_cv_stability.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/65_d2_rbf_validation_metrics.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/65_d2_rbf_validation_predictions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/65_d2_rbf_baseline_report.txt
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/65_d2_rbf_baseline_metadata.json
+
+Script 65 completed.s
+
+---------------------------------------------------------------------------------------
+    RUN - python research_modeling/scripts/66_d2_word_character_tfidf.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 66: WORD + CHARACTER TF-IDF EXPERIMENT
+============================================================================
+
+DATASET
+Protocol: D2-v1.1
+Training: 3378
+Validation: 728
+Training groups: 3237
+Frozen manifest integrity: PASS
+Test accessed: NO
+Fold 1 | F01_CharacterSVM: NFR F1=0.7636, Recall=0.7273
+Fold 1 | F02_BalancedCharacterSVM: NFR F1=0.7725, Recall=0.7792
+Fold 1 | F03_CombinedSVM: NFR F1=0.7909, Recall=0.7532
+Fold 1 | F04_BalancedCombinedSVM: NFR F1=0.7834, Recall=0.7749
+Fold 2 | F01_CharacterSVM: NFR F1=0.8192, Recall=0.7749
+Fold 2 | F02_BalancedCharacterSVM: NFR F1=0.8174, Recall=0.8139
+Fold 2 | F03_CombinedSVM: NFR F1=0.8157, Recall=0.7662
+Fold 2 | F04_BalancedCombinedSVM: NFR F1=0.8256, Recall=0.8095
+Fold 3 | F01_CharacterSVM: NFR F1=0.7822, Recall=0.7652
+Fold 3 | F02_BalancedCharacterSVM: NFR F1=0.7941, Recall=0.8217
+Fold 3 | F03_CombinedSVM: NFR F1=0.7965, Recall=0.7826
+Fold 3 | F04_BalancedCombinedSVM: NFR F1=0.8128, Recall=0.8304
+Fold 4 | F01_CharacterSVM: NFR F1=0.7991, Recall=0.7662
+Fold 4 | F02_BalancedCharacterSVM: NFR F1=0.8042, Recall=0.8355
+Fold 4 | F03_CombinedSVM: NFR F1=0.8117, Recall=0.7835
+Fold 4 | F04_BalancedCombinedSVM: NFR F1=0.8170, Recall=0.8312
+Fold 5 | F01_CharacterSVM: NFR F1=0.8238, Recall=0.7792
+Fold 5 | F02_BalancedCharacterSVM: NFR F1=0.8261, Recall=0.8225
+Fold 5 | F03_CombinedSVM: NFR F1=0.8200, Recall=0.7792
+Fold 5 | F04_BalancedCombinedSVM: NFR F1=0.8410, Recall=0.8355
+
+============================================================================
+CROSS-VALIDATION STABILITY
+============================================================================
+                   model  mean_nfr_f1  std_nfr_f1  mean_nfr_recall  std_nfr_recall  mean_macro_f1  mean_balanced_accuracy
+        F01_CharacterSVM       0.7976      0.0252           0.7626          0.0206         0.8496                  0.8424
+F02_BalancedCharacterSVM       0.8029      0.0209           0.8146          0.0212         0.8491                  0.8515
+         F03_CombinedSVM       0.8069      0.0126           0.7730          0.0130         0.8565                  0.8494
+ F04_BalancedCombinedSVM       0.8159      0.0212           0.8163          0.0252         0.8602                  0.8603
+
+VALIDATION COMPARISON
+                   model  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precision  roc_auc  fp  fn
+        F01_CharacterSVM    0.8723             0.8493    0.8534         0.8202      0.7824  0.8009             0.8818   0.9358  41  52
+F02_BalancedCharacterSVM    0.8626             0.8603    0.8488         0.7584      0.8536  0.8031             0.8813   0.9353  65  35
+         F03_CombinedSVM    0.8970             0.8784    0.8820         0.8565      0.8243  0.8401             0.8885   0.9421  33  42
+ F04_BalancedCombinedSVM    0.8846             0.8777    0.8713         0.8039      0.8577  0.8300             0.8861   0.9416  50  34
+
+VALIDATION CONFUSION MATRICES
+Rows: actual FR, NFR
+Columns: predicted FR, NFR
+
+F01_CharacterSVM
+[[448, 41], [52, 187]]
+
+F02_BalancedCharacterSVM
+[[424, 65], [35, 204]]
+
+F03_CombinedSVM
+[[456, 33], [42, 197]]
+
+F04_BalancedCombinedSVM
+[[439, 50], [34, 205]]
+
+FEATURE DIMENSIONS
+Word features: 7787
+Character features: 19261
+
+RESEARCH STATUS
+Feature experiment: COMPLETED
+Group-aware CV: COMPLETED
+Validation evaluation: COMPLETED
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/66_d2_cv_fold_metrics.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/66_d2_oof_predictions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/66_d2_cv_stability.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/66_d2_validation_metrics.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/66_d2_validation_predictions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/66_d2_feature_experiment.txt
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/66_d2_feature_metadata.json
+
+Script 66 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python research_modeling/scripts/67_d2_combined_feature_comparison.py
+---------------------------------------------------------------------------------------
+
+========================================================================
+SCRIPT 67: WORD VS COMBINED SVM COMPARISON
+========================================================================
+
+S01_LinearSVM VS F03_CombinedSVM
+Predictions changed: 24
+Errors corrected: 12
+Errors introduced: 12
+Word NFR F1: 0.8401
+Combined NFR F1: 0.8401
+ROC-AUC improvement: 0.0077
+Average precision improvement: 0.0134
+
+S02_BalancedLinearSVM VS F04_BalancedCombinedSVM
+Predictions changed: 32
+Errors corrected: 13
+Errors introduced: 19
+Word NFR F1: 0.8421
+Combined NFR F1: 0.83
+ROC-AUC improvement: 0.0076
+Average precision improvement: 0.0127
+
+RESEARCH STATUS
+Prediction comparison: COMPLETED
+Validation only: YES
+Test set: SEALED
+Final model selection: PENDING
+
+Script 67 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python research_modeling/scripts/68_d2_tree_ensemble_baselines.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 68: D2 v1.1 TREE ENSEMBLE BASELINES
+============================================================================
+
+DATASET
+Training: 3378
+Validation: 728
+Training groups: 3237
+Frozen manifest integrity: PASS
+Test accessed: NO
+Fold 1 | T01_RandomForest: NFR F1=0.7553, Recall=0.6883
+Fold 1 | T02_ExtraTrees: NFR F1=0.7703, Recall=0.7186
+Fold 1 | T03_HistGradientBoosting: NFR F1=0.7554, Recall=0.7619
+Fold 2 | T01_RandomForest: NFR F1=0.7751, Recall=0.7013
+Fold 2 | T02_ExtraTrees: NFR F1=0.8103, Recall=0.7489
+Fold 2 | T03_HistGradientBoosting: NFR F1=0.7905, Recall=0.7922
+Fold 3 | T01_RandomForest: NFR F1=0.7098, Recall=0.6435
+Fold 3 | T02_ExtraTrees: NFR F1=0.7661, Recall=0.7261
+Fold 3 | T03_HistGradientBoosting: NFR F1=0.7425, Recall=0.7522
+Fold 4 | T01_RandomForest: NFR F1=0.7361, Recall=0.6580
+Fold 4 | T02_ExtraTrees: NFR F1=0.7760, Recall=0.7273
+Fold 4 | T03_HistGradientBoosting: NFR F1=0.7738, Recall=0.7922
+Fold 5 | T01_RandomForest: NFR F1=0.7981, Recall=0.7359
+Fold 5 | T02_ExtraTrees: NFR F1=0.8292, Recall=0.7879
+Fold 5 | T03_HistGradientBoosting: NFR F1=0.7801, Recall=0.8139
+
+============================================================================
+CROSS-VALIDATION STABILITY
+============================================================================
+                   model  mean_nfr_f1  std_nfr_f1  mean_nfr_recall  std_nfr_recall  mean_macro_f1  mean_balanced_accuracy
+        T01_RandomForest       0.7549      0.0341           0.6854          0.0365         0.8224                  0.8090
+          T02_ExtraTrees       0.7904      0.0279           0.7418          0.0281         0.8457                  0.8358
+T03_HistGradientBoosting       0.7684      0.0193           0.7825          0.0251         0.8225                  0.8254
+
+VALIDATION COMPARISON
+                   model  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precision  roc_auc  fp  fn
+        T01_RandomForest    0.8613             0.8261    0.8370         0.8317      0.7238  0.7740             0.8395   0.9156  35  66
+          T02_ExtraTrees    0.8695             0.8440    0.8496         0.8214      0.7699  0.7948             0.8642   0.9293  40  55
+T03_HistGradientBoosting    0.8407             0.8258    0.8216         0.7450      0.7824  0.7633             0.8232   0.8987  64  52
+
+VALIDATION CONFUSION MATRICES
+Rows: actual FR, NFR
+Columns: predicted FR, NFR
+
+T01_RandomForest
+[[454, 35], [66, 173]]
+
+T02_ExtraTrees
+[[449, 40], [55, 184]]
+
+T03_HistGradientBoosting
+[[425, 64], [52, 187]]
+
+RESEARCH STATUS
+Tree ensemble baselines: COMPLETED
+Group-aware CV: COMPLETED
+Validation evaluation: COMPLETED
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/68_d2_tree_cv_fold_metrics.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/68_d2_tree_oof_predictions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/68_d2_tree_cv_stability.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/68_d2_tree_validation_metrics.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/68_d2_tree_validation_predictions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/68_d2_tree_baseline_report.txt
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/68_d2_tree_baseline_metadata.json
+
+Script 68 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python research_modeling/scripts/69_d2_classical_ml_summary.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 69: CLASSICAL ML BASELINE CONSOLIDATION
+============================================================================
+
+DATASET
+Protocol: D2-v1.1
+Training requirements: 3378
+Validation requirements: 728
+Frozen test requirements: 727
+Frozen manifest integrity: PASS
+Test evaluation: NOT PERFORMED
+
+EXPERIMENT COVERAGE
+Model configurations: 17
+Model groups: 6
+New model training: NO
+New validation evaluation: NO
+
+VALIDATION LEADERBOARD
+ validation_rank                          model  nfr_f1  nfr_recall  macro_f1  balanced_accuracy  mean_nfr_f1
+               1          S02_BalancedLinearSVM  0.8421      0.8703    0.8805             0.8871       0.8086
+               2                  S01_LinearSVM  0.8401      0.8243    0.8820             0.8784       0.8042
+               3                F03_CombinedSVM  0.8401      0.8243    0.8820             0.8784       0.8069
+               4           R02_Balanced_RBF_SVM  0.8372      0.8285    0.8794             0.8774       0.8157
+               5        F04_BalancedCombinedSVM  0.8300      0.8577    0.8713             0.8777       0.8159
+               6                  M03_SGD_Hinge  0.8240      0.8326    0.8683             0.8703       0.7857
+               7          M04_SGD_ModifiedHuber  0.8230      0.8368    0.8672             0.8704       0.7897
+               8                    R01_RBF_SVM  0.8125      0.7615    0.8646             0.8531       0.7990
+               9 B02_BalancedLogisticRegression  0.8087      0.8577    0.8532             0.8645       0.8070
+              10               M02_ComplementNB  0.8050      0.8033    0.8550             0.8546       0.8067
+              11       F02_BalancedCharacterSVM  0.8031      0.8536    0.8488             0.8603       0.8029
+              12               F01_CharacterSVM  0.8009      0.7824    0.8534             0.8493       0.7976
+              13                 T02_ExtraTrees  0.7948      0.7699    0.8496             0.8440       0.7904
+              14         B01_LogisticRegression  0.7919      0.7322    0.8506             0.8375       0.7659
+              15               T01_RandomForest  0.7740      0.7238    0.8370             0.8261       0.7549
+              16              M01_MultinomialNB  0.7663      0.6653    0.8365             0.8153       0.7502
+              17       T03_HistGradientBoosting  0.7633      0.7824    0.8216             0.8258       0.7684
+
+TOP FIVE CROSS-VALIDATION CONFIGURATIONS
+                         model                 family  mean_nfr_f1  std_nfr_f1  mean_nfr_recall  std_nfr_recall  mean_macro_f1  mean_balanced_accuracy
+       F04_BalancedCombinedSVM Feature Representation       0.8159      0.0212           0.8163          0.0252         0.8602                  0.8603
+          R02_Balanced_RBF_SVM                RBF SVM       0.8157      0.0205           0.7972          0.0172         0.8616                  0.8577
+         S02_BalancedLinearSVM             Linear SVM       0.8086      0.0140           0.8102          0.0123         0.8544                  0.8548
+B02_BalancedLogisticRegression    Logistic Regression       0.8070      0.0203           0.8405          0.0279         0.8502                  0.8573
+               F03_CombinedSVM Feature Representation       0.8069      0.0126           0.7730          0.0130         0.8565                  0.8494
+
+RESEARCH STATUS
+Classical ML consolidation: COMPLETED
+Dataset protocol: FROZEN
+Model training in Script 69: NONE
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/69_d2_classical_ml_leaderboard.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/tables/69_d2_classical_ml_cv_comparison.csv
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/69_d2_classical_ml_summary.txt
+/home/dhrubo_roy/THESIS_DATASET_2/research_modeling/outputs/reports/69_d2_classical_ml_summary.json
+
+Script 69 completed.
+

@@ -1,0 +1,16 @@
+{
+  "experiment": 68,
+  "protocol": "D2-v1.1",
+  "seed": 42,
+  "folds": 5,
+  "manifest_sha256": "5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4",
+  "models": [
+    "T01_RandomForest",
+    "T02_ExtraTrees",
+    "T03_HistGradientBoosting"
+  ],
+  "svd_components": 100,
+  "svd_fit_within_fold": true,
+  "test_accessed": false,
+  "model_selection": "PENDING"
+}

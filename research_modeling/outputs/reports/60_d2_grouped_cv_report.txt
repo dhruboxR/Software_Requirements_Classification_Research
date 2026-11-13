@@ -1,0 +1,34 @@
+D2 v1.1 GROUP-AWARE CROSS-VALIDATION
+=================================================================
+
+Training requirements: 3378
+Folds: 5
+Feature extraction: fitted separately in each fold
+External validation used: NO
+Test used: NO
+
+CROSS-VALIDATION STABILITY
+                         model  mean_nfr_f1  std_nfr_f1  mean_nfr_recall  std_nfr_recall  mean_macro_f1  mean_balanced_accuracy
+        B01_LogisticRegression       0.7659      0.0222           0.6776          0.0216         0.8322                  0.8150
+B02_BalancedLogisticRegression       0.8070      0.0203           0.8405          0.0279         0.8502                  0.8573
+
+TRAIN-OOF BEST NFR F1
+                         model  threshold  nfr_precision  nfr_recall  nfr_f1  macro_f1  balanced_accuracy  fp  fn
+        B01_LogisticRegression      0.375         0.7702      0.8423  0.8046    0.8479             0.8559 290 182
+B02_BalancedLogisticRegression      0.500         0.7760      0.8406  0.8070    0.8502             0.8573 280 184
+
+TRAIN-OOF RECALL TARGET
+                         model  threshold  nfr_precision  nfr_recall  nfr_f1  macro_f1  balanced_accuracy  fp  fn
+        B01_LogisticRegression      0.350         0.7452      0.8718  0.8035    0.8439             0.8585 344 148
+B02_BalancedLogisticRegression      0.475         0.7551      0.8657  0.8066    0.8473             0.8600 324 155
+
+TRAIN-OOF RANKING
+                         model  oof_average_precision  oof_roc_auc
+        B01_LogisticRegression                 0.8783       0.9279
+B02_BalancedLogisticRegression                 0.8780       0.9282
+
+Limitations:
+- OOF thresholds are exploratory, not unbiased estimates.
+- Training folds share the same dataset source.
+- Original-project independence is not established.
+- No external validation or test predictions were used.

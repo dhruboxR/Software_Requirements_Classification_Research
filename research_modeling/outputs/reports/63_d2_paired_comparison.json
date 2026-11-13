@@ -1,0 +1,12 @@
+{
+  "experiment": 63,
+  "protocol": "D2-v1.1",
+  "seed": 42,
+  "bootstrap_resamples": 2000,
+  "method": "similarity_group_bootstrap",
+  "mcnemar": "exact_two_sided",
+  "manifest_sha256": "5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4",
+  "validation_previously_used_for_selection": true,
+  "test_used": false,
+  "training": false
+}

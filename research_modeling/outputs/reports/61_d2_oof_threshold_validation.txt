@@ -1,0 +1,21 @@
+SCRIPT 61: TRAIN-OOF THRESHOLD VALIDATION
+=================================================================
+
+Dataset: D2-v1.1
+Threshold selection: training OOF only
+Evaluation: existing external validation scores
+Test accessed: NO
+
+FIXED OOF-SELECTED THRESHOLDS
+        objective                          model  threshold  nfr_precision  nfr_recall  nfr_f1  macro_f1  balanced_accuracy  fp  fn
+       MAX_NFR_F1         B01_LogisticRegression      0.375         0.7584      0.8536  0.8031    0.8488             0.8603  65  35
+       MAX_NFR_F1 B02_BalancedLogisticRegression      0.500         0.7649      0.8577  0.8087    0.8532             0.8645  63  34
+RECALL_TARGET_085         B01_LogisticRegression      0.350         0.7464      0.8745  0.8054    0.8488             0.8646  71  30
+RECALL_TARGET_085 B02_BalancedLogisticRegression      0.475         0.7509      0.8703  0.8062    0.8499             0.8646  69  31
+
+LIMITATIONS
+- The external validation set was previously explored.
+- These are not unbiased independent estimates.
+- No additional threshold search was performed.
+- No test predictions were generated.
+- Original-project independence is not established.

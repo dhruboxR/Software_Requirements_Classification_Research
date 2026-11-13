@@ -1,0 +1,26 @@
+SCRIPT 68: D2 v1.1 TREE ENSEMBLE BASELINES
+=================================================================
+
+Five-fold group-aware training CV
+Validation evaluated separately
+Test accessed: NO
+
+CROSS-VALIDATION STABILITY
+                   model  mean_nfr_f1  std_nfr_f1  mean_nfr_recall  std_nfr_recall  mean_macro_f1  mean_balanced_accuracy
+        T01_RandomForest       0.7549      0.0341           0.6854          0.0365         0.8224                  0.8090
+          T02_ExtraTrees       0.7904      0.0279           0.7418          0.0281         0.8457                  0.8358
+T03_HistGradientBoosting       0.7684      0.0193           0.7825          0.0251         0.8225                  0.8254
+
+VALIDATION COMPARISON
+                   model  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precision  roc_auc  fp  fn
+        T01_RandomForest    0.8613             0.8261    0.8370         0.8317      0.7238  0.7740             0.8395   0.9156  35  66
+          T02_ExtraTrees    0.8695             0.8440    0.8496         0.8214      0.7699  0.7948             0.8642   0.9293  40  55
+T03_HistGradientBoosting    0.8407             0.8258    0.8216         0.7450      0.7824  0.7633             0.8232   0.8987  64  52
+
+LIMITATIONS
+- Model pipelines use different representations.
+- SVD is fitted only on training data per fold.
+- Validation has been examined in earlier experiments.
+- No model or threshold tuning was performed.
+- Project independence is not established.
+- Test partition remains sealed.

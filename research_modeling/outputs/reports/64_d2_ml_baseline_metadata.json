@@ -1,0 +1,28 @@
+{
+  "experiment": 64,
+  "protocol": "D2-v1.1",
+  "seed": 42,
+  "cv_folds": 5,
+  "manifest_sha256": "5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4",
+  "models": [
+    "M01_MultinomialNB",
+    "M02_ComplementNB",
+    "M03_SGD_Hinge",
+    "M04_SGD_ModifiedHuber"
+  ],
+  "tfidf": {
+    "analyzer": "word",
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 2,
+    "max_df": 0.95,
+    "sublinear_tf": true,
+    "fitted_separately_per_fold": true
+  },
+  "validation_evaluated": true,
+  "test_accessed": false,
+  "threshold_tuning": false,
+  "final_model_selection": "PENDING"
+}

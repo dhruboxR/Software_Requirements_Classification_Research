@@ -1,0 +1,16 @@
+{
+  "experiment": 61,
+  "dataset_protocol": "D2-v1.1",
+  "threshold_source": "TRAIN_OOF_SCRIPT_60",
+  "probability_source": "VALIDATION_SCRIPT_57",
+  "validation_previously_explored": true,
+  "test_accessed": false,
+  "model_training": false,
+  "threshold_search": false,
+  "selection_status": "DEVELOPMENT_STAGE",
+  "input_sha256": {
+    "57_d2_validation_predictions.csv": "29b1530da7926853a704ce1471d5000590073391b2d94d80796c5ec6a3836661",
+    "60_d2_oof_best_f1.csv": "c815501629830343e796473cfcc58d0c5bd07ec4e92211fead445a0af6f4e35e",
+    "60_d2_oof_recall_target.csv": "3b4164d0e0bcef67263958f3929446b7b3eb1c018aa5cd577bb0daf04632e748"
+  }
+}

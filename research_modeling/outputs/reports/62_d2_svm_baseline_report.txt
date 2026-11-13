@@ -1,0 +1,21 @@
+D2 v1.1 LINEAR SVM BASELINE
+=================================================================
+
+Five-fold group-aware CV on train only
+Validation evaluated separately
+Test accessed: NO
+Decision threshold: 0.0
+C: 1.0
+
+CROSS-VALIDATION STABILITY
+                model  mean_nfr_f1  std_nfr_f1  mean_nfr_recall  std_nfr_recall  mean_macro_f1  mean_balanced_accuracy
+        S01_LinearSVM       0.8042      0.0126           0.7704          0.0140         0.8544                  0.8474
+S02_BalancedLinearSVM       0.8086      0.0140           0.8102          0.0123         0.8544                  0.8548
+
+VALIDATION COMPARISON
+                model  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precision  roc_auc  fp  fn
+        S01_LinearSVM    0.8970             0.8784    0.8820         0.8565      0.8243  0.8401             0.8750   0.9344  33  42
+S02_BalancedLinearSVM    0.8929             0.8871    0.8805         0.8157      0.8703  0.8421             0.8734   0.9340  47  31
+
+No threshold optimization was performed.
+Decision scores are not calibrated probabilities.

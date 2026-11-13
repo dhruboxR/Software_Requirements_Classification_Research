@@ -1,0 +1,26 @@
+{
+  "experiment": 66,
+  "protocol": "D2-v1.1",
+  "manifest_sha256": "5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4",
+  "seed": 42,
+  "cv_folds": 5,
+  "models": [
+    "F01_CharacterSVM",
+    "F02_BalancedCharacterSVM",
+    "F03_CombinedSVM",
+    "F04_BalancedCombinedSVM"
+  ],
+  "character_analyzer": "char_wb",
+  "character_ngram_range": [
+    3,
+    5
+  ],
+  "word_ngram_range": [
+    1,
+    2
+  ],
+  "combined_normalization": "l2",
+  "features_fit_within_each_fold": true,
+  "test_used": false,
+  "model_selection": "PENDING"
+}

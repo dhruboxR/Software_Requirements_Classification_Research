@@ -1,0 +1,24 @@
+D2 v1.1 BASELINE EXPERIMENT
+=================================================================
+
+Dataset protocol: D2-v1.1
+Training examples: 3378
+Validation examples: 728
+Test examples used: 0
+
+TF-IDF: word (1,2), min_df=2
+Threshold: 0.50 (fixed)
+Model B01: Logistic Regression
+Model B02: Class-weighted Logistic Regression
+
+                         model  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  fp  fn
+        B01_LogisticRegression    0.8736             0.8375    0.8506         0.8621      0.7322  0.7919  28  64
+B02_BalancedLogisticRegression    0.8668             0.8645    0.8532         0.7649      0.8577  0.8087  63  34
+
+Research limitations:
+- Results are validation-only.
+- No transformer model was trained.
+- No threshold optimization was performed.
+- No test predictions were generated.
+- Independent-project generalization is not established.
+- Independent annotation verification was not performed.

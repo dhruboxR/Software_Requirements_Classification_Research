@@ -1,0 +1,24 @@
+SCRIPT 65: D2 v1.1 RBF SVM BASELINE
+=================================================================
+
+Train-only 5-fold group-aware CV
+Separate validation evaluation
+No threshold search
+Test accessed: NO
+
+CROSS-VALIDATION STABILITY
+               model  mean_nfr_f1  std_nfr_f1  mean_nfr_recall  std_nfr_recall  mean_macro_f1  mean_balanced_accuracy
+         R01_RBF_SVM       0.7990      0.0180           0.7288          0.0184         0.8540                  0.8397
+R02_Balanced_RBF_SVM       0.8157      0.0205           0.7972          0.0172         0.8616                  0.8577
+
+VALIDATION COMPARISON
+               model  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precision  roc_auc  fp  fn
+         R01_RBF_SVM    0.8846             0.8531    0.8646         0.8708      0.7615  0.8125             0.8762   0.9351  27  57
+R02_Balanced_RBF_SVM    0.8942             0.8774    0.8794         0.8462      0.8285  0.8372             0.8726   0.9346  36  41
+
+LIMITATIONS
+- Existing validation partition reused for comparison.
+- Original-project independence is not established.
+- Decision scores are not calibrated probabilities.
+- No hyperparameter optimization performed.
+- Test partition remains sealed.

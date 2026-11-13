@@ -1,0 +1,8 @@
+SCRIPT 67: WORD VS COMBINED FEATURE COMPARISON
+=================================================================
+
+           word_model          combined_model  predictions_changed  errors_corrected  errors_introduced  word_nfr_f1  combined_nfr_f1  word_roc_auc  combined_roc_auc  roc_auc_change  word_average_precision  combined_average_precision  ap_change
+        S01_LinearSVM         F03_CombinedSVM                   24                12                 12      0.84009          0.84009       0.93436           0.94207         0.00771                 0.87505                     0.88848    0.01343
+S02_BalancedLinearSVM F04_BalancedCombinedSVM                   32                13                 19      0.84211          0.82996       0.93400           0.94159         0.00759                 0.87345                     0.88612    0.01267
+
+Validation only. Test set not accessed.

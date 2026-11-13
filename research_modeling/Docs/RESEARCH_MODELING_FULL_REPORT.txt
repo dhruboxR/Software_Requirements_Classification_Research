@@ -1,0 +1,915 @@
+THESIS DATASET 2
+COMPLETE CLASSICAL MACHINE-LEARNING RESEARCH MODELING ARCHIVE
+D2 PROTOCOL v1.1 | SCRIPTS 57–69 | AS OF 12 NOVEMBER 2026
+===================================================================================================================
+
+DOCUMENT PURPOSE
+----------------
+This is a standalone archival summary of the classical ML modeling phase described in the research session. It records
+experimental settings, results, observations, methodological cautions, and the known output file names. It is based on
+terminal outputs and scripts supplied in the conversation, not an independent rereading or re-execution of the user's
+local experiments. Values should be checked against the archived CSV/JSON files before formal publication. This report
+is intended to be preserved before beginning the separately organized deep-learning research phase.
+
+QUICK REFERENCE
+---------------
+Working project:                ~/THESIS_DATASET_2/
+Completed dataset exploration:  ~/THESIS_DATASET_2/dataset_exploration/
+Classical modeling project:     ~/THESIS_DATASET_2/research_modeling/
+New deep-learning project:      ~/THESIS_DATASET_2/deep_learning_research/
+Existing virtual environment:   ~/Unofficial Thesis/.venv-transformers/
+Activate environment:           source ~/Unofficial\ Thesis/.venv-transformers/bin/activate
+Primary dataset:                D2, frozen protocol D2-v1.1
+Task:                           Binary software requirement classification: FR vs NFR
+Frozen manifest:                dataset_exploration/outputs/validated/54_d2_v11_frozen_split_manifest.csv
+Frozen split metadata:          dataset_exploration/outputs/validated/54_d2_v11_split_metadata.json
+Dataset-exploration readiness:  dataset_exploration/outputs/reports/56_d2_v11_readiness.json
+Modeling scripts covered:       57 through 69 inclusive
+Classical configurations:       17
+Train:                          3,378 records: FR 2,224 / NFR 1,154
+Validation:                     728 records: FR 489 / NFR 239
+Sealed test:                    727 records: FR 488 / NFR 239
+Total:                          4,833 records: FR 3,201 / NFR 1,632
+Total similarity groups:        4,625
+Train similarity groups:        3,237
+Validation similarity groups:   694
+Leading validation NFR F1:      0.8421 (S02 Balanced Linear SVM)
+Best classical training-CV
+mean NFR F1:                 0.8159 (F04 Balanced Combined SVM)
+Status:                         Classical ML baseline study consolidated; no final model selection or test evaluation
+
+CONTENTS
+--------
+01. Research objective and scope
+02. Frozen dataset, provenance and constraints
+03. Experiment-wide protocol
+04. Model identifiers and feature representations
+05. Script 57: Initial Logistic Regression baselines
+06. Script 58: Logistic Regression error comparison
+07. Script 59: Exploratory validation threshold analysis
+08. Script 60: Group-aware training cross-validation for LR
+09. Script 61: Apply training-OOF thresholds to validation
+10. Script 62: Linear SVM baselines
+11. Script 63: Paired statistical model comparisons
+12. Script 64: Naive Bayes and SGD baselines
+13. Script 65: Nonlinear RBF SVM baselines
+14. Script 66: Character and combined TF-IDF representations
+15. Script 67: Paired word-only vs combined feature predictions
+16. Script 68: Tree ensembles
+17. Script 69: Final consolidated model leaderboard
+18. All 17 configurations and comparative metrics
+19. Cross-validation ranking and stability
+20. Main scientific findings and decisions
+21. Data leakage protections and unresolved limitations
+22. Output artifacts and reproduction guidance
+23. Handover to the new deep-learning research directory
+24. Publication-ready draft summary and status
+
+===================================================================================================================
+01. RESEARCH OBJECTIVE AND SCOPE
+===================================================================================================================
+The research task is to classify natural-language software requirements into functional requirements (FR) or
+non-functional requirements (NFR). The classical ML phase establishes transparent, computationally accessible
+benchmarks for future comparisons with neural networks and pretrained transformer models.
+
+Primary performance measures:
+ - NFR precision: correct NFR predictions divided by all predicted NFR examples.
+ - NFR recall: correctly detected NFR examples divided by all actual NFR examples.
+ - NFR F1: harmonic mean of NFR precision and NFR recall.
+ - Macro-F1: arithmetic mean of class-wise FR and NFR F1 scores.
+ - Balanced accuracy: mean recall across FR and NFR.
+ - Accuracy: correct classifications out of all examples.
+ - Average precision and ROC-AUC: threshold-independent measures of score ordering.
+ - False negatives (FN): actual NFR predicted FR; of special interest because they are missed NFRs.
+ - False positives (FP): actual FR predicted NFR.
+
+The study did not aim to assert project-independent generalization, independent manual label verification,
+or statistically confirm a winner after unrestricted model searches. It aimed to establish and document
+reproducible baseline evidence while preserving an untouched test partition for final evaluation.
+
+===================================================================================================================
+02. FROZEN DATASET, PROVENANCE AND CONSTRAINTS
+===================================================================================================================
+The D2 subset was selected during earlier dataset exploration from a unified multi-source collection. The broader
+collection contained 8,854 raw requirements from D1–D5. D2 was preferred for a controlled binary FR/NFR task.
+The original D2 source included 4,993 rows, with 4,963 original FR/NFR labeled records. Prior screening reduced
+this to 4,835 source-consistent v1.0 candidates and then 4,833 v1.1 candidates after quarantining two records.
+The version 1.1 grouping update preserved the original grouping relations while merging two additional high-
+similarity connections. Final version 1.1 contained 4,625 similarity groups.
+
+The frozen split contains:
+  PARTITION          FR         NFR        TOTAL         FRACTION
+  train            2,224      1,154       3,378         69.8945%
+  validation         489        239         728         15.0631%
+  test               488        239         727         15.0424%
+  TOTAL            3,201      1,632       4,833        100.0000%
+
+Quality controls before modeling:
+ - No duplicated normalized text keys among the final 4,833 candidate rows.
+ - Original quarantined records did not re-enter the data.
+ - No similarity group was split across train/validation/test.
+ - The manifest SHA-256 was checked in modeling scripts against saved split metadata.
+ - An exhaustive audit compared 5,444,246 cross-partition text pairs under character 3–5 gram TF-IDF cosine.
+ - There were 0 pairs at or above the predeclared review similarity threshold 0.85.
+ - There were 17 cross-partition pairs at or above 0.80 but below 0.85.
+ - The maximum observed cross-partition similarity was 0.848999 (train vs validation).
+ - Dataset technical readiness passed with limitations in Script 56.
+
+What these facts do NOT prove:
+ - The labels are not established as independently human-verified.
+ - The source project identities cannot support a valid claim of original-project independence.
+ - A lexical threshold does not guarantee the absence of paraphrases or semantic duplicates.
+ - Some AI-assisted annotation decisions are provisional.
+ - Similarity groups are constructed isolation units, not automatically independent software projects.
+
+The dataset was frozen as D2-v1.1 before the modeling experiments summarized below. The previous D2-v1.0
+partition and its historical review evidence were left unchanged.
+
+===================================================================================================================
+03. EXPERIMENT-WIDE PROTOCOL
+===================================================================================================================
+- Random seed: 42 (where applicable).
+- Five-fold StratifiedGroupKFold with shuffle=True and seed 42 for training-only cross-validation.
+- Fold grouping key: similarity_group. All members of a group stayed within a single fold partition.
+- Each cross-validation fold fitted its TF-IDF vocabulary, IDF statistics, and any SVD components on that fold's
+  training examples only. Held-out fold text was transformed without refitting.
+- Full-model fitting used 3,378 train requirements. Evaluation used the 728 validation requirements.
+- The 727 test examples were not used for classifier predictions, threshold searches, or model selection.
+- For binary scores, FR=0 and NFR=1. Confusion matrices are [[actual FR predicted FR, actual FR predicted NFR],
+  [actual NFR predicted FR, actual NFR predicted NFR]], conventionally [[TN, FP], [FN, TP]].
+- Most models used their default prediction rule, logistic threshold 0.50 or SVM decision score boundary zero.
+- Threshold studies in Scripts 59–61 were development-only and did not use the test set.
+- Validation was reused for multiple comparisons. Final validation rankings therefore have selection optimism.
+- Five folds from the same source collection do not constitute external replicated datasets.
+- Each experiment saved its output under research_modeling/outputs/{tables,reports}/.
+
+Standard word TF-IDF when applicable:
+  analyzer='word'; ngram_range=(1,2); min_df=2; max_df=0.95;
+  sublinear_tf=True; lowercase=True; strip_accents='unicode';
+  max_features=100000; norm='l2'.
+  Full-train feature vocabulary in the original Script 57: 7,787 features.
+
+Other representations:
+  Character TF-IDF: analyzer='char_wb', ngram_range=(3,5), min_df=2,
+  max_df=0.95, sublinear_tf=True, max_features=100000, norm='l2'.
+  Full-train character feature vocabulary in Script 66: 19,261 features.
+  Combined representation: horizontally concatenated word + char_wb TF-IDF, then L2 normalization.
+  Histogram gradient boosting: word TF-IDF plus 100-component TruncatedSVD fitted on training-only folds.
+
+===================================================================================================================
+04. MODEL IDENTIFIERS AND FIXED EXPERIMENT SETTINGS
+===================================================================================================================
+ B01  LogisticRegression             Standard; C=1, solver='liblinear', class_weight=None; word TF-IDF
+ B02  BalancedLogisticRegression     C=1, solver='liblinear', class_weight='balanced'; word TF-IDF
+ S01  LinearSVM                      LinearSVC C=1, class_weight=None; word TF-IDF
+ S02  BalancedLinearSVM              LinearSVC C=1, class_weight='balanced'; word TF-IDF
+ M01  MultinomialNB                  alpha=1; word TF-IDF
+ M02  ComplementNB                   alpha=1; word TF-IDF
+ M03  SGD_Hinge                       SGDClassifier hinge, alpha=0.0001, l2 penalty; word TF-IDF
+ M04  SGD_ModifiedHuber               SGDClassifier modified_huber, alpha=0.0001, l2 penalty; word TF-IDF
+ R01  RBF_SVM                         SVC RBF, C=1, gamma='scale', class_weight=None; word TF-IDF
+ R02  Balanced_RBF_SVM                SVC RBF, C=1, gamma='scale', class_weight='balanced'; word TF-IDF
+ F01  CharacterSVM                    LinearSVC C=1; char_wb TF-IDF (3,5)
+ F02  BalancedCharacterSVM            LinearSVC C=1, balanced; char_wb TF-IDF (3,5)
+ F03  CombinedSVM                     LinearSVC C=1; combined word + character TF-IDF
+ F04  BalancedCombinedSVM             LinearSVC C=1, balanced; combined word + character TF-IDF
+ T01  RandomForest                    300 trees, balanced_subsample, sparse word TF-IDF
+ T02  ExtraTrees                      300 trees, balanced, sparse word TF-IDF
+ T03  HistGradientBoosting            max_iter=150, max_leaf_nodes=15, learning_rate=0.05,
+                                     l2_regularization=1, balanced; word TF-IDF + 100-d SVD
+
+These 17 configurations span six experiment-source groupings in Script 69; the grouping count does NOT mean only
+six algorithm families in the strict taxonomy. Fixed settings were used for the major baseline runs, with the
+explicit exploratory threshold analyses separately documented.
+
+===================================================================================================================
+05. SCRIPT 57: INITIAL LOGISTIC REGRESSION BASELINES
+===================================================================================================================
+Script: research_modeling/scripts/57_d2_baseline_logistic_regression.py
+Purpose: First FR/NFR classifiers using the frozen D2 v1.1 train and validation split.
+Training records: 3,378. Validation records: 728. Test accessed: zero for modeling.
+Features: word (1,2) TF-IDF; 7,787 full-training vocabulary entries.
+B01: standard Logistic Regression, default threshold=0.50.
+B02: balanced Logistic Regression, default threshold=0.50.
+
+MODEL                                  ACC     BAL_ACC   MACRO_F1  NFR_PREC  NFR_REC  NFR_F1    FP   FN
+B01 Standard Logistic Regression      0.8736   0.8375    0.8506    0.8621    0.7322   0.7919    28   64
+B02 Balanced Logistic Regression      0.8668   0.8645    0.8532    0.7649    0.8577   0.8087    63   34
+
+Confusion matrices:
+  B01 [[461,28],[64,175]]
+  B02 [[426,63],[34,205]]
+
+Interpretation: Class weighting recovered 30 extra actual NFR examples and reduced missed NFRs from 64 to 34,
+but increased false-positive FR-to-NFR errors from 28 to 63. Absolute NFR recall improved by 12.55 percentage
+points, while NFR F1 improved by 1.68 percentage points. Overall accuracy decreased slightly.
+
+Saved:
+  outputs/tables/57_d2_baseline_metrics.csv
+  outputs/tables/57_d2_validation_predictions.csv
+  outputs/reports/57_d2_baseline_report.txt
+  outputs/reports/57_d2_baseline_metadata.json
+
+===================================================================================================================
+06. SCRIPT 58: LOGISTIC REGRESSION ERROR COMPARISON
+===================================================================================================================
+Script: research_modeling/scripts/58_d2_baseline_error_analysis.py
+Inputs: Script 57 saved validation predictions, aligned by Requirement ID.
+No new model fitting and no test access.
+
+Outcome count across all 728 validation records:
+  Both B01 and B02 correct:               601
+  Both B01 and B02 wrong:                  62
+  B02 fixes B01 error:                     30
+  B02 introduces error:                    35
+
+Per class:
+  Actual FR (489): 426 both correct; 28 both wrong; 35 newly wrong for B02; 0 corrected for B02.
+  Actual NFR (239): 175 both correct; 34 both wrong; 30 corrected by B02; 0 newly wrong for B02.
+
+NFR error analysis:
+  B01 missed 64 NFR. B02 missed 34 NFR. Both missed 34 NFR.
+  B02 corrected 30 of B01's NFR misses and did not introduce an NFR miss in this particular comparison.
+  Net NFR false-negative reduction: 46.88% relative to B01.
+
+Mean predicted NFR probability:
+  Actual FR:  B01 0.2057; B02 0.2777; shift +0.0720.
+  Actual NFR: B01 0.6011; B02 0.6977; shift +0.0966.
+
+Interpretation: Balanced weighting shifted scores upward for both actual classes. The resulting probability
+values were not shown to be calibrated. The 34 NFR records missed by both models became a potential target
+for later semantic error inspection; these were validation observations, not a reason to alter the frozen dataset.
+
+Saved:
+  outputs/tables/58_d2_prediction_comparison.csv
+  outputs/tables/58_d2_error_transition_summary.csv
+  outputs/tables/58_d2_probability_summary.csv
+  outputs/tables/58_d2_b02_missed_nfr.csv
+  outputs/tables/58_d2_nfr_rescued_by_balancing.csv
+  outputs/reports/58_d2_baseline_error_analysis.txt
+
+===================================================================================================================
+07. SCRIPT 59: EXPLORATORY VALIDATION THRESHOLD ANALYSIS
+===================================================================================================================
+Script: research_modeling/scripts/59_d2_threshold_analysis.py
+Input: existing Script 57 prediction probabilities (no model retraining).
+Thresholds: 0.20 through 0.80 in steps of 0.025, 25 candidates per model.
+Recall target: NFR recall at least 0.85. All selection here was exploratory on reused validation data.
+
+MODEL/OBJECTIVE                           THRESH  NFR_PREC  NFR_REC  NFR_F1  MACRO_F1  BAL_ACC  FP   FN
+B01 baseline                               0.500    0.8621   0.7322   0.7919   0.8506   0.8375   28   64
+B02 baseline                               0.500    0.7649   0.8577   0.8087   0.8532   0.8645   63   34
+B01 best validation NFR F1                0.425    0.8522   0.8201   0.8358   0.8789   0.8753   34   43
+B02 best validation NFR F1                0.550    0.8498   0.8285   0.8390   0.8809   0.8784   35   41
+B01 max precision at recall >=0.85        0.375    0.7584   0.8536   0.8031   0.8488   0.8603   65   35
+B02 max precision at recall >=0.85        0.500    0.7649   0.8577   0.8087   0.8532   0.8645   63   34
+
+Threshold-independent metrics:
+  B01 Average Precision=0.8646, ROC-AUC=0.9247
+  B02 Average Precision=0.8638, ROC-AUC=0.9253
+
+Interpretation: After selecting separate decision thresholds, the two Logistic Regression models performed
+similarly, suggesting their ranking abilities were near-identical. A threshold chosen to maximize performance
+on the same validation data is optimistically biased and must not be treated as an independent estimate.
+
+Saved:
+  outputs/tables/59_d2_threshold_sweep.csv
+  outputs/tables/59_d2_best_nfr_f1_thresholds.csv
+  outputs/tables/59_d2_recall_target_thresholds.csv
+  outputs/tables/59_d2_ranking_metrics.csv
+  outputs/reports/59_d2_threshold_analysis.txt
+  outputs/reports/59_d2_threshold_metadata.json
+
+===================================================================================================================
+08. SCRIPT 60: GROUP-AWARE TRAINING CROSS-VALIDATION FOR LOGISTIC REGRESSION
+===================================================================================================================
+Script: research_modeling/scripts/60_d2_grouped_cv_baseline.py
+Five StratifiedGroupKFold splits within 3,378 TRAIN requirements and 3,237 TRAIN similarity groups.
+Each fold independently fitted TF-IDF on the fold's training segment. External validation untouched by this script.
+
+Fold NFR F1, fixed threshold 0.50:
+  Fold 1: B01 0.7438 / B02 0.7925
+  Fold 2: B01 0.7932 / B02 0.8291
+  Fold 3: B01 0.7543 / B02 0.7799
+  Fold 4: B01 0.7518 / B02 0.8129
+  Fold 5: B01 0.7862 / B02 0.8206
+
+MODEL                   MEAN_NFR_F1 STD_NFR_F1 MEAN_NFR_RECALL STD_NFR_RECALL MEAN_MACRO_F1 MEAN_BAL_ACC
+B01 Standard LR         0.7659       0.0222        0.6776          0.0216        0.8322        0.8150
+B02 Balanced LR         0.8070       0.0203        0.8405          0.0279        0.8502        0.8573
+
+Training-only out-of-fold (OOF) threshold objectives:
+  Best OOF NFR F1:
+    B01 t=0.375; precision 0.7702; recall 0.8423; NFR F1 0.8046; macro-F1 0.8479; FP 290; FN 182.
+    B02 t=0.500; precision 0.7760; recall 0.8406; NFR F1 0.8070; macro-F1 0.8502; FP 280; FN 184.
+  Recall at least 0.85:
+    B01 t=0.350; precision 0.7452; recall 0.8718; NFR F1 0.8035; FP 344; FN 148.
+    B02 t=0.475; precision 0.7551; recall 0.8657; NFR F1 0.8066; FP 324; FN 155.
+  OOF ranking metrics:
+    B01 AP 0.8783, ROC-AUC 0.9279.
+    B02 AP 0.8780, ROC-AUC 0.9282.
+
+Interpretation: Balanced LR beat standard LR on NFR F1 for every held-out training fold when both used 0.50.
+Their best training-OOF NFR F1 differed by only 0.0024 after threshold adaptation. OOF-threshold selection
+on OOF labels is development-stage optimization and is not an unbiased estimate of the selected threshold.
+
+Saved:
+  outputs/tables/60_d2_fold_metrics.csv
+  outputs/tables/60_d2_oof_predictions.csv
+  outputs/tables/60_d2_cv_stability.csv
+  outputs/tables/60_d2_oof_threshold_sweep.csv
+  outputs/tables/60_d2_oof_best_f1.csv
+  outputs/tables/60_d2_oof_recall_target.csv
+  outputs/tables/60_d2_oof_ranking_metrics.csv
+  outputs/reports/60_d2_grouped_cv_report.txt
+  outputs/reports/60_d2_grouped_cv_metadata.json
+
+===================================================================================================================
+09. SCRIPT 61: APPLY TRAINING-OOF THRESHOLDS TO VALIDATION
+===================================================================================================================
+Script: research_modeling/scripts/61_d2_oof_threshold_validation.py
+Inputs: thresholds saved by Script 60 plus fixed validation probabilities saved by Script 57.
+No retraining or further threshold search in this script. However, validation had already been examined in Script 59.
+
+OBJECTIVE          MODEL              THRESH  NFR_PREC  NFR_REC  NFR_F1  MACRO_F1  BAL_ACC  FP  FN
+Max NFR F1         B01 Standard LR     0.375    0.7584    0.8536   0.8031   0.8488    0.8603   65  35
+Max NFR F1         B02 Balanced LR     0.500    0.7649    0.8577   0.8087   0.8532    0.8645   63  34
+Recall >=0.85      B01 Standard LR     0.350    0.7464    0.8745   0.8054   0.8488    0.8646   71  30
+Recall >=0.85      B02 Balanced LR     0.475    0.7509    0.8703   0.8062   0.8499    0.8646   69  31
+
+Confusion matrices:
+  B01 t=0.375 [[424,65],[35,204]]
+  B02 t=0.500 [[426,63],[34,205]]
+  B01 t=0.350 [[418,71],[30,209]]
+  B02 t=0.475 [[420,69],[31,208]]
+
+Interpretation: Different OOF-selected thresholds produced similar validation trade-offs between standard
+and balanced LR. B02 at 0.50 was retained as a convenient fixed-threshold Logistic Regression reference.
+
+Saved:
+  outputs/tables/61_d2_oof_threshold_validation.csv
+  outputs/reports/61_d2_oof_threshold_validation.txt
+  outputs/reports/61_d2_oof_threshold_validation.json
+
+===================================================================================================================
+10. SCRIPT 62: LINEAR SVM BASELINES
+===================================================================================================================
+Script: research_modeling/scripts/62_d2_linear_svm_baseline.py
+Models: S01 Standard LinearSVC; S02 Balanced LinearSVC. Both with C=1 and word (1,2) TF-IDF.
+Five-fold grouped training CV plus separate validation evaluation. Decision boundary zero; no threshold search.
+
+Fold NFR F1:
+  Fold 1 S01 0.7954 / S02 0.7991
+  Fold 2 S01 0.8128 / S02 0.8184
+  Fold 3 S01 0.7919 / S02 0.8060
+  Fold 4 S01 0.7991 / S02 0.7924
+  Fold 5 S01 0.8217 / S02 0.8268
+
+MODEL                  MEAN_NFR_F1 STD_NFR_F1 MEAN_NFR_RECALL STD_NFR_RECALL MEAN_MACRO_F1 MEAN_BAL_ACC
+S01 Standard LinearSVM 0.8042       0.0126        0.7704          0.0140        0.8544        0.8474
+S02 Balanced LinearSVM 0.8086       0.0140        0.8102          0.0123        0.8544        0.8548
+
+MODEL                  ACC     BAL_ACC  MACRO_F1  NFR_PREC  NFR_REC  NFR_F1  AP      ROC_AUC FP FN
+S01 Standard LinearSVM 0.8970  0.8784   0.8820    0.8565    0.8243   0.8401  0.8750  0.9344   33 42
+S02 Balanced LinearSVM 0.8929  0.8871   0.8805    0.8157    0.8703   0.8421  0.8734  0.9340   47 31
+
+Confusion matrices:
+  S01 [[456,33],[42,197]]
+  S02 [[442,47],[31,208]]
+
+Interpretation: On this validation partition, both Linear SVMs were stronger than Balanced LR in NFR F1
+and macro-F1. S01 had the best macro-F1 and accuracy among the two; S02 had better NFR recall, NFR F1 and
+balanced accuracy. CV means differed little between S01 and S02.
+
+Saved:
+  outputs/tables/62_d2_svm_cv_fold_metrics.csv
+  outputs/tables/62_d2_svm_oof_predictions.csv
+  outputs/tables/62_d2_svm_cv_stability.csv
+  outputs/tables/62_d2_svm_validation_metrics.csv
+  outputs/tables/62_d2_svm_validation_predictions.csv
+  outputs/reports/62_d2_svm_baseline_report.txt
+  outputs/reports/62_d2_svm_baseline_metadata.json
+
+===================================================================================================================
+11. SCRIPT 63: PAIRED STATISTICAL MODEL COMPARISONS
+===================================================================================================================
+Script: research_modeling/scripts/63_d2_paired_model_comparison.py
+Compared B02, S01 and S02 on the same 728 existing validation predictions (694 similarity groups).
+Two-sided exact McNemar test for differences in total classification errors.
+2,000 paired bootstrap resamples of entire similarity groups; 95% percentile intervals for performance differences.
+No new fitting or test evaluation.
+
+COMPARISON      NFR_F1_DIFF  95% GROUP-BOOTSTRAP CI  MACRO_F1_DIFF   95% CI          MCNEMAR p
+S02 minus B02    +0.0334     (+0.0115,+0.0553)      +0.0273       (+0.0105,+0.0441)  0.002563
+S01 minus B02    +0.0314     (+0.0051,+0.0582)      +0.0288       (+0.0091,+0.0494)  0.002088
+S02 minus S01    +0.0020     (-0.0179,+0.0227)      -0.0015       (-0.0167,+0.0139)  0.690038
+
+Recall differences and 95% group-bootstrap intervals:
+  S02 - B02: +0.0126, CI (-0.0170,+0.0431)
+  S01 - B02: -0.0335, CI (-0.0664,0.0000)
+  S02 - S01: +0.0460, CI (+0.0212,+0.0730)
+
+Paired correct/error disagreement:
+  S02 vs B02: S02 only correct 28; B02 only correct 9.
+  S01 vs B02: S01 only correct 35; B02 only correct 13.
+  S02 vs S01: S02 only correct 11; S01 only correct 14.
+
+NFR error overlap:
+  B02 misses: 34; S01 misses: 42; S02 misses: 31.
+  S02 corrected 9 B02 NFR misses but introduced 6 NFR misses relative to B02.
+  Exactly 25 actual NFR requirements were missed by all three.
+
+Interpretation: Both SVM configurations had better observed validation NFR F1 than B02 and positive
+bootstrap intervals on that metric in this exploratory comparison. Differences between S02 and S01 in
+NFR F1 were not resolved. S02 had higher NFR recall than S01 in the reported group bootstrap.
+
+STATISTICAL CAUTIONS: The validation partition was already used repeatedly in prior selection and exploration.
+Bootstrap intervals are conditional on this development context and do not adjust for model-selection optimism.
+McNemar p-values test paired overall correctness, not a hypothesis directly about NFR F1. Three pairwise
+tests were run without a multiple-comparison adjustment; do not present unadjusted significance as confirmatory.
+Similarity groups are not necessarily independent projects.
+
+Saved:
+  outputs/tables/63_d2_paired_comparison.csv
+  outputs/tables/63_d2_nfr_error_overlap.csv
+  outputs/reports/63_d2_paired_comparison.txt
+  outputs/reports/63_d2_paired_comparison.json
+
+===================================================================================================================
+12. SCRIPT 64: NAIVE BAYES AND SGD BASELINES
+===================================================================================================================
+Script: research_modeling/scripts/64_d2_additional_ml_baselines.py
+Four fixed algorithms on word (1,2) TF-IDF: M01 MultinomialNB, M02 ComplementNB, M03 SGD hinge,
+M04 SGD modified Huber. Five-fold grouped train CV and validation evaluation; no threshold tuning.
+
+MODEL                  MEAN_CV_NFR_F1 STD_CV_NFR_F1 MEAN_CV_RECALL MEAN_CV_MACRO_F1
+M01 MultinomialNB        0.7502         0.0253         0.6378         0.8240
+M02 ComplementNB         0.8067         0.0192         0.7790         0.8557
+M03 SGD Hinge            0.7857         0.0105         0.7661         0.8394
+M04 SGD Modified Huber   0.7897         0.0144         0.7730         0.8420
+
+MODEL                  ACC     BAL_ACC MACRO_F1 NFR_PREC NFR_REC NFR_F1 AP      ROC_AUC FP FN
+M01 MultinomialNB      0.8668   0.8153  0.8365   0.9034   0.6653  0.7663 0.8761  0.9323  17 80
+M02 ComplementNB       0.8723   0.8546  0.8550   0.8067   0.8033  0.8050 0.8761  0.9323  46 47
+M03 SGD Hinge          0.8832   0.8703  0.8683   0.8156   0.8326  0.8240 0.8689  0.9299  45 40
+M04 SGD Modified Huber 0.8819   0.8704  0.8672   0.8097   0.8368  0.8230 0.8701  0.9305  47 39
+
+Confusion matrices:
+ M01 [[472,17],[80,159]]
+ M02 [[443,46],[47,192]]
+ M03 [[444,45],[40,199]]
+ M04 [[442,47],[39,200]]
+
+Interpretation: ComplementNB had strong train-CV NFR F1 relative to other inexpensive baselines;
+SGD hinge achieved the highest validation NFR F1 among these four. MultinomialNB had high validation
+NFR precision but poor recall, missing 80 NFR examples. None exceeded S02's validation NFR F1.
+Both Naive Bayes configurations had identical displayed AP and ROC-AUC, while their prediction cutoffs
+differed. These reported ranking metrics should be verified at full precision if interpreted further.
+
+Saved:
+  outputs/tables/64_d2_ml_cv_fold_metrics.csv
+  outputs/tables/64_d2_ml_oof_predictions.csv
+  outputs/tables/64_d2_ml_cv_stability.csv
+  outputs/tables/64_d2_ml_validation_metrics.csv
+  outputs/tables/64_d2_ml_validation_predictions.csv
+  outputs/reports/64_d2_ml_baseline_report.txt
+  outputs/reports/64_d2_ml_baseline_metadata.json
+
+===================================================================================================================
+13. SCRIPT 65: NONLINEAR RBF SVM BASELINES
+===================================================================================================================
+Script: research_modeling/scripts/65_d2_rbf_svm_baseline.py
+R01 RBF SVC, unweighted; R02 RBF SVC, balanced. Both C=1 and gamma='scale'; word (1,2) TF-IDF.
+Five-fold train-only grouped CV, separate validation, decision_function boundary 0.
+
+MODEL                    MEAN_CV_NFR_F1 STD_CV_NFR_F1 MEAN_CV_RECALL MEAN_CV_MACRO_F1
+R01 RBF SVM                 0.7990        0.0180        0.7288        0.8540
+R02 Balanced RBF SVM        0.8157        0.0205        0.7972        0.8616
+
+MODEL                    ACC     BAL_ACC MACRO_F1 NFR_PREC NFR_REC NFR_F1 AP      ROC_AUC FP FN
+R01 RBF SVM             0.8846   0.8531  0.8646   0.8708   0.7615  0.8125 0.8762  0.9351  27 57
+R02 Balanced RBF SVM    0.8942   0.8774  0.8794   0.8462   0.8285  0.8372 0.8726  0.9346  36 41
+
+Confusion matrices:
+ R01 [[462,27],[57,182]]
+ R02 [[453,36],[41,198]]
+
+Interpretation: R02 showed a strong training-CV mean NFR F1 (0.8157) and competitive validation F1,
+but did not exceed Balanced Linear SVM on validation NFR F1 or recall. The nonlinear RBF kernel did not
+establish a clear advantage under this representation and settings.
+
+Runtime note: scikit-learn issued FutureWarning messages indicating the SVC 'probability' parameter was
+deprecated in the installed release and would be removed later. The experiment still ran. Because
+probabilities were not needed, the explicit 'probability=False' argument could be omitted in future code.
+No reinterpretation of the numeric results is required because of that warning.
+
+Saved:
+  outputs/tables/65_d2_rbf_cv_fold_metrics.csv
+  outputs/tables/65_d2_rbf_oof_predictions.csv
+  outputs/tables/65_d2_rbf_cv_stability.csv
+  outputs/tables/65_d2_rbf_validation_metrics.csv
+  outputs/tables/65_d2_rbf_validation_predictions.csv
+  outputs/reports/65_d2_rbf_baseline_report.txt
+  outputs/reports/65_d2_rbf_baseline_metadata.json
+
+===================================================================================================================
+14. SCRIPT 66: CHARACTER AND COMBINED TF-IDF REPRESENTATIONS
+===================================================================================================================
+Script: research_modeling/scripts/66_d2_word_character_tfidf.py
+F01 standard char_wb SVM; F02 balanced char_wb SVM;
+F03 standard combined word+character SVM; F04 balanced combined SVM.
+Each TF-IDF transform fitted exclusively on training data for every CV fold.
+Full-training feature dimensions: word 7,787 and character 19,261.
+
+MODEL                      MEAN_CV_NFR_F1 STD_CV_NFR_F1 MEAN_CV_RECALL MEAN_CV_MACRO_F1
+F01 Character SVM             0.7976        0.0252        0.7626        0.8496
+F02 Balanced Character SVM    0.8029        0.0209        0.8146        0.8491
+F03 Combined SVM              0.8069        0.0126        0.7730        0.8565
+F04 Balanced Combined SVM     0.8159        0.0212        0.8163        0.8602
+
+MODEL                      ACC     BAL_ACC MACRO_F1 NFR_PREC NFR_REC NFR_F1 AP      ROC_AUC FP FN
+F01 Character SVM         0.8723   0.8493  0.8534   0.8202   0.7824  0.8009 0.8818  0.9358  41 52
+F02 Balanced Character    0.8626   0.8603  0.8488   0.7584   0.8536  0.8031 0.8813  0.9353  65 35
+F03 Combined SVM          0.8970   0.8784  0.8820   0.8565   0.8243  0.8401 0.8885  0.9421  33 42
+F04 Balanced Combined     0.8846   0.8777  0.8713   0.8039   0.8577  0.8300 0.8861  0.9416  50 34
+
+Confusion matrices:
+ F01 [[448,41],[52,187]]
+ F02 [[424,65],[35,204]]
+ F03 [[456,33],[42,197]]
+ F04 [[439,50],[34,205]]
+
+Interpretation: F03 tied S01 for NFR F1 and macro-F1 while achieving the largest displayed validation
+ROC-AUC (0.9421) and average precision (0.8885) in the classical leaderboard. F04 led mean training-CV
+NFR F1 (0.8159) but did not surpass S02 on validation NFR F1. Combining word and character features
+improved ranking metrics, without consistently improving default-boundary classification.
+
+Saved:
+  outputs/tables/66_d2_cv_fold_metrics.csv
+  outputs/tables/66_d2_oof_predictions.csv
+  outputs/tables/66_d2_cv_stability.csv
+  outputs/tables/66_d2_validation_metrics.csv
+  outputs/tables/66_d2_validation_predictions.csv
+  outputs/reports/66_d2_feature_experiment.txt
+  outputs/reports/66_d2_feature_metadata.json
+
+===================================================================================================================
+15. SCRIPT 67: PAIRED WORD-ONLY VS COMBINED FEATURE PREDICTIONS
+===================================================================================================================
+Script: research_modeling/scripts/67_d2_combined_feature_comparison.py
+Compared existing Script 62 word-only Linear SVM validation outputs against Script 66 combined outputs.
+No new model fitting. No bootstrap intervals were calculated in this script.
+
+S01 Standard word SVM vs F03 Combined word+char SVM:
+  Predictions changed: 24.
+  Errors fixed by combined model: 12.
+  Errors introduced by combined model: 12.
+  NFR F1: 0.8401 vs 0.8401.
+  ROC-AUC increased by +0.0077.
+  Average precision increased by +0.0134.
+
+S02 Balanced word SVM vs F04 Balanced combined SVM:
+  Predictions changed: 32.
+  Errors fixed by combined model: 13.
+  Errors introduced by combined model: 19.
+  NFR F1: 0.8421 vs 0.8300.
+  ROC-AUC increased by +0.0076.
+  Average precision increased by +0.0127.
+
+Interpretation: Matching confusion-matrix totals for S01 and F03 concealed 24 distinct changes in per-record
+predictions. For balanced SVMs, combining features yielded six additional errors overall and lower NFR F1,
+despite improved ranking. No statistical significance is claimed for these ranking changes.
+
+Saved:
+  outputs/tables/67_d2_feature_comparison.csv
+  outputs/tables/67_d2_changed_predictions.csv
+  outputs/reports/67_d2_feature_comparison.txt
+
+===================================================================================================================
+16. SCRIPT 68: TREE ENSEMBLE BASELINES
+===================================================================================================================
+Script: research_modeling/scripts/68_d2_tree_ensemble_baselines.py
+T01 Random Forest (300 trees); T02 Extra Trees (300 trees); T03 HistGradientBoosting (TF-IDF + SVD100).
+Five-fold grouped train CV, validation assessment. No test evaluation. The representations differ, so this
+is a comparison of complete pipelines, not a clean test of algorithms with identical input features.
+
+MODEL                       MEAN_CV_NFR_F1 STD_CV_NFR_F1 MEAN_CV_RECALL MEAN_CV_MACRO_F1
+T01 RandomForest               0.7549        0.0341        0.6854        0.8224
+T02 ExtraTrees                 0.7904        0.0279        0.7418        0.8457
+T03 HistGradientBoosting       0.7684        0.0193        0.7825        0.8225
+
+MODEL                       ACC     BAL_ACC MACRO_F1 NFR_PREC NFR_REC NFR_F1 AP      ROC_AUC FP FN
+T01 RandomForest            0.8613   0.8261  0.8370   0.8317   0.7238  0.7740 0.8395  0.9156  35 66
+T02 ExtraTrees              0.8695   0.8440  0.8496   0.8214   0.7699  0.7948 0.8642  0.9293  40 55
+T03 HistGradientBoosting    0.8407   0.8258  0.8216   0.7450   0.7824  0.7633 0.8232  0.8987  64 52
+
+Confusion matrices:
+ T01 [[454,35],[66,173]]
+ T02 [[449,40],[55,184]]
+ T03 [[425,64],[52,187]]
+
+Interpretation: Extra Trees was the best-performing tree-based pipeline on validation NFR F1 (0.7948).
+All three tree-based pipelines fell below S02 Balanced Linear SVM's 0.8421 validation NFR F1. The present
+settings did not justify prioritizing these ensembles in the next phase.
+
+Saved:
+  outputs/tables/68_d2_tree_cv_fold_metrics.csv
+  outputs/tables/68_d2_tree_oof_predictions.csv
+  outputs/tables/68_d2_tree_cv_stability.csv
+  outputs/tables/68_d2_tree_validation_metrics.csv
+  outputs/tables/68_d2_tree_validation_predictions.csv
+  outputs/reports/68_d2_tree_baseline_report.txt
+  outputs/reports/68_d2_tree_baseline_metadata.json
+
+===================================================================================================================
+17. SCRIPT 69: FINAL CONSOLIDATED MODEL LEADERBOARD
+===================================================================================================================
+Script: research_modeling/scripts/69_d2_classical_ml_summary.py
+Inputs: earlier validation/CV summary files; no training or new validation evaluation.
+Required 17 configurations with consistent model identifiers.
+Merged validation results and mean five-fold CV results into a single leaderboard.
+
+RANK MODEL                               VAL_NFR_F1 VAL_NFR_RECALL VAL_MACRO_F1 VAL_BAL_ACC CV_MEAN_NFR_F1
+ 1   S02_BalancedLinearSVM                  0.8421      0.8703        0.8805     0.8871      0.8086
+ 2   S01_LinearSVM                          0.8401      0.8243        0.8820     0.8784      0.8042
+ 3   F03_CombinedSVM                        0.8401      0.8243        0.8820     0.8784      0.8069
+ 4   R02_Balanced_RBF_SVM                   0.8372      0.8285        0.8794     0.8774      0.8157
+ 5   F04_BalancedCombinedSVM                0.8300      0.8577        0.8713     0.8777      0.8159
+ 6   M03_SGD_Hinge                          0.8240      0.8326        0.8683     0.8703      0.7857
+ 7   M04_SGD_ModifiedHuber                  0.8230      0.8368        0.8672     0.8704      0.7897
+ 8   R01_RBF_SVM                            0.8125      0.7615        0.8646     0.8531      0.7990
+ 9   B02_BalancedLogisticRegression         0.8087      0.8577        0.8532     0.8645      0.8070
+10   M02_ComplementNB                       0.8050      0.8033        0.8550     0.8546      0.8067
+11   F02_BalancedCharacterSVM               0.8031      0.8536        0.8488     0.8603      0.8029
+12   F01_CharacterSVM                       0.8009      0.7824        0.8534     0.8493      0.7976
+13   T02_ExtraTrees                         0.7948      0.7699        0.8496     0.8440      0.7904
+14   B01_LogisticRegression                 0.7919      0.7322        0.8506     0.8375      0.7659
+15   T01_RandomForest                       0.7740      0.7238        0.8370     0.8261      0.7549
+16   M01_MultinomialNB                      0.7663      0.6653        0.8365     0.8153      0.7502
+17   T03_HistGradientBoosting               0.7633      0.7824        0.8216     0.8258      0.7684
+
+Note: Validation ranks are descriptive and increasingly subject to selection optimism after repeated comparisons.
+These scores are NOT a sealed-test leaderboard and should never be described as final generalization performance.
+
+Saved:
+  outputs/tables/69_d2_classical_ml_leaderboard.csv
+  outputs/tables/69_d2_classical_ml_cv_comparison.csv
+  outputs/reports/69_d2_classical_ml_summary.txt
+  outputs/reports/69_d2_classical_ml_summary.json
+
+===================================================================================================================
+18. ALL 17 CONFIGURATIONS: FULL VALIDATION METRICS IN ONE TABLE
+===================================================================================================================
+MODEL                         ACC     BAL_ACC  MACRO_F1  NFR_PREC  NFR_REC  NFR_F1  AP      ROC_AUC  FP  FN
+B01 Logistic Regression       0.8736   0.8375    0.8506    0.8621    0.7322   0.7919  0.8646   0.9247  28  64
+B02 Balanced Logistic Reg.    0.8668   0.8645    0.8532    0.7649    0.8577   0.8087  0.8638   0.9253  63  34
+S01 Linear SVM                0.8970   0.8784    0.8820    0.8565    0.8243   0.8401  0.8750   0.9344  33  42
+S02 Balanced Linear SVM       0.8929   0.8871    0.8805    0.8157    0.8703   0.8421  0.8734   0.9340  47  31
+M01 Multinomial NB            0.8668   0.8153    0.8365    0.9034    0.6653   0.7663  0.8761   0.9323  17  80
+M02 Complement NB             0.8723   0.8546    0.8550    0.8067    0.8033   0.8050  0.8761   0.9323  46  47
+M03 SGD Hinge                 0.8832   0.8703    0.8683    0.8156    0.8326   0.8240  0.8689   0.9299  45  40
+M04 SGD Modified Huber        0.8819   0.8704    0.8672    0.8097    0.8368   0.8230  0.8701   0.9305  47  39
+R01 RBF SVM                   0.8846   0.8531    0.8646    0.8708    0.7615   0.8125  0.8762   0.9351  27  57
+R02 Balanced RBF SVM          0.8942   0.8774    0.8794    0.8462    0.8285   0.8372  0.8726   0.9346  36  41
+F01 Character SVM             0.8723   0.8493    0.8534    0.8202    0.7824   0.8009  0.8818   0.9358  41  52
+F02 Balanced Character SVM    0.8626   0.8603    0.8488    0.7584    0.8536   0.8031  0.8813   0.9353  65  35
+F03 Combined SVM              0.8970   0.8784    0.8820    0.8565    0.8243   0.8401  0.8885   0.9421  33  42
+F04 Balanced Combined SVM     0.8846   0.8777    0.8713    0.8039    0.8577   0.8300  0.8861   0.9416  50  34
+T01 Random Forest             0.8613   0.8261    0.8370    0.8317    0.7238   0.7740  0.8395   0.9156  35  66
+T02 Extra Trees               0.8695   0.8440    0.8496    0.8214    0.7699   0.7948  0.8642   0.9293  40  55
+T03 HistGradientBoosting      0.8407   0.8258    0.8216    0.7450    0.7824   0.7633  0.8232   0.8987  64  52
+
+For B01/B02, AP and ROC-AUC are taken from Script 59's saved evaluation of the same fixed validation
+probabilities, as Script 57 did not explicitly print these metrics in its baseline comparison section.
+The Script 69 consolidated CSV is the canonical local merged table; values above are transcribed from outputs.
+
+===================================================================================================================
+19. CROSS-VALIDATION STABILITY AND LEADING TRAINING-CV CONFIGURATIONS
+===================================================================================================================
+Ranking by mean five-fold TRAIN NFR F1:
+  1. F04 Balanced Combined SVM        0.8159 (std 0.0212)
+  2. R02 Balanced RBF SVM             0.8157 (std 0.0205)
+  3. S02 Balanced Linear SVM          0.8086 (std 0.0140)
+  4. B02 Balanced Logistic Regression 0.8070 (std 0.0203)
+  5. F03 Combined SVM                 0.8069 (std 0.0126)
+
+These means are arithmetic averages of five held-out F1 scores, not a single pooled OOF F1. The fold
+standard deviations describe this particular set of five grouped partitions, not robust uncertainty about
+independent future software projects. The highest mean (0.8159) and third highest (0.8086) differ by 0.0073
+and should not be treated as a decisive statistical separation.
+
+Discrepancy between train CV and validation can arise from fold composition, training sample size, distribution
+variation, and repeated validation inspection. For example, S02 validation NFR F1 0.8421 exceeds its CV mean
+0.8086, while F04 validation NFR F1 0.8300 exceeds its CV mean 0.8159. These are not test-set results.
+
+===================================================================================================================
+20. OVERALL SCIENTIFIC FINDINGS AND CURRENT DECISIONS
+===================================================================================================================
+A. Strongest NFR-focused validation classifier: S02 Balanced Linear SVM.
+   NFR F1=0.8421; NFR recall=0.8703; macro-F1=0.8805; balanced accuracy=0.8871;
+   NFR false negatives=31/239; false-positive NFR predictions=47/489.
+
+B. Strongest observed macro-F1 among classical configurations: S01 and F03 tied at 0.8820.
+   Both showed accuracy=0.8970; NFR F1=0.8401; NFR recall=0.8243.
+
+C. Strongest displayed validation ranking metrics: F03 Combined SVM, ROC-AUC=0.9421 and AP=0.8885.
+   These improvements did not produce higher F1 at the default decision boundary.
+
+D. Highest mean training-CV NFR F1: F04 Balanced Combined SVM at 0.8159; close to R02 RBF SVM
+   at 0.8157. Neither exceeded S02 on validation NFR F1.
+
+E. Class weighting increases minority-class recall, often sacrificing FR specificity/precision. It primarily
+   altered Logistic Regression's score/threshold behavior under the tested settings, rather than establishing
+   better score ranking.
+
+F. Linear models proved particularly competitive with sparse natural-language TF-IDF features. Tested tree
+   ensembles did not exceed Linear SVM, and RBF SVM showed no clear added nonlinear advantage.
+
+G. Statistical comparison in Script 63 provided exploratory support for better SVM NFR F1 than Balanced LR,
+   but did NOT establish a clear NFR F1 winner between S01 and S02.
+
+H. Twenty-five validation NFR requirements were missed by B02, S01 and S02 simultaneously. Their meaning,
+   labeling, and text patterns could be a target of explicitly qualitative later analysis, without using them
+   to revise frozen test labels or cherry-pick a new test partition.
+
+I. Initial classical ML benchmark development is now complete. Model choice has NOT been formally finalized.
+
+PRACTICAL HANDOVER SHORTLIST:
+  Primary classical NFR benchmark: S02 Balanced Linear SVM, word TF-IDF, C=1, class_weight='balanced'.
+  Strong overall benchmark:       S01 Standard Linear SVM, word TF-IDF, C=1.
+  Feature-rich comparator:        F03 Combined SVM, word+char_wb TF-IDF, C=1.
+  Alternative kernel comparator:  R02 Balanced RBF SVM, C=1, gamma='scale'.
+  Traditional general baseline:   B02 Balanced Logistic Regression, word TF-IDF.
+
+Do not infer that these must be the only models used in future research. They are well-documented references.
+
+===================================================================================================================
+21. LEAKAGE PROTECTION, THREATS TO VALIDITY AND UNRESOLVED ITEMS
+===================================================================================================================
+PROTECTIONS RECORDED:
+ - Frozen D2-v1.1 source and partition assignments.
+ - No reused similarity groups across train/validation/test partitions.
+ - No cross-partition pairs >=0.85 in a specified exhaustive lexical similarity audit.
+ - Training-fold feature fitting rather than refitting on held-out fold data.
+ - SVD fitted inside fold-training data for boosting pipeline.
+ - Threshold searches restricted to training OOF and/or development validation; test untouched.
+ - Repeated SHA-256 input integrity checks against the frozen manifest.
+ - Explicitly separate classical modeling folder and new deep-learning folder.
+
+THREATS AND CAVEATS:
+ 1. Repeated model comparison on the same validation set can lead to overfitting model choices to that set.
+ 2. The strongest validation model may not remain strongest on untouched test data.
+ 3. Source labels were not independently human-reviewed and some AI-assisted correction rules are provisional.
+ 4. No original-project-independent split can be confidently claimed from current provenance.
+ 5. Lexical similarity at a 0.85 threshold is not a definitive semantic near-duplicate test.
+ 6. The 17 pairs at or above cosine 0.80 remain below the review threshold and are not automatically harmless.
+ 7. NFR examples are fewer than FR (class imbalance), motivating minority-class metrics.
+ 8. Paired bootstrap CIs on reused validation do not remove model-selection bias.
+ 9. Reported unadjusted McNemar p-values are exploratory and test overall correctness, not F1 directly.
+10. Hyperparameters are fixed or lightly explored rather than exhaustively optimized.
+11. Fold-level mean results do not estimate cross-project robustness.
+12. RBF SVC decision scores, LinearSVC margins and SGD scores are not calibrated probabilities.
+13. Combined-feature pipelines and SVD pipelines change both representation and potentially capacity.
+14. No final sealed test metrics exist at the end of this archive.
+15. No transformer or deep neural result was generated within this recorded classical ML phase.
+
+RECOMMENDED COMPARISON PRACTICE IN THE NEW PHASE:
+ - Use the identical D2-v1.1 frozen manifest as the data source, not a rebuilt split.
+ - Keep the 727 test requirements sealed until an explicitly documented final evaluation.
+ - Keep numerical class mapping FR=0, NFR=1 consistent.
+ - Preserve training-only fitting rules and similarity group constraints where applicable.
+ - Use validation for development but report the extensive historical validation reuse.
+ - Record pretrained checkpoint, tokenizer, max length, truncation, learning rate, batch size,
+   effective batch size, epochs, seeds, checkpoint choice and hardware for neural experiments.
+ - Compare new neural models against at least S02 and a transparent conventional reference, with the
+   same evaluation labels and metrics. Report resource costs where possible.
+ - Avoid claiming external project generalization without a suitable independently sourced test collection.
+
+===================================================================================================================
+22. OUTPUT ARTIFACT INVENTORY AND REPRODUCTION GUIDE
+===================================================================================================================
+All relative 'outputs/...' references in Sections 05–17 are relative to:
+  ~/THESIS_DATASET_2/research_modeling/
+
+Classical ML source scripts:
+  research_modeling/scripts/57_d2_baseline_logistic_regression.py
+  research_modeling/scripts/58_d2_baseline_error_analysis.py
+  research_modeling/scripts/59_d2_threshold_analysis.py
+  research_modeling/scripts/60_d2_grouped_cv_baseline.py
+  research_modeling/scripts/61_d2_oof_threshold_validation.py
+  research_modeling/scripts/62_d2_linear_svm_baseline.py
+  research_modeling/scripts/63_d2_paired_model_comparison.py
+  research_modeling/scripts/64_d2_additional_ml_baselines.py
+  research_modeling/scripts/65_d2_rbf_svm_baseline.py
+  research_modeling/scripts/66_d2_word_character_tfidf.py
+  research_modeling/scripts/67_d2_combined_feature_comparison.py
+  research_modeling/scripts/68_d2_tree_ensemble_baselines.py
+  research_modeling/scripts/69_d2_classical_ml_summary.py
+
+Important canonical comparison artifacts:
+  research_modeling/outputs/tables/69_d2_classical_ml_leaderboard.csv
+  research_modeling/outputs/tables/69_d2_classical_ml_cv_comparison.csv
+  research_modeling/outputs/reports/69_d2_classical_ml_summary.txt
+  research_modeling/outputs/reports/69_d2_classical_ml_summary.json
+
+Primary classical model prediction artifacts:
+  research_modeling/outputs/tables/57_d2_validation_predictions.csv
+  research_modeling/outputs/tables/60_d2_oof_predictions.csv
+  research_modeling/outputs/tables/62_d2_svm_validation_predictions.csv
+  research_modeling/outputs/tables/62_d2_svm_oof_predictions.csv
+  research_modeling/outputs/tables/64_d2_ml_validation_predictions.csv
+  research_modeling/outputs/tables/65_d2_rbf_validation_predictions.csv
+  research_modeling/outputs/tables/66_d2_validation_predictions.csv
+  research_modeling/outputs/tables/68_d2_tree_validation_predictions.csv
+
+Dataset-evidence files:
+  dataset_exploration/outputs/validated/53_d2_v11_candidates.csv
+  dataset_exploration/outputs/tables/53_d2_v11_group_membership.csv
+  dataset_exploration/outputs/validated/54_d2_v11_frozen_split_manifest.csv
+  dataset_exploration/outputs/validated/54_d2_v11_split_metadata.json
+  dataset_exploration/outputs/reports/55_d2_v11_similarity_audit.json
+  dataset_exploration/outputs/reports/56_d2_v11_readiness.json
+  dataset_exploration/outputs/reports/56_d2_v11_readiness.txt
+
+Environment that was used for these scripts:
+  source ~/Unofficial\ Thesis/.venv-transformers/bin/activate
+  cd ~/THESIS_DATASET_2
+  python research_modeling/scripts/69_d2_classical_ml_summary.py
+
+The report is not a self-contained model artifact: it does NOT embed raw requirements, complete predictions,
+trained model weights, or a live runnable environment. Preserve the directory trees and original CSV/JSON
+output files to allow replication. The Python environment and installed package versions should be separately
+captured if exact execution reproducibility is necessary.
+
+===================================================================================================================
+23. HANDOVER TO NEW DEEP-LEARNING RESEARCH DIRECTORY
+===================================================================================================================
+Confirmed newly created directory tree:
+  ~/THESIS_DATASET_2/deep_learning_research/
+    checkpoints/
+    configs/
+    logs/
+    models/
+    outputs/
+      figures/
+      predictions/
+      reports/
+      tables/
+    README.md
+    scripts/
+
+There is no need to create another virtual environment or a requirements.txt file at the user's request.
+Continue with the previously installed '.venv-transformers' environment. Starting new script numbering at
+00 in the deep_learning_research/scripts/ directory is compatible with leaving Scripts 57–69 unchanged in
+research_modeling/scripts/.
+
+Suggested location for this archive after downloading it onto the user's Linux machine:
+  ~/THESIS_DATASET_2/research_modeling/outputs/reports/
+Optional second copy for handover:
+  ~/THESIS_DATASET_2/deep_learning_research/outputs/reports/
+
+It is better to preserve one canonical copy in research_modeling and refer to it in the new folder's README.
+No scripts, models, output artifacts or old directories need to be deleted or modified for this handover.
+
+===================================================================================================================
+24. THESIS-READY DRAFT SUMMARY AND FINAL STATUS
+===================================================================================================================
+Draft paragraph (adapt to your actual methodology and citation requirements):
+
+"We evaluated 17 classical machine-learning configurations for binary functional versus non-functional software
+requirements classification using a frozen 4,833-record D2 v1.1 dataset. The dataset was divided into 3,378
+training, 728 validation, and 727 sealed test examples. Five-fold stratified, similarity-group-aware
+cross-validation was conducted within the training partition. Text representations included word-level
+TF-IDF, character-boundary TF-IDF and their combination, with a truncated-SVD representation used for one
+boosting pipeline. Classifiers included Logistic Regression, Linear SVM, RBF SVM, Naive Bayes, SGD linear
+classifiers, Random Forest, Extra Trees and histogram gradient boosting. Balanced Linear SVM achieved the
+highest observed validation NFR F1 (0.8421) and NFR recall (0.8703), while the strongest observed validation
+macro-F1 (0.8820) was shared by Standard Linear SVM and combined-feature Linear SVM. Combined-feature Linear
+SVM achieved the highest observed validation ROC-AUC (0.9421) and average precision (0.8885), without
+improving NFR F1 over word-only Standard Linear SVM. Balanced Combined Linear SVM had the highest average
+five-fold training-CV NFR F1 (0.8159). These findings are provisional, because multiple models were
+compared on a reused validation partition, original-project independence was not established, and labels
+were not independently verified. No sealed-test evaluation was performed during baseline development."
+
+SUMMARY OF COMPLETION:
+ - Dataset exploration and D2-v1.1 technical approval: complete with limitations.
+ - Classical ML experiments 57–69: completed, based on user-provided run logs.
+ - Total fixed classical configurations assessed: 17.
+ - Frozen manifest and similarity-group isolation: preserved.
+ - Training-only group-aware CV: completed for model families.
+ - Repeated validation comparisons: completed, exploratory.
+ - Paired statistics: completed for B02/S01/S02, exploratory.
+ - Consolidated classical ML leaderboard: completed.
+ - Neural and transformer experiments: not yet started in the new folder.
+ - Final model selection: pending.
+ - Sealed test evaluation: not performed.
+
+ARCHIVAL NOTE
+-------------
+This report is assembled from the exact experiment summaries and script content in the chat as of 12 November
+2026. It is a descriptive research record, not a claim that an independent reviewer has reproduced the
+calculations or independently confirmed every input file. Preserve source scripts, input data, checksums,
+metadata and prediction files as the authoritative companion evidence.
+
+END OF CLASSICAL MACHINE-LEARNING RESEARCH MODELING ARCHIVE
+===================================================================================================================

@@ -1,0 +1,18 @@
+{
+  "experiment": 65,
+  "protocol": "D2-v1.1",
+  "manifest_sha256": "5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4",
+  "seed": 42,
+  "cv_folds": 5,
+  "models": [
+    "R01_RBF_SVM",
+    "R02_Balanced_RBF_SVM"
+  ],
+  "kernel": "rbf",
+  "C": 1.0,
+  "gamma": "scale",
+  "tfidf_fitted_within_each_fold": true,
+  "test_used": false,
+  "threshold_optimized": false,
+  "final_selection": "PENDING"
+}

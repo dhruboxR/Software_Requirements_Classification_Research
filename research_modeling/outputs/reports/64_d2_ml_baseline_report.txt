@@ -1,0 +1,28 @@
+D2 v1.1 ADDITIONAL CLASSICAL ML BASELINES
+=================================================================
+
+Train-only, 5-fold group-aware CV
+Separate validation evaluation
+Test accessed: NO
+No threshold optimization
+
+CROSS-VALIDATION STABILITY
+                model  mean_nfr_f1  std_nfr_f1  mean_nfr_recall  std_nfr_recall  mean_macro_f1  mean_balanced_accuracy
+    M01_MultinomialNB       0.7502      0.0253           0.6378          0.0245         0.8240                  0.8027
+     M02_ComplementNB       0.8067      0.0192           0.7790          0.0184         0.8557                  0.8499
+        M03_SGD_Hinge       0.7857      0.0105           0.7661          0.0207         0.8394                  0.8354
+M04_SGD_ModifiedHuber       0.7897      0.0144           0.7730          0.0194         0.8420                  0.8386
+
+VALIDATION COMPARISON
+                model  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precision  roc_auc  fp  fn
+    M01_MultinomialNB    0.8668             0.8153    0.8365         0.9034      0.6653  0.7663             0.8761   0.9323  17  80
+     M02_ComplementNB    0.8723             0.8546    0.8550         0.8067      0.8033  0.8050             0.8761   0.9323  46  47
+        M03_SGD_Hinge    0.8832             0.8703    0.8683         0.8156      0.8326  0.8240             0.8689   0.9299  45  40
+M04_SGD_ModifiedHuber    0.8819             0.8704    0.8672         0.8097      0.8368  0.8230             0.8701   0.9305  47  39
+
+LIMITATIONS
+- Validation has been used for prior model comparisons.
+- No hyperparameter search was conducted.
+- Group isolation does not establish project independence.
+- Ranking scores are not necessarily probabilities.
+- Test partition remains sealed.

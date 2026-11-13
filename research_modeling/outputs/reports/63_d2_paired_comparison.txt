@@ -1,0 +1,26 @@
+SCRIPT 63: PAIRED BASELINE COMPARISON
+=================================================================
+
+Partition: validation only
+Requirements: 728
+Similarity groups: 694
+Bootstrap resamples: 2000
+
+PAIRED MODEL RESULTS
+model_a model_b  a_only_correct  b_only_correct  mcnemar_exact_p  nfr_f1_difference  nfr_f1_ci_low  nfr_f1_ci_high  nfr_recall_difference  nfr_recall_ci_low  nfr_recall_ci_high  macro_f1_difference  macro_f1_ci_low  macro_f1_ci_high
+    s02     b02              28               9          0.00256            0.03343        0.01154         0.05534                0.01255           -0.01702             0.04310              0.02728          0.01047           0.04409
+    s01     b02              35              13          0.00209            0.03141        0.00511         0.05821               -0.03347           -0.06642             0.00000              0.02882          0.00914           0.04937
+    s02     s01              11              14          0.69004            0.00202       -0.01785         0.02273                0.04603            0.02118             0.07297             -0.00154         -0.01668           0.01389
+
+NFR ERROR OVERLAP
+S02 fixes B02 misses: 9
+S02 new NFR misses: 6
+
+LIMITATIONS
+- Exploratory comparison on a reused validation partition.
+- Bootstrap resampling uses similarity groups.
+- Bootstrap intervals do not adjust for model selection.
+- McNemar tests concern total classification error.
+- Multiple comparisons were made without adjustment.
+- No external or independent-project evaluation.
+- Frozen test partition remains sealed.

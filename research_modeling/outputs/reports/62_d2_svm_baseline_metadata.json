@@ -1,0 +1,17 @@
+{
+  "experiment": 62,
+  "protocol": "D2-v1.1",
+  "seed": 42,
+  "cv_folds": 5,
+  "manifest_sha256": "5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4",
+  "models": [
+    "S01_LinearSVM",
+    "S02_BalancedLinearSVM"
+  ],
+  "C": 1.0,
+  "decision_threshold": 0.0,
+  "tfidf_fitted_on": "TRAIN ONLY; independently per CV fold",
+  "validation_evaluated": true,
+  "test_accessed": false,
+  "model_selection": "PENDING"
+}

@@ -1,0 +1,74 @@
+D2 v1.1 CLASSICAL MACHINE LEARNING SUMMARY
+============================================================================
+
+DATASET
+Total requirements: 4833
+Train: 3378
+Validation: 728
+Test: 727 (sealed)
+
+EVALUATION PROTOCOL
+Train-only five-fold similarity-group-aware CV
+Independent frozen validation partition
+No test evaluation
+Validation has been reused for model development
+
+VALIDATION LEADERBOARD
+ validation_rank                          model  nfr_f1  nfr_recall  macro_f1  balanced_accuracy  mean_nfr_f1
+               1          S02_BalancedLinearSVM  0.8421      0.8703    0.8805             0.8871       0.8086
+               2                  S01_LinearSVM  0.8401      0.8243    0.8820             0.8784       0.8042
+               3                F03_CombinedSVM  0.8401      0.8243    0.8820             0.8784       0.8069
+               4           R02_Balanced_RBF_SVM  0.8372      0.8285    0.8794             0.8774       0.8157
+               5        F04_BalancedCombinedSVM  0.8300      0.8577    0.8713             0.8777       0.8159
+               6                  M03_SGD_Hinge  0.8240      0.8326    0.8683             0.8703       0.7857
+               7          M04_SGD_ModifiedHuber  0.8230      0.8368    0.8672             0.8704       0.7897
+               8                    R01_RBF_SVM  0.8125      0.7615    0.8646             0.8531       0.7990
+               9 B02_BalancedLogisticRegression  0.8087      0.8577    0.8532             0.8645       0.8070
+              10               M02_ComplementNB  0.8050      0.8033    0.8550             0.8546       0.8067
+              11       F02_BalancedCharacterSVM  0.8031      0.8536    0.8488             0.8603       0.8029
+              12               F01_CharacterSVM  0.8009      0.7824    0.8534             0.8493       0.7976
+              13                 T02_ExtraTrees  0.7948      0.7699    0.8496             0.8440       0.7904
+              14         B01_LogisticRegression  0.7919      0.7322    0.8506             0.8375       0.7659
+              15               T01_RandomForest  0.7740      0.7238    0.8370             0.8261       0.7549
+              16              M01_MultinomialNB  0.7663      0.6653    0.8365             0.8153       0.7502
+              17       T03_HistGradientBoosting  0.7633      0.7824    0.8216             0.8258       0.7684
+
+CROSS-VALIDATION COMPARISON
+                         model                 family  mean_nfr_f1  std_nfr_f1  mean_nfr_recall  std_nfr_recall  mean_macro_f1  mean_balanced_accuracy
+       F04_BalancedCombinedSVM Feature Representation       0.8159      0.0212           0.8163          0.0252         0.8602                  0.8603
+          R02_Balanced_RBF_SVM                RBF SVM       0.8157      0.0205           0.7972          0.0172         0.8616                  0.8577
+         S02_BalancedLinearSVM             Linear SVM       0.8086      0.0140           0.8102          0.0123         0.8544                  0.8548
+B02_BalancedLogisticRegression    Logistic Regression       0.8070      0.0203           0.8405          0.0279         0.8502                  0.8573
+               F03_CombinedSVM Feature Representation       0.8069      0.0126           0.7730          0.0130         0.8565                  0.8494
+              M02_ComplementNB      Naive Bayes / SGD       0.8067      0.0192           0.7790          0.0184         0.8557                  0.8499
+                 S01_LinearSVM             Linear SVM       0.8042      0.0126           0.7704          0.0140         0.8544                  0.8474
+      F02_BalancedCharacterSVM Feature Representation       0.8029      0.0209           0.8146          0.0212         0.8491                  0.8515
+                   R01_RBF_SVM                RBF SVM       0.7990      0.0180           0.7288          0.0184         0.8540                  0.8397
+              F01_CharacterSVM Feature Representation       0.7976      0.0252           0.7626          0.0206         0.8496                  0.8424
+                T02_ExtraTrees         Tree Ensembles       0.7904      0.0279           0.7418          0.0281         0.8457                  0.8358
+         M04_SGD_ModifiedHuber      Naive Bayes / SGD       0.7897      0.0144           0.7730          0.0194         0.8420                  0.8386
+                 M03_SGD_Hinge      Naive Bayes / SGD       0.7857      0.0105           0.7661          0.0207         0.8394                  0.8354
+      T03_HistGradientBoosting         Tree Ensembles       0.7684      0.0193           0.7825          0.0251         0.8225                  0.8254
+        B01_LogisticRegression    Logistic Regression       0.7659      0.0222           0.6776          0.0216         0.8322                  0.8150
+              T01_RandomForest         Tree Ensembles       0.7549      0.0341           0.6854          0.0365         0.8224                  0.8090
+             M01_MultinomialNB      Naive Bayes / SGD       0.7502      0.0253           0.6378          0.0245         0.8240                  0.8027
+
+CURRENT LEADING VALIDATION CONFIGURATION
+Model: S02_BalancedLinearSVM
+NFR F1: 0.8421
+NFR recall: 0.8703
+Macro-F1: 0.8805
+
+METHODOLOGICAL LIMITATIONS
+- Validation results are development-stage evidence.
+- Models were compared repeatedly on validation.
+- No independent-project evaluation.
+- No independently verified annotation review.
+- Some models use different feature representations.
+- CV results are based on one five-fold partition.
+- Final test evaluation has not occurred.
+
+NEXT STAGE
+Compare selected neural/transformer baselines.
+Preserve D2 v1.1 and the test partition.
+Finalize model selection before test evaluation.

@@ -1,0 +1,35 @@
+{
+  "experiment": 57,
+  "dataset_protocol": "D2-v1.1",
+  "seed": 42,
+  "manifest_sha256": "5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4",
+  "train_examples": 3378,
+  "validation_examples": 728,
+  "test_used": false,
+  "vectorizer": {
+    "type": "word_tfidf",
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 2,
+    "max_df": 0.95,
+    "sublinear_tf": true,
+    "max_features": 100000
+  },
+  "models": {
+    "B01": {
+      "classifier": "LogisticRegression",
+      "class_weight": null,
+      "C": 1.0
+    },
+    "B02": {
+      "classifier": "LogisticRegression",
+      "class_weight": "balanced",
+      "C": 1.0
+    }
+  },
+  "prediction_threshold": 0.5,
+  "evaluation_partition": "validation",
+  "scientific_approval": "CONDITIONAL"
+}

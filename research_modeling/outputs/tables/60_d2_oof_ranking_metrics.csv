@@ -1,0 +1,3 @@
+model,oof_average_precision,oof_roc_auc
+B01_LogisticRegression,0.8783268144363094,0.9278654632619728
+B02_BalancedLogisticRegression,0.8780466268144532,0.928217694475269
