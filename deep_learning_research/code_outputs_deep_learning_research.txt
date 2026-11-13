@@ -1,0 +1,1233 @@
+---------------------------------------------------------------------------------------
+    RUN - python scripts/00_environment_check.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 00: DEEP LEARNING ENVIRONMENT CHECK
+============================================================================
+
+SYSTEM INFORMATION
+Python: 3.14.4
+Python executable: /home/dhrubo_roy/Unofficial Thesis/.venv-transformers/bin/python
+Platform: Linux-7.0.0-43-generic-x86_64-with-glibc2.43
+CPU threads: 12
+Virtual environment: /home/dhrubo_roy/Unofficial Thesis/.venv-transformers
+RAM: {'total_gb': 6.45, 'available_gb': 1.83}
+Free disk space (GB): 341.76
+
+PACKAGE AVAILABILITY
+numpy: 2.5.4
+pandas: 3.1.1
+scipy: 1.18.1
+scikit-learn: 1.9.1
+torch: 2.14.1+cu130
+transformers: 5.22.1
+datasets: 5.1.0
+accelerate: 1.15.0
+tokenizers: 0.23.3
+safetensors: 0.8.0
+sentencepiece: 0.2.3
+evaluate: NOT INSTALLED
+matplotlib: 3.11.2
+
+PYTORCH HARDWARE
+version: 2.14.1+cu130
+cuda_available: True
+torch_cuda_version: 13.0
+device: cuda
+gpu_count: 1
+gpus: [{'index': 0, 'name': 'NVIDIA GeForce RTX 4050 Laptop GPU', 'total_memory_gb': 5.64}]
+cuda_tensor_test: True
+
+NVIDIA DRIVER INFORMATION
+NVIDIA GeForce RTX 4050 Laptop GPU, 6141 MiB, 5657 MiB, 595.99.02
+
+RESEARCH READINESS
+PyTorch installed: True
+Transformers installed: True
+Datasets installed: True
+Accelerate installed: True
+GPU backend detected: True
+Basic PyTorch availability: PASS
+Environment status: CORE_PACKAGES_PRESENT
+Transformer runtime compatibility: NOT YET VERIFIED
+Dataset integrity check: PENDING
+Model training: NOT STARTED
+Test evaluation: NOT STARTED
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/00_environment_report.json
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/00_environment_report.txt
+
+Script 00 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/01_dataset_integrity.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 01: D2 v1.1 DATASET INTEGRITY VERIFICATION
+============================================================================
+PASS: Required file exists: 54_d2_v11_frozen_split_manifest.csv
+PASS: Required file exists: 54_d2_v11_split_metadata.json
+PASS: Required file exists: 56_d2_v11_readiness.json
+PASS: Dataset protocol is D2-v1.1
+PASS: Readiness protocol matches
+PASS: Frozen manifest SHA256 matches split metadata
+PASS: Frozen manifest SHA256 matches readiness record
+
+DATASET COUNTS
+PASS: Total requirements: 4833
+PASS: Requirement IDs are unique
+PASS: Normalized requirement text keys are unique
+PASS: No blank values: Requirement ID
+PASS: No blank values: key
+PASS: No blank values: label
+PASS: No blank values: split
+PASS: No blank values: similarity_group
+PASS: Only FR and NFR labels exist
+PASS: Only train/validation/test partitions exist
+PASS: Exactly 4625 similarity groups
+
+CLASS DISTRIBUTION
+label         FR   NFR  total
+split                        
+train       2224  1154   3378
+validation   489   239    728
+test         488   239    727
+PASS: train/FR: 2224
+PASS: Metadata agrees: train/FR
+PASS: train/NFR: 1154
+PASS: Metadata agrees: train/NFR
+PASS: validation/FR: 489
+PASS: Metadata agrees: validation/FR
+PASS: validation/NFR: 239
+PASS: Metadata agrees: validation/NFR
+PASS: test/FR: 488
+PASS: Metadata agrees: test/FR
+PASS: test/NFR: 239
+PASS: Metadata agrees: test/NFR
+PASS: All requirements belong to one partition
+PASS: No similarity groups cross partitions
+PASS: No mixed-label similarity groups
+
+GROUP STATISTICS
+train groups: 3237
+validation groups: 694
+test groups: 694
+Cross-partition groups: 0
+Mixed-label groups: 0
+PASS: Previous dataset technical readiness passed
+PASS: Previous 0.85 similarity screen passed
+
+RESEARCH STATUS
+Dataset integrity: PASS
+Previous technical readiness: PASS
+Scientific approval: CONDITIONAL
+Test evaluation: NOT PERFORMED
+Model training: NOT STARTED
+Frozen dataset modified: NO
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/01_dataset_integrity.json
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/01_dataset_integrity.txt
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/01_partition_summary.csv
+
+Script 01 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/02_text_tokenization_analysis.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 02: D2 v1.1 TEXT TOKENIZATION ANALYSIS
+============================================================================
+
+DATASET
+Protocol: D2-v1.1
+Training requirements: 3378
+Validation requirements: 728
+Total analyzed: 4106
+Test text loaded: NO
+Frozen manifest integrity: PASS
+
+TEXT LENGTH STATISTICS
+     split         measure  count   mean    std  minimum  p50   p75   p90    p95    p99  maximum
+     train character_count   3378 93.237 33.431       23 87.0 110.0 137.0 157.00 201.46      322
+     train      word_count   3378 14.710  5.171        4 14.0  17.0  21.0  24.00  31.23       58
+validation character_count    728 95.493 34.813       32 90.0 111.0 137.3 164.95 209.73      253
+validation      word_count    728 14.887  5.510        5 14.0  17.0  22.0  26.00  34.00       38
+
+TOKENIZER CONFIGURATION
+Tokenizer: distilbert/distilbert-base-uncased
+Fast tokenizer: True
+Model maximum length: 512
+
+TOKEN LENGTH STATISTICS
+     split     measure  count   mean   std  minimum  p50  p75  p90  p95   p99  maximum
+     train token_count   3378 19.695 6.520        7 18.0 23.0 28.3 32.0 41.00       65
+validation token_count    728 20.000 7.094        9 18.0 23.0 29.0 34.0 44.73       54
+
+TOKEN LENGTH BY CLASS
+     split label  tokens_count  tokens_mean  tokens_std  tokens_minimum  tokens_p50  tokens_p75  tokens_p90  tokens_p95tokens_p99  tokens_maximum
+     train    FR          2224       19.527       6.462               8        18.0        23.0        28.0        32.0     41.00              56
+     train   NFR          1154       20.019       6.620               7        19.0        24.0        29.0        33.0     40.00              65
+validation    FR           489       19.826       7.033               9        18.0        22.0        29.0        34.0     44.24              53
+validation   NFR           239       20.356       7.203              10        19.0        23.0        30.0        35.0     43.86              54
+
+TRUNCATION ANALYSIS
+     split label  max_length  requirements  truncated_count  truncated_percent  coverage_percent
+     train   ALL          64          3378                1               0.03             99.97
+     train   ALL          96          3378                0               0.00            100.00
+     train   ALL         128          3378                0               0.00            100.00
+     train   ALL         160          3378                0               0.00            100.00
+     train   ALL         192          3378                0               0.00            100.00
+     train   ALL         256          3378                0               0.00            100.00
+validation   ALL          64           728                0               0.00            100.00
+validation   ALL          96           728                0               0.00            100.00
+validation   ALL         128           728                0               0.00            100.00
+validation   ALL         160           728                0               0.00            100.00
+validation   ALL         192           728                0               0.00            100.00
+validation   ALL         256           728                0               0.00            100.00
+
+PRELIMINARY LENGTH DECISION
+Target training coverage: 0.99
+Candidate lengths: [64, 96, 128, 160, 192, 256]
+Recommended length based on training: 64
+Training coverage (%): 99.97
+
+RESEARCH STATUS
+Text length analysis: COMPLETED
+Tokenizer analysis: COMPLETED
+Maximum sequence length: PRELIMINARY
+Test set: SEALED
+Model training: NOT STARTED
+Dataset modified: NO
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/02_text_length_summary.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/02_length_by_class.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/02_truncation_analysis.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/02_train_validation_lengths.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/02_tokenization_report.txt
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/02_tokenization_report.json
+
+Script 02 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/03_textcnn_baseline.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 03: D2 v1.1 TEXTCNN BASELINE
+============================================================================
+
+DATASET
+Training: 3378
+Validation: 728
+Training FR: 2224
+Training NFR: 1154
+Vocabulary size: 3071
+Maximum word-token length: 64
+Device: cuda
+Frozen manifest integrity: PASS
+Test accessed: NO
+
+TRAINING: C01_TextCNN
+Epoch 01 | loss=0.5504 | NFR F1=0.7257 | recall=0.7029
+Epoch 02 | loss=0.3727 | NFR F1=0.7689 | recall=0.7657
+Epoch 03 | loss=0.2728 | NFR F1=0.7830 | recall=0.7699
+Epoch 04 | loss=0.1881 | NFR F1=0.7768 | recall=0.7573
+Epoch 05 | loss=0.1423 | NFR F1=0.7976 | recall=0.8243
+Epoch 06 | loss=0.1086 | NFR F1=0.7676 | recall=0.7531
+Epoch 07 | loss=0.0720 | NFR F1=0.7841 | recall=0.7824
+Epoch 08 | loss=0.0617 | NFR F1=0.7975 | recall=0.8159
+Epoch 09 | loss=0.0470 | NFR F1=0.8058 | recall=0.8075
+Epoch 10 | loss=0.0356 | NFR F1=0.7926 | recall=0.8075
+Epoch 11 | loss=0.0248 | NFR F1=0.7942 | recall=0.7992
+Epoch 12 | loss=0.0254 | NFR F1=0.7794 | recall=0.7615
+Epoch 13 | loss=0.0216 | NFR F1=0.7719 | recall=0.7364
+Early stopping triggered.
+BEST C01_TextCNN: epoch=9, NFR F1=0.8058, recall=0.8075
+
+TRAINING: C02_BalancedTextCNN
+Epoch 01 | loss=0.5892 | NFR F1=0.7247 | recall=0.8536
+Epoch 02 | loss=0.3972 | NFR F1=0.7701 | recall=0.8410
+Epoch 03 | loss=0.2915 | NFR F1=0.8000 | recall=0.8285
+Epoch 04 | loss=0.2066 | NFR F1=0.7673 | recall=0.7866
+Epoch 05 | loss=0.1509 | NFR F1=0.7930 | recall=0.8494
+Epoch 06 | loss=0.1167 | NFR F1=0.7814 | recall=0.8075
+Epoch 07 | loss=0.0785 | NFR F1=0.7810 | recall=0.7908
+Early stopping triggered.
+BEST C02_BalancedTextCNN: epoch=3, NFR F1=0.8000, recall=0.8285
+
+============================================================================
+VALIDATION COMPARISON
+============================================================================
+              model  best_epoch  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  fp  fn  training_seconds
+        C01_TextCNN           9    0.8723             0.8557    0.8553         0.8042      0.8075  0.8058  47  46      4.90
+C02_BalancedTextCNN           3    0.8640             0.8549    0.8485         0.7734      0.8285  0.8000  58  41      2.01
+
+VALIDATION CONFUSION MATRICES
+Rows: actual FR, NFR
+Columns: predicted FR, NFR
+
+C01_TextCNN
+[[442, 47], [46, 193]]
+
+C02_BalancedTextCNN
+[[431, 58], [41, 198]]
+
+RESEARCH STATUS
+TextCNN baseline: COMPLETED
+Best checkpoints: SAVED
+Validation evaluation: COMPLETED
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/models/03_textcnn_vocabulary.json
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/03_textcnn_epoch_history.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/03_textcnn_validation_metrics.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/predictions/03_textcnn_validation_predictions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/03_textcnn_baseline_report.txt
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/03_textcnn_baseline_metadata.json
+
+Script 03 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/04_bilstm_baseline.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 04: D2 v1.1 BiLSTM BASELINE
+============================================================================
+
+DATASET
+Training: 3378
+Validation: 728
+Training FR: 2224
+Training NFR: 1154
+Vocabulary size: 3071
+Max word-token length: 64
+Device: cuda
+Frozen manifest integrity: PASS
+Test accessed: NO
+
+TRAINING: L01_BiLSTM
+Epoch 01 | loss=0.5241 | NFR F1=0.7188 | recall=0.7699
+Epoch 02 | loss=0.3306 | NFR F1=0.7706 | recall=0.7448
+Epoch 03 | loss=0.2226 | NFR F1=0.7809 | recall=0.7531
+Epoch 04 | loss=0.1311 | NFR F1=0.7889 | recall=0.7741
+Epoch 05 | loss=0.0715 | NFR F1=0.7811 | recall=0.7615
+Epoch 06 | loss=0.0311 | NFR F1=0.7780 | recall=0.7992
+Epoch 07 | loss=0.0171 | NFR F1=0.7822 | recall=0.7741
+Epoch 08 | loss=0.0083 | NFR F1=0.7817 | recall=0.7866
+Early stopping triggered.
+BEST L01_BiLSTM: epoch=4, NFR F1=0.7889, recall=0.7741
+
+TRAINING: L02_BalancedBiLSTM
+Epoch 01 | loss=0.5544 | NFR F1=0.7237 | recall=0.8494
+Epoch 02 | loss=0.3515 | NFR F1=0.7873 | recall=0.8285
+Epoch 03 | loss=0.2368 | NFR F1=0.7942 | recall=0.8075
+Epoch 04 | loss=0.1471 | NFR F1=0.8016 | recall=0.8285
+Epoch 05 | loss=0.0827 | NFR F1=0.7975 | recall=0.7992
+Epoch 06 | loss=0.0384 | NFR F1=0.7898 | recall=0.8410
+Epoch 07 | loss=0.0227 | NFR F1=0.7952 | recall=0.8285
+Epoch 08 | loss=0.0115 | NFR F1=0.7944 | recall=0.8243
+Early stopping triggered.
+BEST L02_BalancedBiLSTM: epoch=4, NFR F1=0.8016, recall=0.8285
+
+============================================================================
+VALIDATION COMPARISON
+============================================================================
+             model  best_epoch  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  fp  fn  training_seconds
+        L01_BiLSTM           4    0.8640             0.8410    0.8443         0.8043      0.7741  0.7889  45  54     4.00
+L02_BalancedBiLSTM           4    0.8654             0.8559    0.8499         0.7765      0.8285  0.8016  57  41     4.34
+
+VALIDATION CONFUSION MATRICES
+Rows: actual FR, NFR
+Columns: predicted FR, NFR
+
+L01_BiLSTM
+[[444, 45], [54, 185]]
+
+L02_BalancedBiLSTM
+[[432, 57], [41, 198]]
+
+RESEARCH STATUS
+BiLSTM baseline: COMPLETED
+Best checkpoints: SAVED
+Validation evaluation: COMPLETED
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/models/04_bilstm_vocabulary.json
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/04_bilstm_epoch_history.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/04_bilstm_validation_metrics.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/predictions/04_bilstm_validation_predictions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/04_bilstm_baseline_report.txt
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/04_bilstm_baseline_metadata.json
+
+Script 04 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/05_distilbert_baseline.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 05: D2 v1.1 DISTILBERT BASELINE
+============================================================================
+
+DATASET
+Training: 3378
+Validation: 728
+Device: cuda
+Model: distilbert/distilbert-base-uncased
+Max length: 96
+Manifest integrity: PASS
+Test accessed: NO
+Loading weights: 100%|██████████████████████████████████████████████████████████████| 100/100 [00:00<00:00, 5049.97it/s]
+[transformers] DistilBertForSequenceClassification LOAD REPORT from: distilbert/distilbert-base-uncased
+Key                     | Status     | 
+------------------------+------------+-
+vocab_layer_norm.weight | UNEXPECTED | 
+vocab_transform.weight  | UNEXPECTED | 
+vocab_projector.bias    | UNEXPECTED | 
+vocab_transform.bias    | UNEXPECTED | 
+vocab_layer_norm.bias   | UNEXPECTED | 
+classifier.weight       | MISSING    | 
+pre_classifier.weight   | MISSING    | 
+pre_classifier.bias     | MISSING    | 
+classifier.bias         | MISSING    | 
+
+Notes:
+- UNEXPECTED:   can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:      those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+
+MODEL
+Parameters: 66955010
+Mixed precision FP16: True
+
+TRAINING
+Epoch 01 | loss=0.3983 | NFR F1=0.8463 | recall=0.8410 | macro F1=0.8860
+Writing model shards: 100%|███████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.57it/s]
+Epoch 02 | loss=0.2569 | NFR F1=0.8589 | recall=0.8787 | macro F1=0.8938
+Writing model shards: 100%|███████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  2.22it/s]
+Epoch 03 | loss=0.1568 | NFR F1=0.8595 | recall=0.8828 | macro F1=0.8940
+Writing model shards: 100%|███████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  2.59it/s]
+Epoch 04 | loss=0.1025 | NFR F1=0.8554 | recall=0.8661 | macro F1=0.8917
+Loading weights: 100%|██████████████████████████████████████████████████████████████| 104/104 [00:00<00:00, 4296.17it/s]
+
+============================================================================
+VALIDATION RESULTS
+============================================================================
+         model  best_epoch  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precisionroc_auc  fp  fn  training_seconds
+D01_DistilBERT           3    0.9052             0.8995     0.894         0.8373      0.8828  0.8595              0.927 0.9613  41  28             58.11
+
+CONFUSION MATRIX
+Rows: actual FR, NFR
+Columns: predicted FR, NFR
+[[448, 41], [28, 211]]
+
+RESEARCH STATUS
+DistilBERT baseline: COMPLETED
+Best checkpoint: SAVED
+Validation evaluation: COMPLETED
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/05_distilbert_epoch_history.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/05_distilbert_validation_metrics.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/predictions/05_distilbert_validation_predictions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/05_distilbert_baseline_report.txt
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/05_distilbert_baseline_metadata.json
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/checkpoints/05_distilbert_best
+
+Script 05 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/06_bert_baseline.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 06: D2 v1.1 BERT-BASE BASELINE
+============================================================================
+
+DATASET
+Training: 3378
+Validation: 728
+Model: google-bert/bert-base-uncased
+Device: cuda
+Manifest integrity: PASS
+Test accessed: NO
+config.json: 100%|█████████████████████████████████████████████████████████████████████████| 570/570 [00:00<00:00, 1.96MB/s]
+tokenizer_config.json: 100%|██████████████████████████████████████████████████████████████| 48.0/48.0 [00:00<00:00, 135kB/s]
+vocab.txt: 100%|█████████████████████████████████████████████████████████████████████████| 232k/232k [00:00<00:00, 3.11MB/s]
+tokenizer.json: 100%|████████████████████████████████████████████████████████████████████| 466k/466k [00:00<00:00, 10.5MB/s]
+model.safetensors: downloading bytes: ██████████████████████████████████████████████████████████████████|  415MB, 1.92MB/s  
+model.safetensors: reconstructing file: 100%|██████████████████████████████████████████████████|  440MB /  440MB, 4.23MB/s  
+Loading weights: 100%|██████████████████████████████████████████████████████████████████| 199/199 [00:00<00:00, 5479.12it/s]
+[transformers] BertForSequenceClassification LOAD REPORT from: google-bert/bert-base-uncased
+Key                                        | Status     | 
+-------------------------------------------+------------+-
+cls.predictions.bias                       | UNEXPECTED | 
+cls.predictions.transform.dense.bias       | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | 
+cls.seq_relationship.weight                | UNEXPECTED | 
+cls.seq_relationship.bias                  | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED | 
+cls.predictions.transform.dense.weight     | UNEXPECTED | 
+classifier.weight                          | MISSING    | 
+classifier.bias                            | MISSING    | 
+
+Notes:
+- UNEXPECTED:   can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:      those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+
+MODEL CONFIGURATION
+Parameters: 109483778
+Max length: 96
+Physical batch size: 4
+Effective batch size: 16
+FP16: True
+Gradient checkpointing: True
+
+TRAINING
+[transformers] `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+Epoch 01 | loss=0.3770 | NFR F1=0.8465 | recall=0.8996 | macro F1=0.8821
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.29it/s]
+Epoch 02 | loss=0.2646 | NFR F1=0.8577 | recall=0.8954 | macro F1=0.8918
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.38it/s]
+Epoch 03 | loss=0.1757 | NFR F1=0.8516 | recall=0.8285 | macro F1=0.8910
+Epoch 04 | loss=0.1038 | NFR F1=0.8350 | recall=0.8787 | macro F1=0.8739
+Early stopping triggered.
+Loading weights: 100%|██████████████████████████████████████████████████████████████████| 201/201 [00:00<00:00, 4233.76it/s]
+
+============================================================================
+VALIDATION RESULTS
+============================================================================
+       model  best_epoch  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precision  roc_auc  fp  fn  training_seconds
+D02_BERTBase           2    0.9025             0.9007    0.8918         0.8231      0.8954  0.8577             0.9174   0.9577  46  25            209.69
+
+CONFUSION MATRIX
+Rows: actual FR, NFR
+Columns: predicted FR, NFR
+[[443, 46], [25, 214]]
+
+RESEARCH STATUS
+BERT-base baseline: COMPLETED
+Best checkpoint: SAVED
+Validation evaluation: COMPLETED
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/06_bert_epoch_history.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/06_bert_validation_metrics.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/predictions/06_bert_validation_predictions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/06_bert_baseline_report.txt
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/06_bert_baseline_metadata.json
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/checkpoints/06_bert_base_best
+
+Script 06 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/07_roberta_baseline.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 07: D2 v1.1 ROBERTA-BASE BASELINE
+============================================================================
+
+DATASET
+Training: 3378
+Validation: 728
+Model: FacebookAI/roberta-base
+Device: cuda
+Manifest integrity: PASS
+Test accessed: NO
+Loading weights: 100%|██████████████████████████████████████████████████████████████████| 197/197 [00:00<00:00, 5496.76it/s]
+[transformers] RobertaForSequenceClassification LOAD REPORT from: FacebookAI/roberta-base
+Key                        | Status     | 
+---------------------------+------------+-
+lm_head.dense.weight       | UNEXPECTED | 
+lm_head.dense.bias         | UNEXPECTED | 
+lm_head.bias               | UNEXPECTED | 
+lm_head.layer_norm.bias    | UNEXPECTED | 
+lm_head.layer_norm.weight  | UNEXPECTED | 
+classifier.out_proj.bias   | MISSING    | 
+classifier.out_proj.weight | MISSING    | 
+classifier.dense.weight    | MISSING    | 
+classifier.dense.bias      | MISSING    | 
+
+Notes:
+- UNEXPECTED:   can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:      those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+
+MODEL CONFIGURATION
+Parameters: 124647170
+Max length: 96
+Physical batch size: 4
+Effective batch size: 16
+FP16: True
+Gradient checkpointing: True
+
+ROBERTA TOKEN LENGTH AUDIT
+Training maximum: 65
+Validation maximum: 57
+Training truncated at 96: 0
+Validation truncated at 96: 0
+Length setting: PREDECLARED, NOT TUNED
+Test tokenization: NOT PERFORMED
+
+TRAINING
+[transformers] `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+Epoch 01 | loss=0.4065 | NFR F1=0.8502 | recall=0.8787 | macro F1=0.8866
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.42it/s]
+Epoch 02 | loss=0.2653 | NFR F1=0.8455 | recall=0.8243 | macro F1=0.8864
+Epoch 03 | loss=0.2120 | NFR F1=0.8534 | recall=0.8285 | macro F1=0.8924
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.02it/s]
+Epoch 04 | loss=0.1662 | NFR F1=0.8452 | recall=0.8912 | macro F1=0.8817
+Loading weights: 100%|██████████████████████████████████████████████████████████████████| 201/201 [00:00<00:00, 4571.29it/s]
+
+============================================================================
+VALIDATION RESULTS
+============================================================================
+          model  best_epoch  accuracy  balanced_accuracy  macro_f1  nfr_precision  nfr_recall  nfr_f1  average_precision  roc_auc  fp  fn  training_seconds
+D03_RoBERTaBase           3    0.9066             0.8866    0.8924           0.88      0.8285  0.8534             0.9136   0.9577  27  41             218.7
+
+CONFUSION MATRIX
+Rows: actual FR, NFR
+Columns: predicted FR, NFR
+[[462, 27], [41, 198]]
+
+RESEARCH STATUS
+BERT-base baseline: COMPLETED
+Best checkpoint: SAVED
+Validation evaluation: COMPLETED
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/07_roberta_epoch_history.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/07_roberta_validation_metrics.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/predictions/07_roberta_validation_predictions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/07_roberta_baseline_report.txt
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/07_roberta_baseline_metadata.json
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/checkpoints/07_roberta_base_best
+
+Script 07 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/08_transformer_paired_comparison.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 08: PAIRED TRANSFORMER COMPARISON
+============================================================================
+
+DATA VALIDATION
+Validation requirements: 728
+Validation similarity groups: 694
+Prediction alignment: PASS
+True-label agreement: PASS
+Frozen manifest integrity: PASS
+Test accessed: NO
+
+INDIVIDUAL VALIDATION RESULTS
+          model  accuracy  nfr_f1  nfr_recall  average_precision  roc_auc  errors
+ D01_DistilBERT    0.9052  0.8595      0.8828             0.9270   0.9613      69
+   D02_BERTBase    0.9025  0.8577      0.8954             0.9174   0.9577      71
+D03_RoBERTaBase    0.9066  0.8534      0.8285             0.9136   0.9577      68
+
+PAIRED COMPARISONS
+
+D01_DistilBERT VS D02_BERTBase
+Predictions changed: 38
+A only correct: 20
+B only correct: 18
+Exact McNemar p: 0.871415
+NFR F1 difference (A-B): 0.0018
+NFR F1 bootstrap 95% CI: (-0.0242, 0.0258)
+Recall difference (A-B): -0.0126
+Recall bootstrap 95% CI: (-0.0496, 0.022)
+
+D01_DistilBERT VS D03_RoBERTaBase
+Predictions changed: 39
+A only correct: 19
+B only correct: 20
+Exact McNemar p: 1.0
+NFR F1 difference (A-B): 0.006
+NFR F1 bootstrap 95% CI: (-0.0193, 0.0319)
+Recall difference (A-B): 0.0544
+Recall bootstrap 95% CI: (0.0205, 0.0909)
+
+D02_BERTBase VS D03_RoBERTaBase
+Predictions changed: 45
+A only correct: 21
+B only correct: 24
+Exact McNemar p: 0.765992
+NFR F1 difference (A-B): 0.0043
+NFR F1 bootstrap 95% CI: (-0.0223, 0.0329)
+Recall difference (A-B): 0.0669
+Recall bootstrap 95% CI: (0.03, 0.1066)
+
+RESEARCH STATUS
+Paired transformer comparison: COMPLETED
+Similarity-group bootstrap: COMPLETED
+New training: NO
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/08_transformer_individual_metrics.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/08_transformer_paired_comparison.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/08_transformer_changed_predictions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/08_transformer_paired_report.txt
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/08_transformer_paired_metadata.json
+
+Script 08 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/09_transformer_multiseed.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 09: TRANSFORMER MULTI-SEED STABILITY
+============================================================================
+
+CONFIGURATION
+Existing seed: 42
+Additional seeds: [17, 29]
+Selected models: ['distilbert', 'bert', 'roberta']
+Frozen test evaluation: NOT PERFORMED
+Prepared: 09_distilbert_seed17.py
+Prepared: 09_distilbert_seed29.py
+Prepared: 09_bert_seed17.py
+Prepared: 09_bert_seed29.py
+Prepared: 09_roberta_seed17.py
+Prepared: 09_roberta_seed29.py
+
+Preparation completed.
+No training performed.
+(.venv-transformers) dhrubo_roy@dhruboxR-IDG-3-15ARH7:~/THESIS_DATASET_2/deep_learning_research$ python -m py_compile scripts/09_*_seed*.py
+(.venv-transformers) dhrubo_roy@dhruboxR-IDG-3-15ARH7:~/THESIS_DATASET_2/deep_learning_research$ python scripts/09_transformer_multiseed.py
+============================================================================
+SCRIPT 09: TRANSFORMER MULTI-SEED STABILITY
+============================================================================
+
+CONFIGURATION
+Existing seed: 42
+Additional seeds: [17, 29]
+Selected models: ['distilbert', 'bert', 'roberta']
+Frozen test evaluation: NOT PERFORMED
+Prepared: 09_distilbert_seed17.py
+Prepared: 09_distilbert_seed29.py
+Prepared: 09_bert_seed17.py
+Prepared: 09_bert_seed29.py
+Prepared: 09_roberta_seed17.py
+Prepared: 09_roberta_seed29.py
+
+Running distilbert, seed=17
+Log: /home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/logs/09_distilbert_seed17.log
+Completed distilbert, seed=17
+
+Running distilbert, seed=29
+Log: /home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/logs/09_distilbert_seed29.log
+Completed distilbert, seed=29
+
+Running bert, seed=17
+Log: /home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/logs/09_bert_seed17.log
+Completed bert, seed=17
+
+Running bert, seed=29
+Log: /home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/logs/09_bert_seed29.log
+Completed bert, seed=29
+
+Running roberta, seed=17
+Log: /home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/logs/09_roberta_seed17.log
+Completed roberta, seed=17
+
+Running roberta, seed=29
+Log: /home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/logs/09_roberta_seed29.log
+Completed roberta, seed=29
+
+INDIVIDUAL SEED RESULTS
+architecture  seed  best_epoch  nfr_f1  nfr_recall  macro_f1  fp  fn
+  distilbert    42           3  0.8595      0.8828    0.8940  41  28
+  distilbert    17           4  0.8644      0.8536    0.8997  29  35
+  distilbert    29           3  0.8664      0.8954    0.8989  41  25
+        bert    42           2  0.8577      0.8954    0.8918  46  25
+        bert    17           4  0.8502      0.8787    0.8866  45  29
+        bert    29           4  0.8692      0.8619    0.9030  29  33
+     roberta    42           3  0.8534      0.8285    0.8924  27  41
+     roberta    17           4  0.8523      0.8452    0.8905  33  37
+     roberta    29           4  0.8614      0.8452    0.8978  28  37
+
+MULTI-SEED STABILITY
+architecture  seed_count  nfr_f1_mean  nfr_f1_std  nfr_recall_mean  nfr_recall_std  macro_f1_mean  macro_f1_std
+  distilbert           3       0.8634      0.0036           0.8773          0.0215         0.8975        0.0031
+        bert           3       0.8590      0.0096           0.8787          0.0167         0.8938        0.0084
+     roberta           3       0.8557      0.0050           0.8396          0.0097         0.8936        0.0038
+
+RESEARCH STATUS
+Multi-seed stability: COMPLETED
+Original seed-42 checkpoints: PRESERVED
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/09_transformer_seed_results.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/09_transformer_seed_stability.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/09_transformer_multiseed_report.txt
+
+Script 09 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/10_multiseed_error_stability.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 10: MULTI-SEED ERROR STABILITY
+============================================================================
+
+DATA VALIDATION
+Validation requirements: 728
+Similarity groups: 694
+Prediction files: 9
+Prediction alignment: PASS
+True-label agreement: PASS
+Manifest integrity: PASS
+Test accessed: NO
+
+WITHIN-MODEL STABILITY
+architecture  requirements  unanimous_predictions  unanimous_percent  changing_predictions  changing_percent  always_correct  always_wrong  mean_pairwise_disagreements  majority_vote_nfr_f1_descriptive
+  distilbert           728                    678            93.1319                    50            6.8681             634            44                      33.3333                            0.8742
+        bert           728                    673            92.4451                    55            7.5549             628            45                      36.6667                            0.8730
+     roberta           728                    675            92.7198                    53            7.2802             633            42                      35.3333                            0.8590
+
+MATCHED-SEED MODEL COMPARISONS
+ seed    model_a model_b  changed_predictions  a_only_correct  b_only_correct  nfr_f1_a_minus_b  nfr_recall_a_minus_b  accuracy_a_minus_b
+   42 distilbert    bert                   38              20              18            0.0018               -0.0126              0.0027
+   42 distilbert roberta                   39              19              20            0.0060                0.0544             -0.0014
+   42       bert roberta                   45              21              24            0.0043                0.0669             -0.0041
+   17 distilbert    bert                   50              30              20            0.0142               -0.0251              0.0137
+   17 distilbert roberta                   40              23              17            0.0121                0.0084              0.0082
+   17       bert roberta                   42              19              23           -0.0021                0.0335             -0.0055
+   29 distilbert    bert                   36              16              20           -0.0028                0.0335             -0.0055
+   29 distilbert roberta                   45              22              23            0.0050                0.0502             -0.0014
+   29       bert roberta                   33              18              15            0.0078                0.0167              0.0041
+
+RESEARCH STATUS
+Multi-seed error analysis: COMPLETED
+New model training: NO
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/10_multiseed_prediction_stability.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/10_multiseed_requirement_details.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/10_multiseed_matched_comparisons.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/10_multiseed_error_stability.txt
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/10_multiseed_error_stability.json
+
+Script 10 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/11_persistent_error_analysis.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 11: PERSISTENT TRANSFORMER ERROR ANALYSIS
+============================================================================
+
+PERSISTENT ERROR SUMMARY
+true_label                        error_category  requirements
+        FR                                 Other           414
+        FR     Persistent error in all nine runs            13
+        FR  Persistent error in one architecture             7
+        FR Persistent error in two architectures            10
+        FR             Seed-dependent prediction            45
+       NFR                                 Other           177
+       NFR     Persistent error in all nine runs            16
+       NFR  Persistent error in one architecture             9
+       NFR Persistent error in two architectures             4
+       NFR             Seed-dependent prediction            33
+
+CONSENSUS ERROR COUNTS
+Wrong across all nine runs: 29
+Wrong across >=2 architectures, all their seeds: 43
+At least one architecture varies across seeds: 104
+
+PERSISTENT ERRORS BY TRUE CLASS
+true_label
+FR     13
+NFR    16
+
+MANUAL REVIEW
+Selected requirements: 136
+Original labels modified: NO
+
+RESEARCH STATUS
+Persistent error analysis: COMPLETED
+Manual annotation review: PENDING
+Model training: NO
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/11_error_category_summary.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/11_persistent_error_review.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/11_persistent_error_report.txt
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/11_persistent_error_metadata.json
+
+Script 11 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/12_error_review_preparation.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 12: PRIORITY ERROR REVIEW PREPARATION
+============================================================================
+
+REVIEW COUNTS
+All nine runs wrong: 29
+Two architectures consistently wrong: 14
+Total priority requirements: 43
+
+PRIORITY BY CLASS
+ suggested_review_priority true_label  count
+         P1_ALL_NINE_WRONG         FR     13
+         P1_ALL_NINE_WRONG        NFR     16
+P2_TWO_ARCHITECTURES_WRONG         FR     10
+P2_TWO_ARCHITECTURES_WRONG        NFR      4
+
+FIRST FIVE REVIEW ITEMS
+
+Review #1 | ID: RQP0481091
+Original label: NFR
+Requirement: System shall generate logs of user bank account details, account updates with date, time, and changes, and fixed asset schedules.
+Architectures always wrong: 3
+
+Review #2 | ID: RQP0481137
+Original label: NFR
+Requirement: The system shall be able to monitor the overall data processing rate, compare it to tolerances, and report any deviations from those tolerances.
+Architectures always wrong: 3
+
+Review #3 | ID: RQP0481443
+Original label: NFR
+Requirement: User shall be able to interact with the text-based command-line interface of the system.
+Architectures always wrong: 3
+
+Review #4 | ID: RQP0481580
+Original label: NFR
+Requirement: The system shall be able to offer users alternative ways to navigate to the same content.
+Architectures always wrong: 3
+
+Review #5 | ID: RQP0481751
+Original label: FR
+Requirement: System shall encrypt sensitive data to prevent unauthorized access.
+Architectures always wrong: 3
+
+RESEARCH STATUS
+Priority review worksheet: CREATED
+Manual review: PENDING
+Original labels modified: NO
+Model training: NO
+Test set: SEALED
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/12_priority_error_review.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/12_error_review_summary.txt
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/12_error_review_metadata.json
+
+Script 12 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/13_blind_review_preparation.py
+---------------------------------------------------------------------------------------
+
+======================================================================
+SCRIPT 13: BLIND REVIEW PREPARATION
+======================================================================
+
+REVIEW WORKSHEET
+Requirements: 43
+Original labels visible: NO
+Model predictions visible: NO
+Review order randomized: YES
+
+RESEARCH STATUS
+Blind review worksheet: CREATED
+Manual review: PENDING
+Original annotations modified: NO
+Test set: SEALED
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/13_blind_requirement_review.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/13_original_labels_and_predictions.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/13_blind_review_preparation.txt
+
+Script 13 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/14_annotation_review_validator.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 14: ANNOTATION REVIEW VALIDATOR
+============================================================================
+
+WORKSHEET VALIDATION
+Requirements: 43
+Unique IDs: PASS
+Original labels accessed: NO
+Model predictions accessed: NO
+
+REVIEW PROGRESS
+Reviewed: 0
+Pending: 43
+Completion percentage: 0.0
+
+ANNOTATION DISTRIBUTION
+No annotations submitted yet.
+
+VALIDATION ERRORS
+Invalid reviewed records: 0
+
+RESEARCH STATUS
+Manual annotation review: PENDING
+Frozen dataset modified: NO
+Test set: SEALED
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/14_annotation_protocol.txt
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/14_review_progress.txt
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/14_review_progress.json
+
+Script 14 completed.
+
+---------------------------------------------------------------------------------------
+    RUN -python scripts/15_annotation_comparison.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 15: AI-ASSISTED ANNOTATION COMPARISON
+============================================================================
+
+DATA VALIDATION
+Requirements: 43
+Unique requirement IDs: PASS
+AI annotation provenance: VERIFIED
+Original labels modified: NO
+Model prediction columns analyzed: NO
+Test partition accessed: NO
+
+ANNOTATION COMPARISON
+Agreement: 11
+Disagreement: 25
+Uncertain: 7
+Decisive AI annotations: 36
+Decisive coverage: 0.8372
+Agreement among decisive annotations: 0.3056
+Agreement as fraction of all 43: 0.2558
+
+ORIGINAL LABEL VS AI PROPOSED LABEL
+reviewer_label  FR  NFR  UNCERTAIN
+true_label                        
+FR               9    8          6
+NFR             17    2          1
+
+DISAGREEMENT BY ORIGINAL CLASS
+true_label
+FR      8
+NFR    17
+
+UNCERTAIN REQUIREMENTS
+requirement_id true_label reviewer_confidence reviewer_issue_category
+    RQP0495807         FR              MEDIUM            MIXED_FR_NFR
+    RQP0483364         FR              MEDIUM     INTERFACE_AMBIGUITY
+    RQP0483721         FR                 LOW       AMBIGUOUS_WORDING
+    RQP0483621         FR              MEDIUM            MIXED_FR_NFR
+    RQP0494136        NFR              MEDIUM     INTERFACE_AMBIGUITY
+    RQP0483389         FR                 LOW      SECURITY_AMBIGUITY
+    RQP0483126         FR              MEDIUM            MIXED_FR_NFR
+
+ISSUE CATEGORY SUMMARY
+reviewer_issue_category agreement_status  requirements
+      AMBIGUOUS_WORDING         DISAGREE             2
+      AMBIGUOUS_WORDING        UNCERTAIN             1
+       IMPLICIT_QUALITY            AGREE             1
+       IMPLICIT_QUALITY         DISAGREE             1
+    INTERFACE_AMBIGUITY            AGREE             2
+    INTERFACE_AMBIGUITY         DISAGREE             2
+    INTERFACE_AMBIGUITY        UNCERTAIN             2
+           MIXED_FR_NFR            AGREE             2
+           MIXED_FR_NFR         DISAGREE             2
+           MIXED_FR_NFR        UNCERTAIN             3
+                   NONE            AGREE             4
+                   NONE         DISAGREE            13
+                  OTHER         DISAGREE             2
+  PERFORMANCE_AMBIGUITY         DISAGREE             1
+     SECURITY_AMBIGUITY            AGREE             2
+     SECURITY_AMBIGUITY         DISAGREE             2
+     SECURITY_AMBIGUITY        UNCERTAIN             1
+
+RESEARCH STATUS
+AI-assisted comparison: COMPLETED
+Independent human review: NOT PERFORMED
+Original labels modified: NO
+Model training: NO
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/15_annotation_agreement_summary.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/15_annotation_comparison_matrix.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/15_annotation_comparison_details.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/15_annotation_disagreements.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/15_uncertain_requirements.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/15_annotation_issue_summary.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/15_annotation_comparison_report.txt
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/15_annotation_comparison_metadata.json
+
+Script 15 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/16_annotation_disagreement_audit.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 16: ANNOTATION DISAGREEMENT AUDIT
+============================================================================
+
+INPUT VALIDATION
+Requirements: 43
+Agreement: 11
+Disagreement: 25
+Uncertain: 7
+Annotation provenance: AI-ASSISTED
+Input verification: PASS
+
+DISAGREEMENT AUDIT
+Total selected: 32
+Disagreements: 25
+Uncertain classifications: 7
+Disagreements marked NONE: 13
+Low-confidence cases: 2
+Previously exposed selected cases: 3
+
+AUDIT PRIORITY
+audit_priority
+P1_LOW_CONFIDENCE               2
+P2_UNCERTAIN                    5
+P3_UNEXPLAINED_DISAGREEMENT    13
+P4_OTHER_DISAGREEMENT          12
+
+DISAGREEMENTS BY ORIGINAL LABEL
+true_label
+FR      8
+NFR    17
+
+ISSUE CATEGORIES
+reviewer_issue_category
+AMBIGUOUS_WORDING         3
+IMPLICIT_QUALITY          1
+INTERFACE_AMBIGUITY       4
+MIXED_FR_NFR              5
+NONE                     13
+OTHER                     2
+PERFORMANCE_AMBIGUITY     1
+SECURITY_AMBIGUITY        3
+
+RESEARCH STATUS
+Annotation disagreement audit: COMPLETED
+Independent review worksheet: CREATED
+Independent human annotation: PENDING
+Original annotations modified: NO
+Model training: NO
+Test set: SEALED
+Final model selection: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/16_disagreement_audit.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/16_independent_review_worksheet.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/16_adjudication_reference.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/16_audit_summary.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/16_disagreement_audit_report.txt
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/16_disagreement_audit_metadata.json
+
+Script 16 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/17_research_consolidation.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 17: DEEP LEARNING RESEARCH CONSOLIDATION
+============================================================================
+
+TRANSFORMER COMPARISON
+architecture  seed_count  nfr_f1_mean  nfr_f1_std  nfr_f1_min  nfr_f1_max  nfr_recall_mean  nfr_recall_std  nfr_recall_min  nfr_recall_max  nfr_precision_mean  nfr_precision_std  nfr_precision_min  nfr_precision_max  macro_f1_mean  macro_f1_std  macro_f1_min  macro_f1_max  balanced_accuracy_mean  balanced_accuracy_std  balanced_accuracy_min  balanced_accuracy_max  accuracy_mean  accuracy_std  accuracy_min  accuracy_max  unanimous_predictions  changing_predictions  always_correct  always_wrong  majority_vote_nfr_f1_descriptive
+  distilbert           3       0.8634      0.0036      0.8595      0.8664           0.8773          0.0215    0.8536          0.8954              0.8507             0.0215             0.8373             0.87550.8975        0.0031        0.8940        0.8997                  0.9008                 0.00450.8971                 0.9058         0.9089        0.0035        0.9052        0.9121                    678                 50             634            44                            0.8742
+        bert           3       0.8590      0.0096      0.8502      0.8692           0.8787          0.0167    0.8619          0.8954              0.8411             0.0308             0.8231             0.87660.8938        0.0084        0.8866        0.9030                  0.8984                 0.00440.8933                 0.9013         0.9052        0.0086        0.8984        0.9148                    673                 55             628            45                            0.8730
+     roberta           3       0.8557      0.0050      0.8523      0.8614           0.8396          0.0097    0.8285          0.8452              0.8726             0.0113             0.8596             0.88000.8936        0.0038        0.8905        0.8978                  0.8898                 0.00380.8866                 0.8940         0.9071        0.0035        0.9038        0.9107                    675                 53             633            42                            0.8590
+
+RESEARCH CONSOLIDATION
+Transformer runs verified: 9
+Baseline outputs: inventoried
+Annotation audit: verified
+Research report: created
+Leading mean validation NFR F1: distilbert
+
+RESEARCH STATUS
+Research consolidation: COMPLETED
+Final model selection: PENDING
+New training performed: NO
+Frozen test accessed: NO
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/17_transformer_comparison.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/tables/17_research_source_inventory.csv
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/17_research_consolidation.txt
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/17_research_consolidation.json
+
+Script 17 completed.
+
+---------------------------------------------------------------------------------------
+    RUN - python scripts/18_freeze_final_model.py
+---------------------------------------------------------------------------------------
+
+============================================================================
+SCRIPT 18: FINAL MODEL SELECTION AND CHECKPOINT FREEZE
+============================================================================
+
+MODEL SELECTION
+Architecture: distilbert
+Seed: 42
+Checkpoint: /home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/checkpoints/05_distilbert_best
+Model type: distilbert
+Checkpoint files hashed: 4
+
+VALIDATION VERIFICATION
+Validation requirements: 728
+Seed-42 NFR F1: 0.8595
+Three-seed mean NFR F1: 0.8634
+Stored predictions vs threshold: PASS
+
+RESEARCH STATUS
+Final model selection: FROZEN
+Additional training: NO
+Threshold optimization: NO
+Test set: SEALED
+Test evaluation: PENDING
+
+FILES GENERATED
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/18_final_model_freeze.json
+/home/dhrubo_roy/THESIS_DATASET_2/deep_learning_research/outputs/reports/18_final_model_selection_report.txt
+
+Script 18 completed.
