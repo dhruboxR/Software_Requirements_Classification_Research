@@ -69,4 +69,4 @@ The scripts rely on the frozen D2 v1.1 dataset manifest in `../dataset_explorati
 
 **Checkpoint files are not included in a normal Git clone when ignored.** As a result, reproducing training requires the underlying dataset and software environment; reproducing inference from the frozen model additionally requires its checkpoint. The separately packaged model and single held-out test results are described in [`../final_model/`](../final_model/).
 
-No figures are linked here because the provided directory structure does not contain a `figures/` directory; results are available as versioned tables and reports.
+No figures are linked here because the provided directory structure does not contain a `figures/` directory. Results are available as versioned tables and reports.
