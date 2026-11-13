@@ -1,0 +1,8 @@
+D5 PROVENANCE INVESTIGATION
+Total D5 rows: 70
+Matched D5 rows: 48
+Unmatched D5 rows: 22
+
+Matching uses normalized requirement text.
+A matching requirement does not establish original ownership.
+Original dataset files remain unchanged.

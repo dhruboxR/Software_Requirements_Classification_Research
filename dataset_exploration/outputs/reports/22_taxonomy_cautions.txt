@@ -1,0 +1,4 @@
+Classes F and FR may express similar labels, but mapping is NOT automatic.
+NSR in D3 pools functionality, performance, usability, and portability; do not equate it to NFR.
+Cross-source conflicts may be taxonomy changes rather than erroneous annotation.
+Human review should document definition, decision, reason, and original source.

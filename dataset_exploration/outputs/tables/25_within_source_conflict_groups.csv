@@ -1,0 +1,33 @@
+source,normalized_text,rows,labels,distinct_labels
+D2,admin shall be able to manage companies.,2,FR|NFR,2
+D2,for each class within a sequence for a cohort program administrators and nursing staff members shall be able to specify which quarter that class will be offered.,2,FR|NFR,2
+D2,students shall have the ability to view the status of their job applications.,2,FR|NFR,2
+D2,system shall be able to manage check book allotment requests.,2,FR|NFR,2
+D2,"system shall identify areas triggering the restart of the level, whether encompassing stage boundaries or spike-like traps.",2,FR|NFR,2
+D2,the multimahjongserver will have a graphical user interface with which the administrator of the server can get log information and change game settings.,2,FR|NFR,2
+D2,"upon starting up the application, the first viewable screen shall contain buttons for play game options.",2,FR|NFR,2
+D2,user shall be able to access coding problems across various difficulty levels and categories.,2,FR|NFR,2
+D2,"user shall be able to change perspective and orientation through a touch scroll bar, serving as the central mechanic of the game.",2,FR|NFR,2
+D2,"user shall be able to log in as a student, admin, or company.",2,FR|NFR,2
+D2,"user shall be able to participate in discussions related to coding problems by commenting, asking questions, and providing answers.",2,FR|NFR,2
+D2,"user shall be able to perform sudden movements upward from solid ground, as a necessary movement mechanic.",2,FR|NFR,2
+D2,"user shall be able to sign up as a student, admin, or company.",2,FR|NFR,2
+D2,user shall be able to submit their solutions to coding problems.,2,FR|NFR,2
+D2,user shall be able to update their information.,2,FR|NFR,2
+D2,user shall be able to view and edit their profile information.,2,FR|NFR,2
+D2,user shall have the ability to change their password.,2,FR|NFR,2
+D2,user shall receive feedback when entering an invalid zip code.,2,FR|NFR,2
+D2,user shall/will be able to request check book allotment.,2,FR|NFR,2
+D2,users shall be able to search for jobs.,2,FR|NFR,2
+D2,users shall be able to view student applications.,2,FR|NFR,2
+D3,the data provided by the system should be validated and verified were possible.,2,IMM|INT,2
+D3,the system shall allow a member to spontaneously form a group of n signers using group public keys which associate the group members.,2,NSR|THE,2
+D4,feature a configurable dashboard displaying key performance indicators for laboratory operations.,2,FR|NFR,2
+D4,the system shall address all critical severity defects impacting system users to improve reliability.,5,FR|NFR,2
+D4,the system shall automate decisions where appropriate within the existing workflow to enhance efficiency.,5,FR|NFR,2
+D4,the system shall employ industry-standard coding practices to ensure maintainability and quality.,4,FR|NFR,2
+D4,the system shall generate notifications for laboratory results and test orders to relevant personnel.,5,FR|NFR,2
+D4,the system shall meet fda regulatory standards to ensure compliance with industry regulations.,5,FR|NFR,2
+D4,the system shall meet hipaa security and confidentiality requirements to protect patient data.,5,FR|NFR,2
+D4,the system shall streamline existing workflows to reduce manual intervention and improve productivity.,5,FR|NFR,2
+D4,users shall be able to search for patient and laboratory data using various search criteria for quick access.,5,FR|NFR,2

@@ -1,0 +1,57 @@
+{
+  "protocol": "D2-v1.1",
+  "status": "FROZEN_PENDING_FINAL_AUDIT",
+  "generated_utc": "2026-11-11T21:03:15.213261+00:00",
+  "seed": 42,
+  "split_method": "GroupShuffleSplit",
+  "grouping": "v1.1 connected similarity groups from Script 53",
+  "requested_fractions": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "ratio_tolerance": 0.05,
+  "candidate_requirements": 4833,
+  "similarity_groups": 4625,
+  "cross_partition_groups": 0,
+  "additional_connections": 2,
+  "quarantine_count": 2,
+  "class_counts": {
+    "train": {
+      "FR": 2224,
+      "NFR": 1154,
+      "total": 3378
+    },
+    "validation": {
+      "FR": 489,
+      "NFR": 239,
+      "total": 728
+    },
+    "test": {
+      "FR": 488,
+      "NFR": 239,
+      "total": 727
+    }
+  },
+  "input_sha256": {
+    "53_d2_v11_candidates.csv": "23509737a14b9985610a8c7026170a65f00ae598fd2adfecc94e81eebc33d7b3",
+    "53_d2_v11_group_membership.csv": "eed35b2a4d65cf12a264a7100f2a45aff2ec74f26ca4bef11606af7e4b1d8b08",
+    "53_d2_v11_quarantine_audit.csv": "77c79474c1611df2e7449cf23ba20c10e8501014f55e462976c1f8d5aa7d4d87",
+    "53_d2_v11_preparation_metadata.json": "476d85a3819d3e653f0df773400840b8576b1b894f59cab2cad745085ac91a0b"
+  },
+  "output_sha256": {
+    "54_d2_v11_frozen_split_manifest.csv": "5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4",
+    "54_d2_v11_split_summary.csv": "a25bbcbb54efbd82dae17c0ad4bfb1df098ed10c2d2ef9913a3d9aff71b607ce"
+  },
+  "review_method": "AI_ASSISTED_RULE_BASED",
+  "independent_human_review": false,
+  "scientific_approval": "PENDING",
+  "test_set_policy": "No model-based test evaluation before final model selection",
+  "limitations": [
+    "AI-assisted annotation decisions remain provisional.",
+    "No independent human annotation review.",
+    "Original-project independence is not established.",
+    "Detected similarity-group isolation is not proof of semantic independence.",
+    "Further cross-partition similarity auditing is required."
+  ]
+}

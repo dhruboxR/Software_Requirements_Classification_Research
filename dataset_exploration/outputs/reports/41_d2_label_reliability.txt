@@ -1,0 +1,21 @@
+D2 SOURCE-LABEL RELIABILITY AUDIT
+=================================================================
+
+Eligible unique texts: 4871
+
+label    source_label_status  unique_texts
+   FR AMBIGUOUS_SOURCE_LABEL             1
+   FR     BLANK_SOURCE_LABEL             3
+   FR    SOURCE_LABEL_AGREES          3202
+   FR SOURCE_LABEL_DISAGREES            17
+   FR  UNMATCHED_SOURCE_TEXT             3
+  NFR    SOURCE_LABEL_AGREES          1633
+  NFR SOURCE_LABEL_DISAGREES            12
+
+Limitations:
+- Matching source labels do not prove correctness.
+- Original annotations may contain errors.
+- Ambiguous and unmatched records require review.
+- No labels have been changed.
+- No records have been permanently excluded.
+- Dataset approval remains pending.

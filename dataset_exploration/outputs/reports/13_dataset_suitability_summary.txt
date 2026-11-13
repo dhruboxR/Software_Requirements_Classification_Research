@@ -1,0 +1,23 @@
+PHASE 1 DATASET SUITABILITY: NOT YET APPROVED FOR MODELING
+
+rows: 8854
+project_ids: 164
+sources: 5
+nonblank_labels: 25
+blank_text_rows: 0
+blank_label_rows: 19
+extra_duplicate_text_occurrences: 656
+conflicting_normalized_text_groups: 162
+conflict_related_rows: 363
+largest_source_share_pct: 56.393
+largest_label_share_pct: 52.406
+nonblank_labels_under_30_records: 5
+
+Decision gates:
+[ ] Verify original meanings of D1-D5 against publisher documentation
+[ ] Verify labels using authoritative definitions, not abbreviations alone
+[ ] Audit conflicting annotations and blank labels
+[ ] Verify PROMISE source format and source overlap, including transformed texts
+[ ] Decide target label taxonomy and inclusion/exclusion with a written protocol
+[ ] Define leakage-controlled evaluation after project and duplicate-group checks
+No original files or class labels were modified.

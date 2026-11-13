@@ -1,0 +1,42 @@
+{
+  "protocol": "D2-v1.1",
+  "status": "CANDIDATE_PREPARED_NOT_APPROVED",
+  "generated_utc": "2026-11-11T21:01:41.527100+00:00",
+  "review_method": "AI_ASSISTED_RULE_BASED",
+  "decision_status": "PROVISIONAL",
+  "independent_human_review": false,
+  "source_protocol": "v1.0",
+  "source_requirements": 4835,
+  "quarantined_requirements": 2,
+  "candidate_requirements": 4833,
+  "class_counts": {
+    "FR": 3201,
+    "NFR": 1632
+  },
+  "original_groups": 4629,
+  "v11_groups": 4625,
+  "largest_group": 6,
+  "mixed_label_groups": 0,
+  "additional_connections": 2,
+  "new_partition_generated": false,
+  "input_sha256": {
+    "42_d2_source_consistent_candidates.csv": "08ceab7f0707443b5789ca3e4ac8913b85a78e3e1b41e1d0f01eeb68486a2dad",
+    "43_d2_candidate_group_membership.csv": "077da41cc02cbc4994636fd8cfc2322550139ccd998e18697a8570db32caff6b",
+    "44_d2_frozen_split_manifest.csv": "be4ca5cf9c321bbd34d4c5a6598698cdb7ce14409de6ab9517c72b32d9940b3f",
+    "52_d2_ai_assisted_review_decisions.csv": "a80832cd3d444417d5b8f21cb6ca4abe1a32a3b5cef9c3c1d9567ba9bca182a8",
+    "52_d2_review_validation.json": "a1398dc7f13afac99f57ebc172d410570de338714fdf47f53c3e2b47b8b6c80c"
+  },
+  "output_sha256": {
+    "53_d2_v11_candidates.csv": "23509737a14b9985610a8c7026170a65f00ae598fd2adfecc94e81eebc33d7b3",
+    "53_d2_v11_group_membership.csv": "eed35b2a4d65cf12a264a7100f2a45aff2ec74f26ca4bef11606af7e4b1d8b08",
+    "53_d2_v11_quarantine_audit.csv": "77c79474c1611df2e7449cf23ba20c10e8501014f55e462976c1f8d5aa7d4d87"
+  },
+  "limitations": [
+    "AI-assisted decisions are provisional.",
+    "No independent human annotations were obtained.",
+    "No classifier has been trained.",
+    "No new train/validation/test split exists yet.",
+    "Existing similarity detection may be incomplete.",
+    "Original-project independence is unverified."
+  ]
+}

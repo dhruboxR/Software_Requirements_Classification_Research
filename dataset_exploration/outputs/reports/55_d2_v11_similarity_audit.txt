@@ -1,0 +1,23 @@
+D2 v1.1 CROSS-PARTITION SIMILARITY AUDIT
+=================================================================
+
+Requirements: 4833
+TF-IDF features: 65445
+Pairs >= 0.80: 17
+Pairs >= 0.85: 0
+Test-involving pairs >= 0.85: 0
+
+         comparison  pairs_compared  maximum_similarity  pairs_ge_0.75  pairs_ge_0.80  pairs_ge_0.85  pairs_ge_0.90  pairs_ge_0.95
+train_vs_validation         2459184            0.848999             18              6              0              0              0
+      train_vs_test         2455806            0.843772             20             10              0              0              0
+ validation_vs_test          529256            0.827900              2              1              0              0              0
+
+Audit status: PASS
+
+Limitations:
+- Similarity is lexical, not semantic.
+- Undetected paraphrases may remain.
+- Original-project independence is unverified.
+- AI-assisted annotation decisions are provisional.
+- No model training occurred.
+- No frozen split was modified.

@@ -1,0 +1,12 @@
+D4 ORIGINAL-SOURCE CONFLICT VERIFICATION
+=================================================================
+Conflicting groups: 9
+Matched original rows: 72
+
+Important:
+- FR/NFR labels are extracted from the two annotation columns.
+- Conflicting binary values in the same row are flagged.
+- A broad category such as Security is not automatically NFR.
+- Multiple model records do not imply independent requirements.
+- All manual decisions remain pending.
+- Original data was not changed.

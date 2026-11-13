@@ -1,0 +1,4 @@
+﻿source,unique_texts,candidate_pairs,different_label_pairs,disjoint_label_pairs
+D2,4961,257,21,21
+D3,1282,125,22,21
+D4,1102,398,36,27

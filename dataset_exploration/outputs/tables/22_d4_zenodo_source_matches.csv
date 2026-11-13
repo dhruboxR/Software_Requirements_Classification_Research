@@ -1,0 +1,74 @@
+﻿file,sheet,source_rows,source_unique_texts,matched_unique_d4_texts
+IA_REQUIREMENT_LIST_LIS.xls,Dados,2376,1103,1102
+Process_data/AI Requirements.xlsx,Dados,2376,1103,1102
+Process_data/AI_Requirements_By_LLM.xlsx,google,372,365,365
+Process_data/AI_Requirements_By_LLM.xlsx,llama,706,343,343
+Process_data/AI_Requirements_By_LLM.xlsx,mistral,524,311,311
+Process_data/AI_Requirements_By_LLM.xlsx,claude,309,305,304
+Process_data/AI_Requirements_By_LLM.xlsx,openai,465,159,159
+Process_data/AI_Requirements_By_Round.xlsx,llama_Round_2,186,158,158
+Process_data/Classified_AI_Requirements.xlsx,llama_Round_2,186,158,158
+Process_data/Classified_AI_Requirements.xlsx,llama_Round_1,172,156,156
+Process_data/AI_Requirements_By_Round.xlsx,llama_Round_1,172,156,156
+Process_data/Classified_AI_Requirements.xlsx,google_Round_1,152,152,152
+Process_data/AI_Requirements_By_Round.xlsx,google_Round_1,152,152,152
+Process_data/AI_Requirements_By_Round.xlsx,llama_Round_3,171,113,113
+Process_data/Classified_AI_Requirements.xlsx,llama_Round_3,171,113,113
+Process_data/AI_Requirements_By_Round.xlsx,openai_Round_1,111,111,111
+Process_data/Classified_AI_Requirements.xlsx,mistral_Round_3,111,111,111
+Process_data/AI_Requirements_By_Round.xlsx,mistral_Round_3,111,111,111
+Process_data/AI_Requirements_By_Round.xlsx,openai_Round_3,111,111,111
+Process_data/AI_Requirements_By_Round.xlsx,openai_Round_2,111,111,111
+Process_data/Classified_AI_Requirements.xlsx,openai_Round_2,111,111,111
+Process_data/Classified_AI_Requirements.xlsx,mistral_Round_2,111,111,111
+Process_data/Classified_AI_Requirements.xlsx,openai_Round_3,111,111,111
+Process_data/Classified_AI_Requirements.xlsx,openai_Round_1,111,111,111
+Process_data/AI_Requirements_By_Round.xlsx,llama_Round_4,111,111,111
+Process_data/Classified_AI_Requirements.xlsx,llama_Round_4,111,111,111
+Process_data/AI_Requirements_By_Round.xlsx,mistral_Round_2,111,111,111
+Process_data/Classified_AI_Requirements.xlsx,mistral_Round_1,108,108,108
+Process_data/AI_Requirements_By_Round.xlsx,mistral_Round_4,108,108,108
+Process_data/AI_Requirements_By_Round.xlsx,mistral_Round_1,108,108,108
+Process_data/Classified_AI_Requirements.xlsx,mistral_Round_4,108,108,108
+Process_data/Classified_AI_Requirements.xlsx,mistral_Round_5,86,86,86
+Process_data/AI_Requirements_By_Round.xlsx,google_Round_5,86,86,86
+Process_data/AI_Requirements_By_Round.xlsx,mistral_Round_5,86,86,86
+Process_data/Classified_AI_Requirements.xlsx,google_Round_5,86,86,86
+Process_data/AI_Requirements_By_Round.xlsx,claude_Round_3,78,78,78
+Process_data/Classified_AI_Requirements.xlsx,claude_Round_3,78,78,78
+Process_data/Classified_AI_Requirements.xlsx,openai_Round_4,66,66,66
+Process_data/AI_Requirements_By_Round.xlsx,openai_Round_4,66,66,66
+Process_data/AI_Requirements_By_Round.xlsx,openai_Round_5,66,66,66
+Process_data/Classified_AI_Requirements.xlsx,llama_Round_5,66,66,66
+Process_data/AI_Requirements_By_Round.xlsx,llama_Round_5,66,66,66
+Process_data/Classified_AI_Requirements.xlsx,openai_Round_5,66,66,66
+Process_data/AI_Requirements_By_Round.xlsx,claude_Round_5,66,66,66
+Process_data/Classified_AI_Requirements.xlsx,claude_Round_5,66,66,66
+Process_data/Classified_AI_Requirements.xlsx,claude_Round_4,57,57,57
+Process_data/AI_Requirements_By_Round.xlsx,claude_Round_2,58,58,57
+Process_data/Classified_AI_Requirements.xlsx,claude_Round_2,57,57,57
+Process_data/AI_Requirements_By_Round.xlsx,claude_Round_4,57,57,57
+Process_data/AI_Requirements_By_Round.xlsx,google_Round_3,53,53,53
+Process_data/Classified_AI_Requirements.xlsx,google_Round_3,53,53,53
+Process_data/Classified_AI_Requirements.xlsx,claude_Round_1,50,50,50
+Process_data/AI_Requirements_By_Round.xlsx,claude_Round_1,50,50,50
+Process_data/Classified_AI_Requirements.xlsx,google_Round_4,48,48,48
+Process_data/AI_Requirements_By_Round.xlsx,google_Round_4,48,48,48
+Process_data/Classified_AI_Requirements.xlsx,google_Round_2,33,33,33
+Process_data/AI_Requirements_By_Round.xlsx,google_Round_2,33,33,33
+GT_REQUIREMENT_LIST_DRS.xls,Dados,57,42,0
+GT_REQUIREMENT_LIST_CWS.xls,Dados,20,20,0
+Document Transforms/SRS5 - LIS - Laboratory Information System.xlsx,Gemini 2.5 Pro,51,51,0
+Document Transforms/SRS5 - LIS - Laboratory Information System.xlsx,Requirements,26,26,0
+Document Transforms/SRS4 - ILS - Integrated Library System.xlsx,Gemini 2.5 Pro,21,21,0
+Document Transforms/SRS3 - EPM - Enterprise Project Management.xlsx,Gemini 2.5 Pro,51,51,0
+Document Transforms/SRS3 - EPM - Enterprise Project Management.xlsx,Requirements,26,26,0
+Document Transforms/SRS2 - DRS - Digital Radio Standard for the European Railways.xlsx,Gemini 2.5 Pro,101,99,0
+Document Transforms/SRS1 - CWS - Courseware System for the University of Puget Sound.xlsx,Gemini 2.5 Pro,21,21,0
+GT_REQUIREMENT_LIST_ILS.xls,Dados,40,40,0
+IA_REQUIREMENT_LIST_DRS.xls,Dados,957,703,0
+IA_REQUIREMENT_LIST_ILS.xls,Dados,1757,856,0
+GT_REQUIREMENT_LIST_EPM.xls,Dados,23,23,0
+GT_REQUIREMENT_LIST_LIS.xls,Dados,32,32,0
+IA_REQUIREMENT_LIST_CWS.xls,Dados,1681,904,0
+IA_REQUIREMENT_LIST_EPM.xls,Dados,1454,714,0

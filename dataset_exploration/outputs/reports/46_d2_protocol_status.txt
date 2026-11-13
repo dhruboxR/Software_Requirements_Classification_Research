@@ -1,0 +1,14 @@
+SCRIPT 46: D2 RESEARCH PROTOCOL
+=================================================================
+Candidate rows: 4835
+FR rows: 3202
+NFR rows: 1633
+Withheld cases: 36
+Similarity groups: 4629
+Cross-partition groups: 0
+Technical audit: PASS (16/16)
+Scientific approval: PENDING
+Model training: NOT STARTED
+
+Markdown: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/46_d2_research_dataset_protocol.md
+JSON: /home/dhrubo_roy/THESIS_DATASET_2/dataset_exploration/outputs/reports/46_d2_research_dataset_protocol.json

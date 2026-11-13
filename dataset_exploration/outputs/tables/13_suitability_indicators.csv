@@ -1,0 +1,13 @@
+﻿indicator,value
+rows,8854.0
+project_ids,164.0
+sources,5.0
+nonblank_labels,25.0
+blank_text_rows,0.0
+blank_label_rows,19.0
+extra_duplicate_text_occurrences,656.0
+conflicting_normalized_text_groups,162.0
+conflict_related_rows,363.0
+largest_source_share_pct,56.393
+largest_label_share_pct,52.406
+nonblank_labels_under_30_records,5.0

@@ -1,0 +1,17 @@
+D4 GENERATION DEPENDENCY AUDIT
+=================================================================
+
+Rows: 1520
+Unique texts: 1102
+
+label  unique_texts_with_label  matched_source_texts  cross_model_texts  cross_round_texts  conflicting_label_texts
+   FR                      999                   999                214                163                        9
+  NFR                      112                   112                 17                 17                        9
+
+Limitations:
+- Matching is based on normalized exact text.
+- Source occurrences are not independent examples.
+- Shared models or rounds do not alone prove leakage.
+- Project names may not represent actual source projects.
+- This does not independently validate binary labels.
+- No original data, labels or splits were changed.

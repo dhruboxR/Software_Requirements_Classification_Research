@@ -1,0 +1,4 @@
+﻿pair_id,requirement_id_a,requirement_id_b,split_a_v1,split_b_v1,label_a_v1,label_b_v1,similarity,assessment,label_issue,proposed_action,reason,reviewer_confirmation,decision_status
+CP_001,RQP0494680,RQP0494674,train,test,NFR,FR,0.890786,SEMANTICALLY_EQUIVALENT,LIKELY_NFR_MISLABEL,QUARANTINE_BOTH,Both describe email-password login behavior. The NFR annotation requires independent review.,PENDING,PROVISIONAL
+CP_002,RQP0482022,RQP0481194,train,test,FR,FR,0.879345,SEMANTICALLY_EQUIVALENT,NONE_IDENTIFIED,CONNECT_SIMILARITY_GROUP,Customer and consumer are used interchangeably for the same seller-notification behavior.,PENDING,PROVISIONAL
+CP_003,RQP0495693,RQP0495076,train,validation,FR,FR,0.864757,STRONGLY_RELATED,NONE_IDENTIFIED,CONNECT_SIMILARITY_GROUP,"Both describe successful-validation redirection. The target pages differ, but conservative grouping reduces contamination risk.",PENDING,PROVISIONAL

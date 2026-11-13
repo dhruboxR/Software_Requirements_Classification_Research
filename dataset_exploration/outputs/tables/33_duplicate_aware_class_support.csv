@@ -1,0 +1,16 @@
+﻿source,label,raw_rows,unique_texts_with_label,candidate_components_with_label,pending_review_components,provisionally_clean_components,provisionally_clean_unique_texts,theoretical_20pct_clean_component_count
+D2,FR,3272,3267,3147,18,3109,3225,621.8
+D2,NFR,1691,1685,1593,19,1554,1645,310.8
+D3,AUD,38,38,37,4,33,34,6.6
+D3,AVA,39,38,37,2,35,36,7.0
+D3,CON,67,67,63,1,62,66,12.4
+D3,IMM,47,47,44,5,38,41,7.6
+D3,IND,45,44,40,6,34,38,6.8
+D3,INT,32,32,32,1,30,30,6.0
+D3,MAI,57,57,54,2,52,55,10.4
+D3,NSR,781,777,707,15,691,758,138.2
+D3,SUR,33,32,28,1,27,31,5.4
+D3,THE,93,92,87,1,85,90,17.0
+D3,THO,60,60,60,2,58,58,11.6
+D4,FR,1368,999,717,18,690,960,138.0
+D4,NFR,152,112,96,18,69,76,13.8

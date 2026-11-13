@@ -1,0 +1,38 @@
+{
+  "seed": 42,
+  "protocol": "GroupShuffleSplit",
+  "grouping": "D2 character-ngram similarity components from Script 43",
+  "intended_proportions": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "candidate_count": 4835,
+  "candidate_sha256": "08ceab7f0707443b5789ca3e4ac8913b85a78e3e1b41e1d0f01eeb68486a2dad",
+  "membership_sha256": "077da41cc02cbc4994636fd8cfc2322550139ccd998e18697a8570db32caff6b",
+  "manifest_sha256": "be4ca5cf9c321bbd34d4c5a6598698cdb7ce14409de6ab9517c72b32d9940b3f",
+  "class_counts": {
+    "train": {
+      "FR": 2256,
+      "NFR": 1136,
+      "total": 3392
+    },
+    "validation": {
+      "FR": 472,
+      "NFR": 251,
+      "total": 723
+    },
+    "test": {
+      "FR": 474,
+      "NFR": 246,
+      "total": 720
+    }
+  },
+  "status": "FROZEN_PENDING_FINAL_APPROVAL",
+  "limitations": [
+    "Original project independence not established",
+    "Source label agreement does not establish semantic correctness",
+    "Near-duplicate discovery may be incomplete",
+    "Test set must not guide model selection"
+  ]
+}

@@ -1,0 +1,27 @@
+﻿label,total_rows,sources,definition_verified,definition_source,proposed_parent,review_note
+A,31,D1;D2,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+AUD,38,D3,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+AVA,39,D3,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+CON,67,D3,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+F,489,D1;D5,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+FR,4640,D2;D4,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+FT,20,D1;D2,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+IMM,47,D3,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+IND,45,D3,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+INT,32,D3,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+L,22,D1;D2;D5,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+LF,57,D1;D2;D5,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+MAI,57,D3,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+MN,24,D1,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+NFR,1843,D2;D4,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+NSR,781,D3,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+O,85,D1;D2;D5,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+PE,69,D1;D2,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+PO,12,D1,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+SC,21,D1,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+SE,141,D1;D2;D5,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+SUR,33,D3,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+THE,93,D3,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+THO,60,D3,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+US,89,D1;D2;D5,NO,,,Manual mapping required; do not infer equivalence from abbreviation
+[BLANK],19,D1;D2,NO,,,Manual mapping required; do not infer equivalence from abbreviation

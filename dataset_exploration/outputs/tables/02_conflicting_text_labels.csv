@@ -1,0 +1,163 @@
+﻿normalized_text,record_count,distinct_labels,labels
+the system shall automate decisions where appropriate within the existing workflow to enhance efficiency.,5,2,FR | NFR
+the system shall address all critical severity defects impacting system users to improve reliability.,5,2,FR | NFR
+users shall be able to search for patient and laboratory data using various search criteria for quick access.,5,2,FR | NFR
+the system shall meet fda regulatory standards to ensure compliance with industry regulations.,5,2,FR | NFR
+the system shall generate notifications for laboratory results and test orders to relevant personnel.,5,2,FR | NFR
+the system shall streamline existing workflows to reduce manual intervention and improve productivity.,5,2,FR | NFR
+the system shall meet hipaa security and confidentiality requirements to protect patient data.,5,2,FR | NFR
+the system shall employ industry-standard coding practices to ensure maintainability and quality.,4,2,FR | NFR
+the system shall provide a history report of changes made to the activity or event data,3,2,F | FR
+the system shall color code events according to their variance from current time.,3,2,F | FR
+program administrators/nursing staff members shall be able to cancel a clinical lab section only if there are no students registered for that clinical lab section.,3,2,F | FR
+program administrators and nursing staff members shall be able to add a student who has registered for a clinical class to a clinical lab section for that class.,3,2,F | FR
+program administrators and nursing staff members shall be able to add a new cohort to the system identified by start month and year.,3,2,F | FR
+program administrators/nursing staff members shall be able to create a new program of study.,3,2,F | FR
+program administrators and nursing staff members shall be able to add a new clinical site into the system.,3,2,F | FR
+the system shall allow a program administrator or nursing staff member to remove a student from a clinical lab section.,3,2,F | FR
+program administrators and nursing staff members shall be able to add a new clinical lab section for an existing clinical class into the system.,3,2,F | FR
+the system will use the stored e-mail addresses as a primary means of communicating information to affected parties.,3,2,F | FR
+the system shall display events or activities.,3,2,F | FR
+the system shall allow a program administrator/nursing staff member to move a student from one clinical lab section to another clinical lab section corresponding to the same clinical class.,3,2,F | FR
+the system shall be capable of restoring itself to its previous state in the event of failure (e.g. a system crash or power loss).,3,2,FT | NFR
+the system shall be able to display a menu at all times to facilitate manual order taking should the need arise.,3,2,LF | NFR
+the look and feel of the system shall conform to the user interface standards of the smart device.,3,2,LF | NFR
+a program administrator/nursing staff member shall be able to add a new nursing student to the system.,3,2,F | FR
+2 out of 3 program administrators/nursing staff members shall successfully be able to use the system to manage the scheduling of classes and clinicals.,2,2,NFR | US
+100% of saved user preferences shall be restored when system comes back online.,2,2,FT | NFR
+every user of the system shall be authenticated and authorized.,2,2,NFR | SE
+feature a configurable dashboard displaying key performance indicators for laboratory operations.,2,2,FR | NFR
+only authorized users shall have access to clinical site information.,2,2,NFR | SE
+a database management system such as oracle db2 mysql or hsql will need to be integrated with the product.,2,2,NFR | O
+a tablet shall require a user to log in using a username and password.,2,2,NFR | SE
+admin shall be able to manage companies.,2,2,FR | NFR
+all users of the system shall login using some form of unique identification.,2,2,NFR | SE
+a display shall not require a user to log in.,2,2,NFR | SE
+the cma report shall be returned no later 60 seconds after the user has entered the cma report criteria.,2,2,NFR | PE
+the available recycled parts information and their suppliers shall be returned to the user.,2,2,F | FR
+the audit report shall be displayed to the user.,2,2,F | FR
+"system shall identify areas triggering the restart of the level, whether encompassing stage boundaries or spike-like traps.",2,2,FR | NFR
+system shall be able to manage check book allotment requests.,2,2,FR | NFR
+students shall have the ability to view the status of their job applications.,2,2,FR | NFR
+program administrators/nursing staff members shall have the ability to modify information relating to cohorts including cohort identifier program of study preferred sequence of classes and quarters that a cohort will be taking specific classes.,2,2,F | FR
+program administrators/nursing staff members shall have the ability to modify information relating to a program of study within the nursing department including the program of study name and required classes for that program of study.,2,2,F | FR
+program administrators/nursing staff members shall have the ability to modify information relating to a nursing student including student id student name phone number e-mail status (full time or part time) and program of study.,2,2,F | FR
+program administrators/nursing staff members shall have the ability to modify information relating to a clinical site including the clinical site name site contact person contact information and address.,2,2,F | FR
+program administrators/nursing staff members shall have the ability to modify information relating to a clinical lab section including the clinical site name the department/section for the lab the class instructor day and time of lab and contact information.,2,2,F | FR
+for each class within a sequence for a cohort program administrators and nursing staff members shall be able to specify which quarter that class will be offered.,2,2,FR | NFR
+only authorized users shall have access to the portion of the system that interfaces with campusconnect.,2,2,NFR | SE
+only collision estimators shall search for recycled parts. users without the collision estimator role shall not have access to the search for recycled parts.,2,2,NFR | SE
+only registered realtors shall be able to access the system.,2,2,NFR | SE
+only valid data shall be entered into the system. no invalid data shall be entered into the system.,2,2,NFR | SE
+a surface computer shall not require a user to log in.,2,2,NFR | SE
+the product shall be easy to use. 90% of users will be able to successfully reserve a conference room within 5 minutes of product use.,2,2,NFR | US
+the product shall give users feedback when necessary. 80% of the users surveyed report that the product accurately confirms their actions.,2,2,NFR | US
+the product shall interface with the choiceparts system once per day at approximately 1:00 am.,2,2,NFR | O
+the product shall use a standard navigation menu familiar to most web users.,2,2,NFR | US
+the product shall make the users want to use it. 80% of the users surveyed report they are regularly using the product after the first 2 weeks post-launch.,2,2,NFR | US
+the product shall be able to handle up to 1500 simultaneous users. the system shall perform with 1500 users as a time.,2,2,NFR | SC
+the preferred repair facility ratings shall be saved by the system.,2,2,F | FR
+the product shall adhere to the corporate online availability schedule. the application is brought down only within 98% of the scheduled outages per the availability schedule.,2,2,A | NFR
+the product shall allow the user to save the property search results.,2,2,F | FR
+the product shall allow the user to select a chosen language from one of the target market countries.,2,2,NFR | US
+the product shall allow the user to view previously downloaded search results cma reports and appointments.,2,2,FT | NFR
+the product shall be able support 1000 simultaneous users.,2,2,NFR | SC
+the current repair facility ratings shall be displayed to the user.,2,2,F | FR
+the data provided by the system should be validated and verified were possible.,2,2,IMM | INT
+the multimahjongserver will have a graphical user interface with which the administrator of the server can get log information and change game settings.,2,2,FR | NFR
+the system shall allow modification of the display.,2,2,F | FR
+the system shall allow a user to define the time segments,2,2,F | FR
+the system shall achieve 95% up time.,2,2,A | NFR
+the system shall allow the initiator to cancel any meetings which they initiated.,2,2,F | FR
+the system shall allow the mediator to negotiate a meeting date.,2,2,F | FR
+the system shall allow the initiator to send and receive messages from users.,2,2,F | FR
+the system shall allow the initiator to view the information of any meetings which they initiated.,2,2,F | FR
+the system shall allow the mediator to negotiate a location / equipment.,2,2,F | FR
+the system shall allow the user to change the password.,2,2,F | FR
+the system shall allow the user to modify the date exclusion set of an already submitted meeting response.,2,2,F | FR
+the system shall allow the user to modify the date preference set of an already submitted meeting response.,2,2,F | FR
+the system shall allow the user to modify the equipment requirement set of an already submitted meeting response.,2,2,F | FR
+the system shall allow the user to modify the location preference set of an already submitted meeting response.,2,2,F | FR
+the system shall allow the mediator to send and receive messages from users.,2,2,F | FR
+the system shall allow the mediator to solve a date conflict.,2,2,F | FR
+the system shall allow the mediator to solve a location conflict.,2,2,F | FR
+the system shall allow the user to view their schedule.,2,2,F | FR
+the system shall allow the user to view pending meetings.,2,2,F | FR
+the system shall allow the user to view past attended meetings.,2,2,F | FR
+the system shall allow users to search for available distributed location templates(if any).,2,2,F | FR
+the system shall allow users to view information concerning the available distributed location templates(if any).,2,2,F | FR
+the system shall allow users to view location information.,2,2,F | FR
+the product shall retain user preferences in the event of a failure.,2,2,FT | NFR
+the product shall synchronize with the office system every hour.,2,2,NFR | PE
+the recycled parts search results provided to the estimator shall be retrieved by the system.,2,2,F | FR
+the product will require collaboration with a database management system (dbms). the dbms may be located on the same machine as the product or on a separate machine residing on the same computer network.,2,2,NFR | O
+the product will function alongside server software on any operating system where the java runtime can be installed.,2,2,NFR | O
+the system shall able to operate within a business office environment typical of the nursing department at depaul university.,2,2,NFR | O
+the system shall allow a member to spontaneously form a group of n signers using group public keys which associate the group members.,2,2,NSR | THE
+the preferred repair facility shall be returned to the user.,2,2,F | FR
+the product must make use of web/application server technology. open source examples include apache web server tomcat and the jboss application server.,2,2,NFR | O
+the product must work with most database management systems (dbms) on the market whether the dbms is colocated with the product on the same machine or is located on a different machine on the computer network.,2,2,NFR | O
+the system shall be compatible with iis6.0 and above or apache 2.0 and above.,2,2,FR | PO
+the system shall be capable of processing 100% of nursing students and their classes for the next 10 years.,2,2,NFR | SC
+the system shall be built such that it is as secure as possible from malicious interference.,2,2,NFR | SE
+the system shall be available 99.5% of the time.,2,2,A | NFR
+the system shall be able to display a printable summary of the system log.,2,2,F | FR
+the system shall be able to display a report of needed classes for a given quarter for all cohorts of all programs for program administrators/nursing staff members’ planning purposes.,2,2,F | FR
+the system shall authenticate users at the beginning each session.,2,2,F | FR
+the system shall automatically log out all customers after a period of inactivity.,2,2,NFR | SE
+the system shall allow users to send and receive messages.,2,2,F | FR
+the system shall allow users to view equipment information.,2,2,F | FR
+the system shall display data from the sync matrix 1.0 and exercise management tool 1.0 applications,2,2,F | FR
+the system shall display events in a vertical table by time.,2,2,F | FR
+the system shall be used within the specifications defined by the computers used by the program administrators/nursing staff members.,2,2,NFR | O
+the system shall cater to 10 simultaneous users from 9am to 5pm.,2,2,NFR | SC
+the system shall display the events in a graph by time.,2,2,F | FR
+the system shall be expected to manage the nursing program curriculum and class/clinical scheduling for a minimum of 5 years.,2,2,NFR | SC
+the system shall generate an audit report based on the available recycled parts and the collision estimate.,2,2,F | FR
+the system shall flag tablets that fail to send timely keep-alive messages as non-operational and disassociate the assigned waiter from the tablet.,2,2,FT | NFR
+the system shall filter data by: venues and key events.,2,2,F | FR
+the system shall display the local and exercise time in separate clocks,2,2,F | FR
+the system shall have basic data integrity checking to reduce the possibility of incorrect or invalid data being introduced.,2,2,NFR | SE
+the system shall interface with the faculty central server.,2,2,NFR | O
+the system shall have a mdi form that allows for the viewing of the graph and the data table.,2,2,F | FR
+the system shall give the mediator privileges to schedule location and equipment resources.,2,2,F | FR
+the system shall link events back to either the sync matrix 1.0 or the exercise managment tool 1.0 applications for modifications.,2,2,F | FR
+the system shall interface with the student master server.,2,2,NFR | O
+the system shall offer a display of all the events in the exercise.,2,2,F | FR
+the system shall notify the user of any schedule changes.,2,2,F | FR
+the system shall offer the ability to pause and resume the refresh of data.,2,2,F | FR
+the system shall be user-friendly and easy to navigate.,2,2,NFR | NSR
+the system shall be used by realtors with no training.,2,2,NFR | US
+the system shall be intuitive and self explanatory.,2,2,NFR | US
+the system shall refresh the display every 60 seconds.,2,2,NFR | PE
+the system shall provide charts for the activity or event actual versus assumed time.,2,2,F | FR
+the system shall operate within the windows xp professional operating system.,2,2,NFR | O
+the system shall return a list of repair facilities within the radius if the preferred repair facility cannot be determined.,2,2,F | FR
+the system shall run on windows server 2003.,2,2,FR | PO
+the system shall search for available recycled parts for the supplied vehicle parts and suppliers.,2,2,F | FR
+the system shall show the meetings to the user in ascending time order by default.,2,2,F | FR
+the system shall request a user response to initiator or mediator messages.,2,2,F | FR
+the system shall use symbols and words that are naturally understandable by the user community.,2,2,NFR | US
+the system shall utilise periodic 30-second keep-alive messages between tablets and the server to monitor tablet operational status.,2,2,NFR | O
+the system will display a blank set of ratings if there are not ratings yet defined.,2,2,F | FR
+the system will notify affected parties when changes occur affecting specific students including but not limited to changing a student’s status from full time to part time and moving a student to a different clinical section.,2,2,F | FR
+the user shall select to save the preferred repair facility ratings.,2,2,F | FR
+the user shall select to view the preferred repair facility ratings.,2,2,F | FR
+the verbiage used within the system shall be consistent with standard english and the terminology of the national nursing community.,2,2,NFR | US
+the system shall retain the available recycled parts and suppliers returned from the search.,2,2,F | FR
+"upon starting up the application, the first viewable screen shall contain buttons for play game options.",2,2,FR | NFR
+user shall be able to access coding problems across various difficulty levels and categories.,2,2,FR | NFR
+"user shall be able to log in as a student, admin, or company.",2,2,FR | NFR
+"user shall be able to change perspective and orientation through a touch scroll bar, serving as the central mechanic of the game.",2,2,FR | NFR
+"user shall be able to perform sudden movements upward from solid ground, as a necessary movement mechanic.",2,2,FR | NFR
+"user shall be able to sign up as a student, admin, or company.",2,2,FR | NFR
+user shall be able to submit their solutions to coding problems.,2,2,FR | NFR
+"user shall be able to participate in discussions related to coding problems by commenting, asking questions, and providing answers.",2,2,FR | NFR
+user shall be able to update their information.,2,2,FR | NFR
+user shall be able to view and edit their profile information.,2,2,FR | NFR
+user shall receive feedback when entering an invalid zip code.,2,2,FR | NFR
+user shall have the ability to change their password.,2,2,FR | NFR
+user shall/will be able to request check book allotment.,2,2,FR | NFR
+users shall be able to search for jobs.,2,2,FR | NFR
+users shall be able to view student applications.,2,2,FR | NFR
+users shall be required to log into the system for all operations except the operations on the login page.,2,2,FR | SE

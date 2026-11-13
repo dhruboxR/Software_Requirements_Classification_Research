@@ -1,0 +1,2 @@
+candidate_rows,similarity_groups,largest_group,mixed_label_groups,simulations,ratio_pass,all_classes_present,nfr_test_at_least_100,overall_pass,train_fraction_median,val_fraction_median,test_fraction_median,test_nfr_min,test_nfr_median,test_nfr_max
+4835,4629,6,0,300,300,300,300,300,0.6998,0.1502,0.1499,209,246.0,277

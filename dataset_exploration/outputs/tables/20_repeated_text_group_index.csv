@@ -1,0 +1,383 @@
+﻿text_key,n_rows,n_sources,n_labels
+users shall be able to search for patient and laboratory data using various search criteria for quick access.,5,1,2
+the system shall provide a module for managing and tracking laboratory equipment inventory and procurement to ensure availability.,5,1,1
+the system shall provide a module for managing and tracking laboratory staff scheduling and workload management to optimize resources.,5,1,1
+the system shall provide a module for managing and tracking laboratory risk management and mitigation strategies to ensure safety.,5,1,1
+the system shall streamline existing workflows to reduce manual intervention and improve productivity.,5,1,2
+the system shall support multi-language capabilities to cater to diverse user demographics and enhance accessibility.,5,1,1
+the system shall support the generation of compliance reports for regulatory audits and inspections to demonstrate adherence.,5,1,1
+the system shall support the generation of trend analysis reports for laboratory performance and outcomes to inform strategy.,5,1,1
+the system shall support the integration with external communication platforms for notifications and alerts to enhance responsiveness.,5,1,1
+the system shall support the integration with external databases for reference ranges and clinical guidelines to enhance accuracy.,5,1,1
+the system shall address all critical severity defects impacting system users to improve reliability.,5,1,2
+the system shall automate decisions where appropriate within the existing workflow to enhance efficiency.,5,1,2
+the system shall allow users to create and manage workflows for laboratory sample processing and analysis to enhance efficiency.,5,1,1
+the system shall allow users to create and manage action plans for addressing laboratory performance issues to ensure resolution.,5,1,1
+the system shall allow users to create and manage communication plans for laboratory announcements and updates to ensure clarity.,5,1,1
+the system shall generate notifications for laboratory results and test orders to relevant personnel.,5,1,2
+the system shall allow users to create and manage surveys for collecting patient and provider feedback to inform improvements.,5,1,1
+the system shall allow users to create and manage checklists for laboratory quality and safety inspections to ensure thoroughness.,5,1,1
+the system shall provide a module for managing and tracking laboratory continuous improvement initiatives to drive excellence.,5,1,1
+the system shall provide a module for managing and tracking laboratory incident and emergency response processes to ensure readiness.,5,1,1
+the system shall provide a module for managing and tracking laboratory document control and version management to ensure accuracy.,5,1,1
+the system shall provide a module for managing and tracking laboratory environmental monitoring and control to ensure safety.,5,1,1
+the system shall meet fda regulatory standards to ensure compliance with industry regulations.,5,1,2
+the system shall provide a module for managing and tracking laboratory corrective and preventive action (capa) processes to ensure improvement.,5,1,1
+the system shall meet hipaa security and confidentiality requirements to protect patient data.,5,1,2
+users with administrative privileges shall be able to configure system settings and user permissions.,4,1,1
+the system shall allow users to create and manage protocols for standard operating procedures and guidelines to ensure consistency.,4,1,1
+"the system shall allow for multiple user authentication methods, including username/password, biometric, and smart card.",4,1,1
+the system shall allow users to create and manage worklists for pending tasks and activities to enhance productivity.,4,1,1
+the system shall allow users to export data in various formats for analysis and reporting to support decision-making.,4,1,1
+the system shall support the management of inventory for laboratory supplies and reagents to ensure availability.,4,1,1
+the system shall support the management of billing and insurance information for laboratory services to facilitate financial transactions.,4,1,1
+users shall be able to view laboratory test results and patient demographics in a user-friendly interface.,4,1,1
+the system shall support the integration with third-party analytics tools for advanced data analysis and reporting.,4,1,1
+system performance shall be monitored and optimized regularly to ensure efficient operations.,4,1,1
+patient data shall be accessible to authorized personnel for review and editing purposes to maintain data integrity.,4,1,1
+system updates and backups shall be performed automatically at scheduled intervals to ensure data safety.,4,1,1
+the system shall support billing and invoicing functions for laboratory services to facilitate financial management.,4,1,1
+"the system shall store patient information securely, adhering to hipaa and fda regulatory standards.",4,1,1
+the system shall support automated result interpretation based on predefined criteria to reduce manual errors.,4,1,1
+the system shall support the integration with electronic health record (ehr) systems for seamless data exchange.,4,1,1
+laboratory tests shall be categorized and stored in a database for easy retrieval and tracking.,4,1,1
+the system shall provide a module for managing and tracking laboratory safety and compliance with regulatory standards.,4,1,1
+the system shall provide a module for managing and tracking laboratory training and competency of staff to ensure proficiency.,4,1,1
+the system shall provide a module for managing and tracking laboratory waste management processes to ensure environmental compliance.,4,1,1
+the system shall provide a module for managing and tracking laboratory vendor and supplier relationships to ensure quality.,4,1,1
+the system shall provide a module for managing and tracking patient consent and preferences for communication and data sharing.,4,1,1
+the system shall provide a module for managing and tracking quality control processes and results to ensure compliance.,4,1,1
+the system shall provide a module for managing and tracking laboratory research and clinical trials data to support innovation.,4,1,1
+reports shall be customizable based on user privileges and exportable to various formats for flexibility.,4,1,1
+the system shall provide a notification system for critical results and pending tasks to alert relevant personnel.,4,1,1
+"the system shall provide a search functionality to locate patient records based on various criteria such as name, date of birth, or patient id.",4,1,1
+the system shall provide role-based access control to differentiate permissions for various user types.,4,1,1
+the system shall provide functionality to schedule and manage laboratory tests for patients to optimize resources.,4,1,1
+"the system shall provide a user-friendly interface for data entry and retrieval, minimizing the need for extensive training.",4,1,1
+the system shall provide a stable operating environment to minimize disruptions to laboratory operations.,4,1,1
+the system shall provide functionality to export patient data and reports in standard formats such as pdf and csv.,4,1,1
+the system shall provide an audit trail for all user actions and system changes to ensure accountability.,4,1,1
+the system shall provide a module for managing and tracking laboratory customer feedback and satisfaction to improve services.,4,1,1
+the system shall provide a module for managing and tracking laboratory budget and financial management to ensure fiscal responsibility.,4,1,1
+the system shall provide a module for managing and tracking laboratory accreditation and certification processes to maintain standards.,4,1,1
+the system shall provide a module for managing and tracking laboratory equipment maintenance and calibration to ensure accuracy.,4,1,1
+the system shall provide a module for managing and tracking adverse events and incidents related to laboratory services.,4,1,1
+the disputes application shall comply with the corporate standards for user interface creation for internally and externally used applications.,4,3,1
+the system shall support barcode scanning for accurate specimen identification and tracking.,4,1,1
+the system shall send automated notifications to patients and healthcare providers regarding test results and appointments.,4,1,1
+"the system shall support the creation, viewing, updating, and deletion of patient records to manage data lifecycle.",4,1,1
+the system shall support the generation of statistical reports for laboratory performance and utilization to inform decision-making.,4,1,1
+the system shall support the generation of barcodes or qr codes for sample tracking and identification to enhance traceability.,4,1,1
+the system shall support the generation of custom reports based on user-defined criteria and templates for flexibility.,4,1,1
+the system shall support the creation and management of customizable report templates for diverse reporting needs.,4,1,1
+the system shall support the creation and management of user roles and permissions to control access.,4,1,1
+the system shall support integration with laboratory instruments for automated result import to streamline workflows.,4,1,1
+the system shall support the integration with external healthcare systems for data exchange to enhance interoperability.,4,1,1
+the system shall allow for the generation of aggregate reports for quality assurance and regulatory compliance.,4,1,1
+"the system shall allow users to attach and manage documents related to patient records, such as scanned reports or consent forms.",4,1,1
+the system shall allow users to create and manage dashboards for real-time monitoring of laboratory operations to enhance oversight.,4,1,1
+the system shall be low maintenance to reduce the burden on it resources and support staff.,4,1,1
+the system shall allow users to log in securely using their unique credentials to ensure authorized access.,4,1,1
+the system shall allow for the bulk import of patient data from external sources to streamline data entry.,4,1,1
+the system shall allow laboratory technicians to enter and update test results to maintain data accuracy.,4,1,1
+the system shall allow laboratory managers to configure and customize workflows according to their specific needs.,4,1,1
+the system shall allow users to create and manage alerts for critical test results or abnormal values to ensure timely response.,4,1,1
+the system shall allow users to generate and manage templates for frequently used reports and documents to save time.,4,1,1
+the system shall maintain existing core functionalities of the current lis to preserve operational continuity.,4,1,1
+the system shall provide a mechanism for tracking and managing quality control processes to ensure compliance.,4,1,1
+"the lis shall allow laboratory personnel to create, edit, and cancel laboratory orders as needed.",4,1,1
+the system shall provide a dashboard for administrators to monitor system usage and performance metrics.,4,1,1
+the lis shall provide an audit trail for all user activities and changes made to patient and laboratory data.,4,1,1
+the system shall provide a mechanism for entering and validating test results to ensure data accuracy.,4,1,1
+the system shall enable the integration of test results from various laboratory instruments and devices.,4,1,1
+the system shall employ industry-standard documentation practices to facilitate understanding and compliance.,4,1,1
+the system shall employ industry-standard coding practices to ensure maintainability and quality.,4,1,2
+the system shall capture patient demographic information and laboratory results for various tests accurately.,4,1,1
+the system shall ensure system integrity and reliability to maintain trust in laboratory operations.,4,1,1
+the system shall facilitate the tracking of sample status from collection to result reporting for transparency.,4,1,1
+"the system shall enable users to create, edit, and manage laboratory test orders efficiently.",4,1,1
+"the system shall allow users to input and store patient information securely, adhering to hipaa and fda standards.",4,1,1
+the system shall be developed module by module to allow for phased implementation and testing.,4,1,1
+the system shall maintain an audit trail of all changes made to patient records and test results for accountability.,4,1,1
+the system shall provide a dashboard for displaying key performance indicators to monitor laboratory operations.,4,1,1
+the system shall generate printable patient reports with test results and interpretations for easy distribution.,4,1,1
+"the system shall generate reports for laboratory results, test orders, and patient demographics for analysis.",4,1,1
+"the system shall generate reports for individual patients, summarizing their test results and medical history.",4,1,1
+the system shall incorporate architectural enhancements to support future growth and scalability.,4,1,1
+the lis shall support real-time data entry and validation for efficient laboratory operations.,4,1,1
+the system shall allow users to manage and update test catalog information to keep data current.,4,1,1
+the system shall allow users to search and retrieve patient records and test results using various criteria.,4,1,1
+the system shall allow users to record and track specimen collection details from collection to result reporting.,4,1,1
+the system shall allow users to reset their passwords through a secure process to maintain account security.,4,1,1
+the system shall allow users to schedule and manage patient appointments to optimize laboratory resources.,4,1,1
+100% of the cardmember and merchant services representatives shall use the disputes application regularly after a 2-day training course.,3,2,1
+100% of merchant services representatives shall be able to successfully perform a follow up action on a dispute case on the first encounter after completing the training course.,3,2,1
+100% of cardmember services representatives shall be able to successfully create a dispute case on the first encounter after completing the training course.,3,2,1
+the system will use the stored e-mail addresses as a primary means of communicating information to affected parties.,3,2,2
+classes for a given cohort shall not conflict with regards to the time and day that they are offered.,3,2,1
+program administrators and nursing staff members shall be able to add a new clinical site into the system.,3,3,2
+program administrators and nursing staff members shall be able to add a new clinical lab section for an existing clinical class into the system.,3,3,2
+program administrators/nursing staff members shall be able to cancel a clinical lab section only if there are no students registered for that clinical lab section.,3,3,2
+program administrators/nursing staff members shall be able to create a new program of study.,3,3,2
+program administrators and nursing staff members shall be able to add a student who has registered for a clinical class to a clinical lab section for that class.,3,3,2
+program administrators and nursing staff members shall be able to add a new cohort to the system identified by start month and year.,3,3,2
+the disputes application shall ensure that only authorized users are allowed to logon to the application.,3,3,1
+the disputes application shall ensure that only users with the appropriate access level are allowed to initiate dispute requests.,3,3,1
+the system shall provide a module for managing and tracking laboratory equipment calibration and validation to,3,1,1
+the system shall allow a program administrator or nursing staff member to remove a student from a clinical lab section.,3,3,2
+the list of dispute cases that are displayed after a search is performed must be color coded for easy identification of dispute cases based upon the dispute case status.,3,2,1
+the look and feel of the system shall conform to the user interface standards of the smart device.,3,3,2
+the disputes application shall support 350 concurrent users without any degradation of performance in the application.,3,2,1
+the system shall provide a history report of changes made to the activity or event data,3,3,2
+the maximum wait time for a user navigating from one screen to another within the disputes application shall be no more than 5 seconds.,3,2,1
+the system shall allow a program administrator/nursing staff member to move a student from one clinical lab section to another clinical lab section corresponding to the same clinical class.,3,3,2
+the system shall color code events according to their variance from current time.,3,3,2
+the system shall display events or activities.,3,3,2
+the system shall be capable of restoring itself to its previous state in the event of failure (e.g. a system crash or power loss).,3,2,2
+the system shall be able to display a menu at all times to facilitate manual order taking should the need arise.,3,2,2
+all screens created as part of the disputes application must comply with corporate standards for interface creation.,3,2,1
+a program administrator/nursing staff member shall be able to add a new nursing student to the system.,3,3,2
+a clinical class shall specify the course name lecture room requirements clinical site needs lecture instructor needs and clinical lab instructor needs.,2,2,1
+a database management system such as oracle db2 mysql or hsql will need to be integrated with the product.,2,2,2
+a display shall not require a user to log in.,2,2,2
+a non-clinical class shall specify the course name lecture room requirements and instructor needs.,2,2,1
+a program of study shall consist of a program name and listing of required classes (both clinical and non-clinical) that must be completed.,2,2,1
+"a staff member shall have the ability to manage the progress of a part time student, which includes modifying their sequence of classes and timeline of classes.",2,1,1
+a surface computer shall not require a user to log in.,2,2,2
+a tablet shall require a user to log in using a username and password.,2,2,2
+admin shall be able to manage companies.,2,1,2
+admin shall be able to manage students.,2,1,1
+all authorized users once authenticated must be able to logon to the disputes system,2,2,1
+all business rules specified in the disputes system shall be in compliance with the merchant operating regulations.,2,2,1
+all systems and application source code shall be available to or on the systems that execute it.,2,1,1
+all updates to data files or database must be initiated from the disputes system.,2,2,1
+the user shall select to save the preferred repair facility ratings.,2,2,2
+the user shall select to view the preferred repair facility ratings.,2,2,2
+the verbiage used within the system shall be consistent with standard english and the terminology of the national nursing community.,2,2,2
+"upon starting up the application, the first viewable screen shall contain buttons for play game options.",2,1,2
+user shall be able to access coding problems across various difficulty levels and categories.,2,1,2
+"user shall be able to change perspective and orientation through a touch scroll bar, serving as the central mechanic of the game.",2,1,2
+user shall be able to like a certain topic.,2,1,1
+"user shall be able to log in as a student, admin, or company.",2,1,2
+"user shall be able to participate in discussions related to coding problems by commenting, asking questions, and providing answers.",2,1,2
+"user shall be able to perform sudden movements upward from solid ground, as a necessary movement mechanic.",2,1,2
+"user shall be able to sign up as a student, admin, or company.",2,1,2
+user shall be able to submit their solutions to coding problems.,2,1,2
+user shall be able to tweet a certain topic.,2,1,1
+user shall be able to update their information.,2,1,2
+user shall be able to view and edit their profile information.,2,1,2
+user shall have the ability to change their password.,2,1,2
+the system shall allow the user to modify the date exclusion set of an already submitted meeting response.,2,2,2
+the system shall allow the user to modify the date preference set of an already submitted meeting response.,2,2,2
+the system shall allow the user to modify the equipment requirement set of an already submitted meeting response.,2,2,2
+the system shall allow the user to modify the location preference set of an already submitted meeting response.,2,2,2
+the system shall allow the user to view past attended meetings.,2,2,2
+the system shall allow the user to view pending meetings.,2,2,2
+the system shall allow the user to view their schedule.,2,2,2
+the system shall allow laboratory managers to configure and customize workflows according to specific needs to enhance operational efficiency.,2,1,1
+the system shall allow modification of the display.,2,2,2
+the system shall allow the initiator to cancel any meetings which they initiated.,2,2,2
+the system shall allow the initiator to send and receive messages from users.,2,2,2
+the system shall allow the initiator to view the information of any meetings which they initiated.,2,2,2
+the system shall allow the mediator to negotiate a location / equipment.,2,2,2
+the system shall allow the mediator to negotiate a meeting date.,2,2,2
+the system shall allow the mediator to send and receive messages from users.,2,2,2
+the system shall allow the mediator to solve a date conflict.,2,2,2
+the system shall allow the mediator to solve a location conflict.,2,2,2
+the system shall allow the user to change the password.,2,2,2
+the system shall allow users to log in securely using unique credentials and multi-factor authentication methods to ensure authorized access.,2,1,1
+the system shall allow users to search for available distributed location templates(if any).,2,2,2
+the system shall allow users to send and receive messages.,2,2,2
+the system shall allow users to view equipment information.,2,2,2
+the system shall allow users to view information concerning the available distributed location templates(if any).,2,2,2
+the system shall allow users to view location information.,2,2,2
+the system shall authenticate users at the beginning each session.,2,2,2
+the system shall automatically log out all customers after a period of inactivity.,2,2,2
+the system shall be able to display a printable summary of the system log.,2,2,2
+the system shall be able to display a report of needed classes for a given quarter for all cohorts of all programs for program administrators/nursing staff members’ planning purposes.,2,2,2
+the system shall be able to register wireless connection.,2,1,1
+the system shall be available 99.5% of the time.,2,2,2
+the system shall be built such that it is as secure as possible from malicious interference.,2,2,2
+the system shall be capable of processing 100% of nursing students and their classes for the next 10 years.,2,2,2
+the system shall be compatible with iis6.0 and above or apache 2.0 and above.,2,2,2
+the system shall be expected to manage the nursing program curriculum and class/clinical scheduling for a minimum of 5 years.,2,2,2
+the system shall be intuitive and self explanatory.,2,2,2
+the response time shall be fast enough to maintain the flow of the game. the response time shall be no more than 2 seconds for 95% of responses and no more than 4% for the remaining responses.,2,1,1
+the system can perform well in the web environments and also with huge files.,2,1,1
+the system shall able to operate within a business office environment typical of the nursing department at depaul university.,2,2,2
+the system shall achieve 95% up time.,2,2,2
+"the system shall address all critical severity defects impacting system users, improving system reliability and user satisfaction.",2,1,1
+the system shall allow a member to spontaneously form a group of n signers using group public keys which associate the group members.,2,1,2
+the system shall allow a user to define the time segments,2,2,2
+the system shall allow creation and management of alerts for critical test results or abnormal values to ensure timely response.,2,1,1
+the system shall allow creation and management of customizable report templates for various reporting needs to enhance flexibility.,2,1,1
+the system shall allow creation and management of protocols for standard operating procedures and guidelines to ensure consistency.,2,1,1
+the system shall allow creation and management of real-time dashboards for monitoring laboratory operations to enhance oversight.,2,1,1
+the system shall allow creation and management of templates for frequently used reports and documents to save time and effort.,2,1,1
+the system shall allow creation and management of worklists for pending tasks and activities to enhance productivity and organization.,2,1,1
+the system shall be used by realtors with no training.,2,2,2
+the system shall be used within the specifications defined by the computers used by the program administrators/nursing staff members.,2,2,2
+the system shall be user-friendly and easy to navigate.,2,2,2
+the system shall cater to 10 simultaneous users from 9am to 5pm.,2,2,2
+the system shall detect sql injection and xss vulnerabilities for a given website or a web application,2,1,1
+the system shall display data from the sync matrix 1.0 and exercise management tool 1.0 applications,2,2,2
+the system shall display events in a vertical table by time.,2,2,2
+the system shall display the events in a graph by time.,2,2,2
+the system shall display the local and exercise time in separate clocks,2,2,2
+the system shall enable secure input and storage of patient information in compliance with hipaa and fda standards to protect patient confidentiality.,2,1,1
+the system shall feature a configurable dashboard displaying key performance indicators for laboratory operations monitoring to support decision-making.,2,1,1
+the system shall filter data by: venues and key events.,2,2,2
+the system shall flag tablets that fail to send timely keep-alive messages as non-operational and disassociate the assigned waiter from the tablet.,2,2,2
+the system shall generate a report of the detected and analyzed vulnerabilities,2,1,1
+the system shall generate an audit report based on the available recycled parts and the collision estimate.,2,2,2
+"the system shall generate customizable, printable patient reports with test results, interpretations, and graphics for easy distribution.",2,1,1
+the system shall give the mediator privileges to schedule location and equipment resources.,2,2,2
+the system shall have a mdi form that allows for the viewing of the graph and the data table.,2,2,2
+the system shall have basic data integrity checking to reduce the possibility of incorrect or invalid data being introduced.,2,2,2
+"the system shall implement a notification system for critical results, pending tasks, and system alerts to ensure timely communication.",2,1,1
+the system shall implement automated result interpretation based on configurable criteria and reference ranges to reduce manual errors.,2,1,1
+the system shall include a module for managing and tracking adverse events and incidents related to laboratory services to ensure safety.,2,1,1
+the system shall include a module for managing and tracking laboratory accreditation and certification processes to maintain standards.,2,1,1
+the system shall include a module for managing and tracking laboratory staff training and competency to ensure proficiency.,2,1,1
+the system shall include a module for managing and tracking laboratory vendor and supplier relationships to ensure quality and reliability.,2,1,1
+the system shall include a module for managing and tracking laboratory waste management processes to ensure environmental compliance.,2,1,1
+the system shall include a module for managing and tracking quality control processes and results to ensure compliance with standards.,2,1,1
+"the system shall include a module for managing laboratory inventory, including reagents and supplies tracking to ensure availability.",2,1,1
+"the system shall include a quality control module for tracking and managing qc processes, including westgard rules to ensure compliance.",2,1,1
+"the system shall include a robust mechanism for entering, validating, and verifying test results to ensure data accuracy and reliability.",2,1,1
+the system shall incorporate billing and invoicing functions with support for multiple payers and insurance types to facilitate financial management.,2,1,1
+the system shall integrate barcode scanning functionality for accurate specimen identification and tracking throughout the testing process to minimize errors.,2,1,1
+the system shall interface with the faculty central server.,2,2,2
+the system shall interface with the student master server.,2,2,2
+the product shall allow the user to save the property search results.,2,2,2
+the product shall allow the user to select a chosen language from one of the target market countries.,2,2,2
+the product shall allow the user to view previously downloaded search results cma reports and appointments.,2,2,2
+the product shall be able support 1000 simultaneous users.,2,2,2
+the product shall be able to handle up to 1500 simultaneous users. the system shall perform with 1500 users as a time.,2,2,2
+the product shall be easy to use. 90% of users will be able to successfully reserve a conference room within 5 minutes of product use.,2,2,2
+the product shall give users feedback when necessary. 80% of the users surveyed report that the product accurately confirms their actions.,2,2,2
+the product shall interface with the choiceparts system once per day at approximately 1:00 am.,2,2,2
+the product shall make the users want to use it. 80% of the users surveyed report they are regularly using the product after the first 2 weeks post-launch.,2,2,2
+the product shall retain user preferences in the event of a failure.,2,2,2
+the product shall synchronize with the office system every hour.,2,2,2
+the product shall use a standard navigation menu familiar to most web users.,2,2,2
+the product will function alongside server software on any operating system where the java runtime can be installed.,2,2,2
+the product will require collaboration with a database management system (dbms). the dbms may be located on the same machine as the product or on a separate machine residing on the same computer network.,2,2,2
+the recycled parts search results provided to the estimator shall be retrieved by the system.,2,2,2
+"the report of needed classes shall include (but not be limited to) classes to be offered, number of sections needed, number of labs needed, and room types needed.",2,1,1
+the system shall link events back to either the sync matrix 1.0 or the exercise managment tool 1.0 applications for modifications.,2,2,2
+the system shall maintain a comprehensive audit trail for all user actions and system changes with detailed logging to ensure accountability.,2,1,1
+the system shall notify the user of any schedule changes.,2,2,2
+the system shall offer a display of all the events in the exercise.,2,2,2
+the system shall offer advanced search capabilities for retrieving patient records and test results using multiple criteria to enhance data accessibility.,2,1,1
+the system shall offer an appointment scheduling module with resource management and automated reminders to optimize laboratory resources.,2,1,1
+the system shall offer the ability to pause and resume the refresh of data.,2,2,2
+the system shall operate within the windows xp professional operating system.,2,2,2
+the system shall provide a comprehensive specimen tracking module from collection to result reporting with status updates to ensure transparency.,2,1,1
+the disputes application shall interface with the letters application. this will allow the disputes application to request letters as part of the dispute initiation and dispute follow up process. all letter requests must be sent to the print letter utility application.,2,2,1
+the disputes application shall manipulate and view business data. users will not have direct access to data files or databases.,2,2,1
+the disputes applications shall interface with the merchant information database. the merchant information database provides detailed information with regard to the merchant. all merchant detail information shall be obtained from the merchant information database.,2,2,1
+the multimahjongserver will have a graphical user interface with which the administrator of the server can get log information and change game settings.,2,1,2
+the preferred repair facility ratings shall be saved by the system.,2,2,2
+the preferred repair facility shall be returned to the user.,2,2,2
+the product must make use of web/application server technology. open source examples include apache web server tomcat and the jboss application server.,2,2,2
+the product must work with most database management systems (dbms) on the market whether the dbms is colocated with the product on the same machine or is located on a different machine on the computer network.,2,2,2
+the product shall adhere to the corporate online availability schedule. the application is brought down only within 98% of the scheduled outages per the availability schedule.,2,2,2
+the system shall provide a module for managing and tracking laboratory equipment calibration and validation to ensure accuracy and reliability.,2,1,1
+the system shall provide a module for managing and tracking laboratory equipment calibration and validation to ensure accuracy.,2,1,1
+the administrator shall have the ability to block all access to the system for all users or selectively by user.,2,1,1
+the administrator shall have the ability to create and add a new user to the system.,2,1,1
+the audit report shall be displayed to the user.,2,2,2
+the available recycled parts information and their suppliers shall be returned to the user.,2,2,2
+the bottom 3/4 of the table will hold events that occur according to its relevance to current time.,2,2,1
+the cma report shall be returned no later 60 seconds after the user has entered the cma report criteria.,2,2,2
+the current repair facility ratings shall be displayed to the user.,2,2,2
+the data displayed in both the nodes within the graph and the rows in the table are msel summary data,2,2,1
+the data provided by the system should be validated and verified were possible.,2,1,2
+the display shall have two regions: left 2/3 of the display is graphical right 1/3 of the display is a data table,2,2,1
+the disputes application must conform to the legal requirements as specified by regulation e and regulation z that govern credit card disputes processing.,2,2,1
+the disputes application must conform to the legal requirements as specified by the merchant operating regulations.,2,2,1
+the disputes application shall interface with the cardmember information database. the cardmember information database provides detailed information with regard to a cardmember. all cardmember detail information must be obtained from the cardmember information database.,2,2,1
+"the system shall provide a module for managing and updating the test catalog, including pricing and turnaround times to keep information current.",2,1,1
+the system shall provide a user-friendly interface for data entry and retrieval with minimal training requirements to improve usability.,2,1,1
+the system shall provide charts for the activity or event actual versus assumed time.,2,2,2
+the system shall provide functionality for managing and tracking laboratory budget and financial management to ensure fiscal responsibility.,2,1,1
+the system shall provide functionality for managing and tracking laboratory customer feedback and satisfaction to improve services.,2,1,1
+the system shall provide functionality for managing and tracking laboratory equipment maintenance and calibration to ensure accuracy.,2,1,1
+the system shall provide functionality for managing and tracking laboratory research and clinical trials data to support innovation.,2,1,1
+the system shall provide functionality for managing and tracking laboratory safety and regulatory compliance to ensure adherence.,2,1,1
+the system shall provide functionality for managing and tracking patient consent and communication preferences to ensure compliance.,2,1,1
+the system shall provide role-based access control with customizable permissions for different user types to manage access to functionalities.,2,1,1
+the system shall provide two factor authentication.,2,1,1
+the system shall refresh the display every 60 seconds.,2,2,2
+the system shall request a user response to initiator or mediator messages.,2,2,2
+the system shall retain the available recycled parts and suppliers returned from the search.,2,2,2
+the system shall return a list of repair facilities within the radius if the preferred repair facility cannot be determined.,2,2,2
+provide a user-friendly interface for data entry and retrieval.,2,1,1
+realtor shall be able to generate a cma report based on property criteria,2,2,1
+securely input and store patient information compliant with hipaa and fda standards.,2,1,1
+software tools and pre-built applications that do not have source code available shall come with a complete diagnostic package and customer support.,2,1,1
+students shall have the ability to view the status of their job applications.,2,1,2
+"support creation, editing, and management of laboratory test orders with custom fields and templates.",2,1,1
+support integration with electronic health record (ehr) systems.,2,1,1
+support integration with external databases for reference ranges and clinical guidelines.,2,1,1
+support integration with third-party analytics tools.,2,1,1
+support multi-language capabilities.,2,1,1
+system shall be able to manage check book allotment requests.,2,1,2
+"system shall identify areas triggering the restart of the level, whether encompassing stage boundaries or spike-like traps.",2,1,2
+"text box will originally contain a suggestive text question, to guide the user to the format of an appropriate question.",2,1,1
+the system shall run on windows server 2003.,2,2,2
+the system shall search for available recycled parts for the supplied vehicle parts and suppliers.,2,2,2
+the system shall show the meetings to the user in ascending time order by default.,2,2,2
+the system shall support attachment and management of documents related to patient records and test results to enhance record-keeping.,2,1,1
+the system shall support bi-directional integration with various laboratory instruments for automated result import and export to streamline workflows.,2,1,1
+"the system shall support creation, editing, and management of laboratory test orders with custom fields and templates to accommodate diverse testing needs.",2,1,1
+"the system shall support data export in multiple formats (csv, xml, json) for external analysis and reporting to facilitate data sharing.",2,1,1
+the system shall support generation and management of barcodes or qr codes for sample tracking and identification to improve traceability.,2,1,1
+the system shall support generation of custom reports based on user-defined criteria and templates to enhance reporting capabilities.,2,1,1
+the system shall support generation of statistical reports for laboratory performance and utilization analysis to inform decision-making.,2,1,1
+only users with update access must be able to initiate dispute requests.,2,2,1
+only valid data shall be entered into the system. no invalid data shall be entered into the system.,2,2,2
+program administrators and nursing staff members shall be able to add new classes for the nursing department into the system.,2,2,1
+program administrators and nursing staff members shall have the ability to specify which classes are required for a program of study,2,2,1
+program administrators/nursing staff members shall have the ability to modify information relating to a clinical lab section including the clinical site name the department/section for the lab the class instructor day and time of lab and contact information.,2,2,2
+program administrators/nursing staff members shall have the ability to modify information relating to a clinical site including the clinical site name site contact person contact information and address.,2,2,2
+program administrators/nursing staff members shall have the ability to modify information relating to a nursing student including student id student name phone number e-mail status (full time or part time) and program of study.,2,2,2
+program administrators/nursing staff members shall have the ability to modify information relating to a program of study within the nursing department including the program of study name and required classes for that program of study.,2,2,2
+program administrators/nursing staff members shall have the ability to modify information relating to cohorts including cohort identifier program of study preferred sequence of classes and quarters that a cohort will be taking specific classes.,2,2,2
+the system shall support integration with electronic health record (ehr) systems for seamless data exchange to improve patient care.,2,1,1
+"the system shall support integration with external healthcare systems using standard protocols (hl7, fhir) to enhance interoperability.",2,1,1
+the system shall support integration with third-party analytics tools for advanced data analysis and reporting to enhance insights.,2,1,1
+all users of the system shall login using some form of unique identification.,2,2,2
+an app shall provide a user/restaurant with all user/restaurant system functionality (according to access control).,2,1,1
+every user of the system shall be authenticated and authorized.,2,2,2
+feature a configurable dashboard displaying key performance indicators for laboratory operations.,2,1,2
+for each class within a sequence for a cohort program administrators and nursing staff members shall be able to specify which quarter that class will be offered.,2,1,2
+if a user account is revoked it can only be re-instantiated by the system administrator.,2,2,1
+implement automated result interpretation based on configurable criteria and reference ranges.,2,1,1
+integrate barcode scanning for accurate specimen identification and tracking.,2,1,1
+maintain existing core functionalities of the current lis.,2,1,1
+only authorized users shall have access to clinical site information.,2,2,2
+only authorized users shall have access to the portion of the system that interfaces with campusconnect.,2,2,2
+only collision estimators shall search for recycled parts. users without the collision estimator role shall not have access to the search for recycled parts.,2,2,2
+only registered realtors shall be able to access the system.,2,2,2
+only the system administrator shall be able to reset a revoked user logon account,2,2,1
+the system shall update or create new property listings in the mls,2,2,1
+the system shall use symbols and words that are naturally understandable by the user community.,2,2,2
+the system shall utilise periodic 30-second keep-alive messages between tablets and the server to monitor tablet operational status.,2,2,2
+the system should be simple and user friendly.,2,1,1
+the system should pertain to all the situations so that it can be recoverable in any error conditions.,2,1,1
+the system should work all the time and provide a means to handle errors with little or no input from the user.,2,1,1
+the system will display a blank set of ratings if there are not ratings yet defined.,2,2,2
+the system will notify affected parties when changes occur affecting specific students including but not limited to changing a student’s status from full time to part time and moving a student to a different clinical section.,2,2,2
+the table side of the display shall be split into 2 regions: sequential and temporal.,2,2,1
+the top 1/4 of the table will hold events that are to occur sequentially.,2,2,1
+the user interface shall have standard menus buttons for navigation,2,2,1
+user shall receive feedback when entering an invalid zip code.,2,1,2
+user shall/will be able to request check book allotment.,2,1,2
+users shall be able to search for jobs.,2,1,2
+a class shall be either a non-clinical class or a clinical class.,2,2,1
+2 out of 3 program administrators/nursing staff members shall successfully be able to use the system to manage the scheduling of classes and clinicals.,2,2,2
+users shall be able to view student applications.,2,1,2
+users shall be required to log into the system for all operations except the operations on the login page.,2,2,2
+100% of saved user preferences shall be restored when system comes back online.,2,2,2

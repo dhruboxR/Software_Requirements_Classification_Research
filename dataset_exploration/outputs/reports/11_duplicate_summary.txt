@@ -1,0 +1,9 @@
+Duplicate normalized-text groups: 382
+Extra duplicate text occurrences: 656
+Rows participating in duplicated text groups: 1038
+Groups across sources: 167
+Groups across projects: 348
+Duplicate groups with label conflicts: 162
+Duplicate counts use Unicode NFKC, whitespace normalization, and casefold.
+These checks do not identify semantic paraphrases.
+No records were removed.

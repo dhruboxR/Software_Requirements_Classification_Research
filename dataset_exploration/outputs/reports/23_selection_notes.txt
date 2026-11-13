@@ -1,0 +1,4 @@
+No datasets have been approved for modeling.
+This is a preliminary assessment, not a ranking of expected model accuracy.
+Minority-class counts must be interpreted after provenance, label review, and grouping.
+If any task has inadequate independent minority-class examples, evaluate other datasets rather than oversample into a misleading benchmark.

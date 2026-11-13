@@ -1,0 +1,20 @@
+D2 CROSS-PARTITION SIMILARITY AUDIT
+=================================================================
+
+Dataset size: 4835
+Features: 65447
+Total pairs >= 0.85: 3
+
+         comparison  maximum_similarity  pairs_ge_0.75  pairs_ge_0.80  pairs_ge_0.85  pairs_ge_0.90  pairs_ge_0.95
+train_vs_validation            0.864757             28             12              1              0              0
+      train_vs_test            0.890786             19              8              2              0              0
+ validation_vs_test            0.827888              3              1              0              0              0
+
+LIMITATIONS
+- Similarity is measured with character TF-IDF.
+- The vocabulary is refitted on the frozen candidate set.
+- Scores may differ from the earlier similarity search.
+- High similarity does not prove semantic equivalence.
+- Low similarity does not prove semantic independence.
+- No classifier was trained.
+- No frozen partitions were changed.

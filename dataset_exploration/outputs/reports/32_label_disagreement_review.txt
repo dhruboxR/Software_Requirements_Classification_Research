@@ -1,0 +1,18 @@
+PHASE 1D: LABEL DISAGREEMENT REVIEW
+=================================================================
+
+source  review_pairs  both_texts_found  same_reported_project
+    D2            21                21                     17
+    D3            21                21                      0
+    D4            27                27                     10
+
+Manual review fields:
+semantic_relationship: SAME / RELATED / DIFFERENT / UNCERTAIN
+annotation_assessment: CONSISTENT / CONFLICT / UNCERTAIN
+proposed_action: RETAIN / QUARANTINE / REVIEW_SOURCE
+
+Notes:
+- Reported project IDs may be unreliable.
+- Similarity does not prove semantic equivalence.
+- No label corrections have been applied.
+- No records have been deleted.

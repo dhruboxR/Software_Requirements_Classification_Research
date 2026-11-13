@@ -1,0 +1,17 @@
+PHASE 1D: SOURCE LABEL VERIFICATION
+=================================================================
+
+Conflicting text groups reviewed: 32
+
+source             reference_match  conflicting_text_groups
+    D2  AMBIGUOUS_REFERENCE_LABELS                       20
+    D2      SINGLE_REFERENCE_LABEL                        1
+    D3  AMBIGUOUS_REFERENCE_LABELS                        2
+    D4 D4_GENERATION_AUDIT_PENDING                        9
+
+Interpretation cautions:
+- A reference label is not automatically correct.
+- Multiple original labels must be reviewed.
+- D3 original and unified taxonomies differ.
+- D4 generation-source annotation audit is pending.
+- No records or annotations were modified.

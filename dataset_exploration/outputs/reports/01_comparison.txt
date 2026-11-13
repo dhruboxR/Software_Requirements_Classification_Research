@@ -1,0 +1,6 @@
+Rows: preprocessing=8854, processing=8854
+Requirement ID sets equal: False
+IDs unique in both: True
+Identical shared-column contents by ID: None (None = cannot safely test)
+Extra processing columns: ['Improved Requirement', 'Improvement Suggestion', 'Problem Description', 'Problem Type', 'Unnamed: 10']
+Matching IDs do not, by themselves, prove source authenticity or annotation quality.

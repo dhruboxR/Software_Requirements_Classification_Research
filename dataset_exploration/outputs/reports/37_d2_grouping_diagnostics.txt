@@ -1,0 +1,15 @@
+D2 PROJECT GROUPING DIAGNOSTICS
+=================================================================
+
+Binary rows: 4963
+Reported project names: 189
+Projects with NFR: 156
+Projects with both labels: 138
+
+Limitations:
+- Reported project names are not verified original project identities.
+- Matching names may refer to unrelated requirements.
+- Different names may refer to the same underlying project.
+- The source workbook lacks reliable project metadata.
+- Project-name groups cannot yet support an independent-project claim.
+- No train/test splits or label changes were made.

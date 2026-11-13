@@ -1,0 +1,3 @@
+Global conflicting-label groups include mixed taxonomy comparisons that may not be annotation errors.
+Repeated texts must not cross training/evaluation partitions if all sources are combined.
+No duplicate was removed; every count reflects the raw combined file.

@@ -1,0 +1,6 @@
+﻿source,rows,nonblank_classes,smallest_unique_class,minority_classes_under_30,minority_classes_under_100,blank_labels,within_source_extra_duplicate_rows,claimed_independent_projects,risk_note,selection_status
+D1,979,12,12,5,10,14,13,NO,Major PROMISE overlap; mixed labels,NOT APPROVED
+D2,4993,10,1,8,8,5,32,NO,Project metadata unreliable; FR/NFR labels need source review,NOT APPROVED
+D3,1292,11,32,0,10,0,10,PARTIALLY_RECOVERABLE,Small minority classes; NSR taxonomy compression; original project recovery incomplete,NOT APPROVED
+D4,1520,2,112,0,0,0,418,NO,LLM-associated requirements; repeated texts; 90:10 imbalance,NOT APPROVED
+D5,70,6,3,5,6,0,0,NO,70 rows; substantial PROMISE/D1 overlap; project label unreliable,NOT APPROVED

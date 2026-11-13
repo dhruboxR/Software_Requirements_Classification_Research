@@ -1,0 +1,27 @@
+PHASE 1E: D3 PROJECT SPLIT READINESS
+=================================================================
+Total rows: 1292
+Unique-project recovered rows: 1227
+Provisional eligible rows: 1227
+Exact-text conflicts: 2
+Cross-project exact-text groups: 0
+
+label  total_rows  unique_project_rows  provisionally_eligible_rows  eligible_unique_texts  eligible_original_projects  largest_project_rows  largest_project_share_pct minimum_20_test_examples_met
+  AUD          38                   38                           38                     38                          26                     5                      13.16                   NOT_TESTED
+  AVA          39                   36                           36                     36                          29                     3                       8.33                   NOT_TESTED
+  CON          67                   67                           67                     67                          39                     5                       7.46                   NOT_TESTED
+  IMM          47                   45                           45                     45                          38                     3                       6.67                   NOT_TESTED
+  IND          45                   42                           42                     41                          18                     5                      11.90                   NOT_TESTED
+  INT          32                   27                           27                     27                          17                     4                      14.81                   NOT_TESTED
+  MAI          57                   55                           55                     55                          45                     3                       5.45                   NOT_TESTED
+  NSR         781                  743                          743                    743                         103                    21                       2.83                   NOT_TESTED
+  SUR          33                   30                           30                     30                          23                     2                       6.67                   NOT_TESTED
+  THE          93                   85                           85                     85                          50                     8                       9.41                   NOT_TESTED
+  THO          60                   59                           59                     59                          38                     4                       6.78                   NOT_TESTED
+
+Limitations:
+- Original project matches are provisional source evidence.
+- Near-duplicate pairs can connect different projects.
+- Eligibility does not mean manual label approval.
+- Minority test support has not been simulated.
+- No train/validation/test partition was created.

@@ -1,0 +1,6 @@
+﻿source,rows,distinct_combined_project_ids,distinct_project_names,ids_with_multiple_names,rows_under_ambiguous_ids,missing_project_id_rows,missing_project_name_rows,project_identity_verified
+D1,979,46,44,3,184,0,0,NO
+D2,4993,7,189,4,4778,1,0,NO
+D3,1292,104,98,0,0,0,0,NO
+D4,1520,5,4,0,0,0,0,NO
+D5,70,1,1,0,0,0,0,NO

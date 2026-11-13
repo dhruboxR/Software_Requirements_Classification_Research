@@ -1,0 +1,5 @@
+Records: 8854
+Mean words: 16.04
+Median words: 15.00
+Max words: 84
+Word counts use a Unicode regular expression and may differ from model tokenizer lengths.

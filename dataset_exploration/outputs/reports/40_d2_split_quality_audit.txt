@@ -1,0 +1,18 @@
+D2 SPLIT QUALITY AUDIT
+=================================================================
+
+                    scenario  trials  train_fraction_min  train_fraction_median  train_fraction_max  test_fraction_min  test_fraction_median  test_fraction_max  all_ratios_ok_trials  all_classes_present_trials  nfr_test_at_least_100_trials  quality_screen_pass_trials
+PROJECT_NAME_PLUS_SIMILARITY     300              0.2589                 0.8560              0.9017              0.039                0.0703             0.6528                     0                         300                           177                           0
+             TEXT_SIMILARITY     300              0.6951                 0.6999              0.7040              0.147                0.1501             0.1536                   300                         300                           300                         300
+
+GROUP STRUCTURE
+                    scenario  eligible_texts  connected_groups  largest_group_rows  largest_group_pct  similarity_edges_used
+             TEXT_SIMILARITY            4871              4664                   6               0.12                    231
+PROJECT_NAME_PLUS_SIMILARITY            4871               132                2698              55.39                    231
+
+Limitations:
+- Project independence is not verified.
+- Near-duplicate detection may be incomplete.
+- Preliminary annotation decisions remain pending.
+- Successful ratio screening does not prove generalization.
+- No final split or model was created.

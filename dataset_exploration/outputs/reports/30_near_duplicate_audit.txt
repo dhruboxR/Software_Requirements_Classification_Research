@@ -1,0 +1,15 @@
+PHASE 1D: NEAR-DUPLICATE AUDIT
+=================================================================
+
+source  unique_texts  candidate_pairs  different_label_pairs  disjoint_label_pairs
+    D2          4961              257                     21                    21
+    D3          1282              125                     22                    21
+    D4          1102              398                     36                    27
+
+Limitations:
+- Similarity is based on character n-gram TF-IDF.
+- Candidate pairs are not confirmed semantic duplicates.
+- Only the nearest neighbors above the threshold are reported.
+- Paraphrases with different wording may be missed.
+- Analysis is within each source, not across sources.
+- No records or labels have been modified.

@@ -1,0 +1,13 @@
+﻿source_labels,combined_label,count
+Functional,FR,1307
+Other,NFR,71
+FR,FR,48
+Non-Functional,NFR,46
+Interface,NFR,16
+Security,NFR,13
+Performance,NFR,4
+Interface,FR,4
+Non-Functional,FR,4
+Functional,NFR,2
+Other,FR,2
+Security,FR,1

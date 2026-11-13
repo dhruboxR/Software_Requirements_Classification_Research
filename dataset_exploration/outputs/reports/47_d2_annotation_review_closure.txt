@@ -1,0 +1,26 @@
+SCRIPT 47: D2 ANNOTATION REVIEW CLOSURE
+=================================================================
+
+Original review pairs: 69
+Preliminary review rows: 69
+D2 review pairs: 21
+Unique D2 flagged texts: 40
+Missing preliminary pair matches: 0
+Flagged texts retained: 0
+
+D2 FLAGGED REQUIREMENT STATUS
+status
+EXCLUDED_EARLIER    40
+
+SCREENING
+PASS
+
+SCIENTIFIC APPROVAL
+PENDING
+
+Limitations:
+- Pair matching does not establish annotation correctness.
+- Preliminary annotations are not independently approved.
+- Exclusion does not resolve the original disagreements.
+- Undetected semantic conflicts may remain.
+- The frozen split was not changed.

@@ -1,0 +1,21 @@
+﻿source_id,original_candidate,reference_texts,main_rows,matching_rows,matching_unique_texts,match_share_of_main,extraction_status,extraction_notes
+D1,kaggle_extended,975,979,499,495,0.5097,parsed,"column=Requirement, encoding=utf-8-sig"
+D2,kaggle_extended,975,4993,101,99,0.02023,parsed,"column=Requirement, encoding=utf-8-sig"
+D3,kaggle_extended,975,1292,0,0,0.0,parsed,"column=Requirement, encoding=utf-8-sig"
+D4,kaggle_extended,975,1520,0,0,0.0,parsed,"column=Requirement, encoding=utf-8-sig"
+D5,kaggle_extended,975,70,0,0,0.0,parsed,"column=Requirement, encoding=utf-8-sig"
+D1,dosspre,1287,979,0,0,0.0,parsed,"column=Requirement, encoding=cp1252"
+D2,dosspre,1287,4993,0,0,0.0,parsed,"column=Requirement, encoding=cp1252"
+D3,dosspre,1287,1292,0,0,0.0,parsed,"column=Requirement, encoding=cp1252"
+D4,dosspre,1287,1520,0,0,0.0,parsed,"column=Requirement, encoding=cp1252"
+D5,dosspre,1287,70,0,0,0.0,parsed,"column=Requirement, encoding=cp1252"
+D1,fr_nfr,5992,979,193,187,0.19714,parsed,"datasetFR_NFR_full: column=Requirement Text, rows=6117"
+D2,fr_nfr,5992,4993,4990,4958,0.9994,parsed,"datasetFR_NFR_full: column=Requirement Text, rows=6117"
+D3,fr_nfr,5992,1292,1,1,0.00077,parsed,"datasetFR_NFR_full: column=Requirement Text, rows=6117"
+D4,fr_nfr,5992,1520,0,0,0.0,parsed,"datasetFR_NFR_full: column=Requirement Text, rows=6117"
+D5,fr_nfr,5992,70,28,28,0.4,parsed,"datasetFR_NFR_full: column=Requirement Text, rows=6117"
+D1,promise_exp,0,979,0,0,0.0,not verified,NOT PARSED: inspect PROMISE_exp.txt schema before matching
+D2,promise_exp,0,4993,0,0,0.0,not verified,NOT PARSED: inspect PROMISE_exp.txt schema before matching
+D3,promise_exp,0,1292,0,0,0.0,not verified,NOT PARSED: inspect PROMISE_exp.txt schema before matching
+D4,promise_exp,0,1520,0,0,0.0,not verified,NOT PARSED: inspect PROMISE_exp.txt schema before matching
+D5,promise_exp,0,70,0,0,0.0,not verified,NOT PARSED: inspect PROMISE_exp.txt schema before matching

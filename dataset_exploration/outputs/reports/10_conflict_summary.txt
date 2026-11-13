@@ -1,0 +1,7 @@
+Conflicting normalized-text groups: 162
+Rows in conflicting groups: 363
+Groups involving multiple sources: 130
+Groups with within-source label conflict: 32
+The same text with different labels is a review flag, not proof of mislabeling.
+Blank labels count as a distinct label in this audit.
+No labels were changed or removed.

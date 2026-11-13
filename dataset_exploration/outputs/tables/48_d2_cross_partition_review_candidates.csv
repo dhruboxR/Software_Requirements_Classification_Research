@@ -1,0 +1,4 @@
+﻿comparison,requirement_id_a,requirement_id_b,split_a,split_b,similarity,similarity_group_a,similarity_group_b
+train_vs_test,RQP0494680,RQP0494674,train,test,0.890786,3740,3741
+train_vs_test,RQP0482022,RQP0481194,train,test,0.879345,1214,1213
+train_vs_validation,RQP0495693,RQP0495076,train,validation,0.864757,352,351

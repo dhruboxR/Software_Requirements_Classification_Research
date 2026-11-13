@@ -1,0 +1,12 @@
+PROMISE OVERLAP VERIFICATION
+Parsed records: 969
+Parsing errors: 0
+Exact matched combined rows: 1148
+Distinct matched texts: 954
+
+Exact matches use Unicode and whitespace normalization.
+Relaxed matches are candidates, not verified provenance.
+Project IDs and labels are not automatically remapped.
+Original dataset files were not modified.
+
+Parse errors:

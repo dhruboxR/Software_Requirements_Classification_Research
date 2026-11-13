@@ -1,0 +1,3 @@
+Unique normalized text counts are a necessary but not sufficient proxy for independent examples.
+Do not infer model performance or merge labels solely based on counts.
+Class sizes are calculated separately for each source.

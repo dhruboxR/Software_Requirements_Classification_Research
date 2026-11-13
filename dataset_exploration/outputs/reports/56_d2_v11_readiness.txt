@@ -1,0 +1,31 @@
+SCRIPT 56: FINAL D2 v1.1 RESEARCH READINESS
+=================================================================
+
+Requirements: 4833
+FR: 3201
+NFR: 1632
+Similarity groups: 4625
+
+CLASS DISTRIBUTION
+label         FR   NFR
+split                 
+train       2224  1154
+validation   489   239
+test         488   239
+
+TECHNICAL VALIDATION
+File hash integrity: PASS
+Dataset consistency: PASS
+Group isolation: PASS
+Frozen split integrity: PASS
+Cross-partition pairs >= 0.85: 0
+Cross-partition pairs >= 0.80: 17
+
+RESEARCH STATUS
+Technical readiness: PASS
+Experimental protocol: READY_WITH_DOCUMENTED_LIMITATIONS
+Independent human label verification: NOT PERFORMED
+Project independence: NOT ESTABLISHED
+Scientific approval: CONDITIONAL
+Model training: NOT STARTED
+Test evaluation: NOT STARTED

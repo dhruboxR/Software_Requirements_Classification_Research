@@ -1,0 +1,4 @@
+Review 06_label_review_samples.csv against official label definitions.
+Review 06_conflict_review_rows.csv for same normalized text with different class labels.
+A disagreement flag does not prove an incorrect label; context and annotation policy matter.
+No examples were corrected, filtered, or relabeled by this script.

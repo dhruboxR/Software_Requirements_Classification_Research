@@ -1,0 +1,7 @@
+Total records: 8854
+Exact duplicate rows: 0
+Duplicate Requirement IDs (beyond first instance): 0
+Duplicate normalized requirement texts (beyond first instance): 656
+Distinct normalized texts with multiple labels: 162
+Conflicting labels are flags for manual review, not proof of annotation mistakes.
+No records were removed or changed.

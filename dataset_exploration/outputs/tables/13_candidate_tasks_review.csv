@@ -1,0 +1,4 @@
+﻿possible_task,status,required_validation
+Binary FR vs NFR,NOT DECIDED,"Verify definitions and provenance of FR/NFR; determine treatment of F, NSR and other labels"
+Within-source fine-grained classification,NOT DECIDED,"Review source-specific taxonomy, minority classes, groups and original documents"
+Unified hierarchical classification,NOT DECIDED,"Require verified cross-source label mapping; audit duplicates, conflicts and lineage"

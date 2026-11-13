@@ -1,0 +1,8 @@
+kaggle_extended: source candidate strings=975, matched main rows=600, distinct matched texts=525
+promise_exp: source candidate strings=968, matched main rows=0, distinct matched texts=0
+Matches use Unicode NFKC + whitespace normalization + casefold only.
+PROMISE_exp.txt is parsed heuristically; inspect its raw format before interpreting counts.
+A positive match suggests overlapping text; a negative match does not establish independence.
+Assess other extracted sources (XLS/XLSX, DOSSPRE, FR_NFR, Zenodo) separately.
+Check transformed/near-duplicate requirements and project lineage before splitting data.
+No dataset was altered.

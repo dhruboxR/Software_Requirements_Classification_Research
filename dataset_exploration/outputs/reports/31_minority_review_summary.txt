@@ -1,0 +1,14 @@
+MINORITY NEAR-DUPLICATE REVIEW
+=================================================================
+
+source  all_candidate_pairs  disjoint_label_pairs  minority_disjoint_pairs  highest_similarity
+    D2                  257                    21                       21             0.99601
+    D3                  125                    21                       21             0.98892
+    D4                  398                    27                       27             0.97872
+
+Important limitations:
+- Review priority is a heuristic, not a quality score.
+- Similar texts may express different requirements.
+- Negation and numeric differences may change meaning.
+- No automated relabeling or removal was performed.
+- All review decisions are pending.

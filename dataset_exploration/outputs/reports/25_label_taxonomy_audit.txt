@@ -1,0 +1,33 @@
+PHASE 1D: LABEL TAXONOMY AUDIT
+=================================================================
+
+Original records: 8854
+
+Within-source exact-text conflict groups:
+  D1: 0
+  D2: 21
+  D3: 2
+  D4: 9
+  D5: 0
+
+D2:
+  FR/NFR records: 4963
+  Other or blank records: 30
+  Exact-text FR/NFR conflicts: 21
+
+D3:
+  Unexpected labels: 0
+  Within-source conflicts: 2
+
+D4:
+  Unique normalized texts: 1102
+  Conflicting text groups: 9
+  Conflicting-group rows: 41
+
+Limitations:
+- Exact-text conflicts are not automatically label errors.
+- Different source taxonomies are not automatically equivalent.
+- This script does not compare against original-source annotations.
+- Near-duplicate and semantic conflicts are not tested here.
+- No original records were modified.
+- No dataset is approved for training by this audit alone.

@@ -1,0 +1,7 @@
+Source IDs D1-D5 are NOT automatically mapped to named original datasets.
+An exact-text match is evidence of shared text, not proof of origin or completeness.
+Source-file labels may be transformed and match rates may be low.
+PROMISE_exp.txt is not parsed until its schema is verified.
+Some sources (especially Zenodo) are not represented by a directly parsed reference file.
+Review 08_source_profiles.csv alongside 08_source_match_evidence.csv and original metadata.
+No original files were changed.

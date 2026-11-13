@@ -1,0 +1,18 @@
+D2 SOURCE-CONSISTENT CANDIDATE MANIFEST
+=================================================================
+Audited texts: 4871
+Candidates: 4835
+Withheld: 36
+
+label  decision  unique_texts
+   FR CANDIDATE          3202
+   FR  WITHHELD            24
+  NFR CANDIDATE          1633
+  NFR  WITHHELD            12
+
+CAUTIONS
+- Source agreement does not prove label correctness.
+- Prior manual-review pairs remain unresolved.
+- Near-duplicate grouping must be recomputed.
+- No final train/validation/test split is approved.
+- Original data is unchanged.

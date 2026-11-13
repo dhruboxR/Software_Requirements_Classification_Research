@@ -1,0 +1,39 @@
+{
+  "script": 52,
+  "generated_utc": "2026-11-11T20:59:56.717151+00:00",
+  "review_method": "AI_ASSISTED_RULE_BASED",
+  "independent_human_review": false,
+  "decision_status": "PROVISIONAL",
+  "technical_validation": "PASS",
+  "scientific_approval": "PENDING",
+  "reviewed_pairs": 3,
+  "proposed_quarantine_ids": [
+    "RQP0494674",
+    "RQP0494680"
+  ],
+  "proposed_similarity_connections": [
+    [
+      "RQP0482022",
+      "RQP0481194"
+    ],
+    [
+      "RQP0495693",
+      "RQP0495076"
+    ]
+  ],
+  "source_protocol": "v1.0",
+  "target_protocol": "v1.1-proposed",
+  "input_hashes": {
+    "51_d2_human_annotation_review.csv": "42476fd52612c206cef94e80d2cbc74e6b5fd0457c966c091e3387cbfd3a6bcc",
+    "50_d2_provisional_review_decisions.csv": "b1a364d6eef280bfebe24bcfb49dfe03ea1d9f6e54d18e1a96bf4c54f2e2d052",
+    "44_d2_frozen_split_manifest.csv": "be4ca5cf9c321bbd34d4c5a6598698cdb7ce14409de6ab9517c72b32d9940b3f"
+  },
+  "limitations": [
+    "No independent human annotation review.",
+    "AI-assisted decisions are provisional.",
+    "The proposed label interpretation is not an independently established ground truth.",
+    "Conservative grouping is used to reduce identified cross-partition similarity.",
+    "No original labels were changed.",
+    "The frozen v1.0 split was not modified."
+  ]
+}

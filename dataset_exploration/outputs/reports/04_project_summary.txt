@@ -1,0 +1,5 @@
+Records: 8854
+Unique project IDs: 164
+Unique source identifiers: 5
+Project IDs associated with multiple sources: 0
+Project IDs are not guaranteed to represent independent real-world projects.

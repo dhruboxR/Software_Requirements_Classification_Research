@@ -1,0 +1,209 @@
+﻿Requirement ID,Project ID,Datasets,Class,Requirement Text (Original Requirement)
+RQP0470966,P047,D1,,Registered User must be able to maintain his/her session information for at least 60 minutes of inactive session before the system prompts him to log out of the system.
+RQP0470971,P047,D1,,The website must adhere to branding schemes and the layout of the web pages must be uniform throughout.
+RQP0470977,P047,D1,,Identity theft and other security related issues must be solved.
+RQP0470967,P047,D1,,The registered user must be provided with all the options of the E-store regardless of the time when he/she logs in.
+RQP0470974,P047,D1,,There can be any number of mirror servers readily available in case of huge loads without the user getting any delay.
+RQP0495788,P052,D2,,Administrators shall be able to add buildings.
+RQP0470969,P047,D1,,The website must be provided with a site map for quick access to a particular link according to the requirement specification.
+RQP0470979,P047,D1,,All the information about the registered user must be securely stored in the central database.
+RQP0440938,P044,D1,A,The system shall provide a contractual agreement with an internet service provider for T3 access with 99.9999% availability.
+RQP0110548,P011,D1,A,The system must be available for use between 7:00AM and 11:59PM all days of the year.
+RQP0240675,P024,D1,A,The application should be connected to the GPS device.
+RQP0130587,P013,D1,A,The WCS system shall be available at all times as long as IBM\92s internal intranet W3 is accessible. The WCS system will be available 95% of the time IBM\92s internal intranet W3 is available.
+RQP0080402,P008,D1,A,The website shall achieve 99.5% up time.
+RQP0080403,P008,D1,A,All movies shall be streamed on demand  at any time of the day.
+RQP0460959,P046,D1,A,The MTBF (if any) should not be less than 2 months.
+RQP0320755,P032,D1,A,The website is available whenever the users want to use it.
+RQP0497222,P154,D3,AUD,The system shall maintain information on log in and log out for accountability. 
+RQP0497239,P156,D3,AUD,The system shall be able to generate periodic logs as well as collect and analyse data alerting parents whenever certain keywords are typed. 
+RQP0496158,P069,D3,AUD,The system shall keep logs for every operation made by the user for audit trailing commitments.
+RQP0496311,P078,D3,AUD,The system shall allow every history of scans to be recoverable in case of system interrupt
+RQP0496984,P132,D3,AUD,The system shall maintain audit logs 
+RQP0496828,P116,D3,AUD,The system shall allow a user to check netstat and recent network connections to see if rogue node it a victim of pivoting and if so trace the attacking machine. 
+RQP0496179,P070,D3,AUD,"The system shall access personally, identifiable information to allow investigators to be able to reconstruct a criminal event after it happens, thereby securing the evidence. "
+RQP0496829,P116,D3,AUD,The system shall allow a user to recover unique identifiers of the node which was used to generate the node’s unique ID/fingerprint upon registration when the owner entered/joined the university with it 
+RQP0497099,P143,D3,AVA,The system’s QoS shall guarantee its availability at  99.9% uptime.
+RQP0497163,P149,D3,AVA,The system shall be developed to be available all the time. 
+RQP0496083,P064,D3,AVA,The system shall be up and running all the time since its checking or monitoring the child’s behavior and prevent any media from being sent or received using Bluetooth 
+RQP0496355,P082,D3,AVA,The system guarantees reliability and availability because the tools used in developing the system (Apache Kafka and Apache Storm) allows the system to be resilient to failure and to be available all the time. 
+RQP0496979,P132,D3,AVA,The system shall have high availability in such a way that it remains accessible online even during maintenance. 
+RQP0496824,P116,D3,AVA,"The system must be considered downtime impact on the business, transport unavailability and minimizing unavailability."
+RQP0496150,P068,D3,AVA,The system shall ensure that the downtime of internet will not affect its availability as any user can still be granted or denied access to the system. 
+RQP0496857,P118,D3,AVA,The framework ought to be accessible wherever it is required.  At whatever point the clients needs to make a purchase
+RQP0496734,P111,D3,CON,"The system must generate a shared encryption key, upon registration. "
+RQP0496246,P074,D3,CON,The system shall be able to use PGP to maintain security of the log files
+RQP0496138,P068,D3,CON,"The system should preserve the user’s privacy by not publishing the monitored network traffic, and not exposing the user’s registered email address."
+RQP0496201,P073,D3,CON,The system should be able to enforce privacy of data by encryption of data during transmission. 
+RQP0496953,P128,D3,CON,The system shall allow secure storage of client information. 
+RQP0496773,P113,D3,CON,The system will employ encryption at the database side and use HTTPS when accessing networked resources over the internet.  
+RQP0497133,P147,D3,CON,The system shall offer confidentiality through encryption with AES. 
+RQP0496141,P068,D3,CON,The system should not violate laws by not infringing the privacy of sensitive user information and intellectual property rights. 
+RQP0498791,P165,D5,F,The system shall provide a history report of changes made to the Activity or Event data
+RQP0040185,P004,D1,F,The Disputes System must provide the user the ability to initiate a single dispute case on multiple transactions that belong to a single merchant.
+RQP0440924,P044,D1,F,The system shall enable the user to enter their reviews and ratings.
+RQP0498814,P165,D5,F,The system shall allow a Program Administrator/Nursing Staff Member to move a student from one clinical lab section to another clinical lab section corresponding to the same clinical class.
+RQP0440918,P044,D1,F,The system shall display available payment methods for payment.
+RQP0320749,P032,D1,F,It must allow a user to download a backup of their medical information.
+RQP0020068,P002,D1,F,The product shall allow the user to save the property search results.
+RQP0100508,P010,D1,F,The product shall make inactive players unavailable for selection from the list of players.
+RQP0481536,P048,D2,FR,The system shall allow inspection staff to conduct inspections to validate customer compliance with codes and regulations.
+RQP0497849,P160,D4,FR,"The system shall provide a module for managing and tracking laboratory accreditation and certification processes, with tools for monitoring accreditation status, preparing for audits, and generating accreditation reports."
+RQP0481685,P048,D2,FR,The system shall allow members to create and edit their profile descriptions.
+RQP0495242,P051,D2,FR,Users can view full property details.
+RQP0483746,P048,D2,FR,"System shall allow creation, modification, and deletion of student records, including enrollment number, name, and year of enrollment."
+RQP0481967,P048,D2,FR,System shall allow visitors to browse the site without the need for registration.
+RQP0494760,P051,D2,FR,"Any user who creates or joins a game will be able to upload their own JPEG or GIF image that they wish to have displayed above their name, if they do not wish to use a preset icon."
+RQP0494611,P051,D2,FR,The user shall be able to choose between contacting a representative for an order or completing the checkout process online.
+RQP0020045,P002,D1,FT,The product shall operate in offline mode whenever internet connection is unavailable.
+RQP0400815,P040,D1,FT,The system should warn ECA users about the malfunction of the system.
+RQP0360772,P036,D1,FT,The Operational Interface shall have a Mean Time Between Failures of no less than 7 days.
+RQP0020046,P002,D1,FT,The product shall allow the user to view previously downloaded search results CMA reports and appointments.
+RQP0120566,P012,D1,FT,The product shall be robust.The product shall have fault avoidance based on standards adoption.
+RQP0060318,P006,D1,FT,The product and/or dependent databases/filesystems shall remain operational as a result of the input of malicious data.  The product and/or dependent databases/filesystems shall not crash 100% of the time that malicious data is input into the product.
+RQP0270690,P027,D1,FT,The system shall flag tablets that fail to send timely keep-alive messages as non-operational and disassociate the assigned waiter from the tablet.
+RQP0020048,P002,D1,FT,100% of saved user preferences shall be restored when system comes back online.
+RQP0496779,P114,D3,IMM,PlutoMail will offer spam protection at server level and eliminates the need to install and update antispam software on each desktop.  
+RQP0497130,P147,D3,IMM,The system shall  lock automatically after the connection is lost. 
+RQP0496753,P113,D3,IMM,"The system shall implement a combination of cryptographic algorithms that are secure and have proven to be unbreakable by the current technologies, hence using these algorithms collectively strengthens the security of the system. "
+RQP0497225,P154,D3,IMM,The system shall allow file type filtering to avoid the overloading of the normal flow information with unnecessary files. 
+RQP0496713,P110,D3,IMM,"The system shall be fast in intrusion response, to help in stopping the intensity of the damage or mitigation of the risk.  "
+RQP0497082,P141,D3,IMM,The system shall be able to filter outgoing traffic if it contains proxy related request. 
+RQP0496503,P092,D3,IMM,The data provided by the system should be validated and verified were possible.
+RQP0496656,P104,D3,IMM,The system will ensure that general users will only have access through the user interface. 
+RQP0497155,P149,D3,IND,"The system shall analyse the network traffic and detects intrusion, attacks and threats to the network. "
+RQP0496614,P102,D3,IND,The system shall be able to generate a report of the detected and analysed vulnerabilities. 
+RQP0496617,P102,D3,IND,The system scanner may accept a certain number of URLS that should test them for selected vulnerabilities. 
+RQP0497254,P158,D3,IND,The system shall be capable of Malware detection and classify of both known and unknown Malware into their respective families. 
+RQP0497032,P137,D3,IND,The system shall report when a form of identity theft is noticed. 
+RQP0497165,P150,D3,IND,The system shall be able to detect novel attacks which current systems do not yet detect. 
+RQP0496004,P057,D3,IND,The system shall focus on known and unknown malware families with the aim of unearthing newly developed malware which are potentially harmful to the Android applications. 
+RQP0496136,P068,D3,IND,The system should be reliable in detecting known cryptojacking malware activity. 
+RQP0497052,P140,D3,INT,The system shall allow only the legitimate user to modify stored information 
+RQP0496573,P098,D3,INT,Use of a central database to enable real time data capturing and manipulation to facilitate access to laptop details from any computer connected to the database. 
+RQP0496931,P126,D3,INT,The system shall execute its tasks accurately when issued a command. Testing will ensure that all functions are properly included. 
+RQP0496580,P099,D3,INT,The systems administrator should maintain the system and its databases to ensure integrity and availability of information.
+RQP0496261,P075,D3,INT,The system shall ensure that a secure and effective interface is established to reduce the affiliated risk of errors from inaccurate data formats. 
+RQP0496291,P077,D3,INT,The data provided by the system should be validated and verified were possible. 
+RQP0497127,P147,D3,INT,The system shall  distribute authentic copies of each supplied video. 
+RQP0496951,P128,D3,INT, To system shall allow changes to be made in an authorised manner 
+RQP0040172,P004,D1,L,The Disputes application must conform to the legal requirements as specified by the Merchant Operating Regulations.
+RQP0190658,P019,D1,L,The calculations performed by the system must comply according to the norms set by the user and should not vary unless explicitly changed by the user.
+RQP0050238,P005,D1,L,The product shall comply with the estimatics laws relating to recycled parts usage.
+RQP0040173,P004,D1,L,All business rules specified in the Disputes System shall be in compliance with the Merchant Operating Regulations.
+RQP0481876,P048,D2,L,"User shall be able to access the Disputes System, which must conform to legal requirements specified by the Merchant Operating Regulations."
+RQP0040177,P004,D1,L,All actions that modify an existing dispute case must be recorded in the case history.
+RQP0498852,P165,D5,L,All business rules specified in the Disputes System shall be in compliance with the Merchant Operating Regulations.
+RQP0080444,P008,D1,L,The website will comply with W3C standards.
+RQP0010002,P001,D1,LF,The application shall match the color of the schema set forth by Department of Homeland Security
+RQP0030069,P003,D1,LF,The Disputes application shall comply with the corporate standards for user interface creation for internally and externally used applications.
+RQP0120556,P012,D1,LF,The product shall comply with City of Chicago Application Development Guide Framework.Application Development Framework will provide structured Graphical User Interface.
+RQP0060282,P006,D1,LF,The product shall have a conservative and professional appearance.
+RQP0130580,P013,D1,LF,The interface must summarize the data in a fashion that\92s appealing to CCR management. Every report type must have at least one high level summary shown in the results dashboard/interface
+RQP0498831,P165,D5,LF,The Disputes application shall comply with the corporate standards for user interface creation for internally and externally used applications.
+RQP0110553,P011,D1,LF,The interface shall have a simple look. In the interface and usability survey  90% of beta testers must report that the interface is adequately simple.
+RQP0130577,P013,D1,LF,The system shall use IBM and CCR branding standards. The interface must have one IBM logo and one CCR logo.
+RQP0495992,P057,D3,MAI,"The system shall be easy to maintain as it can easily be integrated with other systems, modified or reused on other different platforms, "
+RQP0496104,P065,D3,MAI,New exchange interfaces should be easily integrated into the already existing system without modifying core functionality of the product software. 
+RQP0496507,P092,D3,MAI,The system should be developed with future upgrades and additional functionality being added at a later date. 
+RQP0496268,P075,D3,MAI,The system shall allow for easy maintenance. 
+RQP0496595,P099,D3,MAI,"The system will stand in-between the client and the server, however, it is associated within the server’s architecture. "
+RQP0497251,P157,D3,MAI,The system shall be scalable and able to handle growth in data flow leveraging the Twitter API capabilities. 
+RQP0496411,P086,D3,MAI,The system must allow scalability so as to perform legitimate modification of user data. 
+RQP0496517,P093,D3,MAI,The system is deployed as an application on user machines thus it is cost-effective to maintain as it does not have many modules and online documentation including system documentation and test documentation for easy user acclimatization. 
+RQP0120571,P012,D1,MN,The product shall continue to operate during upgrade  change or new resource addition.The product shall be able to continue to operate with no interruption in service due to new resource additions.
+RQP0150617,P015,D1,MN,New branches/complexes/districts/regions and revenue/expense accounts added to the BDW  must be reflected in the RFS system. 100% of the entities (mentioned above) available as of October month-end  will be loaded into the RFS system  prior to the budget start process.
+RQP0060306,P006,D1,MN,The product must be designed using Design Patterns and coding best practices.  90% of maintenance software developers are able to integrate new functionality into the product with 2 working days.
+RQP0240676,P024,D1,MN,The application should be easy to extend. The code should be written in a way that it favors implementation of new functions.
+RQP0130592,P013,D1,MN,The WCS system must run queries to the WCS databases once again (on a specified day) to update the available data available to CCR users. Queries must be made to external databases for data refresh once a week.
+RQP0120572,P012,D1,MN,The product shall be updated on a regular basis.The product will have a new major feature introduced every six months and quarterly maintenance releases every six months.
+RQP0140610,P014,D1,MN,Application updates shall occur between 3AM and 6 AM CST on Wednesday morning during the middle of the NFL season.
+RQP0060307,P006,D1,MN,The product must be highly configurable for use with various database management systems for the end users.  80% of end users are able to integrate new database management systems with the product without changing the product\92s software code.
+RQP0495361,P051,D2,NFR,User shall restrict communication when validating the user or license using HTTPS for security.
+RQP0495028,P051,D2,NFR,The product shall retain user preferences in the event of a failure.
+RQP0481982,P048,D2,NFR,System use shall not pose any harm to human users.
+RQP0495725,P051,D2,NFR,Admin shall be able to block specific users based on IP address to prevent spamming.
+RQP0494846,P051,D2,NFR,Verification of users signing up as astrologers must be ensured.
+RQP0497411,P160,D4,NFR,Administrative users can configure system settings and user permissions.
+RQP0481586,P048,D2,NFR,The system shall ensure that textual content is free of spelling and grammatical errors for clear readability.
+RQP0483896,P048,D2,NFR,"The system shall utilize help bubbles to assist managers, customers, and administrators "
+RQP0496920,P124,D3,NSR,The  system shall report the findings of the SSL certificate phase. 
+RQP0496908,P123,D3,NSR,The user interface shall be almost self-explanatory. 
+RQP0496856,P118,D3,NSR,"The system shall enable administration services from login, doing the exchange and in addition client re-verification.  "
+RQP0497005,P134,D3,NSR,The system shall provide ease of use.
+RQP0496782,P114,D3,NSR,"The system shall enable sorting of spam to users’ junk email folders.  Reporting, mail archiving, monitoring and POP3 downloading. "
+RQP0496317,P079,D3,NSR,The system offers quick retrieval of information 
+RQP0496621,P102,D3,NSR,The system should have a friendly user interface for ease of use purposes and for a better user experience. 
+RQP0496833,P117,D3,NSR,The system shall allow a user to generate monthly reports which can be viewed by network admin when necessary.  
+RQP0494055,P049,D2,O,"To resolve disputes, the Disputes application will rely solely on transaction details retrieved from the Statement Database."
+RQP0030077,P003,D1,O,The Disputes application shall be available 24x7x365 with the exception of the following scheduled maintenance windows. Monday – Saturday 3:00am to 4:00am EST Sunday 1:00amd to 5:00am EST
+RQP0320733,P032,D1,O,The system should have to keep the location where the doughnut will be send.
+RQP0050228,P005,D1,O,The product shall be supported using the corporate support center.
+RQP0040160,P004,D1,O,The Disputes application shall interface with the Letters application.  This will allow the Disputes application to request letters as part of the dispute initiation and dispute follow up process. All letter requests must be sent to the Print Letter Utility application.
+RQP0498838,P165,D5,O,The Disputes applications shall interface with the Merchant Information Database.  The Merchant Information Database provides detailed information with regard to the merchant. All merchant detail information shall be obtained from the Merchant Information Database.
+RQP0040158,P004,D1,O,The Disputes application shall interface with the Cardmember Information Database. The Cardmember Information Database provides detailed information with regard to a cardmember. All cardmember detail information must be obtained from the Cardmember Information Database.
+RQP0050224,P005,D1,O,The product shall be able to handle 10 000 concurrent users within 2 years of the initial launch.
+RQP0080375,P008,D1,PE,System shall let customers register on the website as a \93pay as you go\94 user in under 5 minutes.
+RQP0010001,P001,D1,PE,The system shall refresh the display every 60 seconds.
+RQP0110546,P011,D1,PE,On a 112k connection or faster  the system response time for all operations must be no more than 3 seconds 90% of the time.
+RQP0020039,P002,D1,PE,The product shall generate a CMA report in an acceptable time.
+RQP0140605,P014,D1,PE,The application shall be able to complete every user transaction within one fourth of a second of receiving the request over the network.
+RQP0070350,P007,D1,PE,Recreation of Inventory Quantity Adjustment for the period of previous 30 days shall take no more than 30min.
+RQP0030082,P003,D1,PE,The response time of general student management tasks shall take no longer than 5 seconds and the response time of schedule generation shall take no longer than 30 seconds.
+RQP0080398,P008,D1,PE,When streaming a movie  the buffering time should take no longer than 10 seconds (plus any latency on the user\92s connection.)
+RQP0430874,P043,D1,PO,The system shall be compatible with IIS6.0 and above or  Apache 2.0 and above.
+RQP0430873,P043,D1,PO,The system shall run on Windows Server 2003.
+RQP0020054,P002,D1,PO,The product is expected to run on Windows CE and Palm operating systems.
+RQP0360778,P036,D1,PO,Since the software must run on several popular hardware platforms and the goal is to achieve a reasonable level of platform independence.
+RQP0340763,P034,D1,PO,An end-user may use this system on any OS; either it is Windows or Linux.
+RQP0240678,P024,D1,PO,The application should be portable with iOS and Android.
+RQP0160624,P016,D1,PO,The system shall operate on Unix and Windows operating systems.
+RQP0460965,P046,D1,PO,The system should be portable to various operating environments.
+RQP0020049,P002,D1,SC,The product shall be able to support multiple remote users
+RQP0120568,P012,D1,SC,The product shall be able to process all transactions.The product shall process minimum of 1 million transactions per year.
+RQP0080408,P008,D1,SC,The server will support a maximum of 1 000 simultaneous users.
+RQP0020050,P002,D1,SC,The product shall be able support 1000 simultaneous users.
+RQP0050223,P005,D1,SC,The average number of recycled parts records per day shall be 50 000.
+RQP0030086,P003,D1,SC,The system shall be expected to manage the nursing program curriculum and class/clinical scheduling for a minimum of 5 years.
+RQP0060297,P006,D1,SC,The product shall be expected to operate for at least 5 years for each customer installation.
+RQP0030084,P003,D1,SC,The system shall cater to 10 simultaneous users from 9am to 5pm.
+RQP0270691,P027,D1,SE,A waiter password used for tablet login must have a bit-strength of at least 64 bits.
+RQP0430870,P043,D1,SE,User authentication and privileges are defined outside the scope of the sytem by the Microsoft Active Directroy Server.
+RQP0060316,P006,D1,SE,The product shall ensure that the database\92s data corresponds to the data entered by the user.  Each conference room reservation in the system will contain the same information as was entered by the user.
+RQP0100502,P010,D1,SE,The product shall provide players no access to information that might reveal the identity of another player
+RQP0360775,P036,D1,SE,Each user shall either be trusted or not trusted.
+RQP0498847,P165,D5,SE,If a user account is revoked  it can only be re-instantiated by the System Administrator.
+RQP0320740,P032,D1,SE,The application must log the user out when it is exited.
+RQP0440947,P044,D1,SE,The system shall not leave any cookies on the customer’s computer containing any of the user’s confidential information.
+RQP0497215,P154,D3,SUR,The system shall allow for error recovery. 
+RQP0496585,P099,D3,SUR,System must allow clients to run a separate routing protocol from one in ISP network. 
+RQP0497142,P148,D3,SUR,"The system shall  encompass factors of complex computations, robustness and security. "
+RQP0496697,P109,D3,SUR,The system offers little room for a delayed data transmissions and system failures due to error handling procedures and feedbacks. 
+RQP0496342,P081,D3,SUR,The system shall allow individual facility  servers to remain unaffected when the central server fails. 
+RQP0496343,P081,D3,SUR,The system shall ensure that the central server remain unaffected when the institutes system fails. 
+RQP0496819,P116,D3,SUR,The system database must be located in a special secure server and must be backups to other servers directly at specific times to avoid loss and damage of data 
+RQP0496873,P119,D3,SUR,The system should allow room for quick error recovery.  
+RQP0496584,P099,D3,THE,The system shall ask user to provide password. 
+RQP0496326,P080,D3,THE,The system shall provide Bluetooth authentication so that users do not need to disable laptop authentication as they have to frequently unlock the laptop during office working hours.
+RQP0496852,P118,D3,THE,The system allows user re-verification by the usage of AVS and distinct security questions. 
+RQP0497048,P139,D3,THE,The system shall authenticate the user with username and password. 
+RQP0496014,P058,D3,THE,The Zimbabwe Anti-Corruption Commission then verifies the signature using the group public key so that it will be convinced that it actually came from the organisation without the knowledge of the actual signer
+RQP0496398,P085,D3,THE,The system shall enable verifying of the signature using the group public key so that it will be convinced that it actually came from the organization without the knowledge of the actual singer. 
+RQP0496583,P099,D3,THE,The system shall require a password to login the Provider Routers. 
+RQP0496999,P134,D3,THE,The system shall allow users to answer questions on their profile after they are requested to fill in questions at registration which will be used as challenge questions when password is forgotten. 
+RQP0496054,P062,D3,THO,The system shall be able to open the door when the pin is correct 
+RQP0496216,P073,D3,THO,The system shall allow the user to be directed to the options page or back to the login page for retrial. 
+RQP0496952,P128,D3,THO,The system shall be able to show clients KYC information to authorised users. 
+RQP0497066,P140,D3,THO,The system shall prevent manipulation of the watermark by an unauthorised user. 
+RQP0496340,P081,D3,THO,The system shall allow approved certified health providers to append information into the encrypted central server. 
+RQP0497126,P147,D3,THO,The system shall deny access to unauthorised users to redistribute the copy they legally purchase. 
+RQP0496765,P113,D3,THO,The system shall allow a user to manage their own password. 
+RQP0497089,P142,D3,THO,The system shall allow administrator to view IP address. 
+RQP0080392,P008,D1,US,The product shall retain the customer\92s buying preferences and information.
+RQP0120557,P012,D1,US,The product shall provide Monitoring Services.The product shall be easy for System Administrators and DBAs to use after two weeks of usage.
+RQP0060287,P006,D1,US,The product shall allow for customization of start page and views preferences.
+RQP0030074,P003,D1,US,100% of merchant services representatives shall be able to successfully perform a follow up action on a dispute case on the first encounter after completing the training course.
+RQP0100500,P010,D1,US,The product shall be intuitive and self-explanatory.  Nine out ten users shall be able to successfully complete a game with no training.
+RQP0010003,P001,D1,US,If projected the data must be readable. On a 10x10 projection screen 90% of viewers must be able to read Event / Activity data from a viewing distance of 30
+RQP0140603,P014,D1,US,Users shall be able to view at least 25 NFL player statistics and points on each page.
+RQP0040151,P004,D1,US,100% of the cardmember and merchant services representatives shall use the Disputes application regularly after a 2-day training course.

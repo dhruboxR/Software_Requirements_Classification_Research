@@ -1,0 +1,190 @@
+﻿project_name,rows,unique_texts,fr,nfr,minority_label_present,both_labels
+a scientific data management system,126,122,65,61,True,True
+administrative management system,131,128,114,17,True,True
+agent communication system,11,11,6,5,True,True
+agricultural e-commerce platform,10,10,1,9,True,True
+airline booking system,14,14,4,10,True,True
+alfred (senior assistant),26,26,26,0,False,False
+apaf system,10,10,3,7,True,True
+arbitrary label for a synthetic collection,34,34,21,13,True,True
+archivesspace,8,8,8,0,False,False
+asset and inventory management system,27,27,19,8,True,True
+astrology app,11,11,7,4,True,True
+atm (automated teller machine) system,19,19,19,0,False,False
+atm / point-of-sale (pos) system,10,10,1,9,True,True
+atm system,206,206,158,48,True,True
+attendance management system,23,23,15,8,True,True
+auto claims & repair network,16,16,9,7,True,True
+automotive repair estimation system,15,15,9,6,True,True
+backend correlator system (be system),36,36,13,23,True,True
+bank management system,26,26,21,5,True,True
+big basket e-commerce system,48,48,32,16,True,True
+bigbasket grocery,3,3,1,2,True,True
+blog platform,25,25,21,4,True,True
+blogging platform,18,18,8,10,True,True
+booking/transportation system,51,51,35,16,True,True
+broker application,1,1,0,1,True,False
+camp management system,65,65,65,0,False,False
+campus historical sites tour app,36,36,33,3,True,True
+car information system,11,11,6,5,True,True
+car rental system,16,16,8,8,True,True
+cinema ticket booking,83,83,51,32,True,True
+college management system,14,14,3,11,True,True
+college-specific system,10,10,0,10,True,False
+command-line interface (cli) system,14,14,7,7,True,True
+content rating system,11,11,11,0,False,False
+correlator monitor and control system (cmcs),26,26,0,26,True,False
+county government portal,59,59,53,6,True,True
+crafty kids corner app,2,2,1,1,True,True
+crime and criminal tracking network & systems (cctns),71,71,9,62,True,True
+crowdsourced transportation routes,12,12,10,2,True,True
+customer relationship management (crm) system,23,23,17,6,True,True
+data management system,4,4,2,2,True,True
+data package management system,70,70,60,10,True,True
+data publishing platform,33,33,31,2,True,True
+database management system,11,11,5,6,True,True
+digital art/drawing application,3,3,0,3,True,False
+digital library / academic journal system,8,8,6,2,True,True
+digital repository,75,75,65,10,True,True
+digital repository/library system,10,10,6,4,True,True
+digital wellbeing app,12,12,6,6,True,True
+digital wellbeing/health app,1,1,1,0,False,False
+disputes application,4,4,0,4,True,False
+disputes management system,24,24,24,0,False,False
+document management system,3,3,0,3,True,False
+document scanner app,11,11,5,6,True,True
+driver smart card network system,21,21,12,9,True,True
+e-commerce logistics system,6,6,1,5,True,True
+e-commerce platform,35,35,24,11,True,True
+e-commerce store,34,34,29,5,True,True
+e-commerce system,49,49,24,25,True,True
+e-learning platform,13,13,11,2,True,True
+ebook reader app,11,11,6,5,True,True
+edge system,2,2,2,0,False,False
+educational / examination portal,19,19,18,1,True,True
+educational fraction game,5,5,3,2,True,True
+email system,13,13,13,0,False,False
+event/exercise visualization tool,21,21,16,5,True,True
+expense splitting app,15,15,6,9,True,True
+fitness app (crossfit),15,15,12,3,True,True
+fitness/workout app,1,1,1,0,False,False
+foodie app / restaurant delivery system,12,12,4,8,True,True
+freecharge payments,7,7,7,0,False,False
+gambler agent online game,8,8,1,7,True,True
+gamer security environment,24,24,20,4,True,True
+gaming system,2,1,1,1,True,True
+generic control system,11,11,11,0,False,False
+healthcare/patient management system,17,17,3,14,True,True
+home automation/iot system,8,8,0,8,True,False
+hospital management system,7,7,5,2,True,True
+hvac diagnostic tool,13,13,11,2,True,True
+image editing tool,4,4,4,0,False,False
+insapption,48,48,43,5,True,True
+institutional research data repository,10,10,10,0,False,False
+intra-mailing/file transfer system,11,11,0,11,True,False
+job portal,15,15,11,4,True,True
+leetcode,25,22,12,13,True,True
+library management system,37,37,28,9,True,True
+life insurance system,29,29,13,16,True,True
+lpg booking system,26,26,10,16,True,True
+lpg services portal,11,11,9,2,True,True
+medical diagnosis / symptom checker system,8,8,4,4,True,True
+meeting scheduler system,37,37,37,0,False,False
+messaging/communication system,10,10,4,6,True,True
+microsoft excel,24,24,14,10,True,True
+microsoft forms,22,22,14,8,True,True
+microsoft powerpoint,18,18,13,5,True,True
+mobile application,2,2,0,2,True,False
+mobile game (puzzle/arcade),39,39,32,7,True,True
+mobility/query system,15,15,0,15,True,False
+mobility/travel system,9,9,0,9,True,False
+multi-purpose business portal,3,3,3,0,False,False
+multiplayer mahjong game,39,39,21,18,True,True
+music composition/notation system,30,30,26,4,True,True
+music recommendation system,9,9,1,8,True,True
+neurohub lims/eln,19,19,19,0,False,False
+nursing program scheduling system,46,46,20,26,True,True
+ola cabs,2,2,2,0,False,False
+online journal / education portal,19,19,17,2,True,True
+online matrimonial portal,7,7,0,7,True,False
+p-uncertain (drex-api),4,4,0,4,True,False
+p-uncertain (tue-map),2,2,0,2,True,False
+passport management system,34,34,30,4,True,True
+patient management / ehr system,11,11,9,2,True,True
+paypal,17,17,11,6,True,True
+paypal-like payment system,12,12,7,5,True,True
+pharmacy management system,22,22,12,10,True,True
+pharmacy/inventory management system,14,14,6,8,True,True
+phone clone app,9,9,5,4,True,True
+physical access control system,8,8,0,8,True,False
+planning poker system,32,32,21,11,True,True
+police case management system,30,30,22,8,True,True
+public health surveillance system,5,5,5,0,False,False
+question answering api,19,19,19,0,False,False
+quora,4,4,2,2,True,True
+radford university mobile app,3,3,0,3,True,False
+real estate listing portal,22,22,18,4,True,True
+real estate system,11,11,9,2,True,True
+real estate/mls mobile app,17,17,6,11,True,True
+real-time translation app,7,7,7,0,False,False
+recipe recommendation system,8,8,0,8,True,False
+recommender system,28,28,15,13,True,True
+recycling locator,15,15,13,2,True,True
+research data management / dmp tool,23,23,23,0,False,False
+restaurant finder & owner portal,146,146,124,22,True,True
+restaurant food delivery system,44,44,43,1,True,True
+restaurant management system,50,50,35,15,True,True
+retail point-of-sale (pos) system,15,15,13,2,True,True
+ride coordination/carpool system,3,3,2,1,True,True
+ride hailing/booking system,4,4,4,0,False,False
+route optimization system,4,4,2,2,True,True
+school/college management system,181,176,153,28,True,True
+scrum community website,18,18,13,5,True,True
+search system,1,1,0,1,True,False
+sensor data system,2,2,2,0,False,False
+skype,5,5,5,0,False,False
+smart traffic management (stm) website,6,6,4,2,True,True
+snapchat,40,40,34,6,True,True
+snapchat clone/social media app,11,11,11,0,False,False
+social media/pinboard system,30,30,26,4,True,True
+social messaging system,4,4,3,1,True,True
+social networking/messaging system,14,14,3,11,True,True
+software installation/licensing system,14,14,14,0,False,False
+software licensing/activation,28,28,12,16,True,True
+sports betting / fantasy sports system,45,45,36,9,True,True
+stock portfolio & trading app,53,53,42,11,True,True
+stock prediction system,15,15,10,5,True,True
+stock/trading system,5,5,3,2,True,True
+streaming platform (netflix-like),67,67,47,20,True,True
+student attendance management system,18,18,6,12,True,True
+student biometric system,4,4,3,1,True,True
+student handbook / campus app,23,21,23,0,False,False
+swiggy clone app / food delivery system,10,10,3,7,True,True
+system requirements for adobe illustrator,15,15,8,7,True,True
+tactical control system (tcs),10,10,7,3,True,True
+task management system,21,21,13,8,True,True
+theaa.com website,2,2,2,0,False,False
+themas,52,52,52,0,False,False
+train information system,10,10,5,5,True,True
+transportation booking system,8,8,8,0,False,False
+transportation system,20,20,14,6,True,True
+travel and tourism platform,10,10,6,4,True,True
+travel booking system,3,3,3,0,False,False
+tu/e campus navigator,33,33,33,0,False,False
+university asset management,18,18,15,3,True,True
+unspecified system,527,526,216,311,True,True
+us data act broker (fabs/dabs),39,39,17,22,True,True
+user account system,7,7,6,1,True,True
+video platform/streaming service,13,13,3,10,True,True
+video sharing platform,26,26,25,1,True,True
+vivavideo app,10,10,3,7,True,True
+vivavideo video editor,6,6,2,4,True,True
+vs code remote/server,5,5,4,1,True,True
+weather app,20,20,13,7,True,True
+web browser,10,10,8,2,True,True
+web order system,80,80,3,77,True,True
+webmail (gmail-like),144,144,115,29,True,True
+whatsapp,10,10,6,4,True,True
+wind power plant monitoring system,6,6,3,3,True,True
+workforce roster management,6,6,5,1,True,True
+zooniverse,65,65,52,13,True,True

@@ -1,0 +1,5 @@
+scenario,label,successful_trials,train_median,val_median,test_min,test_median,test_max,trials_test_below_20,trials_test_below_50,trials_train_class_missing
+PROJECT_NAME_PLUS_SIMILARITY,FR,300,2749.5,229.0,94,234.5,2108,0,0,0
+PROJECT_NAME_PLUS_SIMILARITY,NFR,300,1403.0,107.0,42,109.0,1143,0,1,0
+TEXT_SIMILARITY,FR,300,2257.0,483.0,445,485.0,514,0,0,0
+TEXT_SIMILARITY,NFR,300,1151.0,248.0,213,245.0,286,0,0,0

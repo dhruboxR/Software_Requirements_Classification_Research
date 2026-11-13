@@ -1,0 +1,6 @@
+﻿source,classes,classes_under_30,classes_under_100,min_unique_class_support
+D1,12,6,11,12
+D2,10,9,9,1
+D3,11,0,10,32
+D4,2,0,0,112
+D5,6,5,6,3

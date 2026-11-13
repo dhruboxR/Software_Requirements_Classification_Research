@@ -1,0 +1,21 @@
+D2 PROTOCOL v1.1 CANDIDATE PREPARATION
+=================================================================
+v1.0 requirements: 4835
+Quarantined: 2
+v1.1 requirements: 4833
+
+label
+FR     3201
+NFR    1632
+
+v1.0 groups: 4629
+v1.1 groups: 4625
+Largest group: 6
+Mixed-label groups: 0
+Additional connections: 2
+
+Review method: AI_ASSISTED_RULE_BASED
+Independent review: NO
+Scientific approval: PENDING
+New split generated: NO
+Original v1.0 modified: NO

@@ -1,0 +1,8 @@
+Candidate exact normalized-text matches do not prove definitive dataset origin.
+No exact match does not prove independence, especially after preprocessing or rewording.
+PROMISE_exp.txt is deliberately NOT parsed until its record format is inspected.
+Zenodo SRS and associated spreadsheets are NOT automatically text-matched here.
+FR_NFR and DOSSPRE extraction relies on recognized text-column headers; inspect extraction status.
+Combined source identifiers require original authors documentation for verified mappings.
+Do not treat this output as a complete near-duplicate or data-leakage analysis.
+No original files were modified.

@@ -1,0 +1,7 @@
+D2 CROSS-PARTITION REVIEW
+=================================================================
+Pairs: 3
+Same-label pairs: 2
+Different-label pairs: 1
+Semantic decisions: PENDING
+Frozen split modified: NO

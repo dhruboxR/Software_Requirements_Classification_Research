@@ -1,0 +1,5 @@
+﻿reference,path,parse_status,reference_unique_texts,matched_combined_rows,matched_unique_texts,notes
+kaggle_extended,/home/dhrubo_roy/THESIS_DATASET_2/A Unified Multi-Source Dataset of Software Require/Original Datasets/Kaggel_datasets/software_requirements_extended.csv,parsed,975,600,525,"column=Requirement, encoding=utf-8-sig"
+dosspre,/home/dhrubo_roy/THESIS_DATASET_2/A Unified Multi-Source Dataset of Software Require/Original Datasets/2 Datasets from Mendeley/DOSSPRE 1.0Original.csv,parsed,1287,0,0,"column=Requirement, encoding=cp1252"
+fr_nfr,/home/dhrubo_roy/THESIS_DATASET_2/A Unified Multi-Source Dataset of Software Require/Original Datasets/2 Datasets from Mendeley/FR_NFR_Dataset Original.xlsx,parsed,5992,5212,5014,"datasetFR_NFR_full: column=Requirement Text, rows=6117"
+promise_exp,/home/dhrubo_roy/THESIS_DATASET_2/A Unified Multi-Source Dataset of Software Require/Original Datasets/Github-Promise/PROMISE_exp.txt,not verified,0,0,0,NOT PARSED: inspect PROMISE_exp.txt schema before matching

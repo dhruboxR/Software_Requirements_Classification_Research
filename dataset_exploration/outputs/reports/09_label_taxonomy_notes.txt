@@ -1,0 +1,4 @@
+Distinct observed nonblank labels: 25
+The 09_taxonomy_review_template.csv is for HUMAN REVIEW, not automatic labels.
+Verify definitions in dataset documentation and source files before mapping F/FR or NFR/specialized classes.
+Original labels and records were not altered.

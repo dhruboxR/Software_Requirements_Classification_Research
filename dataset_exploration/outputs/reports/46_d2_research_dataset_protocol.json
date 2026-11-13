@@ -1,0 +1,98 @@
+{
+  "protocol_name": "D2 Binary Requirements Classification",
+  "version": "1.0-candidate",
+  "generated_utc": "2026-11-11T20:48:05.019161+00:00",
+  "research_task": {
+    "type": "binary_text_classification",
+    "labels": {
+      "FR": "Functional Requirement",
+      "NFR": "Non-Functional Requirement"
+    },
+    "minority_class": "NFR"
+  },
+  "dataset": {
+    "parent_collection": "Unified Multi-Source Software Requirements Dataset",
+    "source_subset": "D2",
+    "immediate_source": "FR_NFR_Dataset Original.xlsx",
+    "original_d2_rows": 4993,
+    "audited_unique_texts": 4871,
+    "source_consistent_candidates": 4835,
+    "withheld_source_label_cases": 36,
+    "class_counts": {
+      "FR": 3202,
+      "NFR": 1633
+    }
+  },
+  "preprocessing": {
+    "text_key": "Unicode NFKC, whitespace collapse, strip, casefold",
+    "deduplication": "One candidate per normalized text key",
+    "source_label_rule": "Retain only records with one matching original-source label",
+    "annotation_review": "Previously flagged similarity-disagreement texts provisionally withheld",
+    "semantic_label_verification": "Not independently completed"
+  },
+  "similarity_control": {
+    "method": "Character n-gram TF-IDF cosine similarity candidate graph",
+    "ngram_range": [
+      3,
+      5
+    ],
+    "candidate_threshold": 0.85,
+    "neighbor_search_limit": 10,
+    "components": 4629,
+    "largest_component": 6,
+    "cross_partition_components": 0,
+    "scope": "Detected similarity candidates only"
+  },
+  "partition": {
+    "status": "FROZEN_PENDING_FINAL_APPROVAL",
+    "seed": 42,
+    "method": "GroupShuffleSplit",
+    "requested_ratio": [
+      0.7,
+      0.15,
+      0.15
+    ],
+    "counts": {
+      "train": {
+        "FR": 2256,
+        "NFR": 1136
+      },
+      "validation": {
+        "FR": 472,
+        "NFR": 251
+      },
+      "test": {
+        "FR": 474,
+        "NFR": 246
+      }
+    },
+    "test_set_sealed": true
+  },
+  "technical_audit": {
+    "passed": 16,
+    "total": 16,
+    "status": "PASS"
+  },
+  "approval": {
+    "technical": "PASS",
+    "scientific": "PENDING",
+    "model_training": "NOT_STARTED",
+    "final_test_evaluation": "NOT_STARTED"
+  },
+  "files_sha256": {
+    "42_d2_source_consistent_candidates.csv": "08ceab7f0707443b5789ca3e4ac8913b85a78e3e1b41e1d0f01eeb68486a2dad",
+    "42_d2_withheld_label_cases.csv": "a668beb3e75a95089ab016b2c894113b382acd557f74ee248a87c8b9a9b6168d",
+    "44_d2_frozen_split_manifest.csv": "be4ca5cf9c321bbd34d4c5a6598698cdb7ce14409de6ab9517c72b32d9940b3f",
+    "44_d2_split_metadata.json": "886a0bacc47c3f756527a5c271102f038d4744418e55f0ddda558b3ec6bf4d86",
+    "43_d2_candidate_group_membership.csv": "077da41cc02cbc4994636fd8cfc2322550139ccd998e18697a8570db32caff6b",
+    "45_d2_final_approval_audit.txt": "7e0f93a3249f1d23dc8ae6d0ff3e7cc5ba89724e12d8848d9a75f996e71f01ad"
+  },
+  "limitations": [
+    "Original project independence is unverified.",
+    "Source agreement does not prove semantic correctness.",
+    "Near-duplicate candidate search is not exhaustive.",
+    "Undetected semantic paraphrases may cross partitions.",
+    "Preliminary human annotation review remains unresolved.",
+    "Class counts do not guarantee predictive performance."
+  ]
+}

@@ -1,0 +1,10 @@
+D4 ZENODO PROVENANCE ANALYSIS
+D4 rows: 1520
+Matched rows: 1520
+Unmatched rows: 0
+Distinct matched texts: 1102
+
+Exact normalized-text matching only.
+Matches do not establish that Zenodo was the sole origin.
+Unmatched records may contain transformed text.
+No original dataset was modified.

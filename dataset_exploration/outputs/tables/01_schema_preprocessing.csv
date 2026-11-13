@@ -1,0 +1,7 @@
+﻿position,column,dtype
+1,Requirement ID,string
+2,Project ID,string
+3,Project Name,string
+4,Datasets,string
+5,Requirement Text (Original Requirement),string
+6,Class,string

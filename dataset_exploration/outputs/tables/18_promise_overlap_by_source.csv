@@ -1,0 +1,6 @@
+﻿source,total_rows,matched_rows,unmatched_rows,match_pct,distinct_matched_texts
+D1,979,946,33,96.63,935
+D2,4993,151,4842,3.02,148
+D3,1292,0,1292,0.0,0
+D4,1520,0,1520,0.0,0
+D5,70,51,19,72.86,51

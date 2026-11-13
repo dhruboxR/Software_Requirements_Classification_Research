@@ -1,0 +1,34 @@
+FINAL D2 DATASET TECHNICAL AUDIT
+=================================================================
+
+Candidate SHA256 unchanged: PASS
+Membership SHA256 unchanged: PASS
+Manifest SHA256 unchanged: PASS
+Candidate count: PASS
+Manifest count: PASS
+Unique candidate texts: PASS
+Unique manifest texts: PASS
+Same candidate and manifest keys: PASS
+No withheld-text overlap: PASS
+Only FR/NFR labels: PASS
+Expected partition names: PASS
+No similarity group crosses partitions: PASS
+Expected class counts: PASS
+Recorded metadata class counts: PASS
+Candidate labels unchanged: PASS
+Similarity group assignments unchanged: PASS
+
+Checks passed: 16/16
+
+label         FR   NFR
+split                 
+train       2256  1136
+validation   472   251
+test         474   246
+
+Remaining scientific limitations:
+- Original project independence is unverified.
+- Semantic label correctness is not fully established.
+- Undetected paraphrase leakage remains possible.
+- Test set must remain sealed during development.
+- Technical PASS does not imply scientific approval.

@@ -1,0 +1,51 @@
+{
+  "protocol": "D2-v1.1",
+  "generated_utc": "2026-11-11T21:06:14.344248+00:00",
+  "dataset": {
+    "requirements": 4833,
+    "fr": 3201,
+    "nfr": 1632,
+    "similarity_groups": 4625,
+    "quarantined_v11_records": 2
+  },
+  "split_counts": {
+    "train": {
+      "FR": 2224,
+      "NFR": 1154
+    },
+    "validation": {
+      "FR": 489,
+      "NFR": 239
+    },
+    "test": {
+      "FR": 488,
+      "NFR": 239
+    }
+  },
+  "technical_checks": {
+    "file_hash_integrity": "PASS",
+    "candidate_consistency": "PASS",
+    "group_isolation": "PASS",
+    "frozen_split_integrity": "PASS",
+    "cross_partition_similarity_ge_085": 0,
+    "cross_partition_similarity_ge_080": 17
+  },
+  "research_status": {
+    "technical_readiness": "PASS",
+    "experimental_protocol": "READY_WITH_DOCUMENTED_LIMITATIONS",
+    "independent_annotation_validation": "NOT_PERFORMED",
+    "project_independence": "NOT_ESTABLISHED",
+    "scientific_approval": "CONDITIONAL",
+    "model_training": "NOT_STARTED",
+    "test_evaluation": "NOT_STARTED"
+  },
+  "limitations": [
+    "Source-label agreement is not independent semantic verification.",
+    "AI-assisted review decisions remain provisional.",
+    "Original-project independence is unverified.",
+    "Lexical similarity threshold does not establish semantic independence.",
+    "17 cross-partition lexical pairs scored at least 0.80 but below 0.85 in Script 55.",
+    "The frozen test set must not be used for model or threshold selection."
+  ],
+  "frozen_manifest_sha256": "5faf0652f237dde438ab89e238c61a490efdf567b8306b3f159229dd4ef5baa4"
+}

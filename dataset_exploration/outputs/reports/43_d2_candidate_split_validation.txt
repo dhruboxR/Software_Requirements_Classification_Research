@@ -1,0 +1,27 @@
+PHASE 1E: D2 FINAL CANDIDATE FEASIBILITY
+=================================================================
+
+candidate_rows: 4835
+similarity_groups: 4629
+largest_group: 6
+mixed_label_groups: 0
+simulations: 300
+ratio_pass: 300
+all_classes_present: 300
+nfr_test_at_least_100: 300
+overall_pass: 300
+train_fraction_median: 0.6998
+val_fraction_median: 0.1502
+test_fraction_median: 0.1499
+test_nfr_min: 209
+test_nfr_median: 246.0
+test_nfr_max: 277
+
+Limitations:
+- This is a feasibility simulation, not an approved split.
+- Groups rely on detected text similarity only.
+- Semantically similar requirements may remain undetected.
+- Project-independent generalization is not established.
+- Source agreement does not guarantee correct labels.
+- Mixed-label similarity groups require further review.
+- No model was trained.

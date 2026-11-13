@@ -1,0 +1,8 @@
+D4 LABEL TRANSFORMATION ANALYSIS
+Total D4 rows: 1520
+Single-source-label rows: 1518
+Multiple-source-label rows: 2
+
+The matrix describes observed label associations.
+It does not prove the publisher's transformation rules.
+Original records remain unchanged.

@@ -1,0 +1,3 @@
+scenario,eligible_texts,connected_groups,largest_group_rows,largest_group_pct,similarity_edges_used
+TEXT_SIMILARITY,4871,4664,6,0.12,231
+PROJECT_NAME_PLUS_SIMILARITY,4871,132,2698,55.39,231

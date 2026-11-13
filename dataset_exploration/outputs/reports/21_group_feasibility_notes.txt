@@ -1,0 +1,4 @@
+Recovered D3 IDs are inferred from normalized text matches to DOSSPRE.
+Unmatched and multiple-original-project D3 records are not assigned groups.
+Do not use D2 combined Project ID alone as a project-aware split key.
+Do not approve any split until group overlap and fold-specific class support have been validated.
