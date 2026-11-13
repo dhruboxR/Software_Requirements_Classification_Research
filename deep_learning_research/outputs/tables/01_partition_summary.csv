@@ -1,0 +1,4 @@
+split,FR,NFR,total
+train,2224,1154,3378
+validation,489,239,728
+test,488,239,727

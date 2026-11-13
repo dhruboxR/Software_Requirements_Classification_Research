@@ -1,0 +1,11 @@
+true_label,error_category,requirements
+FR,Other,414
+FR,Persistent error in all nine runs,13
+FR,Persistent error in one architecture,7
+FR,Persistent error in two architectures,10
+FR,Seed-dependent prediction,45
+NFR,Other,177
+NFR,Persistent error in all nine runs,16
+NFR,Persistent error in one architecture,9
+NFR,Persistent error in two architectures,4
+NFR,Seed-dependent prediction,33

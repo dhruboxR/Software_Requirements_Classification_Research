@@ -1,0 +1,2 @@
+total_requirements,agreement,disagreement,uncertain,decisive_annotations,decisive_coverage,agreement_among_decisive,agreement_fraction_all,previously_exposed_cases,review_type
+43,11,25,7,36,0.8372093023255814,0.3055555555555556,0.2558139534883721,5,AI_ASSISTED_EXPLORATORY

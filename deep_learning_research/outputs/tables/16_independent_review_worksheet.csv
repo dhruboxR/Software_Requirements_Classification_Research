@@ -1,0 +1,33 @@
+﻿review_number,requirement_id,Requirement Text (Original Requirement),human_label,human_confidence,human_issue_category,human_reasoning,human_review_status
+1,RQP0494822,"User shall be able to make payments securely through integrated payment gateways like PayPal, InterSwitch, etc.",,,,,NOT_REVIEWED
+2,RQP0481137,"The system shall be able to monitor the overall data processing rate, compare it to tolerances, and report any deviations from those tolerances.",,,,,NOT_REVIEWED
+3,RQP0494715,All users shall be able to navigate to the Catalogue using the sub navigation icons.,,,,,NOT_REVIEWED
+4,RQP0483126,The system shall render complex graphics and enable smooth on-screen navigation.,,,,,NOT_REVIEWED
+5,RQP0482786,The system shall provide basic usage metrics for administrators,,,,,NOT_REVIEWED
+6,RQP0494531,User shall be able to view the customer homepage after logging in.,,,,,NOT_REVIEWED
+7,RQP0495030,The product shall allow the user to select a chosen language from one of the target market countries.,,,,,NOT_REVIEWED
+8,RQP0482530,The system shall allow the use of unverified (anonymous) avatars or aliases.,,,,,NOT_REVIEWED
+9,RQP0483621,System shall provide a user-friendly web interface for depositors to submit and manage datasets without requiring additional software installation.,,,,,NOT_REVIEWED
+10,RQP0483534,System shall enable sponsors to link attendees to their sponsorship page.,,,,,NOT_REVIEWED
+11,RQP0482047,The system shall ensure safe transactions.,,,,,NOT_REVIEWED
+12,RQP0481424,"System shall restrict access to modules based on user roles, preventing students from updating marks.",,,,,NOT_REVIEWED
+13,RQP0483721,System shall help police personnel in planning and executing tasks efficiently.,,,,,NOT_REVIEWED
+14,RQP0483817,"System shall use transaction management software (BMS version 2.0), card management software (CMS version 3.0), and Yamaha codecs.",,,,,NOT_REVIEWED
+15,RQP0483121,The system shall have sufficient hardware resources to support all functionalities of Adobe Illustrator without limitations due to insufficient hardware.,,,,,NOT_REVIEWED
+16,RQP0483972,System shall allow browsing content by author or subject area.,,,,,NOT_REVIEWED
+17,RQP0481443,User shall be able to interact with the text-based command-line interface of the system.,,,,,NOT_REVIEWED
+18,RQP0482218,The automated diagnostic tool shall detect and identify certain performance and operational faults in chiller and cooling tower subsystems of HVAC units following specified algorithms.,,,,,NOT_REVIEWED
+19,RQP0483364,System shall be able to provide access to the system through web browsers and mobile applications.,,,,,NOT_REVIEWED
+20,RQP0495720,User shall experience a great UI and UX for a pleasant navigation experience.,,,,,NOT_REVIEWED
+21,RQP0481091,"System shall generate logs of user bank account details, account updates with date, time, and changes, and fixed asset schedules.",,,,,NOT_REVIEWED
+22,RQP0495807,Significant errors in software operation shall be logged to permanent storage with sufficient detail to guide the administrator and to assist support staff in locating and rectifying the error.,,,,,NOT_REVIEWED
+23,RQP0483389,System shall provide secure passwords to each user or client.,,,,,NOT_REVIEWED
+24,RQP0483781,"The system shall support the following operating systems - Windows 10/11 (32-bit or 64-bit) and Windows Server 2022, Windows Server 2019, Windows Server 2016, or Windows Server 2012 (including R2)",,,,,NOT_REVIEWED
+25,RQP0482522,The system shall allow users to create unverified (anonymous) avatars or aliases.,,,,,NOT_REVIEWED
+26,RQP0495326,The product shall be designed with very limited graphics usage and shall utilize a simple keypad for user input.,,,,,NOT_REVIEWED
+27,RQP0494136,"User shall be able to interact with databases using multiple interfaces such as the Command-Line Interface (CLI), Graphical User Interface (GUI) tools like MySQL Workbench, and Application Programming Interfaces (APIs) for various programming languages.",,,,,NOT_REVIEWED
+28,RQP0494189,User shall have an ALFRED device easily adaptable for users with visual or hearing impairments.,,,,,NOT_REVIEWED
+29,RQP0495588,"User shall access different modes for adding filters and effects to scenes and images, enhancing versatility and customization options.",,,,,NOT_REVIEWED
+30,RQP0494821,User shall be able to respond to a limited number of profiles per day as a general job seeker.,,,,,NOT_REVIEWED
+31,RQP0482237,The system shall allow authorized users to delete sub-apps and their launchers within the main application.,,,,,NOT_REVIEWED
+32,RQP0482166,System shall have a strong network of servers managed by a qualified team to handle application functionality worldwide.,,,,,NOT_REVIEWED

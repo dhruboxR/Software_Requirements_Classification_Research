@@ -1,0 +1,2 @@
+model,best_epoch,training_seconds,accuracy,balanced_accuracy,macro_f1,nfr_precision,nfr_recall,nfr_f1,average_precision,roc_auc,tn,fp,fn,tp
+D03_RoBERTaBase,3,218.7,0.9065934065934066,0.8866185794594039,0.8924499443826474,0.88,0.8284518828451883,0.853448275862069,0.9136197893372848,0.9577140608020809,462,27,41,198
