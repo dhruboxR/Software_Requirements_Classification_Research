@@ -1,0 +1,356 @@
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_2/08_source_mapping.py
+---------------------------------------------------------------------------------------
+
+Saved: dataset_exploration/outputs/tables/08_source_profiles.csv
+Saved: dataset_exploration/outputs/tables/08_source_match_evidence.csv
+Saved: dataset_exploration/outputs/reports/08_source_mapping_notes.txt
+source_id original_candidate  matching_rows extraction_status
+       D1    kaggle_extended            499            parsed
+       D2    kaggle_extended            101            parsed
+       D3    kaggle_extended              0            parsed
+       D4    kaggle_extended              0            parsed
+       D5    kaggle_extended              0            parsed
+       D1            dosspre              0            parsed
+       D2            dosspre              0            parsed
+       D3            dosspre              0            parsed
+       D4            dosspre              0            parsed
+       D5            dosspre              0            parsed
+       D1             fr_nfr            193            parsed
+       D2             fr_nfr           4990            parsed
+       D3             fr_nfr              1            parsed
+       D4             fr_nfr              0            parsed
+       D5             fr_nfr             28            parsed
+       D1        promise_exp              0      not verified
+       D2        promise_exp              0      not verified
+       D3        promise_exp              0      not verified
+       D4        promise_exp              0      not verified
+       D5        promise_exp              0      not verified
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_2/09_label_taxonomy.py
+---------------------------------------------------------------------------------------
+
+Saved: dataset_exploration/outputs/tables/09_source_label_taxonomy.csv
+Saved: dataset_exploration/outputs/tables/09_label_source_matrix.csv
+Saved: dataset_exploration/outputs/tables/09_taxonomy_review_template.csv
+Saved: dataset_exploration/outputs/reports/09_label_taxonomy_notes.txt
+Saved taxonomy tables. Nonblank labels: 25
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_2/10_conflict_diagnostics.py
+---------------------------------------------------------------------------------------
+
+Saved: dataset_exploration/outputs/tables/10_conflict_groups.csv
+Saved: dataset_exploration/outputs/tables/10_conflict_records.csv
+Saved: dataset_exploration/outputs/tables/10_conflict_source_label_counts.csv
+Saved: dataset_exploration/outputs/reports/10_conflict_summary.txt
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_2/11_duplicate_diagnostics.py
+---------------------------------------------------------------------------------------
+
+Saved: dataset_exploration/outputs/tables/11_duplicate_groups.csv
+Saved: dataset_exploration/outputs/tables/11_duplicate_records.csv
+Saved: dataset_exploration/outputs/reports/11_duplicate_summary.txt
+Duplicate groups=382, extra occurrences=656
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_2/12_source_provenance.py
+---------------------------------------------------------------------------------------
+
+Saved: dataset_exploration/outputs/tables/12_reference_extraction_status.csv
+Saved: dataset_exploration/outputs/tables/12_candidate_provenance_matches.csv
+Saved: dataset_exploration/outputs/tables/12_matches_by_source.csv
+Saved: dataset_exploration/outputs/reports/12_provenance_limitations.txt
+      reference parse_status  reference_unique_texts  matched_combined_rows
+kaggle_extended       parsed                     975                    600
+        dosspre       parsed                    1287                      0
+         fr_nfr       parsed                    5992                   5212
+    promise_exp not verified                       0                      0
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_2/13_dataset_suitability.py
+---------------------------------------------------------------------------------------
+
+Saved: dataset_exploration/outputs/tables/13_suitability_indicators.csv
+Saved: dataset_exploration/outputs/tables/13_candidate_tasks_review.csv
+Saved: dataset_exploration/outputs/reports/13_dataset_suitability_summary.txt
+PHASE 1 DATASET SUITABILITY: NOT YET APPROVED FOR MODELING
+
+rows: 8854
+project_ids: 164
+sources: 5
+nonblank_labels: 25
+blank_text_rows: 0
+blank_label_rows: 19
+extra_duplicate_text_occurrences: 656
+conflicting_normalized_text_groups: 162
+conflict_related_rows: 363
+largest_source_share_pct: 56.393
+largest_label_share_pct: 52.406
+nonblank_labels_under_30_records: 5
+
+Decision gates:
+[ ] Verify original meanings of D1-D5 against publisher documentation
+[ ] Verify labels using authoritative definitions, not abbreviations alone
+[ ] Audit conflicting annotations and blank labels
+[ ] Verify PROMISE source format and source overlap, including transformed texts
+[ ] Decide target label taxonomy and inclusion/exclusion with a written protocol
+[ ] Define leakage-controlled evaluation after project and duplicate-group checks
+No original files or class labels were modified.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_2/14_d4_zenodo_provenance.py
+---------------------------------------------------------------------------------------
+
+===========================================================================
+D4 ZENODO PROVENANCE ANALYSIS
+===========================================================================
+D4 records: 1520
+Unique D4 texts: 1102
+
+SOURCE MATCH SUMMARY
+                                        file           sheet  source_rows  source_unique_texts  matched_unique_d4_texts
+                 IA_REQUIREMENT_LIST_LIS.xls           Dados         2376                 1103                     1102
+           Process_data/AI Requirements.xlsx           Dados         2376                 1103                     1102
+    Process_data/AI_Requirements_By_LLM.xlsx          google          372                  365                      365
+    Process_data/AI_Requirements_By_LLM.xlsx           llama          706                  343                      343
+    Process_data/AI_Requirements_By_LLM.xlsx         mistral          524                  311                      311
+    Process_data/AI_Requirements_By_LLM.xlsx          claude          309                  305                      304
+    Process_data/AI_Requirements_By_LLM.xlsx          openai          465                  159                      159
+  Process_data/AI_Requirements_By_Round.xlsx   llama_Round_2          186                  158                      158
+Process_data/Classified_AI_Requirements.xlsx   llama_Round_2          186                  158                      158
+Process_data/Classified_AI_Requirements.xlsx   llama_Round_1          172                  156                      156
+  Process_data/AI_Requirements_By_Round.xlsx   llama_Round_1          172                  156                      156
+Process_data/Classified_AI_Requirements.xlsx  google_Round_1          152                  152                      152
+  Process_data/AI_Requirements_By_Round.xlsx  google_Round_1          152                  152                      152
+  Process_data/AI_Requirements_By_Round.xlsx   llama_Round_3          171                  113                      113
+Process_data/Classified_AI_Requirements.xlsx   llama_Round_3          171                  113                      113
+  Process_data/AI_Requirements_By_Round.xlsx  openai_Round_1          111                  111                      111
+Process_data/Classified_AI_Requirements.xlsx mistral_Round_3          111                  111                      111
+  Process_data/AI_Requirements_By_Round.xlsx mistral_Round_3          111                  111                      111
+  Process_data/AI_Requirements_By_Round.xlsx  openai_Round_3          111                  111                      111
+  Process_data/AI_Requirements_By_Round.xlsx  openai_Round_2          111                  111                      111
+Process_data/Classified_AI_Requirements.xlsx  openai_Round_2          111                  111                      111
+Process_data/Classified_AI_Requirements.xlsx mistral_Round_2          111                  111                      111
+Process_data/Classified_AI_Requirements.xlsx  openai_Round_3          111                  111                      111
+Process_data/Classified_AI_Requirements.xlsx  openai_Round_1          111                  111                      111
+  Process_data/AI_Requirements_By_Round.xlsx   llama_Round_4          111                  111                      111
+
+OVERALL RESULTS
+D4 rows: 1520
+Matched D4 rows: 1520
+Unmatched D4 rows: 0
+Distinct matched texts: 1102
+
+Reports saved successfully.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_2/15_d4_generation_label_audit.py
+---------------------------------------------------------------------------------------
+
+===========================================================================
+D4 GENERATION AND LABEL AUDIT
+===========================================================================
+D4 rows: 1520
+Matched classified-source rows: 1520
+Unmatched rows: 0
+
+COMBINED LABEL DISTRIBUTION
+combined_label
+FR     1368
+NFR     152
+
+SOURCE CLASSIFICATION VALUES
+source_classification
+Functional        2106
+Other               97
+Non-Functional      70
+FR                  50
+Interface           29
+Security            19
+Performance          4
+
+MULTIPLE SOURCE CLASSIFICATIONS
+D4 rows with multiple source classifications: 2
+
+SOURCE LLM DISTRIBUTION
+llm
+llama      706
+mistral    524
+openai     465
+google     372
+claude     308
+
+SOURCE ROUND DISTRIBUTION
+round
+1    593
+3    524
+2    498
+4    390
+5    370
+
+Saved D4 generation and label audit outputs.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_2/16_d4_label_mapping.py
+---------------------------------------------------------------------------------------
+
+===========================================================================
+D4 LABEL TRANSFORMATION ANALYSIS
+===========================================================================
+Total D4 rows: 1520
+Single-source-label rows: 1518
+Multiple-source-label rows: 2
+Missing source-label rows: 0
+
+SOURCE TO COMBINED LABEL MATRIX
+ source_labels combined_label  count
+    Functional             FR   1307
+         Other            NFR     71
+            FR             FR     48
+Non-Functional            NFR     46
+     Interface            NFR     16
+      Security            NFR     13
+   Performance            NFR      4
+     Interface             FR      4
+Non-Functional             FR      4
+    Functional            NFR      2
+         Other             FR      2
+      Security             FR      1
+
+MULTIPLE-LABEL EXAMPLES
+Requirement ID                                   Project Name combined_label source_labels
+    RQP0497283 Unified Laboratory Informatics Platform (ULIP)             FR FR|Functional
+    RQP0497288 Unified Laboratory Informatics Platform (ULIP)             FR FR|Functional
+
+Saved Script 16 outputs.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_2/17_d5_provenance.py
+---------------------------------------------------------------------------------------
+
+===========================================================================
+D5 PROVENANCE INVESTIGATION
+===========================================================================
+D5 rows: 70
+Unique D5 texts: 70
+
+MATCH STATUS
+match_status
+matched      48
+unmatched    22
+
+MATCHED SOURCE COMBINATIONS
+matched_sources
+D1       32
+D1|D2    16
+
+FIRST 15 MATCHED REQUIREMENTS
+Requirement ID                                                        Project Name Class matched_sources                                                     matched_project_names matched_labels
+    RQP0498784 Nursing Education and Clinical Placement Management System (NECPMS)     F           D1|D2    Event Management System or Activity Display System|Event/Exercise Visualization Tool           F|FR
+    RQP0498785 Nursing Education and Clinical Placement Management System (NECPMS)     F              D1                        Event Management System or Activity Display System              F
+    RQP0498786 Nursing Education and Clinical Placement Management System (NECPMS)     F              D1                        Event Management System or Activity Display System              F
+    RQP0498787 Nursing Education and Clinical Placement Management System (NECPMS)     F              D1                        Event Management System or Activity Display System              F
+    RQP0498788 Nursing Education and Clinical Placement Management System (NECPMS)     F              D1                        Event Management System or Activity Display System              F
+    RQP0498789 Nursing Education and Clinical Placement Management System (NECPMS)     F              D1                        Event Management System or Activity Display System              F
+    RQP0498790 Nursing Education and Clinical Placement Management System (NECPMS)     F           D1|D2    Event Management System or Activity Display System|Event/Exercise Visualization Tool           F|FR
+    RQP0498791 Nursing Education and Clinical Placement Management System (NECPMS)     F           D1|D2    Event Management System or Activity Display System|Event/Exercise Visualization Tool           F|FR
+    RQP0498792 Nursing Education and Clinical Placement Management System (NECPMS)    LF           D1|D2      Real Estate/MLS Mobile App|Realtor System or Real Estate Application         LF|NFR
+    RQP0498793 Nursing Education and Clinical Placement Management System (NECPMS)    LF              D1                                 Realtor System or Real Estate Application             LF
+    RQP0498794 Nursing Education and Clinical Placement Management System (NECPMS)     F              D1                                 Realtor System or Real Estate Application              F
+    RQP0498795 Nursing Education and Clinical Placement Management System (NECPMS)     F              D1                                 Realtor System or Real Estate Application              F
+    RQP0498797 Nursing Education and Clinical Placement Management System (NECPMS)     F           D1|D2 Nursing Program Scheduling System|Nursing Program Scheduling System (DePaul University)           F|FR
+    RQP0498798 Nursing Education and Clinical Placement Management System (NECPMS)     F              D1                     Nursing Program Scheduling System (DePaul University)              F
+    RQP0498799 Nursing Education and Clinical Placement Management System (NECPMS)     F              D1                     Nursing Program Scheduling System (DePaul University)              F
+
+Saved D5 provenance reports.
+
+---------------------------------------------------------------------------------------
+    RUN - python dataset_exploration/scripts_2/18_promise_overlap.py
+---------------------------------------------------------------------------------------
+
+===========================================================================
+SCRIPT 18: PROMISE OVERLAP VERIFICATION
+===========================================================================
+
+PROMISE DATA
+Parsed records: 969
+Parsing errors: 0
+Unique project IDs: 47
+
+PROMISE CLASS DISTRIBUTION
+original_label
+F     444
+SE    125
+US     85
+O      77
+PE     67
+LF     49
+A      31
+MN     24
+SC     22
+FT     18
+L      15
+PO     12
+
+===========================================================================
+PROMISE OVERLAP BY COMBINED SOURCE
+===========================================================================
+source  total_rows  matched_rows  unmatched_rows  match_pct  distinct_matched_texts
+    D1         979           946              33      96.63                     935
+    D2        4993           151            4842       3.02                     148
+    D3        1292             0            1292       0.00                       0
+    D4        1520             0            1520       0.00                       0
+    D5          70            51              19      72.86                      51
+
+OVERALL EXACT MATCHES
+Matched combined rows: 1148
+Distinct matched texts: 954
+Matching labels: 993
+Nonmatching labels: 155
+
+MATCHED LABEL COMBINATIONS
+promise_labels Class  count
+             F     F    454
+            SE    SE    131
+            US    US     87
+             F    FR     80
+             O     O     78
+            PE    PE     68
+            LF    LF     55
+             A     A     29
+            MN    MN     24
+            SC    SC     20
+            FT    FT     18
+             L     L     17
+            US   NFR     14
+            SE   NFR     13
+            PO    PO     12
+             O   NFR     12
+            FT   NFR      6
+            SC   NFR      5
+             A   NFR      4
+            PE   NFR      3
+            LF   NFR      3
+             F   NFR      2
+            SE    FR      2
+            PO    FR      2
+             L     F      1
+             O    LF      1
+            LF    US      1
+             A    SC      1
+            PE     A      1
+            SC     O      1
+
+RELAXED MATCH CANDIDATES
+Datasets  relaxed_candidate_rows
+      D1                      14
+      D2                      30
+      D3                       0
+      D4                       0
+      D5                       0
+
+Saved Script 18 outputs.
+
