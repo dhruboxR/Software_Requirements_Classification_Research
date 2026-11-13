@@ -95,6 +95,6 @@ Key records for checking the **final dataset protocol**:
 - `outputs/reports/55_d2_v11_similarity_audit.txt`: cross-partition similarity audit.
 - `outputs/reports/56_d2_v11_readiness.txt` and `.json`: final readiness checks.
 
-**Repository note:** The frozen manifest and some diagnostic CSVs may contain original requirement text. Check the source dataset's redistribution terms before committing files from `outputs/validated/` or `outputs/tables/`; ignoring only the raw dataset folder does not exclude these derived copies.
+**Repository note:** The frozen manifest and some diagnostic CSV's may contain original requirement text. Check the source dataset's redistribution terms before committing files from `outputs/validated/` or `outputs/tables/`; ignoring only the raw dataset folder does not exclude these derived copies.
 
 The modeling stages are maintained separately in `../research_modeling/`, `../deep_learning_research/`, and `../final_model/`.
